@@ -120,7 +120,6 @@ public:
 
     /**
      * @brief 发送信号，调用所有槽函数
-     * @param ...args 槽函数参数列表
      */
     void emit()
     {
@@ -128,3 +127,7 @@ public:
             slot.second();
     }
 };
+
+#ifndef signals
+#define signals public
+#endif

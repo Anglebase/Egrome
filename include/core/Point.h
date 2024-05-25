@@ -10,6 +10,7 @@ class RectF;
  */
 class Point
 {
+    friend class Painter;
 private:
     long x;
     long y;
