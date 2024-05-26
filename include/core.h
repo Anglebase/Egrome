@@ -8,3 +8,4 @@
 #include "./core/Size.h"
 #include "./core/SizeF.h"
 #include "./core/SignalSlots.hpp"
+#include "./core/Animation.hpp"
