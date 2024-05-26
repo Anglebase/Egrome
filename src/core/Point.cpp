@@ -3,44 +3,28 @@
 #include "core/Rect.h"
 #include "core/RectF.h"
 
-Point::Point(long x, long y) : x(x), y(y) {}
+Point::Point(long x, long y) : x_(x), y_(y) {}
 
-long Point::getX() const
-{
-    return this->x;
-}
-
-long Point::getY() const
-{
-    return this->y;
-}
-
-void Point::setX(long x)
-{
-    this->x = x;
-}
-
-void Point::setY(long y)
-{
-    this->y = y;
-}
-
+long &Point::x() { return x_; }
+long &Point::y() { return y_; }
+const long &Point::x() const { return x_; }
+const long &Point::y() const { return y_; }
 
 bool Point::inside(const Rect &rect) const
 {
-    return (rect.left() <= this->x && this->x < rect.right() &&
-            rect.top() <= this->y && this->y < rect.bottom());
+    return (rect.left() <= this->x_ && this->x_ < rect.right() &&
+            rect.top() <= this->y_ && this->y_ < rect.bottom());
 }
 
 bool Point::inside(const RectF &rect) const
 {
-    return (rect.left() <= this->x && this->x < rect.right() &&
-            rect.top() <= this->y && this->y < rect.bottom());
+    return (rect.left() <= this->x_ && this->x_ < rect.right() &&
+            rect.top() <= this->y_ && this->y_ < rect.bottom());
 }
 
 bool Point::operator==(const Point &other) const
 {
-    return this->x == other.x && this->y == other.y;
+    return this->x_ == other.x_ && this->y_ == other.y_;
 }
 
 bool Point::operator!=(const Point &other) const
@@ -50,35 +34,35 @@ bool Point::operator!=(const Point &other) const
 
 Point Point::operator+(const Point &other) const
 {
-    return Point(this->x + other.x, this->y + other.y);
+    return Point(this->x_ + other.x_, this->y_ + other.y_);
 }
 
 Point Point::operator-(const Point &other) const
 {
-    return Point(this->x - other.x, this->y - other.y);
+    return Point(this->x_ - other.x_, this->y_ - other.y_);
 }
 
 Point &Point::operator+=(const Point &other)
-{  
-    this->x += other.x;
-    this->y += other.y;
+{
+    this->x_ += other.x_;
+    this->y_ += other.y_;
     return *this;
 }
 
 Point &Point::operator-=(const Point &other)
 {
-    this->x -= other.x;
-    this->y -= other.y;
+    this->x_ -= other.x_;
+    this->y_ -= other.y_;
     return *this;
 }
 
 Point::operator PointF() const
 {
-    return PointF(static_cast<double>(this->x), static_cast<double>(this->y));
+    return PointF(static_cast<double>(this->x_), static_cast<double>(this->y_));
 }
 
 std::ostream &operator<<(std::ostream &os, const Point &p)
 {
-    os << "(" << p.x << ", " << p.y << ")";
+    os << "(" << p.x_ << ", " << p.y_ << ")";
     return os;
 }

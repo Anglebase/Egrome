@@ -10,10 +10,10 @@ class Rect;
 class RectF
 {
 private:
-    double x;
-    double y;
-    double width;
-    double height;
+    double x_;
+    double y_;
+    double width_;
+    double height_;
 
 public:
     /**
@@ -31,6 +31,16 @@ public:
      * @param sizeF 矩形大小
      */
     RectF(const PointF &topLeft, const SizeF &sizeF);
+
+    double &x();
+    double &y();
+    double &width();
+    double &height();
+
+    const double &x() const;
+    const double &y() const;
+    const double &width() const;
+    const double &height() const;
 
     /**
      * @brief 获取矩形左上角坐标

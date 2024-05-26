@@ -10,8 +10,8 @@ class RectF;
 class PointF
 {
 private:
-    double x;
-    double y;
+    double x_;
+    double y_;
 
 public:
     /**
@@ -21,29 +21,10 @@ public:
      */
     PointF(double x = 0, double y = 0);
 
-    /**
-     * @brief 获取x坐标
-     * @return x坐标
-     */
-    double getX() const;
-
-    /**
-     * @brief 获取y坐标
-     * @return y坐标
-     */
-    double getY() const;
-
-    /**
-     * @brief 设置x坐标
-     * @param x x坐标
-     */
-    void setX(double x);
-
-    /**
-     * @brief 设置y坐标
-     * @param y y坐标
-     */
-    void setY(double y);
+    double &x();
+    double &y();
+    const double &x() const;
+    const double &y() const;
 
     /**
      * @brief 判断点是否在矩形(Rect)内

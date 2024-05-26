@@ -12,8 +12,8 @@ class Point
 {
     friend class Painter;
 private:
-    long x;
-    long y;
+    long x_;
+    long y_;
 
 public:
     /**
@@ -23,29 +23,10 @@ public:
      */
     Point(long x = 0, long y = 0);
 
-    /**
-     * @brief 获取x坐标
-     * @return x坐标
-     */
-    long getX() const;
-
-    /**
-     * @brief 获取y坐标
-     * @return y坐标
-     */
-    long getY() const;
-
-    /**
-     * @brief 设置x坐标
-     * @param x x坐标
-     */
-    void setX(long x);
-
-    /**
-     * @brief 设置y坐标
-     * @param y y坐标
-     */
-    void setY(long y);
+    long &x();
+    long &y();
+    const long &x() const;
+    const long &y() const;
 
     /**
      * @brief 判断点是否在矩形(Rect)内

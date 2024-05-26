@@ -8,12 +8,12 @@
 #include "core/Rect.h"
 #include "core/Size.h"
 
-PainterEvent::~PainterEvent()
+PaintEvent::~PaintEvent()
 {
     this->endPaint();
 }
 
-const Painter &PainterEvent::beginPaint(const Block *block)
+const Painter &PaintEvent::beginPaint(const Block *block) const
 {
     if (block == nullptr)
         throw Exception("'block' can not be 'nullptr' in beginPaint()");
@@ -23,7 +23,7 @@ const Painter &PainterEvent::beginPaint(const Block *block)
     return *this->painter;
 }
 
-void PainterEvent::endPaint()
+void PaintEvent::endPaint()
 {
     if (this->painter)
     {
@@ -44,24 +44,19 @@ Painter::~Painter()
         delete this->brushColor;
         this->brushColor = nullptr;
     }
-    if (this->block)
-    {
-        delete this->block;
-        this->block = nullptr;
-    }
 }
 
-void Painter::setPenColor(const Color &color)
+void Painter::setPenColor(const Color &color) const
 {
     ege::setcolor(EGERGB(color.red, color.green, color.blue));
 }
 
-void Painter::setPenWidth(int width)
+void Painter::setPenWidth(int width) const
 {
     ege::setlinewidth(width);
 }
 
-void Painter::setPenStyle(PenStyle style)
+void Painter::setPenStyle(PenStyle style) const
 {
     int linestyle;
     int linewidth;
@@ -89,13 +84,13 @@ void Painter::setPenStyle(PenStyle style)
     ege::setlinestyle(linestyle, NULL, linewidth);
 }
 
-void Painter::setBrushColor(const Color &color)
+void Painter::setBrushColor(const Color &color) const
 {
     *this->brushColor = color;
     ege::setfillcolor(EGERGB(color.red, color.green, color.blue));
 }
 
-void Painter::setBrushStyle(BrushStyle style)
+void Painter::setBrushStyle(BrushStyle style) const
 {
     ege::setfillstyle(static_cast<int>(style),
                       EGERGB(this->brushColor->red,
@@ -103,17 +98,17 @@ void Painter::setBrushStyle(BrushStyle style)
                              this->brushColor->blue));
 }
 
-void Painter::setFont(const std::string &fontName, int size)
+void Painter::setFont(const std::string &fontName, int size) const
 {
     ege::setfont(size, 0, fontName.c_str());
 }
 
-void Painter::setFont(const std::wstring &fontName, int size)
+void Painter::setFont(const std::wstring &fontName, int size) const
 {
     ege::setfont(size, 0, fontName.c_str());
 }
 
-void Painter::setTextAlign(TextHAlign halign, TextVAlign valign)
+void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
 {
     int h, v;
     switch (halign)
@@ -147,102 +142,102 @@ void Painter::setTextAlign(TextHAlign halign, TextVAlign valign)
     ege::settextjustify(h, v);
 }
 
-void Painter::drawLine(int x1, int y1, int x2, int y2)
+void Painter::drawLine(int x1, int y1, int x2, int y2) const
 {
     ege::line(x1, y1, x2, y2);
 }
 
-void Painter::drawLine(const Point &p1, const Point &p2)
+void Painter::drawLine(const Point &p1, const Point &p2) const
 {
-    ege::line(p1.x, p1.y, p2.x, p2.y);
+    ege::line(p1.x_, p1.y_, p2.x_, p2.y_);
 }
 
-void Painter::drawRect(int x, int y, int w, int h)
+void Painter::drawRect(int x, int y, int w, int h) const
 {
     ege::rectangle(x, y, x + w, y + h);
 }
 
-void Painter::drawRect(const Rect &rect)
+void Painter::drawRect(const Rect &rect) const
 {
     ege::rectangle(rect.left(), rect.top(), rect.right(), rect.bottom());
 }
 
-void Painter::drawEllipse(int x, int y, int w, int h)
+void Painter::drawEllipse(int x, int y, int w, int h) const
 {
     ege::ege_ellipse(x, y, x + w, y + h);
 }
 
-void Painter::drawEllipse(const Rect &rect)
+void Painter::drawEllipse(const Rect &rect) const
 {
     ege::ege_ellipse(rect.left(), rect.top(), rect.right(), rect.bottom());
 }
 
-void Painter::drawPolygon(const std::vector<Point> &points)
+void Painter::drawPolygon(const std::vector<Point> &points) const
 {
     int *lines = new int[points.size() * 2 + 2];
     for (int i = 0; i < points.size(); i++)
     {
-        lines[i * 2] = points[i].x;
-        lines[i * 2 + 1] = points[i].y;
+        lines[i * 2] = points[i].x_;
+        lines[i * 2 + 1] = points[i].y_;
     }
-    lines[points.size() * 2] = points[0].x;
-    lines[points.size() * 2 + 1] = points[0].y;
+    lines[points.size() * 2] = points[0].x_;
+    lines[points.size() * 2 + 1] = points[0].y_;
     ege::drawpoly(points.size() + 1, lines);
     delete[] lines;
 }
 
-void Painter::drawPolyline(const std::vector<Point> &points)
+void Painter::drawPolyline(const std::vector<Point> &points) const
 {
     int *lines = new int[points.size() * 2];
     for (int i = 0; i < points.size(); i++)
     {
-        lines[i * 2] = points[i].x;
-        lines[i * 2 + 1] = points[i].y;
+        lines[i * 2] = points[i].x_;
+        lines[i * 2 + 1] = points[i].y_;
     }
     ege::drawpoly(points.size(), lines);
     delete[] lines;
 }
 
-void Painter::drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle)
+void Painter::drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const
 {
     ege::ellipse(x, y, rx, ry, startAngle, endAngle);
 }
 
-void Painter::drawArc(const Rect &rect, int startAngle, int endAngle)
+void Painter::drawArc(const Rect &rect, int startAngle, int endAngle) const
 {
-    ege::ellipse(rect.left() + rect.getSize().getWidth() / 2,
-                 rect.top() + rect.getSize().getHeight() / 2,
+    ege::ellipse(rect.left() + rect.width() / 2,
+                 rect.top() + rect.height() / 2,
                  startAngle, endAngle,
-                 rect.getSize().getWidth() / 2,
-                 rect.getSize().getHeight() / 2);
+                 rect.width() / 2,
+                 rect.height() / 2);
 }
 
-void Painter::drawText(int x, int y, const std::string &text)
+void Painter::drawText(int x, int y, const std::string &text) const
 {
     ege::outtextxy(x, y, text.c_str());
 }
 
-void Painter::drawText(int x, int y, const std::wstring &text)
+void Painter::drawText(int x, int y, const std::wstring &text) const
 {
     ege::outtextxy(x, y, text.c_str());
 }
 
-void Painter::drawText(const Point &pos, const std::string &text)
+void Painter::drawText(const Point &pos, const std::string &text) const
 {
-    ege::outtextxy(pos.x, pos.y, text.c_str());
+    ege::outtextxy(pos.x_, pos.y_, text.c_str());
 }
 
-void Painter::drawText(const Point &pos, const std::wstring &text)
+void Painter::drawText(const Point &pos, const std::wstring &text) const
 {
-    ege::outtextxy(pos.x, pos.y, text.c_str());
+    ege::outtextxy(pos.x_, pos.y_, text.c_str());
 }
 
-void Painter::drawText(const Rect &rect, const std::string &text)
+void Painter::drawText(const Rect &rect, const std::string &text) const
 {
     ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
                      text.c_str());
 }
-void Painter::drawText(const Rect &rect, const std::wstring &text)
+void Painter::drawText(const Rect &rect, const std::wstring &text) const
 {
     ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
                      text.c_str());

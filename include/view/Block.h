@@ -1,10 +1,13 @@
 #pragma once
 
+#include <vector>
 #include "core/SignalSlots.hpp"
+#include "core/Rect.h"
 
 class Rect;
 class Point;
 class Size;
+class PaintEvent;
 
 /// @brief 鼠标按钮枚举
 enum class MouseButton
@@ -152,6 +155,12 @@ enum class Key
     Ime_process = 0xe5,
 };
 
+enum class KeyFlag
+{
+    Ctrl = 0x200,
+    Shift = 0x100,
+};
+
 /**
  * @brief Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能
  * @brief 用户可以通过继承Block类来实现自己的UI对象，通过重写paint()函数来实现自己的绘制逻辑，通过重写update()函数来实现自己的更新逻辑
@@ -161,61 +170,151 @@ class Block
     friend class App;
 
 private:
-    Rect *rect;
+    Rect rect_;
+    std::vector<Block *> childBlocks;
+    Block *parentBlock;
 
 protected:
     /**
-     * @brief 纯虚函数，用于绘制Block，此函数内不应修改Block的数据状态，应采用update()函数来更新数据状态
-     * @note 子类必须实现该函数
+     * @brief 虚函数，用于绘制 Block
+     * @brief 此函数内不应修改 Block 的数据状态，应采用 update() 函数来更新数据状态
+     * @brief 此函数会遍历子 Block 并调用子 Block 的 paint() 函数绘制子 Block
+     * @param event 绘制事件
+     * @note 子类重写该函数时应当调用父类的 paint() 函数
      */
-    virtual void paint() const = 0;
+    virtual void paint(const PaintEvent &event) const;
 
     /**
-     * @brief 虚函数，用于更新Block的数据状态
-     * @note 此函数在paint()函数之前调用，用于更新Block的数据状态，如文本、颜色等，由于它运行于事件循环线程中，因此应避免执行耗时操作，否则会导致UI卡顿，耗时操作应采用std::async等异步方式执行
+     * @brief 虚函数，用于更新 Block 的数据状态
+     * @brief 子类可以重写该函数来实现自己的更新逻辑，子类的实现应当调用父类此函数
+     * @brief 此函数会遍历子 Block 并调用子 Block 的 update() 函数更新子 Block 的数据状态
+     * @note 此函数在 paint() 函数之前调用，用于更新 Block 的数据状态，如文本、颜色等，由于它运行于事件循环线程中，因此应避免执行耗时操作，否则会导致UI卡顿，耗时操作应采用 std::async 等异步方式执行
      */
     virtual void update();
 
     /**
-     * @brief 此函数用于处理鼠标、键盘等事件，并发出相应信号
-     * @note 此函数在事件循环线程中运行，因此相关槽函数中应避免执行耗时操作，否则会导致UI卡顿，耗时操作应采用std::async等异步方式执行
+     * @brief 虚函数，用于处理鼠标按钮按下事件
+     * @param pos 鼠标位置
+     * @param button 鼠标按钮
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号
      */
-    void handle();
+    virtual void mousePressEvent(const Point &pos, MouseButton button);
+
+    /**
+     * @brief 虚函数，用于处理鼠标按钮释放事件
+     * @param pos 鼠标位置
+     * @param button 鼠标按钮
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数
+     */
+    virtual void mouseReleaseEvent(const Point &pos, MouseButton button);
+
+    /**
+     * @brief 虚函数，用于处理鼠标移动事件
+     * @param pos 鼠标位置
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onMoved 信号、onEnter 信号和 onLeave 信号
+     */
+    virtual void mouseMoveEvent(const Point &pos);
+
+    /**
+     * @brief 虚函数，用于处理鼠标滚轮事件
+     * @param pos 鼠标位置
+     * @param wheel 鼠标滚轮方向
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数
+     */
+    virtual void mouseWheelEvent(const Point &pos, MouseWheel wheel);
+
+    /**
+     * @brief 虚函数，用于处理键盘按下事件
+     * @param key 按下的键
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onNext 信号
+     */
+    virtual void keyPressEvent(Key key, KeyFlag flag);
+
+    /**
+     * @brief 虚函数，用于处理键盘释放事件
+     * @param key 释放的键
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数
+     */
+    virtual void keyReleaseEvent(Key key, KeyFlag flag);
+
+    /**
+     * @brief 虚函数，用于处理输入文本事件
+     * @param inputChar 输入的字符
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onInputText 信号
+     */
+    virtual void InputTextEvent(int inputChar);
 
 signals:
-    /// @brief 当Block重绘完成时时发出此信号
-    Signal<void(Block *self)> redraw;
-    /// @brief 当鼠标移动时发出此信号
-    Signal<void(const Point &position, const Point &delta)> onMouseMoved;
-    /// @brief 当鼠标按键按下时发出此信号
-    Signal<void(const Point &position, const MouseButton &button)> onMousePressed;
-    /// @brief 当鼠标按键松开时发出此信号
-    Signal<void(const Point &position, const MouseButton &button)> onMouseReleased;
-    /// @brief 当鼠标滚轮滚动时发出此信号
-    Signal<void(const MouseWheel &wheel)> onMouseWheel;
-    /// @brief 当鼠标点击此Block时发出此信号
+    /**
+     * @brief 鼠标点击信号
+     * @brief 该信号会在鼠标点击Block时触发
+     * @brief 触发该信号时，会条件触发此Block的 onFocused 信号和原先具有焦点的Block的 onUnfocused 信号
+     * @see mousePressEvent()
+     */
     Signal<void()> onClicked;
-    /// @brief 当鼠标右键点击此Block时发出此信号
-    Signal<void()> onMenu;
-    /// @brief 如果焦点在此Block上，则当键盘按键按下时发出此信号
-    Signal<void(const Key &key)> onKeyPressed;
-    /// @brief 如果焦点在此Block上，则当键盘按键松开时发出此信号
-    Signal<void(const Key &key)> onKeyReleased;
-    /// @brief 如果焦点在此Block上，则当存在字符输入时发出此信号
-    Signal<void(const int &ch)> onCharInput;
+    /**
+     * @brief 鼠标右键点击信号
+     * @brief 该信号会在鼠标右键点击Block时触发
+     * @see mousePressEvent()
+     */
+    Signal<void()> onMenuClicked;
+    /**
+     * @brief 鼠标移动信号
+     * @brief 该信号会在鼠标移动到Block上时触发
+     * @param delta 与上次触发此信号时鼠标位置的变化量
+     * @see mouseMoveEvent()
+     */
+    Signal<void(const Point &delta)> onMoved;
+    /**
+     * @brief 字符输入信号
+     * @brief 该信号会在用户输入字符时触发
+     * @param inputChar 输入的文本
+     * @see InputTextEvent()
+     */
+    Signal<void(int inputChar)> onInputText;
+    /**
+     * @brief 完成信号
+     * @brief 该信号会在用户按下Enter键时触发
+     */
+    Signal<void()> onNext;
+    /**
+     * @brief 鼠标进入信号
+     * @brief 该信号会在鼠标进入Block时触发
+     * @see onLeave
+     */
+    Signal<void()> onEnter;
+    /**
+     * @brief 鼠标离开信号
+     * @brief 该信号会在鼠标离开Block时触发
+     * @see onEnter
+     */
+    Signal<void()> onLeave;
+
+    /**
+     * @brief 获得焦点信号
+     * @brief 该信号会在Block获得焦点时触发
+     * @param block 原来焦点所在的Block
+     * @see onClicked
+     * @see onUnfocused
+     */
+    Signal<void(Block *block)> onFocused;
+    /**
+     * @brief 失去焦点信号
+     * @brief 该信号会在Block失去焦点时触发
+     * @param block 获得焦点的Block
+     * @see onClicked
+     * @see onFocused
+     */
+    Signal<void(Block *block)> onUnfocused;
 
 public:
     /**
      * @brief 构造函数
      * @param rect Block的矩形区域
+     * @param parent 父Block
      * @note 子类应在构造函数中调用父类的构造函数并传入自己的矩形区域
      */
-    Block(Rect *rect);
-
-    /**
-     * @brief 析构函数
-     */
-    ~Block();
+    Block(const Rect &rect, Block *parent = nullptr);
 
     /**
      * @brief 获取Block的矩形区域
@@ -228,4 +327,7 @@ public:
      * @param rect Block的矩形区域
      */
     void setRect(const Rect &rect);
+
+    Rect &rect();
+    const Rect &rect() const;
 };

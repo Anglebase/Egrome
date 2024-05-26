@@ -1,31 +1,31 @@
 #include "core/SizeF.h"
 #include "core/Size.h"
 
-SizeF::SizeF(double w, double h) : width(w), height(h) {}
+SizeF::SizeF(double w, double h) : width_(w), height_(h) {}
 
-double SizeF::getWidth() const
+double &SizeF::width()
 {
-    return this->width;
+    return width_;
 }
 
-double SizeF::getHeight() const
+double &SizeF::height()
 {
-    return this->height;
+    return height_;
 }
 
-void SizeF::setWidth(double w)
+const double &SizeF::width() const
 {
-    this->width = w;
+    return width_;
 }
 
-void SizeF::setHeight(double h)
+const double &SizeF::height() const
 {
-    this->height = h;
+    return height_;
 }
 
 bool SizeF::operator==(const SizeF &other) const
 {
-    return this->width == other.width && this->height == other.height;
+    return this->width_ == other.width_ && this->height_ == other.height_;
 }
 
 bool SizeF::operator!=(const SizeF &other) const
@@ -35,12 +35,12 @@ bool SizeF::operator!=(const SizeF &other) const
 
 SizeF SizeF::operator+(const SizeF &other) const
 {
-    return SizeF(this->width + other.width, this->height + other.height);
+    return SizeF(this->width_ + other.width_, this->height_ + other.height_);
 }
 
 SizeF SizeF::operator-(const SizeF &other) const
 {
-    return SizeF(this->width - other.width, this->height - other.height);
+    return SizeF(this->width_ - other.width_, this->height_ - other.height_);
 }
 
 SizeF &SizeF::operator+=(const SizeF &other)
@@ -55,12 +55,12 @@ SizeF &SizeF::operator-=(const SizeF &other)
 
 SizeF SizeF::operator*(double factor) const
 {
-    return SizeF(this->width * factor, this->height * factor);
+    return SizeF(this->width_ * factor, this->height_ * factor);
 }
 
 SizeF SizeF::operator/(double factor) const
 {
-    return SizeF(this->width / factor, this->height / factor);
+    return SizeF(this->width_ / factor, this->height_ / factor);
 }
 
 SizeF &SizeF::operator*=(double factor)
@@ -75,10 +75,10 @@ SizeF &SizeF::operator/=(double factor)
 
 SizeF::operator Size() const
 {
-    return Size(static_cast<long>(this->width), static_cast<long>(this->height));
+    return Size(static_cast<long>(this->width_), static_cast<long>(this->height_));
 }
 
 std::ostream &operator<<(std::ostream &os, const SizeF &sizeF)
 {
-    return os << "[" << sizeF.width << ", " << sizeF.height << "]";
+    return os << "[" << sizeF.width_ << ", " << sizeF.height_ << "]";
 }

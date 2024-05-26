@@ -9,8 +9,8 @@ class Size;
 class SizeF
 {
 private:
-    double width;
-    double height;
+    double width_;
+    double height_;
 
 public:
     /**
@@ -18,29 +18,10 @@ public:
      */
     SizeF(double w = 0, double h = 0);
 
-    /**
-     * @brief 获取宽度
-     * @return 宽度
-     */
-    double getWidth() const;
-
-    /**
-     * @brief 获取高度
-     * @return 高度
-     */
-    double getHeight() const;
-
-    /**
-     * @brief 设置宽度
-     * @param w 宽度
-     */
-    void setWidth(double w);
-
-    /**
-     * @brief 设置高度
-     * @param h 高度
-     */
-    void setHeight(double h);
+    double &width();
+    double &height();
+    const double &width() const;
+    const double &height() const;
 
     /**
      * @brief 判断两个SizeF是否相同

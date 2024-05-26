@@ -5,6 +5,20 @@ class Size;
 class Point;
 class Block;
 
+enum InitFlag
+{
+    /// 默认初始化标志
+    Default = 0x00,
+    /// 不显示边框
+    NoBorder = 0x01,
+    /// 作为子窗口
+    Child = 0x02,
+    /// 置顶窗口
+    TopMost = 0x04,
+    /// 使用Unicode字符集
+    Unicode = 0x20
+};
+
 /**
  * @brief 应用程序类
  */
@@ -97,7 +111,11 @@ public:
      */
     static void setFps(int fps);
 
+    static void setFocusBlock(Block *block);
+    static Block *getFocusBlock();
+
 private:
+    static Block *focusBlock;
     Block *block_{nullptr};
     static int fps_;
 
@@ -107,7 +125,7 @@ public:
      * @param block 根块对象
      * @note 此构造函数在同一应用程序中只能调用一次，第二次调用将会抛出异常(如果支持)
      */
-    App(Block *block);
+    App(Block *block, int flags = Default);
     ~App();
 
     /**
