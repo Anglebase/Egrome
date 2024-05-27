@@ -36,12 +36,20 @@ Painter::Painter(const Block *block)
     : block(block), pixelMap(nullptr), brushColor(nullptr)
 {
     this->brushColor = new Color(255, 255, 255);
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfQuality = PROOF_QUALITY;
+    ege::setfont(&font);
 }
 
 Painter::Painter(const PixelMap *pixelMap)
     : block(nullptr), pixelMap(pixelMap), brushColor(nullptr)
 {
     this->brushColor = new Color(255, 255, 255);
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfQuality = PROOF_QUALITY;
+    ege::setfont(&font);
 }
 
 Painter::~Painter()
@@ -161,10 +169,60 @@ void Painter::setFont(const std::wstring &fontName, int size) const
                      (ege::IMAGE *)this->pixelMap->image_);
 }
 
+void Painter::setFontSize(int size) const
+{
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfHeight = size;
+    ege::setfont(&font);
+}
+
+void Painter::setFontWeight(int weight) const
+{
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfWeight = weight;
+    ege::setfont(&font);
+}
+
+void Painter::setFontItalic(bool italic) const
+{
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfItalic = italic;
+    ege::setfont(&font);
+}
+
+void Painter::setFontUnderline(bool underline) const
+{
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfUnderline = underline;
+    ege::setfont(&font);
+}
+
+void Painter::setFontStrikeOut(bool strikeOut) const
+{
+    LOGFONT font;
+    ege::getfont(&font);
+    font.lfStrikeOut = strikeOut;
+    ege::setfont(&font);
+}
+
 void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
 {
     this->halign = halign;
     this->valign = valign;
+}
+
+void Painter::drawPixel(int x, int y, const Color &color) const
+{
+    ege::putpixel(x, y, EGERGB(color.red, color.green, color.blue));
+}
+
+void Painter::drawPixel(const Point &pos, const Color &color) const
+{
+    this->drawPixel(pos.x_, pos.y_, color);
 }
 
 void Painter::drawLine(int x1, int y1, int x2, int y2) const
@@ -212,6 +270,22 @@ void Painter::drawRect(const Rect &rect) const
     if (this->pixelMap)
         ege::rectangle(rect.left(), rect.top(), rect.right(), rect.bottom(),
                        (ege::IMAGE *)this->pixelMap->image_);
+}
+
+void Painter::drawFillRect(int x, int y, int w, int h) const
+{
+    if (this->block)
+        ege::ege_fillrect(this->block->rect_.x_ + x,
+                          this->block->rect_.y_ + y,
+                          w, h);
+    if (this->pixelMap)
+        ege::ege_fillrect(x, y, w, h,
+                          (ege::IMAGE *)this->pixelMap->image_);
+}
+
+void Painter::drawFillRect(const Rect &rect) const
+{
+    this->drawFillRect(rect.x_, rect.y_, rect.width_, rect.height_);
 }
 
 void Painter::drawEllipse(int x, int y, int w, int h) const

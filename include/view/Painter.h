@@ -127,11 +127,54 @@ public:
     void setFont(const std::wstring &fontName, int size) const;
 
     /**
+     * @brief 设置字体大小
+     * @param size 字体大小
+     */
+    void setFontSize(int size) const;
+
+    /**
+     * @brief 设置字体粗细
+     * @param weight 字体粗细
+     */
+    void setFontWeight(int weight) const;
+
+    /**
+     * @brief 设置字体斜体
+     * @param italic true表示斜体，false表示非斜体
+     */
+    void setFontItalic(bool italic) const;
+
+    /**
+     * @brief 设置字体是否具有下划线
+     * @param underline true表示有下划线，false表示没有下划线
+     */
+    void setFontUnderline(bool underline) const;
+
+    /**
+     * @brief 设置字体是否有删除线
+     * @param strikeOut true表示有删除线，false表示没有删除线
+     */
+    void setFontStrikeOut(bool strikeOut) const;
+
+    /**
      * @brief 设置文本对齐方式
      * @param halign 水平对齐方式
      * @param valign 垂直对齐方式
      */
     void setTextAlign(TextHAlign halign, TextVAlign valign) const;
+
+    /**
+     * @brief 绘制像素点
+     * @param x x坐标
+     * @param y y坐标
+     */
+    void drawPixel(int x, int y, const Color &color) const;
+
+    /**
+     * @brief 这是一个重载，绘制像素点
+     * @param pos 像素点坐标
+     */
+    void drawPixel(const Point &pos, const Color &color) const;
 
     /**
      * @brief 绘制线
@@ -163,6 +206,27 @@ public:
      * @param rect 矩形
      */
     void drawRect(const Rect &rect) const;
+
+    /**
+     * @brief 绘制填充矩形
+     * @param x 矩形左上角的x坐标
+     * @param y 矩形左上角的y坐标
+     * @param w 矩形的宽度
+     * @param h 矩形的高度
+     */
+    void drawFillRect(int x, int y, int w, int h) const;
+
+    /**
+     * @brief 这是一个重载，绘制填充矩形
+     * @param rect 矩形
+     */
+    void drawFillRect(const Rect &rect) const;
+
+    /**
+     * @brief 这是一个重载，绘制圆角矩形
+     * @param rect 矩形
+     * @param r 矩形的圆角半径
+     */
 
     /**
      * @brief 绘制椭圆

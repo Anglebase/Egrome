@@ -10,6 +10,7 @@ protected:
     void paint(const PaintEvent &event) const override
     {
         auto &painter = event.beginPaint(this);
+        painter.setBrushColor(0x00ffff);
         if (isPressed)
             painter.setPenColor(0xff0000);
         else
@@ -17,7 +18,7 @@ protected:
         painter.setTextAlign(TextHAlign::Center, TextVAlign::Center);
         // painter.setFont("Consolas", 16);
         painter.drawText(painter.rect(), std::to_string(App::getFps()));
-        painter.drawRect(painter.rect());
+        // painter.drawRect(painter.rect());
         return Block::paint(event);
     }
     void mousePressEvent(const Point &pos, MouseButton button) override
