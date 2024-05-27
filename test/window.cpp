@@ -2,37 +2,62 @@
 #include "core.h"
 #include "view.h"
 
-class Window : public Block
+class Button : public Block
 {
-private:
-    Animation<long> animation;
+    bool isPressed = false;
 
 protected:
     void paint(const PaintEvent &event) const override
     {
         auto &painter = event.beginPaint(this);
-        painter.setPenColor(0xffffff);
-        painter.drawText(animation.value(), 20, std::to_wstring(App::getFps()));
+        if (isPressed)
+            painter.setPenColor(0xff0000);
+        else
+            painter.setPenColor(0xffffff);
+        painter.setTextAlign(TextHAlign::Center, TextVAlign::Center);
+        // painter.setFont("Consolas", 16);
+        painter.drawText(painter.rect(), std::to_string(App::getFps()));
+        painter.drawRect(painter.rect());
         return Block::paint(event);
     }
     void mousePressEvent(const Point &pos, MouseButton button) override
     {
+        Block::mousePressEvent(pos, button);
+        if (!this->rect().contains(pos))
+            return;
         if (button == MouseButton::Left)
-            animation.start();
-        if (button == MouseButton::Right)
-            animation.stop();
-        if (button == MouseButton::Middle)
-            animation.run();
+            isPressed = true;
+    }
+    void mouseReleaseEvent(const Point &pos, MouseButton button) override
+    {
+        Block::mouseReleaseEvent(pos, button);
+        if (button == MouseButton::Left)
+            isPressed = false;
     }
 
 public:
-    Window(const Rect &rect, Block *parent = nullptr)
+    Button(const Rect &rect, Block *parent = nullptr)
         : Block(rect, parent)
     {
-        using namespace std::chrono_literals;
-        animation.set(20, 980, 5s);
-        onNext.connect([this]()
-                       { this->animation.reset(); });
+        this->onClicked.connect([]()
+                                { std::cout << "Button clicked" << std::endl; });
+    }
+};
+
+class Window : public Block
+{
+private:
+    Button *button = nullptr;
+
+public:
+    Window(const Rect &rect)
+        : Block(rect)
+    {
+        this->button = new Button(Rect(100, 100, 100, 50), this);
+    }
+    ~Window()
+    {
+        delete button;
     }
 };
 

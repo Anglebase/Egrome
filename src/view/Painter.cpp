@@ -32,7 +32,14 @@ void PaintEvent::endPaint()
     }
 }
 
-Painter::Painter(const Block *block) : block(block), brushColor(nullptr)
+Painter::Painter(const Block *block)
+    : block(block), pixelMap(nullptr), brushColor(nullptr)
+{
+    this->brushColor = new Color(255, 255, 255);
+}
+
+Painter::Painter(const PixelMap *pixelMap)
+    : block(nullptr), pixelMap(pixelMap), brushColor(nullptr)
 {
     this->brushColor = new Color(255, 255, 255);
 }
@@ -44,6 +51,14 @@ Painter::~Painter()
         delete this->brushColor;
         this->brushColor = nullptr;
     }
+}
+
+Rect Painter::rect() const
+{
+    if (this->block)
+        return Rect(0, 0, this->block->rect_.width_, this->block->rect_.height_);
+    if (this->pixelMap)
+        return Rect(0, 0, this->pixelMap->width_, this->pixelMap->height_);
 }
 
 void Painter::setPenColor(const Color &color) const
@@ -148,40 +163,8 @@ void Painter::setFont(const std::wstring &fontName, int size) const
 
 void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
 {
-    int h, v;
-    switch (halign)
-    {
-    case TextHAlign::Left:
-        h = (int)ege::LEFT_TEXT;
-        break;
-    case TextHAlign::Center:
-        h = (int)ege::CENTER_TEXT;
-        break;
-    case TextHAlign::Right:
-        h = (int)ege::RIGHT_TEXT;
-        break;
-    default:
-        throw Exception("Invalid horizontal alignment");
-    }
-    switch (valign)
-    {
-    case TextVAlign::Top:
-        v = (int)ege::TOP_TEXT;
-        break;
-    case TextVAlign::Center:
-        v = (int)ege::CENTER_TEXT;
-        break;
-    case TextVAlign::Bottom:
-        v = (int)ege::BOTTOM_TEXT;
-        break;
-    default:
-        throw Exception("Invalid vertical alignment");
-    }
-    if (this->block)
-        ege::settextjustify(h, v);
-    if (this->pixelMap)
-        ege::settextjustify(h, v,
-                            (ege::IMAGE *)this->pixelMap->image_);
+    this->halign = halign;
+    this->valign = valign;
 }
 
 void Painter::drawLine(int x1, int y1, int x2, int y2) const
@@ -318,7 +301,9 @@ void Painter::drawArc(const Rect &rect, int startAngle, int endAngle) const
 void Painter::drawText(int x, int y, const std::string &text) const
 {
     if (this->block)
-        ege::outtextxy(x, y, text.c_str());
+        ege::outtextxy(this->block->rect_.x_ + x,
+                       this->block->rect_.y_ + y,
+                       text.c_str());
     if (this->pixelMap)
         ege::outtextxy(x, y, text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
@@ -327,7 +312,9 @@ void Painter::drawText(int x, int y, const std::string &text) const
 void Painter::drawText(int x, int y, const std::wstring &text) const
 {
     if (this->block)
-        ege::outtextxy(x, y, text.c_str());
+        ege::outtextxy(this->block->rect_.x_ + x,
+                       this->block->rect_.y_ + y,
+                       text.c_str());
     if (this->pixelMap)
         ege::outtextxy(x, y, text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
@@ -336,7 +323,9 @@ void Painter::drawText(int x, int y, const std::wstring &text) const
 void Painter::drawText(const Point &pos, const std::string &text) const
 {
     if (this->block)
-        ege::outtextxy(pos.x_, pos.y_, text.c_str());
+        ege::outtextxy(this->block->rect_.x_ + pos.x_,
+                       this->block->rect_.y_ + pos.y_,
+                       text.c_str());
     if (this->pixelMap)
         ege::outtextxy(pos.x_, pos.y_, text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
@@ -345,7 +334,9 @@ void Painter::drawText(const Point &pos, const std::string &text) const
 void Painter::drawText(const Point &pos, const std::wstring &text) const
 {
     if (this->block)
-        ege::outtextxy(pos.x_, pos.y_, text.c_str());
+        ege::outtextxy(this->block->rect_.x_ + pos.x_,
+                       this->block->rect_.y_ + pos.y_,
+                       text.c_str());
     if (this->pixelMap)
         ege::outtextxy(pos.x_, pos.y_, text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
@@ -353,22 +344,43 @@ void Painter::drawText(const Point &pos, const std::wstring &text) const
 
 void Painter::drawText(const Rect &rect, const std::string &text) const
 {
-    if (this->block)
-        ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
-                         text.c_str());
-    if (this->pixelMap)
-        ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
-                         text.c_str(),
-                         (ege::IMAGE *)this->pixelMap->image_);
+    Point p;
+    switch (this->halign)
+    {
+    case TextHAlign::Left:
+        p.x_ = 0;
+        break;
+    case TextHAlign::Center:
+        p.x_ = (rect.width_ - ege::textwidth(text.c_str())) / 2;
+        break;
+    case TextHAlign::Right:
+        p.x_ = rect.width_ - ege::textwidth(text.c_str());
+        break;
+    }
+    switch (this->valign)
+    {
+    case TextVAlign::Top:
+        p.y_ = 0;
+        break;
+    case TextVAlign::Center:
+        p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
+        break;
+    case TextVAlign::Bottom:
+        p.y_ = rect.height_ - ege::textheight(text.c_str());
+        break;
+    }
+    this->drawText(p, text);
 }
 
 void Painter::drawText(const Rect &rect, const std::wstring &text) const
 {
     if (this->block)
-        ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
+        ege::outtextrect(this->block->rect_.x_ + rect.x_,
+                         this->block->rect_.y_ + rect.y_,
+                         rect.width_, rect.height_,
                          text.c_str());
     if (this->pixelMap)
-        ege::outtextrect(rect.left(), rect.top(), rect.right(), rect.bottom(),
+        ege::outtextrect(rect.x_, rect.y_, rect.width_, rect.height_,
                          text.c_str(),
                          (ege::IMAGE *)this->pixelMap->image_);
 }
@@ -897,7 +909,8 @@ void Painter::drawPixelMap(int x, int y, const PixelMap &pixelmap,
 {
     auto operationCode = translateOperationCode(blendMode);
     if (this->block)
-        ege::putimage(x, y,
+        ege::putimage(this->block->rect_.x_ + x,
+                      this->block->rect_.y_ + y,
                       (ege::IMAGE *)pixelmap.image_,
                       operationCode);
     if (this->pixelMap)

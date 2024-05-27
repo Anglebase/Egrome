@@ -60,8 +60,11 @@ class Painter
     friend class PixelMap;
     Color *brushColor;
 
-    const Block *block = nullptr;
-    const PixelMap *pixelMap = nullptr;
+    mutable TextHAlign halign;
+    mutable TextVAlign valign;
+
+    const Block *block;
+    const PixelMap *pixelMap;
 
     /**
      * @brief 构造函数，此函数不应该被直接调用，应该通过PainterEvent来构造Painter对象
@@ -76,6 +79,8 @@ public:
     Painter &operator=(const Painter &) = delete;
     Painter &operator=(Painter &&) = delete;
     ~Painter();
+
+    Rect rect() const;
 
     /**
      * @brief 设置画笔颜色
@@ -277,7 +282,7 @@ public:
      * @param pixelmap 像素图
      */
     void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
-                      const Point &pixelmapSrcPos = Point(0, 0),
+                      const Point &pixelmapSrcPos,
                       const std::string_view &blendMode = "S") const;
 };
 
