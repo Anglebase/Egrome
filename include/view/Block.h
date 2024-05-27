@@ -168,6 +168,7 @@ enum class KeyFlag
 class Block
 {
     friend class App;
+    friend class Painter;
 
 private:
     Rect rect_;

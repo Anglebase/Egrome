@@ -7,6 +7,7 @@ class Color;
 class Block;
 class Point;
 class Rect;
+class PixelMap;
 
 /**
  * @brief 线条样式
@@ -56,15 +57,18 @@ enum class TextVAlign
 class Painter
 {
     friend class PaintEvent;
+    friend class PixelMap;
     Color *brushColor;
 
     const Block *block = nullptr;
+    const PixelMap *pixelMap = nullptr;
 
     /**
      * @brief 构造函数，此函数不应该被直接调用，应该通过PainterEvent来构造Painter对象
      * @param block 绘制区域
      */
     Painter(const Block *block);
+    Painter(const PixelMap *pixelMap);
 
 public:
     Painter(const Painter &) = delete;
@@ -244,6 +248,37 @@ public:
      * @param text 文本内容
      */
     void drawText(const Rect &rect, const std::wstring &text) const;
+
+    /**
+     * @brief 绘制像素图
+     * @param x 像素图左上角的x坐标
+     * @param y 像素图左上角的y坐标
+     * @param pixelmap 像素图
+     * @param blendMode 像素图混合模式，默认值为"S"，即源像素
+     * @note blendMode参数是用逆波兰表示法来表示的，具体如下：
+     * "S" : 源像素颜色
+     * "D" : 目标像素颜色
+     * "P" : 当前画刷颜色
+     */
+    void drawPixelMap(int x, int y, const PixelMap &pixelmap,
+                      const std::string_view &blendMode = "S") const;
+
+    /**
+     * @brief 这是一个重载，绘制像素图
+     * @param pos 像素图左上角的位置
+     * @param pixelmap 像素图
+     */
+    void drawPixelMap(const Point &pos, const PixelMap &pixelmap,
+                      const std::string_view &blendMode = "S") const;
+
+    /**
+     * @brief 绘制像素图
+     * @param rect 像素图所在的矩形
+     * @param pixelmap 像素图
+     */
+    void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
+                      const Point &pixelmapSrcPos = Point(0, 0),
+                      const std::string_view &blendMode = "S") const;
 };
 
 class PaintEvent
