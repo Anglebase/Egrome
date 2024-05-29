@@ -28,6 +28,15 @@ class Color
     friend class Painter;
 
 public:
+    static const Color Black;
+    static const Color White;
+    static const Color Red;
+    static const Color Green;
+    static const Color Blue;
+    static const Color Gray;
+    static const Color LightGray;
+    static const Color DarkGray;
+
 private:
     int red;
     int green;

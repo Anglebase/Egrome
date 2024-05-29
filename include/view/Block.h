@@ -3,6 +3,7 @@
 #include <vector>
 #include "core/SignalSlots.hpp"
 #include "core/Rect.h"
+#include "core/Point.h"
 
 class Rect;
 class Point;
@@ -175,6 +176,10 @@ private:
     std::vector<Block *> childBlocks;
     Block *parentBlock;
 
+private:
+    // 用于 BUG-20240529-20 修复
+    Point lastPos;
+
 protected:
     /**
      * @brief 虚函数，用于绘制 Block
@@ -183,15 +188,7 @@ protected:
      * @param event 绘制事件
      * @note 子类重写该函数时应当调用父类的 paint() 函数
      */
-    virtual void paint(const PaintEvent &event) const;
-
-    /**
-     * @brief 虚函数，用于更新 Block 的数据状态
-     * @brief 子类可以重写该函数来实现自己的更新逻辑，子类的实现应当调用父类此函数
-     * @brief 此函数会遍历子 Block 并调用子 Block 的 update() 函数更新子 Block 的数据状态
-     * @note 此函数在 paint() 函数之前调用，用于更新 Block 的数据状态，如文本、颜色等，由于它运行于事件循环线程中，因此应避免执行耗时操作，否则会导致UI卡顿，耗时操作应采用 std::async 等异步方式执行
-     */
-    virtual void update();
+    virtual void paintEvent(const PaintEvent &event);
 
     /**
      * @brief 虚函数，用于处理鼠标按钮按下事件
@@ -316,6 +313,7 @@ public:
      * @note 子类应在构造函数中调用父类的构造函数并传入自己的矩形区域
      */
     Block(const Rect &rect, Block *parent = nullptr);
+    virtual ~Block() = default;
 
     /**
      * @brief 获取Block的矩形区域

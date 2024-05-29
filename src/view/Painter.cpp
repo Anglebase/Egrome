@@ -11,7 +11,8 @@
 
 PaintEvent::~PaintEvent()
 {
-    this->endPaint();
+    if (this->painter)
+        throw Exception("PaintEvent::endPaint() should be called before destructor");
 }
 
 const Painter &PaintEvent::beginPaint(const Block *block) const
@@ -23,7 +24,7 @@ const Painter &PaintEvent::beginPaint(const Block *block) const
     return *this->painter;
 }
 
-void PaintEvent::endPaint()
+void PaintEvent::endPaint() const
 {
     if (this->painter)
     {
@@ -448,15 +449,32 @@ void Painter::drawText(const Rect &rect, const std::string &text) const
 
 void Painter::drawText(const Rect &rect, const std::wstring &text) const
 {
-    if (this->block)
-        ege::outtextrect(this->block->rect_.x_ + rect.x_,
-                         this->block->rect_.y_ + rect.y_,
-                         rect.width_, rect.height_,
-                         text.c_str());
-    if (this->pixelMap)
-        ege::outtextrect(rect.x_, rect.y_, rect.width_, rect.height_,
-                         text.c_str(),
-                         (ege::IMAGE *)this->pixelMap->image_);
+    Point p;
+    switch (this->halign)
+    {
+    case TextHAlign::Left:
+        p.x_ = 0;
+        break;
+    case TextHAlign::Center:
+        p.x_ = (rect.width_ - ege::textwidth(text.c_str())) / 2;
+        break;
+    case TextHAlign::Right:
+        p.x_ = rect.width_ - ege::textwidth(text.c_str());
+        break;
+    }
+    switch (this->valign)
+    {
+    case TextVAlign::Top:
+        p.y_ = 0;
+        break;
+    case TextVAlign::Center:
+        p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
+        break;
+    case TextVAlign::Bottom:
+        p.y_ = rect.height_ - ege::textheight(text.c_str());
+        break;
+    }
+    this->drawText(p, text);
 }
 
 DWORD translateOperationCode(const std::string_view &blendMode)

@@ -181,9 +181,8 @@ void App::run()
         }
 
         // 更新显示
-        this->block_->update();
         ege::cleardevice();
-        this->block_->paint(paintEvent);
+        this->block_->paintEvent(paintEvent);
     }
 }
 

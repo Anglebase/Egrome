@@ -9,6 +9,7 @@ class RectF;
  */
 class Rect
 {
+    friend class Block;
     friend class Painter;
 private:
     long x_;

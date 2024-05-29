@@ -12,6 +12,7 @@ const long &Point::y() const { return y_; }
 
 bool Point::inside(const Rect &rect) const
 {
+    // std::cout << "Rect:" << rect << " |Point:" << *this << std::endl;
     return (rect.left() <= this->x_ && this->x_ < rect.right() &&
             rect.top() <= this->y_ && this->y_ < rect.bottom());
 }

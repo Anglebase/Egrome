@@ -3,16 +3,10 @@
 #include "Point.h"
 #include "App.h"
 
-void Block::paint(const PaintEvent &event) const
+void Block::paintEvent(const PaintEvent &event)
 {
     for (auto child : childBlocks)
-        child->paint(event);
-}
-
-void Block::update()
-{
-    for (auto child : childBlocks)
-        child->update();
+        child->paintEvent(event);
 }
 
 void Block::mousePressEvent(const Point &pos, MouseButton button)
@@ -37,7 +31,8 @@ void Block::mouseReleaseEvent(const Point &pos, MouseButton button)
 
 void Block::mouseMoveEvent(const Point &pos)
 {
-    static Point lastPos;
+    // 此处引发BUG20240529-20，原因不明
+    // static Point lastPos;
     if (lastPos != pos)
     {
         onMoved.emit(pos - lastPos);
@@ -83,7 +78,16 @@ Block::Block(const Rect &rect, Block *parent)
     : rect_(rect), parentBlock(parent)
 {
     if (parent)
+    {
         parent->childBlocks.push_back(this);
+        this->rect_.x_ += parent->rect_.x_;
+        this->rect_.y_ += parent->rect_.y_;
+    }
+    else
+    {
+        this->rect_.x_ = 0;
+        this->rect_.y_ = 0;
+    }
 
     onClicked.connect(
         [this]()

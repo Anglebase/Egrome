@@ -12,12 +12,13 @@
 template <typename T>
 class Animation
 {
-    T startValue_;
-    T endValue_;
-    std::chrono::milliseconds time_;
-    mutable bool running_ = false;
-    mutable double t_ = 0.0;
-    std::chrono::steady_clock::time_point startTime_;
+    T startValue_;                                    // 起始值
+    T endValue_;                                      // 终止值
+    std::chrono::milliseconds time_;                  // 动画时间
+    mutable bool running_ = false;                    // 动画是否正在运行
+    mutable double t_ = 0.0;                          // 当前时长比例
+    std::chrono::steady_clock::time_point startTime_; // 动画开始时间
+    bool is_reverse_ = false;                         // 是否反向播放
 
 protected:
     /**
@@ -92,10 +93,12 @@ public:
     }
     /**
      * @brief 运行动画
+     * @param is_reverse 是否反向播放，默认为 false，即正向播放，如果设置为 true，则反向播放
      * @note 此函数与 start() 函数的区别在于它不会重置动画时间，而是继续运行动画，直到动画时间结束
      */
-    void run()
+    void run(bool is_reverse = false)
     {
+        is_reverse_ = is_reverse;
         startTime_ = std::chrono::steady_clock::now() - std::chrono::duration_cast<std::chrono::milliseconds>(time_ * t_);
         running_ = true;
     }
@@ -108,6 +111,7 @@ public:
         t_ = 0.0;
         running_ = false;
     }
+
     /**
      * @brief 获取当前动画值
      * @note 该函数会根据当前动画时间和插值计算函数，计算当前动画值
@@ -120,9 +124,18 @@ public:
             auto now = std::chrono::steady_clock::now();
             auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - startTime_);
             t_ = elapsed.count() * 1. / time_.count();
+            if (is_reverse_)
+            {
+                t_ = 1.0 - t_;
+            }
             if (t_ >= 1.0)
             {
                 t_ = 1.0;
+                running_ = false;
+            }
+            else if (t_ <= 0.0)
+            {
+                t_ = 0.0;
                 running_ = false;
             }
         }

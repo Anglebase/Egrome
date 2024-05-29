@@ -96,6 +96,7 @@ void Rect::setSize(const Size &size)
 
 bool Rect::contains(const Point &point) const
 {
+    // std::cout << *this << " | " << point << std::endl;
     return (point.x() >= x_ && point.x() <= x_ + width_ &&
             point.y() >= y_ && point.y() <= y_ + height_);
 }

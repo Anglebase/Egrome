@@ -1,6 +1,15 @@
 #include "Color.h"
 #include <ege.h>
 
+const Color Color::Black{0x000000};
+const Color Color::White{0xffffff};
+const Color Color::Red{0xff0000};
+const Color Color::Green{0x00ff00};
+const Color Color::Blue{0x0000ff};
+const Color Color::Gray{0x808080};
+const Color Color::LightGray{0xc0c0c0};
+const Color Color::DarkGray{0x404040};
+
 Color::Color(int r, int g, int b) : red(r), green(g), blue(b) {}
 
 Color::Color(long hex)

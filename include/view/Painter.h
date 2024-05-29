@@ -380,5 +380,5 @@ public:
      * @brief 结束绘制
      * @brief 结束绘制，释放Painter对象，如果该函数未被调用，此类析构时会自动释放Painter对象
      */
-    void endPaint();
+    void endPaint()const;
 };
