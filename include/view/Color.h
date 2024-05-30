@@ -69,6 +69,12 @@ public:
      */
     Color(const HSL &hsl);
 
+    Color(const Color &other) = default;
+    const Color &operator=(const Color &other);
+    const Color &operator=(Color &&value);
+    const Color &operator=(const HSV &hsv);
+    const Color &operator=(const HSL &hsl);
+
     bool operator==(const Color &other) const;
     bool operator!=(const Color &other) const;
 

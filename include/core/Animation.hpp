@@ -51,6 +51,15 @@ public:
           valueComputer_(valueComputer) {}
 
     /**
+     * @brief 判断动画是否正在运行
+     * @return true 正在运行，false 停止
+     */
+    bool isRunning() const
+    {
+        return running_;
+    }
+
+    /**
      * @brief 设置动画参数
      * @param startValue 起始值
      * @param endValue 终止值
@@ -98,9 +107,13 @@ public:
      */
     void run(bool is_reverse = false)
     {
-        is_reverse_ = is_reverse;
-        startTime_ = std::chrono::steady_clock::now() - std::chrono::duration_cast<std::chrono::milliseconds>(time_ * t_);
         running_ = true;
+        this->is_reverse_ = is_reverse;
+        if (is_reverse)
+        {
+            t_ = 1.0 - t_;
+        }
+        this->startTime_ = std::chrono::steady_clock::now() - std::chrono::duration_cast<std::chrono::milliseconds>(time_ * t_);
     }
     /**
      * @brief 重置动画
@@ -108,7 +121,7 @@ public:
      */
     void reset()
     {
-        t_ = 0.0;
+        startTime_ = std::chrono::steady_clock::now();
         running_ = false;
     }
 
@@ -128,12 +141,12 @@ public:
             {
                 t_ = 1.0 - t_;
             }
-            if (t_ >= 1.0)
+            if (t_ > 1.0)
             {
                 t_ = 1.0;
                 running_ = false;
             }
-            else if (t_ <= 0.0)
+            else if (t_ < 0.0)
             {
                 t_ = 0.0;
                 running_ = false;

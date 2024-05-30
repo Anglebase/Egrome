@@ -107,6 +107,8 @@ App::~App() {}
 
 void App::run()
 {
+    // 用于清晰显示文本
+    SetProcessDPIAware();
     // 初始化环境
     ege::initgraph(this->block_->rect().width(),
                    this->block_->rect().height());
@@ -152,7 +154,7 @@ void App::run()
                     if (App::focusBlock)
                         App::focusBlock->InputTextEvent(ch);
             }
-            ege::flushkey();
+            // ege::flushkey();
         }
         // 捕获鼠标输入
         if (ege::mousemsg())
@@ -167,17 +169,21 @@ void App::run()
                 else if (msg.is_mid())
                     button = MouseButton::Middle;
             }
+            // BUG20240530-21: 连续触发鼠标消息有概率导致鼠标消息丢失
+            if (msg.is_down())
+                this->block_->mousePressEvent(Point(msg.x, msg.y), button);
+            if (msg.is_up())
+                this->block_->mouseReleaseEvent(Point(msg.x, msg.y), button);
+            if (msg.is_wheel())
+                this->block_->mouseWheelEvent(
+                    Point(msg.x, msg.y),
+                    msg.wheel > 0 ? MouseWheel::Up
+                                  : (msg.wheel < 0 ? MouseWheel::Down
+                                                   : MouseWheel::None));
             if (msg.is_move() && lastMousePos != Point(msg.x, msg.y))
                 this->block_->mouseMoveEvent(Point(msg.x, msg.y)),
                     lastMousePos = Point(msg.x, msg.y);
-            else if (msg.is_down())
-                this->block_->mousePressEvent(Point(msg.x, msg.y), button);
-            else if (msg.is_up())
-                this->block_->mouseReleaseEvent(Point(msg.x, msg.y), button);
-            else if (msg.is_wheel())
-                this->block_->mouseWheelEvent(Point(msg.x, msg.y),
-                                              msg.wheel > 0 ? MouseWheel::Up : (msg.wheel < 0 ? MouseWheel::Down : MouseWheel::None));
-            ege::flushmouse();
+            // ege::flushmouse(); // BUG20240530-21 此行引起鼠标消息丢失
         }
 
         // 更新显示

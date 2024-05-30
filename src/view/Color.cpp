@@ -26,9 +26,43 @@ Color::Color(const HSV &hsv)
 Color::Color(const HSL &hsl)
 {
     auto rgb = ege::hsl2rgb(hsl.hue, hsl.saturation, hsl.lightness);
+    this->red = EGEGET_R(rgb);
+    this->green = EGEGET_G(rgb);
+    this->blue = EGEGET_B(rgb);
+}
+
+const Color &Color::operator=(const Color &other)
+{
+    this->red = other.red;
+    this->green = other.green;
+    this->blue = other.blue;
+    return *this;
+}
+
+const Color &Color::operator=(Color &&other)
+{
+    red = other.red;
+    green = other.green;
+    blue = other.blue;
+    return *this;
+}
+
+const Color &Color::operator=(const HSV &hsv)
+{
+    auto rgb = ege::hsv2rgb(hsv.hue, hsv.saturation, hsv.value);
     red = EGEGET_R(rgb);
     green = EGEGET_G(rgb);
     blue = EGEGET_B(rgb);
+    return *this;
+}
+
+const Color &Color::operator=(const HSL &hsl)
+{
+    auto rgb = ege::hsl2rgb(hsl.hue, hsl.saturation, hsl.lightness);
+    red = EGEGET_R(rgb);
+    green = EGEGET_G(rgb);
+    blue = EGEGET_B(rgb);
+    return *this;
 }
 
 bool Color::operator==(const Color &other) const

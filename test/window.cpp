@@ -1,17 +1,20 @@
+// 按钮类使用示例
 #include "button.h"
 
 int main()
 {
     Block block{Rect{0, 0, 1000, 600}};
     Button button{Rect{100, 100, 200, 50}, &block};
-    button.setText(L"Click me!");
+    Button button2{Rect{100, 170, 200, 50}, &block};
+    button2.setText(L"Second Button");
+    Button button3{Rect{100, 240, 200, 50}, &block};
+    button3.setDisabled(true);
     button.clicked.connect([]()
                            { std::wcout << L"Button clicked!" << std::endl; });
-    button.onEnter.connect([]()
-                           { std::wcout << L"Mouse entered button!" << std::endl; });
-    button.onLeave.connect([]()
-                           { std::wcout << L"Mouse left button!" << std::endl; });
-
+    button2.clicked.connect([]()
+                            { std::wcout << L"Button 2 clicked!" << std::endl; });
+    button3.clicked.connect([]()
+                            { std::wcout << L"Button 3 clicked!" << std::endl; });
     App app{&block};
     app.run();
     return 0;

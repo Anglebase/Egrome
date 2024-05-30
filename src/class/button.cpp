@@ -7,44 +7,37 @@ void Button::paintEvent(const PaintEvent &event)
     if (this->isDisabled)
     {
         painter.setBrushColor(this->disabledColor);
-        painter.drawFillRect(painter.rect());
         painter.setPenColor(this->textColor);
-        painter.drawText(painter.rect(), this->text);
     }
-    else if (this->isPressed)
+    else if (this->isPressed || this->pressedColorAnim->isRunning())
     {
-        painter.setBrushColor(this->pressedColor);
-        painter.drawFillRect(painter.rect());
+        painter.setBrushColor(this->pressedColorAnim->value());
         painter.setPenColor(this->textColor);
-        painter.drawText(painter.rect(), this->text);
     }
-    else if (this->isHovered)
+    else if (this->isHovered || this->hoverColorAnim->isRunning())
     {
-        painter.setBrushColor(this->hoverColor);
-        painter.drawFillRect(painter.rect());
+        painter.setBrushColor(this->hoverColorAnim->value());
         painter.setPenColor(this->textColor);
-        painter.drawText(painter.rect(), this->text);
     }
     else
     {
         painter.setBrushColor(this->backgroundColor);
-        painter.drawFillRect(painter.rect());
         painter.setPenColor(this->textColor);
-        painter.drawText(painter.rect(), this->text);
     }
+    painter.drawFillRect(painter.rect());
+    painter.drawText(painter.rect(), this->text);
     event.endPaint();
 }
 
 void Button::mousePressEvent(const Point &pos, MouseButton button)
 {
     using namespace std::chrono_literals;
-    if (button == MouseButton::Left)
+    if (this->rect().contains(pos) &&
+        button == MouseButton::Left &&
+        !this->isDisabled)
     {
         this->isPressed = true;
-        this->backgroundColorAnim->set(this->backgroundColor,
-                                       this->pressedColor,
-                                       500ms);
-        this->textColorAnim->run();
+        this->pressedColorAnim->run();
         this->clicked.emit();
     }
     return Block::mousePressEvent(pos, button);
@@ -53,29 +46,14 @@ void Button::mousePressEvent(const Point &pos, MouseButton button)
 void Button::mouseReleaseEvent(const Point &pos, MouseButton button)
 {
     using namespace std::chrono_literals;
-    if (button == MouseButton::Left)
+    if (button == MouseButton::Left &&
+        !this->isDisabled)
     {
+        if (this->isPressed)
+            this->pressedColorAnim->run(true);
         this->isPressed = false;
-        this->backgroundColorAnim->set(this->backgroundColor,
-                                       this->backgroundColor,
-                                       500ms);
-        this->backgroundColorAnim->run(true);
     }
     return Block::mouseReleaseEvent(pos, button);
-}
-
-void Button::mouseMoveEvent(const Point &pos)
-{
-    using namespace std::chrono_literals;
-    if (this->rect().contains(pos))
-    {
-        this->isHovered = true;
-    }
-    else
-    {
-        this->isHovered = false;
-    }
-    return Block::mouseMoveEvent(pos);
 }
 
 Button::Button(const Rect &rect, Block *parent)
@@ -90,6 +68,7 @@ Button::Button(const Rect &rect, Block *parent)
       isHovered(false),
       text(L"Button")
 {
+    using namespace std::chrono_literals;
     auto color_lerp = [](Color start, Color end, double t) -> Color
     {
         auto f = [](int a, int b, double t) -> int
@@ -100,19 +79,36 @@ Button::Button(const Rect &rect, Block *parent)
             f(start.getBlue(), end.getBlue(), t),
         };
     };
-    this->backgroundColorAnim = new Animation<Color>{color_lerp};
     this->hoverColorAnim = new Animation<Color>{color_lerp};
+    this->hoverColorAnim->set(
+        this->backgroundColor,
+        this->hoverColor,
+        300ms);
     this->pressedColorAnim = new Animation<Color>{color_lerp};
-    this->textColorAnim = new Animation<Color>{color_lerp};
+    this->pressedColorAnim->set(
+        this->hoverColor,
+        this->pressedColor,
+        100ms);
 
+    this->onEnter.connect(
+        [this]()
+        {
+            this->isHovered = true;
+            this->hoverColorAnim->reset();
+            this->hoverColorAnim->run();
+        });
+    this->onLeave.connect(
+        [this]()
+        {
+            this->isHovered = false;
+            this->hoverColorAnim->run(true);
+        });
 }
 
 Button::~Button()
 {
-    delete this->backgroundColorAnim;
     delete this->hoverColorAnim;
     delete this->pressedColorAnim;
-    delete this->textColorAnim;
 }
 
 void Button::setTextColor(const Color &color)

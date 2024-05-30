@@ -27,7 +27,6 @@ protected:
     void paintEvent(const PaintEvent &event) override;
     void mousePressEvent(const Point& pos, MouseButton button) override;
     void mouseReleaseEvent(const Point& pos, MouseButton button) override;
-    void mouseMoveEvent(const Point& pos) override;
 
 signals:
     Signal<void()> clicked;
