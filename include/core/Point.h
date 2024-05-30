@@ -6,11 +6,17 @@ class Rect;
 class RectF;
 
 /**
+ * @addtogroup 核心
+ * @{
+ */
+
+/**
  * @brief 此类定义二维坐标点
  */
 class Point
 {
     friend class Painter;
+
 private:
     long x_;
     long y_;
@@ -104,3 +110,7 @@ public:
      */
     operator PointF() const;
 };
+
+/**
+ * @}
+ */

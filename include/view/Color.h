@@ -1,6 +1,11 @@
 #pragma once
 
 /**
+ * @addtogroup 视图
+ * @{
+*/
+
+/**
  * @brief HSV (Hue, Saturation, Value) 颜色模型
  */
 struct HSV
@@ -131,3 +136,5 @@ public:
      */
     operator HSL() const;
 };
+
+/** @} */

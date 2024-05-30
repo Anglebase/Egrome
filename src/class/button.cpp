@@ -2,8 +2,10 @@
 
 void Button::paintEvent(const PaintEvent &event)
 {
+    // 绘制按钮
     auto &painter = event.beginPaint(this);
     painter.setTextAlign(TextHAlign::Center, TextVAlign::Center);
+    // 状态判断与显示
     if (this->isDisabled)
     {
         painter.setBrushColor(this->disabledColor);
@@ -32,6 +34,7 @@ void Button::paintEvent(const PaintEvent &event)
 void Button::mousePressEvent(const Point &pos, MouseButton button)
 {
     using namespace std::chrono_literals;
+    // 监测点击
     if (this->rect().contains(pos) &&
         button == MouseButton::Left &&
         !this->isDisabled)
@@ -69,6 +72,7 @@ Button::Button(const Rect &rect, Block *parent)
       text(L"Button")
 {
     using namespace std::chrono_literals;
+    // 针对于颜色过渡动画的线性插值函数
     auto color_lerp = [](Color start, Color end, double t) -> Color
     {
         auto f = [](int a, int b, double t) -> int
@@ -79,6 +83,7 @@ Button::Button(const Rect &rect, Block *parent)
             f(start.getBlue(), end.getBlue(), t),
         };
     };
+    // 注册颜色过渡动画
     this->hoverColorAnim = new Animation<Color>{color_lerp};
     this->hoverColorAnim->set(
         this->backgroundColor,
@@ -89,7 +94,7 @@ Button::Button(const Rect &rect, Block *parent)
         this->hoverColor,
         this->pressedColor,
         100ms);
-
+    // 连接槽函数
     this->onEnter.connect(
         [this]()
         {

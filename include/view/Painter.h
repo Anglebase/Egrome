@@ -10,14 +10,25 @@ class Rect;
 class PixelMap;
 
 /**
+ * @addtogroup 视图
+ * @brief 视图绘制相关
+ * @{
+*/
+
+/**
  * @brief 线条样式
  */
 enum class PenStyle
 {
+    /// 实线
     Solid,
+    /// 虚线
     Dash,
+    /// 点线
     Dot,
+    /// 点划线
     DashDot,
+    /// 无样式线
     Null
 };
 
@@ -26,8 +37,11 @@ enum class PenStyle
  */
 enum class BrushStyle
 {
+    /// 无填充
     EMPTY,
+    /// 实心填充
     SOLID,
+    /// 线状填充
     LINE,
     LTSLASH,
     SLASH,
@@ -42,15 +56,21 @@ enum class BrushStyle
 
 enum class TextHAlign
 {
+    /// 左对齐
     Left,
+    /// 居中对齐
     Center,
+    /// 右对齐
     Right
 };
 
 enum class TextVAlign
 {
+    /// 顶部对齐
     Top,
+    /// 居中对齐
     Center,
+    /// 底部对齐
     Bottom
 };
 
@@ -382,3 +402,5 @@ public:
      */
     void endPaint()const;
 };
+
+/**@}*/

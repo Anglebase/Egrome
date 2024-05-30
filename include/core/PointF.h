@@ -5,6 +5,10 @@ class Point;
 class Rect;
 class RectF;
 /**
+ * @addtogroup 核心
+ * @{
+ */
+/**
  * @brief 此类定义二维坐标点
  */
 class PointF
@@ -102,3 +106,4 @@ public:
      */
     operator Point() const;
 };
+/** @} */

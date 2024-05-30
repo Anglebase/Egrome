@@ -5,6 +5,10 @@ class PointF;
 class SizeF;
 class Rect;
 /**
+ * @addtogroup 核心
+ * @{
+ */
+/**
  * @brief 矩形类
  */
 class RectF
@@ -201,3 +205,4 @@ public:
      */
     operator Rect() const;
 };
+/** @} */

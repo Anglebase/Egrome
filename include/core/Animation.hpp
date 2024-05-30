@@ -4,6 +4,11 @@
 #include <functional>
 
 /**
+ * @addtogroup 核心
+ * @{
+ */
+
+/**
  * @brief 动画支持类
  * @tparam T 要进行动画插值计算的类型
  * @note 该类支持对任意类型进行动画插值计算，只需要设置起始值、终止值、动画时间，以及插值计算函数即可
@@ -155,3 +160,4 @@ public:
         return valueComputer_(startValue_, endValue_, this->t_);
     }
 };
+/** @} */

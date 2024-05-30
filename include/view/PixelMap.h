@@ -7,6 +7,11 @@ class Painter;
 class Rect;
 
 /**
+ * @addtogroup 视图
+ * @{
+*/
+
+/**
  * @brief 像素图类
  */
 class PixelMap
@@ -85,3 +90,5 @@ public:
      */
     std::shared_ptr<PixelMap> clip(const Rect &rect) const;
 };
+
+/** @} */

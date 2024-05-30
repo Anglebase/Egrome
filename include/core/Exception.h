@@ -3,6 +3,11 @@
 #include <iostream>
 
 /**
+ * @addtogroup 核心
+ * @{
+ */
+
+/**
  * @brief 此类用于抛出异常
  */
 class Exception
@@ -29,3 +34,4 @@ public:
      */
     const char *what() const { return m_message; }
 };
+/** @} */

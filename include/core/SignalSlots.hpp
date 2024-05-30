@@ -8,6 +8,11 @@
 #include <functional>
 
 /**
+ * @addtogroup 核心
+ * @{
+ */
+
+/**
  * @brief 信号类，是信号槽机制的核心类
  * @note 此类是无特化的类，并无实现，定义信号时模板参数必须指定为void(Args...)或void()，具体用法请参考 Signal<void(Args...)> 或 Signal<void()>
  */
@@ -129,5 +134,11 @@ public:
 };
 
 #ifndef signals
+/**
+ * @brief 信号列表宏定义
+ * @note 信号列表仅用于语义化表示，实际上并没有定义信号列表，只是为了方便使用信号槽机制而定义的宏定义
+*/
 #define signals public
 #endif
+
+/** @} */

@@ -5,6 +5,14 @@ class Size;
 class Point;
 class Block;
 
+/**
+ * @addtogroup 视图
+ * @{
+*/
+
+/**
+ * @brief 初始化标志
+ */
 enum InitFlag
 {
     /// 默认初始化标志
@@ -141,3 +149,5 @@ public:
      */
     void quit(int exitCode);
 };
+
+/** @} */

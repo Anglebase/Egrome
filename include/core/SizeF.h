@@ -4,6 +4,12 @@
 
 class Size;
 /**
+ * @addtogroup 核心
+ * @brief 核心模块
+ * @details 该模块包含了一些基础类
+ * @{
+ */
+/**
  * @brief 二维尺寸类
  */
 class SizeF
@@ -115,3 +121,4 @@ public:
      */
     operator Size() const;
 };
+/** @} */

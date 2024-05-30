@@ -4,6 +4,10 @@
 
 class SizeF;
 /**
+ * @addtogroup 核心
+ * @{
+ */
+/**
  * @brief 二维尺寸类
  */
 class Size
@@ -115,3 +119,6 @@ public:
      */
     operator SizeF() const;
 };
+/**
+ * @}
+ */
