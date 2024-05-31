@@ -1,7 +1,7 @@
-#include "core/RectF.h"
-#include "core/PointF.h"
-#include "core/SizeF.h"
-#include "core/Rect.h"
+#include "RectF.h"
+#include "PointF.h"
+#include "SizeF.h"
+#include "Rect.h"
 
 RectF::RectF(double x, double y, double width, double height)
     : x_(x), y_(y), width_(width), height_(height) {}

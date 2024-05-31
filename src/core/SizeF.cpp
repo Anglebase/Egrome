@@ -1,5 +1,5 @@
-#include "core/SizeF.h"
-#include "core/Size.h"
+#include "SizeF.h"
+#include "Size.h"
 
 SizeF::SizeF(double w, double h) : width_(w), height_(h) {}
 

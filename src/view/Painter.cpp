@@ -1,12 +1,12 @@
 #include <ege.h>
-#include "view/Painter.h"
-#include "core/Exception.h"
-#include "view/PixelMap.h"
-#include "view/Color.h"
-#include "view/Block.h"
-#include "core/Point.h"
-#include "core/Rect.h"
-#include "core/Size.h"
+#include "Painter.h"
+#include "Exception.h"
+#include "PixelMap.h"
+#include "Color.h"
+#include "Block.h"
+#include "Point.h"
+#include "Rect.h"
+#include "Size.h"
 #include "Painter.h"
 
 PaintEvent::~PaintEvent() throw()

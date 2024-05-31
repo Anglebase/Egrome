@@ -1,5 +1,5 @@
-#include "core/Size.h"
-#include "core/SizeF.h"
+#include "Size.h"
+#include "SizeF.h"
 #include "Size.h"
 
 Size::Size(long w, long h) : width_(w), height_(h) {}

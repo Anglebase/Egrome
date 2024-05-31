@@ -1,7 +1,7 @@
-#include "core/Rect.h"
-#include "core/Point.h"
-#include "core/Size.h"
-#include "core/RectF.h"
+#include "Rect.h"
+#include "Point.h"
+#include "Size.h"
+#include "RectF.h"
 #include "Rect.h"
 
 Rect::Rect(long x, long y, long width, long height)

@@ -1,7 +1,7 @@
-#include "core/PointF.h"
-#include "core/Point.h"
-#include "core/Rect.h"
-#include "core/RectF.h"
+#include "PointF.h"
+#include "Point.h"
+#include "Rect.h"
+#include "RectF.h"
 
 PointF::PointF(double x, double y) : x_(x), y_(y) {}
 

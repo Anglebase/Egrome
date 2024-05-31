@@ -1,9 +1,9 @@
 #include "App.h"
-#include "core/Size.h"
-#include "core/Point.h"
-#include "core/Rect.h"
-#include "view/Block.h"
-#include "view/Painter.h"
+#include "Size.h"
+#include "Point.h"
+#include "Rect.h"
+#include "Block.h"
+#include "Painter.h"
 #include <ege.h>
 #include <windows.h>
 
