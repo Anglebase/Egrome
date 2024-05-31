@@ -2,6 +2,7 @@
 #include "core/Point.h"
 #include "core/Size.h"
 #include "core/RectF.h"
+#include "Rect.h"
 
 Rect::Rect(long x, long y, long width, long height)
     : x_(x), y_(y), width_(width), height_(height) {}
@@ -158,4 +159,24 @@ std::ostream &operator<<(std::ostream &os, const Rect &rect)
 {
     return os << "{" << Point(rect.x_, rect.y_) << ", "
               << Size(rect.width_, rect.height_) << "}";
+}
+
+Rect Rect::adjusted(long dleft, long dtop, long dright, long dbottom) const
+{
+    return Rect{
+        x_ + dleft,
+        y_ + dtop,
+        width_ - dleft + dright,
+        height_ - dtop + dbottom,
+    };
+}
+
+Rect Rect::centerWith(const Size &size) const
+{
+    return Rect{
+        x_ + (width_ - size.width()) / 2,
+        y_ + (height_ - size.height()) / 2,
+        size.width(),
+        size.height(),
+    };
 }

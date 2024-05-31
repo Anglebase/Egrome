@@ -9,7 +9,7 @@
 #include "core/Size.h"
 #include "Painter.h"
 
-PaintEvent::~PaintEvent()
+PaintEvent::~PaintEvent() throw()
 {
     if (this->painter)
         throw Exception("PaintEvent::endPaint() should be called before destructor");
@@ -93,8 +93,9 @@ void Painter::setPenStyle(PenStyle style) const
     int linewidth;
     if (this->block)
         ege::getlinestyle(&linestyle,
-                          nullptr,
-                          &linewidth);
+                          NULL,
+                          &linewidth,
+                          NULL);
     if (this->pixelMap)
         ege::getlinestyle(&linestyle,
                           nullptr,
@@ -444,7 +445,7 @@ void Painter::drawText(const Rect &rect, const std::string &text) const
         p.y_ = rect.height_ - ege::textheight(text.c_str());
         break;
     }
-    this->drawText(p, text);
+    this->drawText(p + Point(rect.left(), rect.top()), text);
 }
 
 void Painter::drawText(const Rect &rect, const std::wstring &text) const
@@ -474,7 +475,7 @@ void Painter::drawText(const Rect &rect, const std::wstring &text) const
         p.y_ = rect.height_ - ege::textheight(text.c_str());
         break;
     }
-    this->drawText(p, text);
+    this->drawText(p + Point(rect.left(), rect.top()), text);
 }
 
 DWORD translateOperationCode(const std::string_view &blendMode)

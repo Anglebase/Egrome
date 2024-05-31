@@ -386,7 +386,7 @@ public:
     PaintEvent(PaintEvent &&) = delete;
     PaintEvent &operator=(const PaintEvent &) = delete;
     PaintEvent &operator=(PaintEvent &&) = delete;
-    ~PaintEvent();
+    ~PaintEvent() throw();
 
     /**
      * @brief 构造Painter对象

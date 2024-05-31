@@ -1,9 +1,9 @@
 #pragma once
 
 #include <vector>
-#include "core/SignalSlots.hpp"
-#include "core/Rect.h"
-#include "core/Point.h"
+#include "SignalSlots.hpp"
+#include "Rect.h"
+#include "Point.h"
 
 class Rect;
 class Point;

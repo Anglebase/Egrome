@@ -1,3 +1,4 @@
+#include "Painter.h"
 #include "button.h"
 
 void Button::paintEvent(const PaintEvent &event)

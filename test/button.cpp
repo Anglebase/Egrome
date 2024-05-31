@@ -1,5 +1,6 @@
 // 按钮类使用示例
 #include "button.h"
+#include "App.h"
 
 int main()
 {

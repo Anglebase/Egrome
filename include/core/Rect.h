@@ -179,6 +179,23 @@ public:
     void inflate(const Size &dsize);
 
     /**
+     * @brief 调整矩形
+     * @param dleft 调整矩形左侧坐标
+     * @param dtop 调整矩形顶部坐标
+     * @param dright 调整矩形右侧坐标
+     * @param dbottom 调整矩形底部坐标
+     * @return 调整后的矩形
+     */
+    Rect adjusted(long dleft, long dtop, long dright, long dbottom) const;
+
+    /**
+     * @brief 计算指定大小的尺寸居中于当前矩形时所具有矩形对象
+     * @param size 指定的大小
+     * @return 居中矩形对象
+     */
+    Rect centerWith(const Size &size) const;
+
+    /**
      * @brief 判断两个矩形是否相同
      * @param other 另一个矩形
      * @return 如果相同，返回true，否则返回false
