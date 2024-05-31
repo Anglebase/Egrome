@@ -196,3 +196,13 @@ void App::quit(int exitCode)
 {
     exit(exitCode);
 }
+
+int operator""_vw(unsigned long long vw)
+{
+    return static_cast<int>(vw * ege::getwidth() / 100.);
+}
+
+int operator""_vh(unsigned long long vh)
+{
+    return static_cast<int>(vh * ege::getheight() / 100.);
+}

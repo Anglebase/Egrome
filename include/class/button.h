@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Block.h"
-#include "Animation.hpp"
-#include "SignalSlots.hpp"
-#include "Color.h"
+#include "../core/Animation.hpp"
+#include "../core/SignalSlots.hpp"
+#include "../view/Block.h"
+#include "../view/Color.h"
 
 /**
  * @addtogroup 控件

@@ -150,4 +150,20 @@ public:
     void quit(int exitCode);
 };
 
+/**
+ * @brief 相对于视口宽度百分比的字面量运算符
+ * @param vw 视口宽度百分比
+ * @details 例如：100_vw 表示视口宽度的100% ，75_vw 表示视口宽度的75%
+ * @return 视口宽度百分比对应的像素值
+ */
+int operator""_vw(unsigned long long vw);
+/**
+ * @brief 相对于视口高度百分比的字面量运算符
+ * @param vh 视口高度百分比
+ * @details 例如：100_vh 表示视口高度的100% ，75_vh 表示视口高度的75%
+ * @return 视口高度百分比对应的像素值
+ */
+int operator""_vh(unsigned long long vh);
+
+
 /** @} */

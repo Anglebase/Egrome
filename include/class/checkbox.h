@@ -1,9 +1,14 @@
 #pragma once
 
 #include <string>
-#include "Block.h"
-#include "Color.h"
-#include "SignalSlots.hpp"
+#include "../view/Block.h"
+#include "../view/Color.h"
+#include "../core/SignalSlots.hpp"
+
+/**
+ * @addtogroup 控件
+ * @{
+*/
 
 /**
  * @brief 复选框控件
@@ -99,3 +104,5 @@ public:
      */
     void setBoxSize(int size);
 };
+
+/** @} */
