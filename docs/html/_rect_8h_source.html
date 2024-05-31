@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/core/Rect.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_rect_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Rect.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">class </span><a class="code hl_class" href="class_point.html">Point</a>;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">class </span><a class="code hl_class" href="class_size.html">Size</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="class_rect_f.html">RectF</a>;</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_rect.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_rect.html">Rect</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_block.html">Block</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_painter.html">Painter</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">long</span> x_;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">long</span> y_;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">long</span> width_;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">long</span> height_;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="class_rect.html#a66ec4a9c49c20889d2a41edd94030c44">Rect</a>(<span class="keywordtype">long</span> x, <span class="keywordtype">long</span> y, <span class="keywordtype">long</span> width, <span class="keywordtype">long</span> height);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="class_rect.html#a66ec4a9c49c20889d2a41edd94030c44">Rect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;topLeft, <span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;size);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">long</span> &amp;x();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">long</span> &amp;y();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">long</span> &amp;width();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">long</span> &amp;height();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;x() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;y() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;width() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;height() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="class_point.html">Point</a> <a class="code hl_function" href="class_rect.html#a578cd20dd9c605eb0efc55b722fadcee">getTopLeft</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="class_point.html">Point</a> <a class="code hl_function" href="class_rect.html#ac4b44ef57cb81abf947e98fa930c05cf">getTopRight</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="class_point.html">Point</a> <a class="code hl_function" href="class_rect.html#ad384dfeb019d45a9882a0ebaa7a60786">getBottomLeft</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="class_point.html">Point</a> <a class="code hl_function" href="class_rect.html#a62076d233acf913e1c64465c70dc5cb6">getBottomRight</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">long</span> <a class="code hl_function" href="class_rect.html#aa141b6ae2fbd2e04514230fa5a11d3af">left</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">long</span> <a class="code hl_function" href="class_rect.html#a79beb3d08aa73bca47f0c630a346cee2">top</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">long</span> <a class="code hl_function" href="class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29">right</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">long</span> <a class="code hl_function" href="class_rect.html#ae4f3e31ce1bf00869b2f1ab0416a4f1a">bottom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#a06a2b7d7b2ef8572ce23f353170db5e6">setTopLeft</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;topLeft);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#ad36370c41aa325f888a7bc51388dcffe">setTopRight</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;topRight);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#afd19d268c16739781bf1808ace6fd845">setBottomLeft</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;bottomLeft);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#a8b66c9fbf5025610eff7fdfd3e1449b8">setBottomRight</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;bottomRight);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_class" href="class_size.html">Size</a> <a class="code hl_function" href="class_rect.html#a6b5f40c20ae0a69885c1375c891e7a83">getSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#a0bf70d98f602b78b9431b545269d6754">setSize</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;size);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rect.html#a1c38f1896dd038b566feaa724d4db644">contains</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;point) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rect.html#a1c38f1896dd038b566feaa724d4db644">contains</a>(<span class="keywordtype">long</span> x, <span class="keywordtype">long</span> y) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rect.html#a33f868695b6ae5f84740bcf27cba48d8">intersects</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#a98114f450bf29f79d0ec5c8cfdb23b67">offset</a>(<span class="keywordtype">long</span> dx, <span class="keywordtype">long</span> dy);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#a98114f450bf29f79d0ec5c8cfdb23b67">offset</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;dpoint);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#ad48163f60aed29ce0b6e883a72390e79">inflate</a>(<span class="keywordtype">long</span> dwidth, <span class="keywordtype">long</span> dheight);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rect.html#ad48163f60aed29ce0b6e883a72390e79">inflate</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;dsize);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_class" href="class_rect.html">Rect</a> <a class="code hl_function" href="class_rect.html#a4c2bbbd646c1ec52f99e535d9b6fa8a7">adjusted</a>(<span class="keywordtype">long</span> dleft, <span class="keywordtype">long</span> dtop, <span class="keywordtype">long</span> dright, <span class="keywordtype">long</span> dbottom) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <a class="code hl_class" href="class_rect.html">Rect</a> <a class="code hl_function" href="class_rect.html#a8fc4e312eff11b42bd5f098494ece90b">centerWith</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rect.html#a43f0e9ded9e0c27b5af5d02c12b23115">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rect.html#a651f18fe8c7254c395ecf2900b7ded77">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keyword">friend</span> std::ostream &amp;<a class="code hl_friend" href="class_rect.html#a50bb86c0190b33e47f89ba5d8954fdc9">operator&lt;&lt;</a>(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keyword">operator</span> <a class="code hl_class" href="class_rect_f.html">RectF</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>};</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:264</div></div>
+<div class="ttc" id="aclass_painter_html"><div class="ttname"><a href="class_painter.html">Painter</a></div><div class="ttdef"><b>Definition</b> Painter.h:78</div></div>
+<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdoc">此类定义二维坐标点</div><div class="ttdef"><b>Definition</b> Point.h:17</div></div>
+<div class="ttc" id="aclass_rect_f_html"><div class="ttname"><a href="class_rect_f.html">RectF</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> RectF.h:15</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:15</div></div>
+<div class="ttc" id="aclass_rect_html_a06a2b7d7b2ef8572ce23f353170db5e6"><div class="ttname"><a href="class_rect.html#a06a2b7d7b2ef8572ce23f353170db5e6">Rect::setTopLeft</a></div><div class="ttdeci">void setTopLeft(const Point &amp;topLeft)</div><div class="ttdoc">设置矩形左上角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:63</div></div>
+<div class="ttc" id="aclass_rect_html_a0bf70d98f602b78b9431b545269d6754"><div class="ttname"><a href="class_rect.html#a0bf70d98f602b78b9431b545269d6754">Rect::setSize</a></div><div class="ttdeci">void setSize(const Size &amp;size)</div><div class="ttdoc">设置矩形大小</div><div class="ttdef"><b>Definition</b> Rect.cpp:92</div></div>
+<div class="ttc" id="aclass_rect_html_a1c38f1896dd038b566feaa724d4db644"><div class="ttname"><a href="class_rect.html#a1c38f1896dd038b566feaa724d4db644">Rect::contains</a></div><div class="ttdeci">bool contains(const Point &amp;point) const</div><div class="ttdoc">判断点是否在矩形内</div><div class="ttdef"><b>Definition</b> Rect.cpp:98</div></div>
+<div class="ttc" id="aclass_rect_html_a33f868695b6ae5f84740bcf27cba48d8"><div class="ttname"><a href="class_rect.html#a33f868695b6ae5f84740bcf27cba48d8">Rect::intersects</a></div><div class="ttdeci">bool intersects(const Rect &amp;other) const</div><div class="ttdoc">判断两个矩形是否相交</div><div class="ttdef"><b>Definition</b> Rect.cpp:111</div></div>
+<div class="ttc" id="aclass_rect_html_a43f0e9ded9e0c27b5af5d02c12b23115"><div class="ttname"><a href="class_rect.html#a43f0e9ded9e0c27b5af5d02c12b23115">Rect::operator==</a></div><div class="ttdeci">bool operator==(const Rect &amp;other) const</div><div class="ttdoc">判断两个矩形是否相同</div><div class="ttdef"><b>Definition</b> Rect.cpp:141</div></div>
+<div class="ttc" id="aclass_rect_html_a4c2bbbd646c1ec52f99e535d9b6fa8a7"><div class="ttname"><a href="class_rect.html#a4c2bbbd646c1ec52f99e535d9b6fa8a7">Rect::adjusted</a></div><div class="ttdeci">Rect adjusted(long dleft, long dtop, long dright, long dbottom) const</div><div class="ttdoc">调整矩形</div><div class="ttdef"><b>Definition</b> Rect.cpp:164</div></div>
+<div class="ttc" id="aclass_rect_html_a50bb86c0190b33e47f89ba5d8954fdc9"><div class="ttname"><a href="class_rect.html#a50bb86c0190b33e47f89ba5d8954fdc9">Rect::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Rect &amp;rect)</div><div class="ttdoc">针对于流输出的运算符重载</div><div class="ttdef"><b>Definition</b> Rect.cpp:158</div></div>
+<div class="ttc" id="aclass_rect_html_a578cd20dd9c605eb0efc55b722fadcee"><div class="ttname"><a href="class_rect.html#a578cd20dd9c605eb0efc55b722fadcee">Rect::getTopLeft</a></div><div class="ttdeci">Point getTopLeft() const</div><div class="ttdoc">获取矩形左上角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:23</div></div>
+<div class="ttc" id="aclass_rect_html_a62076d233acf913e1c64465c70dc5cb6"><div class="ttname"><a href="class_rect.html#a62076d233acf913e1c64465c70dc5cb6">Rect::getBottomRight</a></div><div class="ttdeci">Point getBottomRight() const</div><div class="ttdoc">获取矩形右下角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:38</div></div>
+<div class="ttc" id="aclass_rect_html_a651f18fe8c7254c395ecf2900b7ded77"><div class="ttname"><a href="class_rect.html#a651f18fe8c7254c395ecf2900b7ded77">Rect::operator!=</a></div><div class="ttdeci">bool operator!=(const Rect &amp;other) const</div><div class="ttdoc">判断两个矩形是否不同</div><div class="ttdef"><b>Definition</b> Rect.cpp:147</div></div>
+<div class="ttc" id="aclass_rect_html_a66bf8b1d27e6d0d1ce3c5b345de39e29"><div class="ttname"><a href="class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29">Rect::right</a></div><div class="ttdeci">long right() const</div><div class="ttdoc">获取矩形右侧x坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:53</div></div>
+<div class="ttc" id="aclass_rect_html_a66ec4a9c49c20889d2a41edd94030c44"><div class="ttname"><a href="class_rect.html#a66ec4a9c49c20889d2a41edd94030c44">Rect::Rect</a></div><div class="ttdeci">Rect(long x, long y, long width, long height)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> Rect.cpp:7</div></div>
+<div class="ttc" id="aclass_rect_html_a6b5f40c20ae0a69885c1375c891e7a83"><div class="ttname"><a href="class_rect.html#a6b5f40c20ae0a69885c1375c891e7a83">Rect::getSize</a></div><div class="ttdeci">Size getSize() const</div><div class="ttdoc">获取矩形大小</div><div class="ttdef"><b>Definition</b> Rect.cpp:87</div></div>
+<div class="ttc" id="aclass_rect_html_a79beb3d08aa73bca47f0c630a346cee2"><div class="ttname"><a href="class_rect.html#a79beb3d08aa73bca47f0c630a346cee2">Rect::top</a></div><div class="ttdeci">long top() const</div><div class="ttdoc">获取矩形上侧y坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:48</div></div>
+<div class="ttc" id="aclass_rect_html_a8b66c9fbf5025610eff7fdfd3e1449b8"><div class="ttname"><a href="class_rect.html#a8b66c9fbf5025610eff7fdfd3e1449b8">Rect::setBottomRight</a></div><div class="ttdeci">void setBottomRight(const Point &amp;bottomRight)</div><div class="ttdoc">设置矩形右下角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:81</div></div>
+<div class="ttc" id="aclass_rect_html_a8fc4e312eff11b42bd5f098494ece90b"><div class="ttname"><a href="class_rect.html#a8fc4e312eff11b42bd5f098494ece90b">Rect::centerWith</a></div><div class="ttdeci">Rect centerWith(const Size &amp;size) const</div><div class="ttdoc">计算指定大小的尺寸居中于当前矩形时所具有矩形对象</div><div class="ttdef"><b>Definition</b> Rect.cpp:174</div></div>
+<div class="ttc" id="aclass_rect_html_a98114f450bf29f79d0ec5c8cfdb23b67"><div class="ttname"><a href="class_rect.html#a98114f450bf29f79d0ec5c8cfdb23b67">Rect::offset</a></div><div class="ttdeci">void offset(long dx, long dy)</div><div class="ttdoc">偏移矩形位置</div><div class="ttdef"><b>Definition</b> Rect.cpp:117</div></div>
+<div class="ttc" id="aclass_rect_html_aa141b6ae2fbd2e04514230fa5a11d3af"><div class="ttname"><a href="class_rect.html#aa141b6ae2fbd2e04514230fa5a11d3af">Rect::left</a></div><div class="ttdeci">long left() const</div><div class="ttdoc">获取矩形左侧x坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:43</div></div>
+<div class="ttc" id="aclass_rect_html_ac4b44ef57cb81abf947e98fa930c05cf"><div class="ttname"><a href="class_rect.html#ac4b44ef57cb81abf947e98fa930c05cf">Rect::getTopRight</a></div><div class="ttdeci">Point getTopRight() const</div><div class="ttdoc">获取矩形右上角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:28</div></div>
+<div class="ttc" id="aclass_rect_html_ad36370c41aa325f888a7bc51388dcffe"><div class="ttname"><a href="class_rect.html#ad36370c41aa325f888a7bc51388dcffe">Rect::setTopRight</a></div><div class="ttdeci">void setTopRight(const Point &amp;topRight)</div><div class="ttdoc">设置矩形右上角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:69</div></div>
+<div class="ttc" id="aclass_rect_html_ad384dfeb019d45a9882a0ebaa7a60786"><div class="ttname"><a href="class_rect.html#ad384dfeb019d45a9882a0ebaa7a60786">Rect::getBottomLeft</a></div><div class="ttdeci">Point getBottomLeft() const</div><div class="ttdoc">获取矩形左下角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:33</div></div>
+<div class="ttc" id="aclass_rect_html_ad48163f60aed29ce0b6e883a72390e79"><div class="ttname"><a href="class_rect.html#ad48163f60aed29ce0b6e883a72390e79">Rect::inflate</a></div><div class="ttdeci">void inflate(long dwidth, long dheight)</div><div class="ttdoc">增减矩形大小</div><div class="ttdef"><b>Definition</b> Rect.cpp:129</div></div>
+<div class="ttc" id="aclass_rect_html_ae4f3e31ce1bf00869b2f1ab0416a4f1a"><div class="ttname"><a href="class_rect.html#ae4f3e31ce1bf00869b2f1ab0416a4f1a">Rect::bottom</a></div><div class="ttdeci">long bottom() const</div><div class="ttdoc">获取矩形下侧y坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:58</div></div>
+<div class="ttc" id="aclass_rect_html_afd19d268c16739781bf1808ace6fd845"><div class="ttname"><a href="class_rect.html#afd19d268c16739781bf1808ace6fd845">Rect::setBottomLeft</a></div><div class="ttdeci">void setBottomLeft(const Point &amp;bottomLeft)</div><div class="ttdoc">设置矩形左下角坐标</div><div class="ttdef"><b>Definition</b> Rect.cpp:75</div></div>
+<div class="ttc" id="aclass_size_html"><div class="ttname"><a href="class_size.html">Size</a></div><div class="ttdoc">二维尺寸类</div><div class="ttdef"><b>Definition</b> Size.h:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><b>Rect.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

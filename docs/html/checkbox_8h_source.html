@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/class/checkbox.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('checkbox_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">checkbox.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../view/Block.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../view/Color.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_signal_slots_8hpp.html">../core/SignalSlots.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_checkbox.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_checkbox.html">Checkbox</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_block.html">Block</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> checked_;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> hovered_;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::wstring text_;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_color.html">Color</a> textColor_;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_color.html">Color</a> checkColor_;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_color.html">Color</a> borderColor_;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> borderWidth_;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> boxSize_;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#a8ca1a5487e68cdff18d08a872448bd3b">paintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#a7447728c93ba5f8f8c7bbe383a203de8">mousePressEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_define" href="group___xE6_xA0_xB8_xE5_xBF_x83.html#gaabbcb0bbcbcb6adcf20d63cc22f83649">signals</a>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_checkbox.html#aae6ba2e629166401c9a69ac3c3ccade6">   51</a></span>    <a class="code hl_class" href="class_signal.html">Signal</a>&lt;void(<span class="keywordtype">bool</span>)&gt; <a class="code hl_variable" href="class_checkbox.html#aae6ba2e629166401c9a69ac3c3ccade6">checkedChanged</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_function" href="class_checkbox.html#ac40c173ac4d144f372f0ceec8841604a">Checkbox</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <a class="code hl_class" href="class_block.html">Block</a> *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_checkbox.html#a2efef30d5ff374d1e16eafcee2357f8d">   63</a></span>    <a class="code hl_function" href="class_checkbox.html#a2efef30d5ff374d1e16eafcee2357f8d">~Checkbox</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_checkbox.html#a186f541cd644204424bc72e22d992a49">isChecked</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#a93f354cae0a46b95efd2c156dc639bf1">setChecked</a>(<span class="keywordtype">bool</span> checked);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#a5a7e0aac698d2d6e232f3ce3216ffa08">setText</a>(<span class="keyword">const</span> std::wstring &amp;text);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#adddf03d70a3199bc5db826459393cd19">setTextColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#a5829ffb19f12453b281c609a44b0ff1e">setCheckColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#ad24b9ba758f6b1d70f3c0189fb992a36">setBorderColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#ad07e194e9a88b04e6343eba7072c1001">setBorderWidth</a>(<span class="keywordtype">int</span> width);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_checkbox.html#ae4f94619cfdd5e5d12bb67f36d243173">setBoxSize</a>(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="ttc" id="a_signal_slots_8hpp_html"><div class="ttname"><a href="_signal_slots_8hpp.html">SignalSlots.hpp</a></div><div class="ttdoc">信号-槽机制</div></div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:264</div></div>
+<div class="ttc" id="aclass_checkbox_html"><div class="ttname"><a href="class_checkbox.html">Checkbox</a></div><div class="ttdoc">复选框控件</div><div class="ttdef"><b>Definition</b> checkbox.h:19</div></div>
+<div class="ttc" id="aclass_checkbox_html_a186f541cd644204424bc72e22d992a49"><div class="ttname"><a href="class_checkbox.html#a186f541cd644204424bc72e22d992a49">Checkbox::isChecked</a></div><div class="ttdeci">bool isChecked() const</div><div class="ttdoc">获取复选框是否被选中</div><div class="ttdef"><b>Definition</b> checkbox.cpp:61</div></div>
+<div class="ttc" id="aclass_checkbox_html_a2efef30d5ff374d1e16eafcee2357f8d"><div class="ttname"><a href="class_checkbox.html#a2efef30d5ff374d1e16eafcee2357f8d">Checkbox::~Checkbox</a></div><div class="ttdeci">~Checkbox() override=default</div><div class="ttdoc">析构函数</div></div>
+<div class="ttc" id="aclass_checkbox_html_a5829ffb19f12453b281c609a44b0ff1e"><div class="ttname"><a href="class_checkbox.html#a5829ffb19f12453b281c609a44b0ff1e">Checkbox::setCheckColor</a></div><div class="ttdeci">void setCheckColor(const Color &amp;color)</div><div class="ttdoc">设置复选框的勾选框颜色</div><div class="ttdef"><b>Definition</b> checkbox.cpp:81</div></div>
+<div class="ttc" id="aclass_checkbox_html_a5a7e0aac698d2d6e232f3ce3216ffa08"><div class="ttname"><a href="class_checkbox.html#a5a7e0aac698d2d6e232f3ce3216ffa08">Checkbox::setText</a></div><div class="ttdeci">void setText(const std::wstring &amp;text)</div><div class="ttdoc">设置复选框的文本内容</div><div class="ttdef"><b>Definition</b> checkbox.cpp:71</div></div>
+<div class="ttc" id="aclass_checkbox_html_a7447728c93ba5f8f8c7bbe383a203de8"><div class="ttname"><a href="class_checkbox.html#a7447728c93ba5f8f8c7bbe383a203de8">Checkbox::mousePressEvent</a></div><div class="ttdeci">void mousePressEvent(const Point &amp;pos, MouseButton button) override</div><div class="ttdoc">重写 mousePressEvent() 函数，响应鼠标点击事件</div><div class="ttdef"><b>Definition</b> checkbox.cpp:35</div></div>
+<div class="ttc" id="aclass_checkbox_html_a8ca1a5487e68cdff18d08a872448bd3b"><div class="ttname"><a href="class_checkbox.html#a8ca1a5487e68cdff18d08a872448bd3b">Checkbox::paintEvent</a></div><div class="ttdeci">void paintEvent(const PaintEvent &amp;event) override</div><div class="ttdoc">重写 paintEvent() 函数，绘制复选框</div><div class="ttdef"><b>Definition</b> checkbox.cpp:5</div></div>
+<div class="ttc" id="aclass_checkbox_html_a93f354cae0a46b95efd2c156dc639bf1"><div class="ttname"><a href="class_checkbox.html#a93f354cae0a46b95efd2c156dc639bf1">Checkbox::setChecked</a></div><div class="ttdeci">void setChecked(bool checked)</div><div class="ttdoc">设置复选框是否被选中</div><div class="ttdef"><b>Definition</b> checkbox.cpp:66</div></div>
+<div class="ttc" id="aclass_checkbox_html_aae6ba2e629166401c9a69ac3c3ccade6"><div class="ttname"><a href="class_checkbox.html#aae6ba2e629166401c9a69ac3c3ccade6">Checkbox::checkedChanged</a></div><div class="ttdeci">Signal&lt; void(bool)&gt; checkedChanged</div><div class="ttdoc">复选框状态改变信号</div><div class="ttdef"><b>Definition</b> checkbox.h:51</div></div>
+<div class="ttc" id="aclass_checkbox_html_ac40c173ac4d144f372f0ceec8841604a"><div class="ttname"><a href="class_checkbox.html#ac40c173ac4d144f372f0ceec8841604a">Checkbox::Checkbox</a></div><div class="ttdeci">Checkbox(const Rect &amp;rect, Block *parent=nullptr)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> checkbox.cpp:45</div></div>
+<div class="ttc" id="aclass_checkbox_html_ad07e194e9a88b04e6343eba7072c1001"><div class="ttname"><a href="class_checkbox.html#ad07e194e9a88b04e6343eba7072c1001">Checkbox::setBorderWidth</a></div><div class="ttdeci">void setBorderWidth(int width)</div><div class="ttdoc">设置复选框的边框宽度</div><div class="ttdef"><b>Definition</b> checkbox.cpp:91</div></div>
+<div class="ttc" id="aclass_checkbox_html_ad24b9ba758f6b1d70f3c0189fb992a36"><div class="ttname"><a href="class_checkbox.html#ad24b9ba758f6b1d70f3c0189fb992a36">Checkbox::setBorderColor</a></div><div class="ttdeci">void setBorderColor(const Color &amp;color)</div><div class="ttdoc">设置复选框的边框颜色</div><div class="ttdef"><b>Definition</b> checkbox.cpp:86</div></div>
+<div class="ttc" id="aclass_checkbox_html_adddf03d70a3199bc5db826459393cd19"><div class="ttname"><a href="class_checkbox.html#adddf03d70a3199bc5db826459393cd19">Checkbox::setTextColor</a></div><div class="ttdeci">void setTextColor(const Color &amp;color)</div><div class="ttdoc">设置复选框的文字颜色</div><div class="ttdef"><b>Definition</b> checkbox.cpp:76</div></div>
+<div class="ttc" id="aclass_checkbox_html_ae4f94619cfdd5e5d12bb67f36d243173"><div class="ttname"><a href="class_checkbox.html#ae4f94619cfdd5e5d12bb67f36d243173">Checkbox::setBoxSize</a></div><div class="ttdeci">void setBoxSize(int size)</div><div class="ttdoc">设置复选框的尺寸</div><div class="ttdef"><b>Definition</b> checkbox.cpp:96</div></div>
+<div class="ttc" id="aclass_color_html"><div class="ttname"><a href="class_color.html">Color</a></div><div class="ttdoc">此类以 RGB 颜色模型对颜色进行存储</div><div class="ttdef"><b>Definition</b> Color.h:32</div></div>
+<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdef"><b>Definition</b> Painter.h:374</div></div>
+<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdoc">此类定义二维坐标点</div><div class="ttdef"><b>Definition</b> Point.h:17</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:15</div></div>
+<div class="ttc" id="aclass_signal_html"><div class="ttname"><a href="class_signal.html">Signal</a></div><div class="ttdoc">信号类，是信号槽机制的核心类</div><div class="ttdef"><b>Definition</b> SignalSlots.hpp:20</div></div>
+<div class="ttc" id="agroup___xE6_xA0_xB8_xE5_xBF_x83_html_gaabbcb0bbcbcb6adcf20d63cc22f83649"><div class="ttname"><a href="group___xE6_xA0_xB8_xE5_xBF_x83.html#gaabbcb0bbcbcb6adcf20d63cc22f83649">signals</a></div><div class="ttdeci">#define signals</div><div class="ttdoc">信号列表宏定义</div><div class="ttdef"><b>Definition</b> SignalSlots.hpp:141</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gac1ec3647c005eacad401b06e7e18f711"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a></div><div class="ttdeci">MouseButton</div><div class="ttdoc">鼠标按钮枚举</div><div class="ttdef"><b>Definition</b> Block.h:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e476b43ffada8fe94e322482066afde7.html">class</a></li><li class="navelem"><b>checkbox.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
