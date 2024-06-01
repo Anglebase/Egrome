@@ -68,6 +68,7 @@ Rect Painter::rect() const
         return Rect(0, 0, this->block->rect_.width_, this->block->rect_.height_);
     if (this->pixelMap)
         return Rect(0, 0, this->pixelMap->width_, this->pixelMap->height_);
+    return Rect(0, 0, 0, 0);
 }
 
 void Painter::setPenColor(const Color &color) const
@@ -502,527 +503,529 @@ void Painter::drawText(const Rect &rect, const std::wstring &text) const
     this->drawText(p + Point(rect.left(), rect.top()), text);
 }
 
-DWORD translateOperationCode(const std::string_view &blendMode)
+DWORD translateOperationCode(BlendMode blendMode)
 {
-    if ("0" == blendMode)
+    switch (blendMode)
+    {
+    case BlendMode::Mode_0:
         return 0x00000042;
-    if ("DPSoon" == blendMode)
+    case BlendMode::DPSoon:
         return 0x00010289;
-    if ("DPSona" == blendMode)
+    case BlendMode::DPSona:
         return 0x00020C89;
-    if ("PSon" == blendMode)
+    case BlendMode::PSon:
         return 0x000300AA;
-    if ("SDPona" == blendMode)
+    case BlendMode::SDPona:
         return 0x00040C88;
-    if ("DPon" == blendMode)
+    case BlendMode::DPon:
         return 0x000500A9;
-    if ("PDSxnon" == blendMode)
+    case BlendMode::PDSxnon:
         return 0x00060865;
-    if ("PDSaon" == blendMode)
+    case BlendMode::PDSaon:
         return 0x000702C5;
-    if ("SDPnaa" == blendMode)
+    case BlendMode::SDPnaa:
         return 0x00080F08;
-    if ("PDSxon" == blendMode)
+    case BlendMode::PDSxon:
         return 0x00090245;
-    if ("DPna" == blendMode)
+    case BlendMode::DPna:
         return 0x000A0329;
-    if ("PSDnaon" == blendMode)
+    case BlendMode::PSDnaon:
         return 0x000B0B2A;
-    if ("SPna" == blendMode)
+    case BlendMode::SPna:
         return 0x000C0324;
-    if ("PDSnaon" == blendMode)
+    case BlendMode::PDSnaon:
         return 0x000D0B25;
-    if ("PDSonon" == blendMode)
+    case BlendMode::PDSonon:
         return 0x000E08A5;
-    if ("Pn" == blendMode)
+    case BlendMode::Pn:
         return 0x000F0001;
-    if ("PDSona" == blendMode)
+    case BlendMode::PDSona:
         return 0x00100C85;
-    if ("DSon" == blendMode)
+    case BlendMode::DSon:
         return 0x001100A6;
-    if ("SDPxnon" == blendMode)
+    case BlendMode::SDPxnon:
         return 0x00120868;
-    if ("SDPaon" == blendMode)
+    case BlendMode::SDPaon:
         return 0x001302C8;
-    if ("DPSxnon" == blendMode)
+    case BlendMode::DPSxnon:
         return 0x00140869;
-    if ("DPSaon" == blendMode)
+    case BlendMode::DPSaon:
         return 0x001502C9;
-    if ("PSDPSanaxx" == blendMode)
+    case BlendMode::PSDPSanaxx:
         return 0x00165CCA;
-    if ("SSPxDSxaxn" == blendMode)
+    case BlendMode::SSPxDSxaxn:
         return 0x00171D54;
-    if ("SPxPDxa" == blendMode)
+    case BlendMode::SPxPDxa:
         return 0x00180D59;
-    if ("SDPSanaxn" == blendMode)
+    case BlendMode::SDPSanaxn:
         return 0x00191CC8;
-    if ("PDSPaox" == blendMode)
+    case BlendMode::PDSPaox:
         return 0x001A06C5;
-    if ("SDPSxaxn" == blendMode)
+    case BlendMode::SDPSxaxn:
         return 0x001B0768;
-    if ("PSDPaox" == blendMode)
+    case BlendMode::PSDPaox:
         return 0x001C06CA;
-    if ("DSPDxaxn" == blendMode)
+    case BlendMode::DSPDxaxn:
         return 0x001D0766;
-    if ("PDSox" == blendMode)
+    case BlendMode::PDSox:
         return 0x001E01A5;
-    if ("PDSoan" == blendMode)
+    case BlendMode::PDSoan:
         return 0x001F0385;
-    if ("DPSnaa" == blendMode)
+    case BlendMode::DPSnaa:
         return 0x00200F09;
-    if ("SDPxon" == blendMode)
+    case BlendMode::SDPxon:
         return 0x00210248;
-    if ("DSna" == blendMode)
+    case BlendMode::DSna:
         return 0x00220326;
-    if ("SPDnaon" == blendMode)
+    case BlendMode::SPDnaon:
         return 0x00230B24;
-    if ("SPxDSxa" == blendMode)
+    case BlendMode::SPxDSxa:
         return 0x00240D55;
-    if ("PDSPanaxn" == blendMode)
+    case BlendMode::PDSPanaxn:
         return 0x00251CC5;
-    if ("SDPSaox" == blendMode)
+    case BlendMode::SDPSaox:
         return 0x002606C8;
-    if ("SDPSxnox" == blendMode)
+    case BlendMode::SDPSxnox:
         return 0x00271868;
-    if ("DPSxa" == blendMode)
+    case BlendMode::DPSxa:
         return 0x00280369;
-    if ("PSDPSaoxxn" == blendMode)
+    case BlendMode::PSDPSaoxxn:
         return 0x002916CA;
-    if ("DPSana" == blendMode)
+    case BlendMode::DPSana:
         return 0x002A0CC9;
-    if ("SSPxPDxaxn" == blendMode)
+    case BlendMode::SSPxPDxaxn:
         return 0x002B1D58;
-    if ("SPDSoax" == blendMode)
+    case BlendMode::SPDSoax:
         return 0x002C0784;
-    if ("PSDnox" == blendMode)
+    case BlendMode::PSDnox:
         return 0x002D060A;
-    if ("PSDPxox" == blendMode)
+    case BlendMode::PSDPxox:
         return 0x002E064A;
-    if ("PSDnoan" == blendMode)
+    case BlendMode::PSDnoan:
         return 0x002F0E2A;
-    if ("PSna" == blendMode)
+    case BlendMode::PSna:
         return 0x0030032A;
-    if ("SDPnaon" == blendMode)
+    case BlendMode::SDPnaon:
         return 0x00310B28;
-    if ("SDPSoox" == blendMode)
+    case BlendMode::SDPSoox:
         return 0x00320688;
-    if ("Sn" == blendMode)
+    case BlendMode::Sn:
         return 0x00330008;
-    if ("SPDSaox" == blendMode)
+    case BlendMode::SPDSaox:
         return 0x003406C4;
-    if ("SPDSxnox" == blendMode)
+    case BlendMode::SPDSxnox:
         return 0x00351864;
-    if ("SDPox" == blendMode)
+    case BlendMode::SDPox:
         return 0x003601A8;
-    if ("SDPoan" == blendMode)
+    case BlendMode::SDPoan:
         return 0x00370388;
-    if ("PSDPoax" == blendMode)
+    case BlendMode::PSDPoax:
         return 0x0038078A;
-    if ("SPDnox" == blendMode)
+    case BlendMode::SPDnox:
         return 0x00390604;
-    if ("SPDSxox" == blendMode)
+    case BlendMode::SPDSxox:
         return 0x003A0644;
-    if ("SPDnoan" == blendMode)
+    case BlendMode::SPDnoan:
         return 0x003B0E24;
-    if ("PSx" == blendMode)
+    case BlendMode::PSx:
         return 0x003C004A;
-    if ("SPDSonox" == blendMode)
+    case BlendMode::SPDSonox:
         return 0x003D18A4;
-    if ("SPDSnaox" == blendMode)
+    case BlendMode::SPDSnaox:
         return 0x003E1B24;
-    if ("PSan" == blendMode)
+    case BlendMode::PSan:
         return 0x003F00EA;
-    if ("PSDnaa" == blendMode)
+    case BlendMode::PSDnaa:
         return 0x00400F0A;
-    if ("DPSxon" == blendMode)
+    case BlendMode::DPSxon:
         return 0x00410249;
-    if ("SDxPDxa" == blendMode)
+    case BlendMode::SDxPDxa:
         return 0x00420D5D;
-    if ("SPDSanaxn" == blendMode)
+    case BlendMode::SPDSanaxn:
         return 0x00431CC4;
-    if ("SDna" == blendMode)
+    case BlendMode::SDna:
         return 0x00440328;
-    if ("DPSnaon" == blendMode)
+    case BlendMode::DPSnaon:
         return 0x00450B29;
-    if ("DSPDaox" == blendMode)
+    case BlendMode::DSPDaox:
         return 0x004606C6;
-    if ("PSDPxaxn" == blendMode)
+    case BlendMode::PSDPxaxn:
         return 0x0047076A;
-    if ("SDPxa" == blendMode)
+    case BlendMode::SDPxa:
         return 0x00480368;
-    if ("PDSPDaoxxn" == blendMode)
+    case BlendMode::PDSPDaoxxn:
         return 0x004916C5;
-    if ("DPSDoax" == blendMode)
+    case BlendMode::DPSDoax:
         return 0x004A0789;
-    if ("PDSnox" == blendMode)
+    case BlendMode::PDSnox:
         return 0x004B0605;
-    if ("SDPana" == blendMode)
+    case BlendMode::SDPana:
         return 0x004C0CC8;
-    if ("SSPxDSxoxn" == blendMode)
+    case BlendMode::SSPxDSxoxn:
         return 0x004D1954;
-    if ("PDSPxox" == blendMode)
+    case BlendMode::PDSPxox:
         return 0x004E0645;
-    if ("PDSnoan" == blendMode)
+    case BlendMode::PDSnoan:
         return 0x004F0E25;
-    if ("PDna" == blendMode)
+    case BlendMode::PDna:
         return 0x00500325;
-    if ("DSPnaon" == blendMode)
+    case BlendMode::DSPnaon:
         return 0x00510B26;
-    if ("DPSDaox" == blendMode)
+    case BlendMode::DPSDaox:
         return 0x005206C9;
-    if ("SPDSxaxn" == blendMode)
+    case BlendMode::SPDSxaxn:
         return 0x00530764;
-    if ("DPSonon" == blendMode)
+    case BlendMode::DPSonon:
         return 0x005408A9;
-    if ("Dn" == blendMode)
+    case BlendMode::Dn:
         return 0x00550009;
-    if ("DPSox" == blendMode)
+    case BlendMode::DPSox:
         return 0x005601A9;
-    if ("DPSoan" == blendMode)
+    case BlendMode::DPSoan:
         return 0x00570389;
-    if ("PDSPoax" == blendMode)
+    case BlendMode::PDSPoax:
         return 0x00580785;
-    if ("DPSnox" == blendMode)
+    case BlendMode::DPSnox:
         return 0x00590609;
-    if ("DPx" == blendMode)
+    case BlendMode::DPx:
         return 0x005A0049;
-    if ("DPSDonox" == blendMode)
+    case BlendMode::DPSDonox:
         return 0x005B18A9;
-    if ("DPSDxox" == blendMode)
+    case BlendMode::DPSDxox:
         return 0x005C0649;
-    if ("DPSnoan" == blendMode)
+    case BlendMode::DPSnoan:
         return 0x005D0E29;
-    if ("DPSDnaox" == blendMode)
+    case BlendMode::DPSDnaox:
         return 0x005E1B29;
-    if ("DPan" == blendMode)
+    case BlendMode::DPan:
         return 0x005F00E9;
-    if ("PDSxa" == blendMode)
+    case BlendMode::PDSxa:
         return 0x00600365;
-    if ("DSPDSaoxxn" == blendMode)
+    case BlendMode::DSPDSaoxxn:
         return 0x006116C6;
-    if ("DSPDoax" == blendMode)
+    case BlendMode::DSPDoax:
         return 0x00620786;
-    if ("SDPnox" == blendMode)
+    case BlendMode::SDPnox:
         return 0x00630608;
-    if ("SDPSoax" == blendMode)
+    case BlendMode::SDPSoax:
         return 0x00640788;
-    if ("DSPnox" == blendMode)
+    case BlendMode::DSPnox:
         return 0x00650606;
-    if ("DSx" == blendMode)
+    case BlendMode::DSx:
         return 0x00660046;
-    if ("SDPSonox" == blendMode)
+    case BlendMode::SDPSonox:
         return 0x006718A8;
-    if ("DSPDSonoxxn" == blendMode)
+    case BlendMode::DSPDSonoxxn:
         return 0x006858A6;
-    if ("PDSxxn" == blendMode)
+    case BlendMode::PDSxxn:
         return 0x00690145;
-    if ("DPSax" == blendMode)
+    case BlendMode::DPSax:
         return 0x006A01E9;
-    if ("PSDPSoaxxn" == blendMode)
+    case BlendMode::PSDPSoaxxn:
         return 0x006B178A;
-    if ("SDPax" == blendMode)
+    case BlendMode::SDPax:
         return 0x006C01E8;
-    if ("PDSPDoaxxn" == blendMode)
+    case BlendMode::PDSPDoaxxn:
         return 0x006D1785;
-    if ("SDPSnoax" == blendMode)
+    case BlendMode::SDPSnoax:
         return 0x006E1E28;
-    if ("PDSxnan" == blendMode)
+    case BlendMode::PDSxnan:
         return 0x006F0C65;
-    if ("PDSana" == blendMode)
+    case BlendMode::PDSana:
         return 0x00700CC5;
-    if ("SSDxPDxaxn" == blendMode)
+    case BlendMode::SSDxPDxaxn:
         return 0x00711D5C;
-    if ("SDPSxox" == blendMode)
+    case BlendMode::SDPSxox:
         return 0x00720648;
-    if ("SDPnoan" == blendMode)
+    case BlendMode::SDPnoan:
         return 0x00730E28;
-    if ("DSPDxox" == blendMode)
+    case BlendMode::DSPDxox:
         return 0x00740646;
-    if ("DSPnoan" == blendMode)
+    case BlendMode::DSPnoan:
         return 0x00750E26;
-    if ("SDPSnaox" == blendMode)
+    case BlendMode::SDPSnaox:
         return 0x00761B28;
-    if ("DSan" == blendMode)
+    case BlendMode::DSan:
         return 0x007700E6;
-    if ("PDSax" == blendMode)
+    case BlendMode::PDSax:
         return 0x007801E5;
-    if ("DSPDSoaxxn" == blendMode)
+    case BlendMode::DSPDSoaxxn:
         return 0x00791786;
-    if ("DPSDnoax" == blendMode)
+    case BlendMode::DPSDnoax:
         return 0x007A1E29;
-    if ("SDPxnan" == blendMode)
+    case BlendMode::SDPxnan:
         return 0x007B0C68;
-    if ("SPDSnoax" == blendMode)
+    case BlendMode::SPDSnoax:
         return 0x007C1E24;
-    if ("DPSxnan" == blendMode)
+    case BlendMode::DPSxnan:
         return 0x007D0C69;
-    if ("SPxDSxo" == blendMode)
+    case BlendMode::SPxDSxo:
         return 0x007E0955;
-    if ("DPSaan" == blendMode)
+    case BlendMode::DPSaan:
         return 0x007F03C9;
-    if ("DPSaa" == blendMode)
+    case BlendMode::DPSaa:
         return 0x008003E9;
-    if ("SPxDSxon" == blendMode)
+    case BlendMode::SPxDSxon:
         return 0x00810975;
-    if ("DPSxna" == blendMode)
+    case BlendMode::DPSxna:
         return 0x00820C49;
-    if ("SPDSnoaxn" == blendMode)
+    case BlendMode::SPDSnoaxn:
         return 0x00831E04;
-    if ("SDPxna" == blendMode)
+    case BlendMode::SDPxna:
         return 0x00840C48;
-    if ("PDSPnoaxn" == blendMode)
+    case BlendMode::PDSPnoaxn:
         return 0x00851E05;
-    if ("DSPDSoaxx" == blendMode)
+    case BlendMode::DSPDSoaxx:
         return 0x008617A6;
-    if ("PDSaxn" == blendMode)
+    case BlendMode::PDSaxn:
         return 0x008701C5;
-    if ("DSa" == blendMode)
+    case BlendMode::DSa:
         return 0x008800C6;
-    if ("SDPSnaoxn" == blendMode)
+    case BlendMode::SDPSnaoxn:
         return 0x00891B08;
-    if ("DSPnoa" == blendMode)
+    case BlendMode::DSPnoa:
         return 0x008A0E06;
-    if ("DSPDxoxn" == blendMode)
+    case BlendMode::DSPDxoxn:
         return 0x008B0666;
-    if ("SDPnoa" == blendMode)
+    case BlendMode::SDPnoa:
         return 0x008C0E08;
-    if ("SDPSxoxn" == blendMode)
+    case BlendMode::SDPSxoxn:
         return 0x008D0668;
-    if ("SSDxPDxax" == blendMode)
+    case BlendMode::SSDxPDxax:
         return 0x008E1D7C;
-    if ("PDSanan" == blendMode)
+    case BlendMode::PDSanan:
         return 0x008F0CE5;
-    if ("PDSxna" == blendMode)
+    case BlendMode::PDSxna:
         return 0x00900C45;
-    if ("SDPSnoaxn" == blendMode)
+    case BlendMode::SDPSnoaxn:
         return 0x00911E08;
-    if ("DPSDPoaxx" == blendMode)
+    case BlendMode::DPSDPoaxx:
         return 0x009217A9;
-    if ("SPDaxn" == blendMode)
+    case BlendMode::SPDaxn:
         return 0x009301C4;
-    if ("PSDPSoaxx" == blendMode)
+    case BlendMode::PSDPSoaxx:
         return 0x009417AA;
-    if ("DPSaxn" == blendMode)
+    case BlendMode::DPSaxn:
         return 0x009501C9;
-    if ("DPSxx" == blendMode)
+    case BlendMode::DPSxx:
         return 0x00960169;
-    if ("PSDPSonoxx" == blendMode)
+    case BlendMode::PSDPSonoxx:
         return 0x0097588A;
-    if ("SDPSonoxn" == blendMode)
+    case BlendMode::SDPSonoxn:
         return 0x00981888;
-    if ("DSxn" == blendMode)
+    case BlendMode::DSxn:
         return 0x00990066;
-    if ("DPSnax" == blendMode)
+    case BlendMode::DPSnax:
         return 0x009A0709;
-    if ("SDPSoaxn" == blendMode)
+    case BlendMode::SDPSoaxn:
         return 0x009B07A8;
-    if ("SPDnax" == blendMode)
+    case BlendMode::SPDnax:
         return 0x009C0704;
-    if ("DSPDoaxn" == blendMode)
+    case BlendMode::DSPDoaxn:
         return 0x009D07A6;
-    if ("DSPDSaoxx" == blendMode)
+    case BlendMode::DSPDSaoxx:
         return 0x009E16E6;
-    if ("PDSxan" == blendMode)
+    case BlendMode::PDSxan:
         return 0x009F0345;
-    if ("DPa" == blendMode)
+    case BlendMode::DPa:
         return 0x00A000C9;
-    if ("PDSPnaoxn" == blendMode)
+    case BlendMode::PDSPnaoxn:
         return 0x00A11B05;
-    if ("DPSnoa" == blendMode)
+    case BlendMode::DPSnoa:
         return 0x00A20E09;
-    if ("DPSDxoxn" == blendMode)
+    case BlendMode::DPSDxoxn:
         return 0x00A30669;
-    if ("PDSPonoxn" == blendMode)
+    case BlendMode::PDSPonoxn:
         return 0x00A41885;
-    if ("PDxn" == blendMode)
+    case BlendMode::PDxn:
         return 0x00A50065;
-    if ("DSPnax" == blendMode)
+    case BlendMode::DSPnax:
         return 0x00A60706;
-    if ("PDSPoaxn" == blendMode)
+    case BlendMode::PDSPoaxn:
         return 0x00A707A5;
-    if ("DPSoa" == blendMode)
+    case BlendMode::DPSoa:
         return 0x00A803A9;
-    if ("DPSoxn" == blendMode)
+    case BlendMode::DPSoxn:
         return 0x00A90189;
-    if ("D" == blendMode)
+    case BlendMode::D:
         return 0x00AA0029;
-    if ("DPSono" == blendMode)
+    case BlendMode::DPSono:
         return 0x00AB0889;
-    if ("SPDSxax" == blendMode)
+    case BlendMode::SPDSxax:
         return 0x00AC0744;
-    if ("DPSDaoxn" == blendMode)
+    case BlendMode::DPSDaoxn:
         return 0x00AD06E9;
-    if ("DSPnao" == blendMode)
+    case BlendMode::DSPnao:
         return 0x00AE0B06;
-    if ("DPno" == blendMode)
+    case BlendMode::DPno:
         return 0x00AF0229;
-    if ("PDSnoa" == blendMode)
+    case BlendMode::PDSnoa:
         return 0x00B00E05;
-    if ("PDSPxoxn" == blendMode)
+    case BlendMode::PDSPxoxn:
         return 0x00B10665;
-    if ("SSPxDSxox" == blendMode)
+    case BlendMode::SSPxDSxox:
         return 0x00B21974;
-    if ("SDPanan" == blendMode)
+    case BlendMode::SDPanan:
         return 0x00B30CE8;
-    if ("PSDnax" == blendMode)
+    case BlendMode::PSDnax:
         return 0x00B4070A;
-    if ("DPSDoaxn" == blendMode)
+    case BlendMode::DPSDoaxn:
         return 0x00B507A9;
-    if ("DPSDPaoxx" == blendMode)
+    case BlendMode::DPSDPaoxx:
         return 0x00B616E9;
-    if ("SDPxan" == blendMode)
+    case BlendMode::SDPxan:
         return 0x00B70348;
-    if ("PSDPxax" == blendMode)
+    case BlendMode::PSDPxax:
         return 0x00B8074A;
-    if ("DSPDaoxn" == blendMode)
+    case BlendMode::DSPDaoxn:
         return 0x00B906E6;
-    if ("DPSnao" == blendMode)
+    case BlendMode::DPSnao:
         return 0x00BA0B09;
-    if ("DSno" == blendMode)
+    case BlendMode::DSno:
         return 0x00BB0226;
-    if ("SPDSanax" == blendMode)
+    case BlendMode::SPDSanax:
         return 0x00BC1CE4;
-    if ("SDxPDxan" == blendMode)
+    case BlendMode::SDxPDxan:
         return 0x00BD0D7D;
-    if ("DPSxo" == blendMode)
+    case BlendMode::DPSxo:
         return 0x00BE0269;
-    if ("DPSano" == blendMode)
+    case BlendMode::DPSano:
         return 0x00BF08C9;
-    if ("PSa" == blendMode)
+    case BlendMode::PSa:
         return 0x00C000CA;
-    if ("SPDSnaoxn" == blendMode)
+    case BlendMode::SPDSnaoxn:
         return 0x00C11B04;
-    if ("SPDSonoxn" == blendMode)
+    case BlendMode::SPDSonoxn:
         return 0x00C21884;
-    if ("PSxn" == blendMode)
+    case BlendMode::PSxn:
         return 0x00C3006A;
-    if ("SPDnoa" == blendMode)
+    case BlendMode::SPDnoa:
         return 0x00C40E04;
-    if ("SPDSxoxn" == blendMode)
+    case BlendMode::SPDSxoxn:
         return 0x00C50664;
-    if ("SDPnax" == blendMode)
+    case BlendMode::SDPnax:
         return 0x00C60708;
-    if ("PSDPoaxn" == blendMode)
+    case BlendMode::PSDPoaxn:
         return 0x00C707AA;
-    if ("SDPoa" == blendMode)
+    case BlendMode::SDPoa:
         return 0x00C803A8;
-    if ("SPDoxn" == blendMode)
+    case BlendMode::SPDoxn:
         return 0x00C90184;
-    if ("DPSDxax" == blendMode)
+    case BlendMode::DPSDxax:
         return 0x00CA0749;
-    if ("SPDSaoxn" == blendMode)
+    case BlendMode::SPDSaoxn:
         return 0x00CB06E4;
-    if ("S" == blendMode)
+    case BlendMode::S:
         return 0x00CC0020;
-    if ("SDPono" == blendMode)
+    case BlendMode::SDPono:
         return 0x00CD0888;
-    if ("SDPnao" == blendMode)
+    case BlendMode::SDPnao:
         return 0x00CE0B08;
-    if ("SPno" == blendMode)
+    case BlendMode::SPno:
         return 0x00CF0224;
-    if ("PSDnoa" == blendMode)
+    case BlendMode::PSDnoa:
         return 0x00D00E0A;
-    if ("PSDPxoxn" == blendMode)
+    case BlendMode::PSDPxoxn:
         return 0x00D1066A;
-    if ("PDSnax" == blendMode)
+    case BlendMode::PDSnax:
         return 0x00D20705;
-    if ("SPDSoaxn" == blendMode)
+    case BlendMode::SPDSoaxn:
         return 0x00D307A4;
-    if ("SSPxPDxax" == blendMode)
+    case BlendMode::SSPxPDxax:
         return 0x00D41D78;
-    if ("DPSanan" == blendMode)
+    case BlendMode::DPSanan:
         return 0x00D50CE9;
-    if ("PSDPSaoxx" == blendMode)
+    case BlendMode::PSDPSaoxx:
         return 0x00D616EA;
-    if ("DPSxan" == blendMode)
+    case BlendMode::DPSxan:
         return 0x00D70349;
-    if ("PDSPxax" == blendMode)
+    case BlendMode::PDSPxax:
         return 0x00D80745;
-    if ("SDPSaoxn" == blendMode)
+    case BlendMode::SDPSaoxn:
         return 0x00D906E8;
-    if ("DPSDanax" == blendMode)
+    case BlendMode::DPSDanax:
         return 0x00DA1CE9;
-    if ("SPxDSxan" == blendMode)
+    case BlendMode::SPxDSxan:
         return 0x00DB0D75;
-    if ("SPDnao" == blendMode)
+    case BlendMode::SPDnao:
         return 0x00DC0B04;
-    if ("SDno" == blendMode)
+    case BlendMode::SDno:
         return 0x00DD0228;
-    if ("SDPxo" == blendMode)
+    case BlendMode::SDPxo:
         return 0x00DE0268;
-    if ("SDPano" == blendMode)
+    case BlendMode::SDPano:
         return 0x00DF08C8;
-    if ("PDSoa" == blendMode)
+    case BlendMode::PDSoa:
         return 0x00E003A5;
-    if ("PDSoxn" == blendMode)
+    case BlendMode::PDSoxn:
         return 0x00E10185;
-    if ("DSPDxax" == blendMode)
+    case BlendMode::DSPDxax:
         return 0x00E20746;
-    if ("PSDPaoxn" == blendMode)
+    case BlendMode::PSDPaoxn:
         return 0x00E306EA;
-    if ("SDPSxax" == blendMode)
+    case BlendMode::SDPSxax:
         return 0x00E40748;
-    if ("PDSPaoxn" == blendMode)
+    case BlendMode::PDSPaoxn:
         return 0x00E506E5;
-    if ("SDPSanax" == blendMode)
+    case BlendMode::SDPSanax:
         return 0x00E61CE8;
-    if ("SPxPDxan" == blendMode)
+    case BlendMode::SPxPDxan:
         return 0x00E70D79;
-    if ("SSPxDSxax" == blendMode)
+    case BlendMode::SSPxDSxax:
         return 0x00E81D74;
-    if ("DSPDSanaxxn" == blendMode)
+    case BlendMode::DSPDSanaxxn:
         return 0x00E95CE6;
-    if ("DPSao" == blendMode)
+    case BlendMode::DPSao:
         return 0x00EA02E9;
-    if ("DPSxno" == blendMode)
+    case BlendMode::DPSxno:
         return 0x00EB0849;
-    if ("SDPao" == blendMode)
+    case BlendMode::SDPao:
         return 0x00EC02E8;
-    if ("SDPxno" == blendMode)
+    case BlendMode::SDPxno:
         return 0x00ED0848;
-    if ("DSo" == blendMode)
+    case BlendMode::DSo:
         return 0x00EE0086;
-    if ("SDPnoo" == blendMode)
+    case BlendMode::SDPnoo:
         return 0x00EF0A08;
-    if ("P" == blendMode)
+    case BlendMode::P:
         return 0x00F00021;
-    if ("PDSono" == blendMode)
+    case BlendMode::PDSono:
         return 0x00F10885;
-    if ("PDSnao" == blendMode)
+    case BlendMode::PDSnao:
         return 0x00F20B05;
-    if ("PSno" == blendMode)
+    case BlendMode::PSno:
         return 0x00F3022A;
-    if ("PSDnao" == blendMode)
+    case BlendMode::PSDnao:
         return 0x00F40B0A;
-    if ("PDno" == blendMode)
+    case BlendMode::PDno:
         return 0x00F50225;
-    if ("PDSxo" == blendMode)
+    case BlendMode::PDSxo:
         return 0x00F60265;
-    if ("PDSano" == blendMode)
+    case BlendMode::PDSano:
         return 0x00F708C5;
-    if ("PDSao" == blendMode)
+    case BlendMode::PDSao:
         return 0x00F802E5;
-    if ("PDSxno" == blendMode)
+    case BlendMode::PDSxno:
         return 0x00F90845;
-    if ("DPo" == blendMode)
+    case BlendMode::DPo:
         return 0x00FA0089;
-    if ("DPSnoo" == blendMode)
+    case BlendMode::DPSnoo:
         return 0x00FB0A09;
-    if ("PSo" == blendMode)
+    case BlendMode::PSo:
         return 0x00FC008A;
-    if ("PSDnoo" == blendMode)
+    case BlendMode::PSDnoo:
         return 0x00FD0A0A;
-    if ("DPSoo" == blendMode)
+    case BlendMode::DPSoo:
         return 0x00FE02A9;
-    if ("1" == blendMode)
+    case BlendMode::Mode_1:
         return 0x00FF0062;
-    throw Exception(("Unsupported image blending mode: '" +
-                     std::string(blendMode) + "'")
-                        .c_str());
+    default:
+        return 0x00000000;
+    }
 }
 
 void Painter::drawPixelMap(int x, int y, const PixelMap &pixelmap,
-                           const std::string_view &blendMode) const
+                           BlendMode blendMode) const
 {
     auto operationCode = translateOperationCode(blendMode);
     if (this->block)
@@ -1037,7 +1040,7 @@ void Painter::drawPixelMap(int x, int y, const PixelMap &pixelmap,
                       operationCode);
 }
 
-void Painter::drawPixelMap(const Point &pos, const PixelMap &pixelmap, const std::string_view &blendMode) const
+void Painter::drawPixelMap(const Point &pos, const PixelMap &pixelmap, BlendMode blendMode) const
 {
     auto operationCode = translateOperationCode(blendMode);
     if (this->block)
@@ -1054,7 +1057,7 @@ void Painter::drawPixelMap(const Point &pos, const PixelMap &pixelmap, const std
 
 void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                            const Point &pixelmapSrcPos,
-                           const std::string_view &blendMode) const
+                           BlendMode blendMode) const
 {
     auto operationCode = translateOperationCode(blendMode);
     if (this->block)

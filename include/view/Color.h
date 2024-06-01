@@ -3,7 +3,7 @@
 /**
  * @addtogroup 视图
  * @{
-*/
+ */
 
 /**
  * @brief HSV (Hue, Saturation, Value) 颜色模型
@@ -41,6 +41,15 @@ public:
     static const Color Gray;
     static const Color LightGray;
     static const Color DarkGray;
+
+    /**
+     * @brief 颜色的线性插值函数
+     * @param start 起始值
+     * @param end 终止值
+     * @param t 插值比例，取值范围为 [0, 1]
+     * @return 插值结果
+     */
+    static Color color_lerp(Color start, Color end, double t);
 
 private:
     int red;

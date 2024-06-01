@@ -10,6 +10,17 @@ const Color Color::Gray{0x808080};
 const Color Color::LightGray{0xc0c0c0};
 const Color Color::DarkGray{0x404040};
 
+Color Color::color_lerp(Color start, Color end, double t)
+{
+    auto f = [](int a, int b, double t) -> int
+    { return a + (b - a) * t; };
+    return Color{
+        f(start.getRed(), end.getRed(), t),
+        f(start.getGreen(), end.getGreen(), t),
+        f(start.getBlue(), end.getBlue(), t),
+    };
+}
+
 Color::Color(int r, int g, int b) : red(r), green(g), blue(b) {}
 
 Color::Color(long hex)

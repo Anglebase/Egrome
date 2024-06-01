@@ -73,24 +73,13 @@ Button::Button(const Rect &rect, Block *parent)
       text(L"Button")
 {
     using namespace std::chrono_literals;
-    // 针对于颜色过渡动画的线性插值函数
-    auto color_lerp = [](Color start, Color end, double t) -> Color
-    {
-        auto f = [](int a, int b, double t) -> int
-        { return a + (b - a) * t; };
-        return Color{
-            f(start.getRed(), end.getRed(), t),
-            f(start.getGreen(), end.getGreen(), t),
-            f(start.getBlue(), end.getBlue(), t),
-        };
-    };
     // 注册颜色过渡动画
-    this->hoverColorAnim = new Animation<Color>{color_lerp};
+    this->hoverColorAnim = new Animation<Color>{Color::color_lerp};
     this->hoverColorAnim->set(
         this->backgroundColor,
         this->hoverColor,
         300ms);
-    this->pressedColorAnim = new Animation<Color>{color_lerp};
+    this->pressedColorAnim = new Animation<Color>{Color::color_lerp};
     this->pressedColorAnim->set(
         this->hoverColor,
         this->pressedColor,

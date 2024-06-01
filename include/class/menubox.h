@@ -1,0 +1,225 @@
+#pragma once
+
+#include "Block.h"
+#include "Color.h"
+#include "Animation.hpp"
+#include <vector>
+#include "label.h"
+class MenuBox;
+/**
+ * @brief 菜单项
+ * @details 用于显示菜单项
+ */
+class MenuItem : public Block
+{
+    friend class MenuBox;
+
+private:
+    Label *label_;
+    MenuBox *childMenu_{nullptr};
+
+    bool hovered_{false};
+    bool clicked_{false};
+
+    Color hoverColor_{Color::LightGray};
+    Color clickColor_{Color::Gray};
+    Color defaultColor_{Color::White};
+
+protected:
+    Animation<Color> *hoverColorAnim_;
+    Animation<Color> *clickColorAnim_;
+
+protected:
+    /**
+     * @brief 重写了 Block::paintEvent() 函数，绘制菜单项
+     * @param event 绘制事件
+     */
+    void paintEvent(const PaintEvent &event) override;
+    /**
+     * @brief 重写了 Block::mousePressEvent() 函数，处理鼠标点击事件
+     * @param pos 鼠标点击位置
+     * @param button 鼠标按键
+     */
+    void mousePressEvent(const Point &pos, MouseButton button) override;
+    /**
+     * @brief 重写了 Block::mouseReleaseEvent() 函数，处理鼠标释放事件
+     * @param pos 鼠标释放位置
+     * @param button 鼠标按键
+     */
+    void mouseReleaseEvent(const Point &pos, MouseButton button) override;
+
+signals:
+    /**
+     * @brief 菜单项被点击时发出此信号
+    */
+    Signal<void()> clicked;
+
+public:
+    /**
+     * @brief 构造函数
+     * @param rect 菜单项的矩形
+     * @param parent 菜单项的父级菜单框
+     */
+    MenuItem(const Rect &rect, MenuBox *parent);
+    /**
+     * @brief 析构函数
+     */
+    ~MenuItem() override;
+
+    /**
+     * @brief 设置菜单项的文本
+     * @param text 菜单项的文本
+     */
+    void setText(const std::wstring &text);
+    /**
+     * @brief 获取菜单项的文本
+     * @return 菜单项的文本
+     */
+    const std::wstring &getText() const;
+
+    /**
+     * @brief 设置菜单项的字体颜色
+     * @param color 菜单项的字体颜色
+     */
+    void setTextColor(const Color &color);
+    /**
+     * @brief 设置菜单项鼠标悬浮时的颜色
+     * @param color 菜单项鼠标悬浮时的颜色
+     */
+    void setHoverColor(const Color &color);
+    /**
+     * @brief 设置菜单项鼠标点击时的颜色
+     * @param color 菜单项鼠标点击时的颜色
+     */
+    void setClickColor(const Color &color);
+    /**
+     * @brief 设置菜单项默认颜色
+     * @param color 菜单项默认颜色
+     */
+    void setDefaultColor(const Color &color);
+
+    /**
+     * @brief 设置子菜单
+     * @param menu 子菜单
+     */
+    void addChildMenu(MenuBox *menu);
+};
+
+/**
+ * @brief 分割线
+ */
+class Divider : public Block
+{
+private:
+    Color color_{Color::Gray};
+    Divider(const Rect &rect, Block *parent);
+
+protected:
+    /**
+     * @brief 重写了 Block::paintEvent() 函数，绘制分割线
+     * @param event 绘制事件
+     */
+    void paintEvent(const PaintEvent &event) override;
+
+public:
+    /**
+     * @brief 构造函数
+     * @param parent 父级菜单框
+     */
+    Divider(MenuBox *parent);
+    /**
+     * @brief 析构函数
+     */
+    ~Divider() override = default;
+
+    /**
+     * @brief 设置分割线颜色
+     * @param color 分割线颜色
+     */
+    void setColor(const Color &color);
+};
+
+/**
+ * @brief 菜单框
+ * @details 用于包装菜单项
+ */
+class MenuBox : public Block
+{
+private:
+    std::vector<Block *> items_;
+    bool visible_{false};
+
+protected:
+    /**
+     * @brief 重写了 Block::paintEvent() 函数，绘制菜单框
+     * @param event 绘制事件
+     */
+    void paintEvent(const PaintEvent &event) override;
+    /**
+     * @brief 重写了 Block::mousePressEvent() 函数，处理鼠标点击事件
+     * @param pos 鼠标点击位置
+     * @param button 鼠标按键
+     */
+    void mousePressEvent(const Point &pos, MouseButton button) override;
+
+signals:
+    /**
+     * @brief 菜单框被隐藏时发出此信号
+    */
+    Signal<void()> hidden;
+    /**
+     * @brief 菜单框被显示时发出此信号
+     */
+    Signal<void()> shown;
+
+public:
+    /**
+     * @brief 构造函数
+     * @param rect 菜单框的矩形
+     * @param parent 菜单框的父级菜单框
+     */
+    MenuBox(const Rect &rect, Block *parent);
+    /**
+     * @brief 析构函数
+     */
+    ~MenuBox() override = default;
+    /**
+     * @brief 添加菜单项
+     * @param item 菜单项
+     */
+    void addItem(MenuItem *item);
+    /**
+     * @brief 移除菜单项
+     * @param itemIndex 菜单项索引
+     */
+    void removeItem(int itemIndex);
+    /**
+     * @brief 添加分割线
+     * @param divider 分割线
+     */
+    void addDivider(Divider *divider);
+    /**
+     * @brief 移除分割线
+     * @param dividerIndex 分割线索引
+     */
+    void clearItems();
+    /**
+     * @brief 显示菜单框
+     * @param pos 菜单框显示位置
+     */
+    void show(const Point &pos);
+    /**
+     * @brief 隐藏菜单框
+     */
+    void hide();
+    /**
+     * @brief 获取菜单项数量
+     * @return 菜单项数量
+     */
+    int getItemCount() const;
+    /**
+     * @brief 获取菜单项实际高度
+     * @return 菜单项实际高度
+     */
+    int getHeight() const;
+};

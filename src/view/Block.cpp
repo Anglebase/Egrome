@@ -114,3 +114,18 @@ void Block::setRect(const Rect &rect)
 
 Rect &Block::rect() { return rect_; }
 const Rect &Block::rect() const { return rect_; }
+
+Block *Block::parent() const
+{
+    return this->parentBlock;
+}
+
+std::vector<Block *> &Block::childs()
+{
+    return this->childBlocks;
+}
+
+const std::vector<Block *> &Block::childs() const
+{
+    return this->childBlocks;
+}

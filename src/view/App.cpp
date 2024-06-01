@@ -6,6 +6,7 @@
 #include "Painter.h"
 #include <ege.h>
 #include <windows.h>
+#include <chrono>
 
 Block *App::focusBlock = nullptr;
 int App::fps_ = 60;
@@ -113,79 +114,85 @@ void App::run()
     ege::initgraph(this->block_->rect().width(),
                    this->block_->rect().height());
     ege::setbkmode(TRANSPARENT);
-    App::setTitle(L"中文");
+    App::setTitle(L"Egrome");
 
     // 事件循环
     PaintEvent paintEvent;
     static Point lastMousePos;
     for (; ege::is_run(); ege::delay_fps(App::fps_))
     {
-        // 捕获键盘输入
-        if (ege::kbmsg())
+        // BUG-20240601-20
+        auto lastTime = std::chrono::steady_clock::now();
+        while (std::chrono::duration_cast<std::chrono::nanoseconds>(
+                   std::chrono::steady_clock::now() - lastTime)
+                   .count() < 8e8 / App::fps_)
         {
-            auto keymsg = ege::getkey();
-            switch (keymsg.msg)
+            // 捕获键盘输入
+            if (ege::kbmsg())
             {
-            case ege::key_msg_down:
-                if (App::focusBlock)
-                    App::focusBlock->keyPressEvent((Key)keymsg.key, (KeyFlag)keymsg.flags);
-                break;
-            case ege::key_msg_up:
-                if (App::focusBlock)
-                    App::focusBlock->keyReleaseEvent((Key)keymsg.key, (KeyFlag)keymsg.flags);
-                break;
-            case ege::key_msg_char: // 文本输入(输入法输入)
-            {
-                do
+                auto keymsg = ege::getkey();
+                switch (keymsg.msg)
                 {
+                case ege::key_msg_down:
                     if (App::focusBlock)
-                        App::focusBlock->InputTextEvent(keymsg.key);
-                    keymsg = ege::getkey();
-                } while (keymsg.msg == ege::key_msg_char);
-            }
-            break;
-            default:
+                        App::focusBlock->keyPressEvent((Key)keymsg.key, (KeyFlag)keymsg.flags);
+                    break;
+                case ege::key_msg_up:
+                    if (App::focusBlock)
+                        App::focusBlock->keyReleaseEvent((Key)keymsg.key, (KeyFlag)keymsg.flags);
+                    break;
+                case ege::key_msg_char: // 文本输入(输入法输入)
+                {
+                    do
+                    {
+                        if (App::focusBlock)
+                            App::focusBlock->InputTextEvent(keymsg.key);
+                        keymsg = ege::getkey();
+                    } while (keymsg.msg == ege::key_msg_char);
+                }
                 break;
+                default:
+                    break;
+                }
+                if (ege::kbhit()) // 文本输入(英文、字符和ASCII符号)
+                {
+                    auto ch = ege::getch();
+                    if (std::isprint(ch))
+                        if (App::focusBlock)
+                            App::focusBlock->InputTextEvent(ch);
+                }
+                // ege::flushkey();
             }
-            if (ege::kbhit()) // 文本输入(英文、字符和ASCII符号)
+            // 捕获鼠标输入
+            if (ege::mousemsg())
             {
-                auto ch = ege::getch();
-                if (std::isprint(ch))
-                    if (App::focusBlock)
-                        App::focusBlock->InputTextEvent(ch);
+                auto msg = ege::getmouse();
+                MouseButton button;
+                {
+                    if (msg.is_left())
+                        button = MouseButton::Left;
+                    else if (msg.is_right())
+                        button = MouseButton::Right;
+                    else if (msg.is_mid())
+                        button = MouseButton::Middle;
+                }
+                // BUG20240530-21: 连续触发鼠标消息有概率导致鼠标消息丢失
+                if (msg.is_down())
+                    this->block_->mousePressEvent(Point(msg.x, msg.y), button);
+                if (msg.is_up())
+                    this->block_->mouseReleaseEvent(Point(msg.x, msg.y), button);
+                if (msg.is_wheel())
+                    this->block_->mouseWheelEvent(
+                        Point(msg.x, msg.y),
+                        msg.wheel > 0 ? MouseWheel::Up
+                                      : (msg.wheel < 0 ? MouseWheel::Down
+                                                       : MouseWheel::None));
+                if (msg.is_move() && lastMousePos != Point(msg.x, msg.y))
+                    this->block_->mouseMoveEvent(Point(msg.x, msg.y)),
+                        lastMousePos = Point(msg.x, msg.y);
+                // ege::flushmouse(); // BUG20240530-21 此行引起鼠标消息丢失
             }
-            // ege::flushkey();
         }
-        // 捕获鼠标输入
-        if (ege::mousemsg())
-        {
-            auto msg = ege::getmouse();
-            MouseButton button;
-            {
-                if (msg.is_left())
-                    button = MouseButton::Left;
-                else if (msg.is_right())
-                    button = MouseButton::Right;
-                else if (msg.is_mid())
-                    button = MouseButton::Middle;
-            }
-            // BUG20240530-21: 连续触发鼠标消息有概率导致鼠标消息丢失
-            if (msg.is_down())
-                this->block_->mousePressEvent(Point(msg.x, msg.y), button);
-            if (msg.is_up())
-                this->block_->mouseReleaseEvent(Point(msg.x, msg.y), button);
-            if (msg.is_wheel())
-                this->block_->mouseWheelEvent(
-                    Point(msg.x, msg.y),
-                    msg.wheel > 0 ? MouseWheel::Up
-                                  : (msg.wheel < 0 ? MouseWheel::Down
-                                                   : MouseWheel::None));
-            if (msg.is_move() && lastMousePos != Point(msg.x, msg.y))
-                this->block_->mouseMoveEvent(Point(msg.x, msg.y)),
-                    lastMousePos = Point(msg.x, msg.y);
-            // ege::flushmouse(); // BUG20240530-21 此行引起鼠标消息丢失
-        }
-
         // 更新显示
         ege::cleardevice();
         this->block_->paintEvent(paintEvent);

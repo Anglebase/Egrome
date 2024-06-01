@@ -423,6 +423,10 @@ public:
 
     Rect &rect();
     const Rect &rect() const;
+
+    Block *parent() const;
+    std::vector<Block *> &childs();
+    const std::vector<Block *> &childs() const;
 };
 
 /** @} */

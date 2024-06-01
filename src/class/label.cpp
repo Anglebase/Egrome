@@ -9,7 +9,7 @@ void Label::paintEvent(const PaintEvent &event)
     auto &painter = pm.beginPaint();
 
     // 绘制位图内容
-    painter.setPenColor(textColor_);
+    painter.setPenColor(Color::White);
     auto textRect = painter.rect().adjusted(
         leftpadding_, toppadding_,
         -rightpadding_, -bottompadding_);
@@ -33,12 +33,16 @@ void Label::paintEvent(const PaintEvent &event)
         vAlign = TextVAlign::Center;
     painter.setTextAlign(hAlign, vAlign);
     painter.drawText(textRect, text_);
-    
+
     pm.endPaint();
 
     // 将位图绘制到屏幕上
     auto &painter2 = event.beginPaint(this);
-    painter2.drawPixelMap(painter2.rect().getTopLeft(), pm);
+    painter2.setBrushColor(textColor_);
+    painter2.drawPixelMap(
+        painter2.rect().getTopLeft(), pm, BlendMode::DSna);
+    painter2.drawPixelMap(
+        painter2.rect().getTopLeft(),pm,BlendMode::DPSao);
     event.endPaint();
 }
 
