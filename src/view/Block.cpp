@@ -3,6 +3,9 @@
 #include "Point.h"
 #include "App.h"
 
+#include "Painter.h"
+#include "Color.h"
+
 void Block::paintEvent(const PaintEvent &event)
 {
     for (auto child : childBlocks)

@@ -98,14 +98,14 @@ void Rect::setSize(const Size &size)
 bool Rect::contains(const Point &point) const
 {
     // std::cout << *this << " | " << point << std::endl;
-    return (point.x() >= x_ && point.x() <= x_ + width_ &&
-            point.y() >= y_ && point.y() <= y_ + height_);
+    return (point.x() > x_ && point.x() < x_ + width_ &&
+            point.y() > y_ && point.y() < y_ + height_);
 }
 
 bool Rect::contains(long x, long y) const
 {
-    return (x >= this->x_ && x <= this->x_ + this->width_ &&
-            y >= this->y_ && y <= this->y_ + this->height_);
+    return (x > this->x_ && x < this->x_ + this->width_ &&
+            y > this->y_ && y < this->y_ + this->height_);
 }
 
 bool Rect::intersects(const Rect &other) const

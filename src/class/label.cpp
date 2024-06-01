@@ -10,6 +10,9 @@ void Label::paintEvent(const PaintEvent &event)
 
     // 绘制位图内容
     painter.setPenColor(Color::White);
+    painter.setFont(fontName_, fontSize_);
+    painter.setFontItalic(italic_);
+    painter.setFontWeight(weight_);
     auto textRect = painter.rect().adjusted(
         leftpadding_, toppadding_,
         -rightpadding_, -bottompadding_);
@@ -125,4 +128,20 @@ const int &Label::bottomPadding() const
 void Label::setTextColor(const Color &color)
 {
     textColor_ = color;
+}
+
+void Label::setFont(const std::wstring &fontName, int size)
+{
+    this->fontName_ = fontName;
+    this->fontSize_ = size;
+}
+
+void Label::setItalic(bool italic)
+{
+    this->italic_ = italic;
+}
+
+void Label::setWeight(int weight)
+{
+    this->weight_ = weight;
 }

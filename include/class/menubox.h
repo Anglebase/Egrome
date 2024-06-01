@@ -48,10 +48,15 @@ protected:
      */
     void mouseReleaseEvent(const Point &pos, MouseButton button) override;
 
+    /**
+     * @brief 重写了 Block::mouseMoveEvent() 函数，处理鼠标移动事件
+     * @param pos 鼠标移动位置
+     */
+    void mouseMoveEvent(const Point &pos) override;
 signals:
     /**
      * @brief 菜单项被点击时发出此信号
-    */
+     */
     Signal<void()> clicked;
 
 public:
@@ -112,6 +117,7 @@ class Divider : public Block
 {
 private:
     Color color_{Color::Gray};
+    Color backgroundColor_{Color::White};
     Divider(const Rect &rect, Block *parent);
 
 protected:
@@ -137,6 +143,12 @@ public:
      * @param color 分割线颜色
      */
     void setColor(const Color &color);
+
+    /**
+     * @brief 设置分割线背景颜色
+     * @param color 分割线背景颜色
+     */
+    void setBackgroundColor(const Color &color);
 };
 
 /**
@@ -145,6 +157,8 @@ public:
  */
 class MenuBox : public Block
 {
+    friend class MenuItem;
+
 private:
     std::vector<Block *> items_;
     bool visible_{false};
@@ -161,11 +175,21 @@ protected:
      * @param button 鼠标按键
      */
     void mousePressEvent(const Point &pos, MouseButton button) override;
-
+    /**
+     * @brief 重写了 Block::mouseReleaseEvent() 函数，处理鼠标释放事件
+     * @param pos 鼠标释放位置
+     * @param button 鼠标按键
+     */
+    void mouseReleaseEvent(const Point &pos, MouseButton button) override;
+    /**
+     * @brief 重写了 Block::mouseMoveEvent() 函数，处理鼠标移动事件
+     * @param pos 鼠标移动位置
+     */
+    void mouseMoveEvent(const Point &pos) override;
 signals:
     /**
      * @brief 菜单框被隐藏时发出此信号
-    */
+     */
     Signal<void()> hidden;
     /**
      * @brief 菜单框被显示时发出此信号

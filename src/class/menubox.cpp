@@ -2,6 +2,8 @@
 #include "Painter.h"
 #include "Size.h"
 #include "Rect.h"
+#include <future>
+#include <thread>
 
 Divider::Divider(const Rect &rect, Block *parent)
     : Block(rect, parent) {}
@@ -9,6 +11,8 @@ Divider::Divider(const Rect &rect, Block *parent)
 void Divider::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
+    painter.setBrushColor(this->backgroundColor_);
+    painter.drawFillRect(painter.rect());
     painter.setPenColor(color_);
     painter.drawLine(
         Point{0, painter.rect().height() / 2},
@@ -23,6 +27,11 @@ Divider::Divider(MenuBox *parent)
 void Divider::setColor(const Color &color)
 {
     color_ = color;
+}
+
+void Divider::setBackgroundColor(const Color &color)
+{
+    backgroundColor_ = color;
 }
 
 void MenuItem::paintEvent(const PaintEvent &event)
@@ -51,9 +60,11 @@ void MenuItem::mousePressEvent(const Point &pos, MouseButton button)
         this->clicked_ = true;
         MenuBox *menuBox = dynamic_cast<MenuBox *>(this->parent());
         this->clickColorAnim_->run();
+        this->clicked.emit();
         if (this->childMenu_)
             this->childMenu_->show(this->rect().getTopRight());
-        this->clicked.emit();
+        else
+            menuBox->hide();
     }
     return Block::mousePressEvent(pos, button);
 }
@@ -68,13 +79,24 @@ void MenuItem::mouseReleaseEvent(const Point &pos, MouseButton button)
     return Block::mouseReleaseEvent(pos, button);
 }
 
+void MenuItem::mouseMoveEvent(const Point &pos)
+{
+    if (!(this->childMenu_ && this->childMenu_->visible_))
+        return Block::mouseMoveEvent(pos);
+    Rect rect = this->childMenu_->rect();
+    rect.height() = this->childMenu_->getHeight();
+    if (!pos.inside(this->rect()) && !pos.inside(rect))
+        this->childMenu_->hide();
+    return Block::mouseMoveEvent(pos);
+}
+
 MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
     : Block(rect, parent)
 {
     using namespace std::chrono_literals;
     this->label_ = new Label(rect, this);
     this->label_->setAlignment(Label::Left | Label::Middle);
-    this->label_->setTextColor(Color::Red);
+    this->label_->setTextColor(Color::Black);
     this->label_->setText(L"Menu Item");
     this->label_->setPadding(5, 5, 5, 5);
 
@@ -93,6 +115,10 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
         [this]()
         {
             this->hovered_ = true;
+            if (this->childMenu_)
+            {
+                this->childMenu_->show(this->rect().getTopRight());
+            }
             this->hoverColorAnim_->reset();
             this->hoverColorAnim_->run();
         });
@@ -155,11 +181,39 @@ void MenuBox::paintEvent(const PaintEvent &event)
 
 void MenuBox::mousePressEvent(const Point &pos, MouseButton button)
 {
-    if (button == MouseButton::Left && !this->rect().contains(pos))
+    if (!this->visible_)
+        return;
+    Rect rect = this->rect();
+    rect.height() = this->getHeight();
+    if (button == MouseButton::Left &&
+        !rect.contains(pos))
     {
-        this->hide();
+        auto result = std::async(
+            std::launch::async,
+            [this]()
+            {
+                using namespace std::chrono_literals;
+                std::this_thread::sleep_for(20ms);
+                if (typeid(*this->parent()) == typeid(MenuItem))
+                    return;
+                this->hide();
+            });
     }
     return Block::mousePressEvent(pos, button);
+}
+
+void MenuBox::mouseReleaseEvent(const Point &pos, MouseButton button)
+{
+    if (!this->visible_)
+        return;
+    return Block::mouseReleaseEvent(pos, button);
+}
+
+void MenuBox::mouseMoveEvent(const Point &pos)
+{
+    if (!this->visible_)
+        return;
+    return Block::mouseMoveEvent(pos);
 }
 
 MenuBox::MenuBox(const Rect &rect, Block *parent)
@@ -206,6 +260,10 @@ void MenuBox::show(const Point &pos)
         {
             auto menuItem = dynamic_cast<MenuItem *>(item);
             menuItem->label_->rect() = item->rect();
+            menuItem->hovered_ = false;
+            menuItem->clicked_ = false;
+            menuItem->clickColorAnim_->reset();
+            menuItem->hoverColorAnim_->reset();
         }
     }
     this->visible_ = true;
@@ -215,6 +273,17 @@ void MenuBox::show(const Point &pos)
 void MenuBox::hide()
 {
     this->visible_ = false;
+    for (auto item : this->items_)
+    {
+        if (typeid(*item) == typeid(MenuItem))
+        {
+            auto menuItem = dynamic_cast<MenuItem *>(item);
+            menuItem->clicked_ = false;
+            menuItem->hovered_ = false;
+            menuItem->clickColorAnim_->reset();
+            menuItem->hoverColorAnim_->reset();
+        }
+    }
     this->hidden.emit();
 }
 
@@ -229,7 +298,7 @@ int MenuBox::getHeight() const
     for (auto item : this->items_)
     {
         if (item)
-            height += item->rect().height();
+            height += (item->rect().height());
     }
     return height;
 }

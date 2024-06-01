@@ -134,6 +134,7 @@ public:
      * @brief 判断点是否在矩形内
      * @param point 点坐标
      * @return 如果点在矩形内，返回true，否则返回false
+     * @note 边界上的点不算在矩形内
      */
     bool contains(const Point &point) const;
 
@@ -142,6 +143,7 @@ public:
      * @param x 点x坐标
      * @param y 点y坐标
      * @return 如果点在矩形内，返回true，否则返回false
+     * @note 边界上的点不算在矩形内
      */
     bool contains(long x, long y) const;
 

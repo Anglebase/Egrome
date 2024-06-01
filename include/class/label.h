@@ -44,6 +44,11 @@ private:
     int toppadding_{0};
     int bottompadding_{0};
 
+    std::wstring fontName_{L"宋体"};
+    int fontSize_{16};
+    bool italic_{false};
+    int weight_{400};
+
 protected:
     /**
      * @brief 重写 paintEvent() 函数，实现文本标签的显示
@@ -138,6 +143,23 @@ public:
      * @param color 标签文本颜色
      */
     void setTextColor(const Color &color);
+
+    /**
+     * @brief 设置标签字体
+     * @param fontName 字体名称
+     * @param size 字体大小
+     */
+    void setFont(const std::wstring &fontName, int size);
+    /**
+     * @brief 设置标签字体斜体
+     * @param italic true 字体斜体，false 非斜体
+     */
+    void setItalic(bool italic);
+    /**
+     * @brief 设置标签字体粗细
+     * @param weight 字体粗细，取值范围 100-900，数值越大字体越粗
+     */
+    void setWeight(int weight);
 };
 
 /** @} */
