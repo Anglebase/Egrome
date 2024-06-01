@@ -13,7 +13,7 @@ class PixelMap;
  * @addtogroup 视图
  * @brief 视图绘制相关
  * @{
-*/
+ */
 
 /**
  * @brief 线条样式
@@ -383,7 +383,7 @@ public:
     void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       const Point &pixelmapSrcPos,
                       const std::string_view &blendMode = "S") const;
-    
+
     /**
      * @brief 绘制圆
      * @param x 圆心的x坐标
@@ -417,6 +417,45 @@ public:
      * @note 该函数等价于drawFillEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
      */
     void drawFillCircle(const Point &pos, int r) const;
+
+    /**
+     * @brief 绘制圆角矩形
+     * @param x 矩形左上角的x坐标
+     * @param y 矩形左上角的y坐标
+     * @param w 矩形的宽度
+     * @param h 矩形的高度
+     * @param rx 矩形的圆角x方向半径
+     * @param ry 矩形的圆角y方向半径
+     */
+    void drawRoundRect(int x, int y, int w, int h, int rx, int ry) const;
+
+    /**
+     * @brief 这是一个重载，绘制圆角矩形
+     * @param rect 矩形
+     * @param rx 矩形的圆角x方向半径
+     * @param ry 矩形的圆角y方向半径
+     */
+    void drawRoundRect(const Rect &rect, int rx, int ry) const;
+
+    /**
+     * @brief 绘制填充圆角矩形
+     * @param x 矩形左上角的x坐标
+     * @param y 矩形左上角的y坐标
+     * @param w 矩形的宽度
+     * @param h 矩形的高度
+     * @param rx 矩形的圆角x方向半径
+     * @param ry 矩形的圆角y方向半径
+     */
+    void drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const;
+
+    /**
+     * @brief 这是一个重载，绘制填充圆角矩形
+     * @param rect 矩形
+     * @param rx 矩形的圆角x方向半径
+     * @param ry 矩形的圆角y方向半径
+     */
+    void drawFillRoundRect(const Rect &rect, int rx, int ry) const;
+
 };
 
 class PaintEvent
@@ -449,7 +488,7 @@ public:
      * @brief 结束绘制
      * @brief 结束绘制，释放Painter对象，如果该函数未被调用，此类析构时会自动释放Painter对象
      */
-    void endPaint()const;
+    void endPaint() const;
 };
 
 /**@}*/

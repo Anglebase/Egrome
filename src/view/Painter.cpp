@@ -371,19 +371,21 @@ void Painter::drawPolyline(const std::vector<Point> &points) const
 void Painter::drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const
 {
     if (this->block)
-        ege::ellipse(x, y, rx, ry,
-                     startAngle, endAngle);
-    if (this->pixelMap)
-        ege::ellipse(x, y, rx, ry,
+        ege::ellipse(this->block->rect_.x_ + x,
+                     this->block->rect_.y_ + y,
                      startAngle, endAngle,
+                     rx, ry);
+    if (this->pixelMap)
+        ege::ellipse(x, y, startAngle, endAngle,
+                     rx, ry,
                      (ege::IMAGE *)this->pixelMap->image_);
 }
 
 void Painter::drawArc(const Rect &rect, int startAngle, int endAngle) const
 {
     if (this->block)
-        ege::ellipse(rect.left() + rect.width() / 2,
-                     rect.top() + rect.height() / 2,
+        ege::ellipse(rect.left() + rect.width() / 2 + this->block->rect_.x_,
+                     rect.top() + rect.height() / 2 + this->block->rect_.y_,
                      startAngle, endAngle,
                      rect.width() / 2,
                      rect.height() / 2);
@@ -1089,4 +1091,36 @@ void Painter::drawFillCircle(int x, int y, int r) const
 void Painter::drawFillCircle(const Point &pos, int r) const
 {
     this->drawFillEllipse(pos.x_ - r, pos.y_ - r, 2 * r, 2 * r);
+}
+
+void Painter::drawRoundRect(int x, int y, int w, int h, int rx, int ry) const
+{
+    this->drawLine(x + rx, y, x + w - rx, y);
+    this->drawLine(x + w, y + ry, x + w, y + h - ry);
+    this->drawLine(x + w - rx, y + h, x + rx, y + h);
+    this->drawLine(x, y + h - ry, x, y + ry);
+    this->drawArc(x + rx, y + ry, rx, ry, 90, 180);
+    this->drawArc(x + w - rx, y + ry, rx, ry, 0, 90);
+    this->drawArc(x + w - rx, y + h - ry, rx, ry, 270, 360);
+    this->drawArc(x + rx, y + h - ry, rx, ry, 180, 270);
+}
+
+void Painter::drawRoundRect(const Rect &rect, int rx, int ry) const
+{
+    this->drawRoundRect(rect.x_, rect.y_, rect.width_, rect.height_, rx, ry);
+}
+
+void Painter::drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const
+{
+    this->drawFillRect(x + rx, y, w - 2 * rx, h);
+    this->drawFillRect(x, y + ry, w, h - 2 * ry);
+    this->drawFillEllipse(x, y, 2 * rx, 2 * ry);
+    this->drawFillEllipse(x, y + h - 2 * ry, 2 * rx, 2 * ry);
+    this->drawFillEllipse(x + w - 2 * rx, y, 2 * rx, 2 * ry);
+    this->drawFillEllipse(x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry);
+}
+
+void Painter::drawFillRoundRect(const Rect &rect, int rx, int ry) const
+{
+    this->drawFillRoundRect(rect.x_, rect.y_, rect.width_, rect.height_, rx, ry);
 }
