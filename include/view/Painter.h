@@ -264,6 +264,21 @@ public:
     void drawEllipse(const Rect &rect) const;
 
     /**
+     * @brief 绘制填充椭圆
+     * @param x 椭圆外接矩形左上角的x坐标
+     * @param y 椭圆外接矩形左上角的y坐标
+     * @param w 椭圆外接矩形的宽度
+     * @param h 椭圆外接矩形的高度
+     */
+    void drawFillEllipse(int x, int y, int w, int h) const;
+
+    /**
+     * @brief 这是一个重载，绘制填充椭圆
+     * @param rect 椭圆外接矩形
+     */
+    void drawFillEllipse(const Rect &rect) const;
+
+    /**
      * @brief 绘制多边形
      * @param points 多边形的各顶点坐标
      */
@@ -368,6 +383,40 @@ public:
     void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       const Point &pixelmapSrcPos,
                       const std::string_view &blendMode = "S") const;
+    
+    /**
+     * @brief 绘制圆
+     * @param x 圆心的x坐标
+     * @param y 圆心的y坐标
+     * @param r 圆的半径
+     * @note 该函数等价于drawEllipse(x-r, y-r, 2*r, 2*r)
+     */
+    void drawCircle(int x, int y, int r) const;
+
+    /**
+     * @brief 这是一个重载，绘制圆
+     * @param pos 圆心的位置
+     * @param r 圆的半径
+     * @note 该函数等价于drawEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
+     */
+    void drawCircle(const Point &pos, int r) const;
+
+    /**
+     * @brief 绘制填充圆
+     * @param x 圆心的x坐标
+     * @param y 圆心的y坐标
+     * @param r 圆的半径
+     * @note 该函数等价于drawFillEllipse(x-r, y-r, 2*r, 2*r)
+     */
+    void drawFillCircle(int x, int y, int r) const;
+
+    /**
+     * @brief 这是一个重载，绘制填充圆
+     * @param pos 圆心的位置
+     * @param r 圆的半径
+     * @note 该函数等价于drawFillEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
+     */
+    void drawFillCircle(const Point &pos, int r) const;
 };
 
 class PaintEvent

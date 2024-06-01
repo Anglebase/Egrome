@@ -180,3 +180,8 @@ Rect Rect::centerWith(const Size &size) const
         size.height(),
     };
 }
+
+Point Rect::center() const
+{
+    return Point(x_ + width_ / 2, y_ + height_ / 2);
+}

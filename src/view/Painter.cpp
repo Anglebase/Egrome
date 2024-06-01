@@ -312,6 +312,28 @@ void Painter::drawEllipse(const Rect &rect) const
                          (ege::IMAGE *)this->pixelMap->image_);
 }
 
+void Painter::drawFillEllipse(int x, int y, int w, int h) const
+{
+    if (this->block)
+        ege::ege_fillellipse(this->block->rect_.x_ + x,
+                             this->block->rect_.y_ + y,
+                             w, h);
+    if (this->pixelMap)
+        ege::ege_fillellipse(x, y, w, h,
+                             (ege::IMAGE *)this->pixelMap->image_);
+}
+
+void Painter::drawFillEllipse(const Rect &rect) const
+{
+    if (this->block)
+        ege::ege_fillellipse(this->block->rect_.x_ + rect.x_,
+                             this->block->rect_.y_ + rect.y_,
+                             rect.width_, rect.height_);
+    if (this->pixelMap)
+        ege::ege_fillellipse(rect.x_, rect.y_, rect.width_, rect.height_,
+                             (ege::IMAGE *)this->pixelMap->image_);
+}
+
 void Painter::drawPolygon(const std::vector<Point> &points) const
 {
     int *lines = new int[points.size() * 2 + 2];
@@ -1047,4 +1069,24 @@ void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       (ege::IMAGE *)pixelmap.image_,
                       pixelmapSrcPos.x_, pixelmapSrcPos.y_,
                       operationCode);
+}
+
+void Painter::drawCircle(int x, int y, int r) const
+{
+    this->drawEllipse(x - r, y - r, 2 * r, 2 * r);
+}
+
+void Painter::drawCircle(const Point &pos, int r) const
+{
+    this->drawEllipse(pos.x_ - r, pos.y_ - r, 2 * r, 2 * r);
+}
+
+void Painter::drawFillCircle(int x, int y, int r) const
+{
+    this->drawFillEllipse(x - r, y - r, 2 * r, 2 * r);
+}
+
+void Painter::drawFillCircle(const Point &pos, int r) const
+{
+    this->drawFillEllipse(pos.x_ - r, pos.y_ - r, 2 * r, 2 * r);
 }

@@ -196,6 +196,12 @@ public:
     Rect centerWith(const Size &size) const;
 
     /**
+     * @brief 获取矩形中心点坐标
+     * @return 矩形中心点坐标
+     */
+    Point center() const;
+
+    /**
      * @brief 判断两个矩形是否相同
      * @param other 另一个矩形
      * @return 如果相同，返回true，否则返回false
