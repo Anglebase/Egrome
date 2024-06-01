@@ -1,6 +1,11 @@
 #pragma once
 
 /**
+ * @file Color.h
+ * @brief 颜色类
+*/
+
+/**
  * @addtogroup 视图
  * @{
  */

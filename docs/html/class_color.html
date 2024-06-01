@@ -99,6 +99,7 @@ $(function(){initNavTree('class_color.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pub-static-attribs">静态 Public 属性</a> &#124;
 <a href="#friends">友元</a> &#124;
 <a href="class_color-members.html">所有成员列表</a>  </div>
@@ -176,6 +177,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 <tr class="memitem:ae7d80b3eec55709e8d57f7647fe084d3" id="r_ae7d80b3eec55709e8d57f7647fe084d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d80b3eec55709e8d57f7647fe084d3">operator HSL</a> () const</td></tr>
 <tr class="memdesc:ae7d80b3eec55709e8d57f7647fe084d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为 <a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型  <br /></td></tr>
 <tr class="separator:ae7d80b3eec55709e8d57f7647fe084d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a9b075477775baabcccf5da681a10b897" id="r_a9b075477775baabcccf5da681a10b897"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b075477775baabcccf5da681a10b897">color_lerp</a> (<a class="el" href="class_color.html">Color</a> start, <a class="el" href="class_color.html">Color</a> end, double t)</td></tr>
+<tr class="memdesc:a9b075477775baabcccf5da681a10b897"><td class="mdescLeft">&#160;</td><td class="mdescRight">颜色的线性插值函数  <br /></td></tr>
+<tr class="separator:a9b075477775baabcccf5da681a10b897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
@@ -325,6 +332,51 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="a9b075477775baabcccf5da681a10b897" name="a9b075477775baabcccf5da681a10b897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b075477775baabcccf5da681a10b897">&#9670;&#160;</a></span>color_lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> Color::color_lerp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>start</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>end</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>颜色的线性插值函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>起始值 </td></tr>
+    <tr><td class="paramname">end</td><td>终止值 </td></tr>
+    <tr><td class="paramname">t</td><td>插值比例，取值范围为 [0, 1] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>插值结果 </dd></dl>
+
+</div>
+</div>
 <a id="ab7caa1306b0bdd9c5a49ce640da1a8e8" name="ab7caa1306b0bdd9c5a49ce640da1a8e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7caa1306b0bdd9c5a49ce640da1a8e8">&#9670;&#160;</a></span>getBlue()</h2>
 

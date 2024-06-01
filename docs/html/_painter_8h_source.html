@@ -100,258 +100,523 @@ $(function(){initNavTree('_painter_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Painter.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="class_color.html">Color</a>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="class_block.html">Block</a>;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="class_point.html">Point</a>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="class_rect.html">Rect</a>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="class_pixel_map.html">PixelMap</a>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">   21</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eae41480b6bbfbf7407974a88d3d34f4fa">Solid</a>,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133ea3663598d5c5858b5a6040b1bbed4f187">Dash</a>,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaaf6c6cf7a454b4ef4a850ac4d960a2cc">Dot</a>,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaef1c598821948808c4dbd57821281a31">DashDot</a>,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eabbb93ef26e3c101ff11cdd21cab08a94">Null</a></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<a href="_painter_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="class_color.html">Color</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="class_block.html">Block</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="class_point.html">Point</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="class_rect.html">Rect</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="class_pixel_map.html">PixelMap</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">   35</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Mode_0,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    DPSoon,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    DPSona,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    PSon,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    SDPona,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    DPon,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    PDSxnon,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    PDSaon,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    SDPnaa,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    PDSxon,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    DPna,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    PSDnaon,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    SPna,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    PDSnaon,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    PDSonon,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    Pn,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    PDSona,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    DSon,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    SDPxnon,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    SDPaon,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    DPSxnon,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    DPSaon,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    PSDPSanaxx,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    SSPxDSxaxn,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    SPxPDxa,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    SDPSanaxn,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    PDSPaox,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    SDPSxaxn,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    PSDPaox,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    DSPDxaxn,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    PDSox,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    PDSoan,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    DPSnaa,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    SDPxon,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    DSna,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    SPDnaon,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    SPxDSxa,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    PDSPanaxn,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    SDPSaox,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    SDPSxnox,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    DPSxa,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    PSDPSaoxxn,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    DPSana,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    SSPxPDxaxn,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    SPDSoax,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    PSDnox,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    PSDPxox,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    PSDnoan,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    PSna,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    SDPnaon,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    SDPSoox,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    Sn,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    SPDSaox,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    SPDSxnox,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    SDPox,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    SDPoan,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    PSDPoax,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    SPDnox,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    SPDSxox,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    SPDnoan,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    PSx,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    SPDSonox,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    SPDSnaox,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    PSan,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    PSDnaa,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    DPSxon,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    SDxPDxa,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    SPDSanaxn,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    SDna,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    DPSnaon,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    DSPDaox,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    PSDPxaxn,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    SDPxa,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    PDSPDaoxxn,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    DPSDoax,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    PDSnox,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    SDPana,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    SSPxDSxoxn,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    PDSPxox,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    PDSnoan,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    PDna,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    DSPnaon,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    DPSDaox,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    SPDSxaxn,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    DPSonon,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    Dn,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    DPSox,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    DPSoan,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    PDSPoax,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    DPSnox,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    DPx,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    DPSDonox,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    DPSDxox,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    DPSnoan,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    DPSDnaox,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    DPan,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    PDSxa,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    DSPDSaoxxn,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    DSPDoax,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    SDPnox,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    SDPSoax,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    DSPnox,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    DSx,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    SDPSonox,</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    DSPDSonoxxn,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    PDSxxn,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    DPSax,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    PSDPSoaxxn,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    SDPax,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    PDSPDoaxxn,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    SDPSnoax,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    PDSxnan,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    PDSana,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    SSDxPDxaxn,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    SDPSxox,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    SDPnoan,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    DSPDxox,</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    DSPnoan,</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    SDPSnaox,</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    DSan,</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    PDSax,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    DSPDSoaxxn,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    DPSDnoax,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    SDPxnan,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    SPDSnoax,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    DPSxnan,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    SPxDSxo,</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    DPSaan,</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    DPSaa,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    SPxDSxon,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    DPSxna,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    SPDSnoaxn,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    SDPxna,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    PDSPnoaxn,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    DSPDSoaxx,</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    PDSaxn,</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    DSa,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    SDPSnaoxn,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    DSPnoa,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    DSPDxoxn,</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    SDPnoa,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    SDPSxoxn,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    SSDxPDxax,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    PDSanan,</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    PDSxna,</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    SDPSnoaxn,</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    DPSDPoaxx,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    SPDaxn,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    PSDPSoaxx,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    DPSaxn,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    DPSxx,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    PSDPSonoxx,</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    SDPSonoxn,</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    DSxn,</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    DPSnax,</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    SDPSoaxn,</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    SPDnax,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    DSPDoaxn,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    DSPDSaoxx,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    PDSxan,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    DPa,</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    PDSPnaoxn,</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    DPSnoa,</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    DPSDxoxn,</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    PDSPonoxn,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    PDxn,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    DSPnax,</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    PDSPoaxn,</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    DPSoa,</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    DPSoxn,</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73af623e75af30e62bbd73d6df5b50bb7b5">D</a>,</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    DPSono,</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    SPDSxax,</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    DPSDaoxn,</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    DSPnao,</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    DPno,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    PDSnoa,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    PDSPxoxn,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    SSPxDSxox,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    SDPanan,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    PSDnax,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    DPSDoaxn,</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    DPSDPaoxx,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    SDPxan,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    PSDPxax,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    DSPDaoxn,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    DPSnao,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    DSno,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    SPDSanax,</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    SDxPDxan,</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    DPSxo,</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    DPSano,</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    PSa,</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    SPDSnaoxn,</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    SPDSonoxn,</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    PSxn,</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    SPDnoa,</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    SPDSxoxn,</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    SDPnax,</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    PSDPoaxn,</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    SDPoa,</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    SPDoxn,</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    DPSDxax,</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    SPDSaoxn,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5dbc98dcc983a70728bd082d1a47546e">S</a>,</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    SDPono,</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    SDPnao,</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    SPno,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    PSDnoa,</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    PSDPxoxn,</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    PDSnax,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    SPDSoaxn,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    SSPxPDxax,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    DPSanan,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    PSDPSaoxx,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    DPSxan,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    PDSPxax,</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    SDPSaoxn,</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    DPSDanax,</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    SPxDSxan,</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    SPDnao,</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    SDno,</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    SDPxo,</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    SDPano,</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    PDSoa,</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    PDSoxn,</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    DSPDxax,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    PSDPaoxn,</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    SDPSxax,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    PDSPaoxn,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    SDPSanax,</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    SPxPDxan,</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    SSPxDSxax,</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    DSPDSanaxxn,</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    DPSao,</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    DPSxno,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    SDPao,</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    SDPxno,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    DSo,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    SDPnoo,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a44c29edb103a2872f519ad0c9a0fdaaa">P</a>,</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    PDSono,</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    PDSnao,</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    PSno,</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    PSDnao,</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    PDno,</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    PDSxo,</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    PDSano,</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    PDSao,</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    PDSxno,</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    DPo,</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    DPSnoo,</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    PSo,</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    PSDnoo,</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    DPSoo,</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    Mode_1,</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>};</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">   38</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb">EMPTY</a>,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9">SOLID</a>,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a>,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    LTSLASH,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    SLASH,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    BKSLASH,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    LTBKSLASH,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    HATCH,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    XHATCH,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    INTERLEAVE,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    WIDE_DOT,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    CLOSE_DOT</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="foldopen" id="foldopen00298" data-start="{" data-end="};">
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">  298</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>{</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eae41480b6bbfbf7407974a88d3d34f4fa">Solid</a>,</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133ea3663598d5c5858b5a6040b1bbed4f187">Dash</a>,</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaaf6c6cf7a454b4ef4a850ac4d960a2cc">Dot</a>,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaef1c598821948808c4dbd57821281a31">DashDot</a>,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eabbb93ef26e3c101ff11cdd21cab08a94">Null</a></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>};</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">   57</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff">Left</a>,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c">Right</a></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="foldopen" id="foldopen00315" data-start="{" data-end="};">
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">  315</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>{</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb">EMPTY</a>,</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9">SOLID</a>,</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a>,</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    LTSLASH,</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    SLASH,</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    BKSLASH,</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    LTBKSLASH,</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    HATCH,</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    XHATCH,</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    INTERLEAVE,</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    WIDE_DOT,</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    CLOSE_DOT</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>};</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">   67</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00">Top</a>,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4">Bottom</a></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="foldopen" id="foldopen00334" data-start="{" data-end="};">
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">  334</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>{</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff">Left</a>,</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c">Right</a></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>};</div>
 </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="};">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_painter.html">   77</a></span><span class="keyword">class </span><a class="code hl_class" href="class_painter.html">Painter</a></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>{</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_paint_event.html">PaintEvent</a>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_pixel_map.html">PixelMap</a>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="class_color.html">Color</a> *brushColor;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">mutable</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a> halign;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">mutable</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a> valign;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *pixelMap;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *pixelMap);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<a class="code hl_class" href="class_painter.html">Painter</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_class" href="class_painter.html">Painter</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_class" href="class_painter.html">Painter</a> &amp;operator=(<a class="code hl_class" href="class_painter.html">Painter</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="class_painter.html">~Painter</a>();</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_class" href="class_rect.html">Rect</a> rect() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a21aed26db8f3266a9e0a925d3dc0dc07">setPenColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a49c82801b32bc04e0f8c0bf4f8972292">setPenWidth</a>(<span class="keywordtype">int</span> width) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4342f738e74f99d9e64cbfe435a86bd7">setPenStyle</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a> style) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afc046eecb1690bc6b65644a2424f8138">setBrushColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#abb6d08bee46a190a9562682bd898c684">setBrushStyle</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a> style) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">setFont</a>(<span class="keyword">const</span> std::string &amp;fontName, <span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">setFont</a>(<span class="keyword">const</span> std::wstring &amp;fontName, <span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a64a729bdb59937403f0623a66258ed85">setFontSize</a>(<span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a6ab38ea82f8c0f35e72e71b6230c25e6">setFontWeight</a>(<span class="keywordtype">int</span> weight) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ad9ff6b4248565132880feae6424047b7">setFontItalic</a>(<span class="keywordtype">bool</span> italic) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a74f2d4d985989ec46440dcf50e0f641e">setFontUnderline</a>(<span class="keywordtype">bool</span> underline) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a9e35eaf3b7d53f940022e67e4a29d479">setFontStrikeOut</a>(<span class="keywordtype">bool</span> strikeOut) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a8b54e9a37fa8b0ebb42c00c3a46b1fff">setTextAlign</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a> halign, <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a> valign) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">drawPixel</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">drawPixel</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(<span class="keywordtype">int</span> x1, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;p1, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;p2) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">drawRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">drawRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">drawFillRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">drawFillRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">drawEllipse</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">drawEllipse</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">drawFillEllipse</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">drawFillEllipse</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aacbbb479b8054a8039c0b128a4b91b31">drawPolygon</a>(<span class="keyword">const</span> std::vector&lt;Point&gt; &amp;points) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a8e949edbb612be813b62d914f4508cd4">drawPolyline</a>(<span class="keyword">const</span> std::vector&lt;Point&gt; &amp;points) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">drawArc</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry, <span class="keywordtype">int</span> startAngle, <span class="keywordtype">int</span> endAngle) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">drawArc</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> startAngle, <span class="keywordtype">int</span> endAngle) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a62e5ba47d3b57c8dc506722e08b2a5f8">drawPixelMap</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                      <span class="keyword">const</span> std::string_view &amp;blendMode = <span class="stringliteral">&quot;S&quot;</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a62e5ba47d3b57c8dc506722e08b2a5f8">drawPixelMap</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                      <span class="keyword">const</span> std::string_view &amp;blendMode = <span class="stringliteral">&quot;S&quot;</span>) <span class="keyword">const</span>;</div>
+<div class="foldopen" id="foldopen00344" data-start="{" data-end="};">
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">  344</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>{</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00">Top</a>,</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4">Bottom</a></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>};</div>
+</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="foldopen" id="foldopen00354" data-start="{" data-end="};">
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="class_painter.html">  354</a></span><span class="keyword">class </span><a class="code hl_class" href="class_painter.html">Painter</a></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>{</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_paint_event.html">PaintEvent</a>;</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_pixel_map.html">PixelMap</a>;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_class" href="class_color.html">Color</a> *brushColor;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keyword">mutable</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a> halign;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keyword">mutable</span> <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a> valign;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *pixelMap;</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block);</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *pixelMap);</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <a class="code hl_class" href="class_painter.html">Painter</a>(<a class="code hl_class" href="class_painter.html">Painter</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    <a class="code hl_class" href="class_painter.html">Painter</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <a class="code hl_class" href="class_painter.html">Painter</a> &amp;operator=(<a class="code hl_class" href="class_painter.html">Painter</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <a class="code hl_class" href="class_painter.html">~Painter</a>();</div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a62e5ba47d3b57c8dc506722e08b2a5f8">drawPixelMap</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                      <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pixelmapSrcPos,</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                      <span class="keyword">const</span> std::string_view &amp;blendMode = <span class="stringliteral">&quot;S&quot;</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">drawCircle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">drawCircle</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <a class="code hl_class" href="class_rect.html">Rect</a> rect() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a21aed26db8f3266a9e0a925d3dc0dc07">setPenColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a49c82801b32bc04e0f8c0bf4f8972292">setPenWidth</a>(<span class="keywordtype">int</span> width) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4342f738e74f99d9e64cbfe435a86bd7">setPenStyle</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a> style) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afc046eecb1690bc6b65644a2424f8138">setBrushColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">drawFillCircle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">drawFillCircle</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">drawRoundRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">drawRoundRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">drawFillRoundRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">drawFillRoundRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>};</div>
-</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#abb6d08bee46a190a9562682bd898c684">setBrushStyle</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a> style) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">setFont</a>(<span class="keyword">const</span> std::string &amp;fontName, <span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">setFont</a>(<span class="keyword">const</span> std::wstring &amp;fontName, <span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a64a729bdb59937403f0623a66258ed85">setFontSize</a>(<span class="keywordtype">int</span> size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a6ab38ea82f8c0f35e72e71b6230c25e6">setFontWeight</a>(<span class="keywordtype">int</span> weight) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ad9ff6b4248565132880feae6424047b7">setFontItalic</a>(<span class="keywordtype">bool</span> italic) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span> </div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a74f2d4d985989ec46440dcf50e0f641e">setFontUnderline</a>(<span class="keywordtype">bool</span> underline) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a9e35eaf3b7d53f940022e67e4a29d479">setFontStrikeOut</a>(<span class="keywordtype">bool</span> strikeOut) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a8b54e9a37fa8b0ebb42c00c3a46b1fff">setTextAlign</a>(<a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a> halign, <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a> valign) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span> </div>
-<div class="foldopen" id="foldopen00463" data-start="{" data-end="};">
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno"><a class="line" href="class_paint_event.html">  463</a></span><span class="keyword">class </span><a class="code hl_class" href="class_paint_event.html">PaintEvent</a></div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>{</div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_app.html">App</a>;</div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span> </div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="class_painter.html">Painter</a> *painter = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span> </div>
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>(<a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;operator=(<a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>    <a class="code hl_class" href="class_paint_event.html">~PaintEvent</a>() <span class="keywordflow">throw</span>();</div>
-<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span> </div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;<a class="code hl_function" href="class_paint_event.html#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;<a class="code hl_function" href="class_paint_event.html#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a>(<a class="code hl_class" href="class_block.html">Block</a> *block) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span> </div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_paint_event.html#a24f230eac627a7a2e484529f7269324c">endPaint</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>};</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">drawPixel</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span> </div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">drawPixel</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span> </div>
+<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(<span class="keywordtype">int</span> x1, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span> </div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;p1, <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;p2) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span> </div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">drawRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span> </div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">drawRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span> </div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">drawFillRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span> </div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">drawFillRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">drawEllipse</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">drawEllipse</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">drawFillEllipse</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span> </div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">drawFillEllipse</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span> </div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aacbbb479b8054a8039c0b128a4b91b31">drawPolygon</a>(<span class="keyword">const</span> std::vector&lt;Point&gt; &amp;points) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a8e949edbb612be813b62d914f4508cd4">drawPolyline</a>(<span class="keyword">const</span> std::vector&lt;Point&gt; &amp;points) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span> </div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">drawArc</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry, <span class="keywordtype">int</span> startAngle, <span class="keywordtype">int</span> endAngle) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span> </div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">drawArc</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> startAngle, <span class="keywordtype">int</span> endAngle) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> </div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> </div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span> </div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span> </div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> std::string &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span> </div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">drawText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> std::wstring &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a7883dac1ed6fbed8e50760d17d068adf">drawPixelMap</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>                      <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode = BlendMode::S) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span> </div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a7883dac1ed6fbed8e50760d17d068adf">drawPixelMap</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>                      <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode = BlendMode::S) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a7883dac1ed6fbed8e50760d17d068adf">drawPixelMap</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> &amp;pixelmap,</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>                      <span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pixelmapSrcPos,</div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>                      <a class="code hl_enumeration" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode = BlendMode::S) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span> </div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">drawCircle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span> </div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">drawCircle</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">drawFillCircle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span> </div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">drawFillCircle</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;pos, <span class="keywordtype">int</span> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span> </div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">drawRoundRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">drawRoundRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span> </div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">drawFillRoundRect</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">drawFillRoundRect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <span class="keywordtype">int</span> rx, <span class="keywordtype">int</span> ry) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>};</div>
 </div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
-<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
-<div class="ttc" id="aclass_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">应用程序类</div><div class="ttdef"><b>Definition</b> App.h:34</div></div>
-<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:264</div></div>
-<div class="ttc" id="aclass_color_html"><div class="ttname"><a href="class_color.html">Color</a></div><div class="ttdoc">此类以 RGB 颜色模型对颜色进行存储</div><div class="ttdef"><b>Definition</b> Color.h:32</div></div>
-<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdef"><b>Definition</b> Painter.h:464</div></div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
+<div class="foldopen" id="foldopen00750" data-start="{" data-end="};">
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno"><a class="line" href="class_paint_event.html">  750</a></span><span class="keyword">class </span><a class="code hl_class" href="class_paint_event.html">PaintEvent</a></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>{</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_app.html">App</a>;</div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="class_painter.html">Painter</a> *painter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span> </div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a>(<a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>    <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;operator=(<a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>    <a class="code hl_class" href="class_paint_event.html">~PaintEvent</a>() <span class="keywordflow">throw</span>();</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;<a class="code hl_function" href="class_paint_event.html#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_block.html">Block</a> *block) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;<a class="code hl_function" href="class_paint_event.html#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a>(<a class="code hl_class" href="class_block.html">Block</a> *block) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span> </div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_paint_event.html#a24f230eac627a7a2e484529f7269324c">endPaint</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>};</div>
+</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span> </div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span> </div>
+<div class="ttc" id="aclass_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">应用程序类</div><div class="ttdef"><b>Definition</b> App.h:37</div></div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:267</div></div>
+<div class="ttc" id="aclass_color_html"><div class="ttname"><a href="class_color.html">Color</a></div><div class="ttdoc">此类以 RGB 颜色模型对颜色进行存储</div><div class="ttdef"><b>Definition</b> Color.h:37</div></div>
+<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdef"><b>Definition</b> Painter.h:751</div></div>
 <div class="ttc" id="aclass_paint_event_html_a24f230eac627a7a2e484529f7269324c"><div class="ttname"><a href="class_paint_event.html#a24f230eac627a7a2e484529f7269324c">PaintEvent::endPaint</a></div><div class="ttdeci">void endPaint() const</div><div class="ttdoc">结束绘制</div><div class="ttdef"><b>Definition</b> Painter.cpp:27</div></div>
 <div class="ttc" id="aclass_paint_event_html_a8f3abb7a6618bee2e1c5e9123a5566a1"><div class="ttname"><a href="class_paint_event.html#a8f3abb7a6618bee2e1c5e9123a5566a1">PaintEvent::beginPaint</a></div><div class="ttdeci">const Painter &amp; beginPaint(const Block *block) const</div><div class="ttdoc">构造Painter对象</div><div class="ttdef"><b>Definition</b> Painter.cpp:18</div></div>
-<div class="ttc" id="aclass_painter_html"><div class="ttname"><a href="class_painter.html">Painter</a></div><div class="ttdef"><b>Definition</b> Painter.h:78</div></div>
-<div class="ttc" id="aclass_painter_html_a04f2aa4ecc1f0144edde494e71df962e"><div class="ttname"><a href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">Painter::drawEllipse</a></div><div class="ttdeci">void drawEllipse(int x, int y, int w, int h) const</div><div class="ttdoc">这是一个重载，绘制圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:293</div></div>
-<div class="ttc" id="aclass_painter_html_a0c9524a1abb9ac1ee1b72dd9db1b3d1e"><div class="ttname"><a href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">Painter::drawFillEllipse</a></div><div class="ttdeci">void drawFillEllipse(int x, int y, int w, int h) const</div><div class="ttdoc">绘制填充椭圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:315</div></div>
-<div class="ttc" id="aclass_painter_html_a18457bc8ffdd88a9d34b1b6b2e8e923e"><div class="ttname"><a href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">Painter::drawCircle</a></div><div class="ttdeci">void drawCircle(int x, int y, int r) const</div><div class="ttdoc">绘制圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:1076</div></div>
-<div class="ttc" id="aclass_painter_html_a19e1b8037a8af78b38d1b2604b7d779d"><div class="ttname"><a href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">Painter::setFont</a></div><div class="ttdeci">void setFont(const std::string &amp;fontName, int size) const</div><div class="ttdoc">设置字体</div><div class="ttdef"><b>Definition</b> Painter.cpp:156</div></div>
-<div class="ttc" id="aclass_painter_html_a21aed26db8f3266a9e0a925d3dc0dc07"><div class="ttname"><a href="class_painter.html#a21aed26db8f3266a9e0a925d3dc0dc07">Painter::setPenColor</a></div><div class="ttdeci">void setPenColor(const Color &amp;color) const</div><div class="ttdoc">设置画笔颜色</div><div class="ttdef"><b>Definition</b> Painter.cpp:73</div></div>
-<div class="ttc" id="aclass_painter_html_a2bc526a39b2c79915ae9fc44c07296f7"><div class="ttname"><a href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">Painter::drawRoundRect</a></div><div class="ttdeci">void drawRoundRect(int x, int y, int w, int h, int rx, int ry) const</div><div class="ttdoc">绘制圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:1096</div></div>
-<div class="ttc" id="aclass_painter_html_a4342f738e74f99d9e64cbfe435a86bd7"><div class="ttname"><a href="class_painter.html#a4342f738e74f99d9e64cbfe435a86bd7">Painter::setPenStyle</a></div><div class="ttdeci">void setPenStyle(PenStyle style) const</div><div class="ttdoc">设置画笔样式</div><div class="ttdef"><b>Definition</b> Painter.cpp:90</div></div>
-<div class="ttc" id="aclass_painter_html_a49c82801b32bc04e0f8c0bf4f8972292"><div class="ttname"><a href="class_painter.html#a49c82801b32bc04e0f8c0bf4f8972292">Painter::setPenWidth</a></div><div class="ttdeci">void setPenWidth(int width) const</div><div class="ttdoc">设置画笔宽度</div><div class="ttdef"><b>Definition</b> Painter.cpp:82</div></div>
-<div class="ttc" id="aclass_painter_html_a4a9ae8879c81382a2348ad606582f5ac"><div class="ttname"><a href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">Painter::drawRect</a></div><div class="ttdeci">void drawRect(int x, int y, int w, int h) const</div><div class="ttdoc">绘制矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:253</div></div>
-<div class="ttc" id="aclass_painter_html_a4e6f355f06a06b7e88f65e1744525066"><div class="ttname"><a href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">Painter::drawFillRect</a></div><div class="ttdeci">void drawFillRect(int x, int y, int w, int h) const</div><div class="ttdoc">绘制填充矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:277</div></div>
-<div class="ttc" id="aclass_painter_html_a62e5ba47d3b57c8dc506722e08b2a5f8"><div class="ttname"><a href="class_painter.html#a62e5ba47d3b57c8dc506722e08b2a5f8">Painter::drawPixelMap</a></div><div class="ttdeci">void drawPixelMap(int x, int y, const PixelMap &amp;pixelmap, const std::string_view &amp;blendMode=&quot;S&quot;) const</div><div class="ttdoc">绘制像素图</div><div class="ttdef"><b>Definition</b> Painter.cpp:1024</div></div>
-<div class="ttc" id="aclass_painter_html_a64a729bdb59937403f0623a66258ed85"><div class="ttname"><a href="class_painter.html#a64a729bdb59937403f0623a66258ed85">Painter::setFontSize</a></div><div class="ttdeci">void setFontSize(int size) const</div><div class="ttdoc">设置字体大小</div><div class="ttdef"><b>Definition</b> Painter.cpp:174</div></div>
-<div class="ttc" id="aclass_painter_html_a6ab38ea82f8c0f35e72e71b6230c25e6"><div class="ttname"><a href="class_painter.html#a6ab38ea82f8c0f35e72e71b6230c25e6">Painter::setFontWeight</a></div><div class="ttdeci">void setFontWeight(int weight) const</div><div class="ttdoc">设置字体粗细</div><div class="ttdef"><b>Definition</b> Painter.cpp:182</div></div>
-<div class="ttc" id="aclass_painter_html_a72670841002558a056ea4a9fdd4ae447"><div class="ttname"><a href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">Painter::drawPixel</a></div><div class="ttdeci">void drawPixel(int x, int y, const Color &amp;color) const</div><div class="ttdoc">绘制像素点</div><div class="ttdef"><b>Definition</b> Painter.cpp:220</div></div>
-<div class="ttc" id="aclass_painter_html_a74f2d4d985989ec46440dcf50e0f641e"><div class="ttname"><a href="class_painter.html#a74f2d4d985989ec46440dcf50e0f641e">Painter::setFontUnderline</a></div><div class="ttdeci">void setFontUnderline(bool underline) const</div><div class="ttdoc">设置字体是否具有下划线</div><div class="ttdef"><b>Definition</b> Painter.cpp:198</div></div>
-<div class="ttc" id="aclass_painter_html_a84fcd7926748b4262882609c572c62ec"><div class="ttname"><a href="class_painter.html#a84fcd7926748b4262882609c572c62ec">Painter::drawLine</a></div><div class="ttdeci">void drawLine(int x1, int y1, int x2, int y2) const</div><div class="ttdoc">绘制线</div><div class="ttdef"><b>Definition</b> Painter.cpp:230</div></div>
-<div class="ttc" id="aclass_painter_html_a8b54e9a37fa8b0ebb42c00c3a46b1fff"><div class="ttname"><a href="class_painter.html#a8b54e9a37fa8b0ebb42c00c3a46b1fff">Painter::setTextAlign</a></div><div class="ttdeci">void setTextAlign(TextHAlign halign, TextVAlign valign) const</div><div class="ttdoc">设置文本对齐方式</div><div class="ttdef"><b>Definition</b> Painter.cpp:214</div></div>
-<div class="ttc" id="aclass_painter_html_a8e949edbb612be813b62d914f4508cd4"><div class="ttname"><a href="class_painter.html#a8e949edbb612be813b62d914f4508cd4">Painter::drawPolyline</a></div><div class="ttdeci">void drawPolyline(const std::vector&lt; Point &gt; &amp;points) const</div><div class="ttdoc">绘制折线</div><div class="ttdef"><b>Definition</b> Painter.cpp:355</div></div>
-<div class="ttc" id="aclass_painter_html_a9e35eaf3b7d53f940022e67e4a29d479"><div class="ttname"><a href="class_painter.html#a9e35eaf3b7d53f940022e67e4a29d479">Painter::setFontStrikeOut</a></div><div class="ttdeci">void setFontStrikeOut(bool strikeOut) const</div><div class="ttdoc">设置字体是否有删除线</div><div class="ttdef"><b>Definition</b> Painter.cpp:206</div></div>
-<div class="ttc" id="aclass_painter_html_aacbbb479b8054a8039c0b128a4b91b31"><div class="ttname"><a href="class_painter.html#aacbbb479b8054a8039c0b128a4b91b31">Painter::drawPolygon</a></div><div class="ttdeci">void drawPolygon(const std::vector&lt; Point &gt; &amp;points) const</div><div class="ttdoc">绘制多边形</div><div class="ttdef"><b>Definition</b> Painter.cpp:337</div></div>
-<div class="ttc" id="aclass_painter_html_abb6d08bee46a190a9562682bd898c684"><div class="ttname"><a href="class_painter.html#abb6d08bee46a190a9562682bd898c684">Painter::setBrushStyle</a></div><div class="ttdeci">void setBrushStyle(BrushStyle style) const</div><div class="ttdoc">设置画刷样式</div><div class="ttdef"><b>Definition</b> Painter.cpp:141</div></div>
-<div class="ttc" id="aclass_painter_html_ac3cd6c874423e41909326b76778eefb3"><div class="ttname"><a href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">Painter::drawText</a></div><div class="ttdeci">void drawText(int x, int y, const std::string &amp;text) const</div><div class="ttdoc">绘制文本</div><div class="ttdef"><b>Definition</b> Painter.cpp:401</div></div>
-<div class="ttc" id="aclass_painter_html_ac8c5e6b618679c12c26a2a5a607076ee"><div class="ttname"><a href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">Painter::drawFillRoundRect</a></div><div class="ttdeci">void drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const</div><div class="ttdoc">绘制填充圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:1113</div></div>
-<div class="ttc" id="aclass_painter_html_ad9ff6b4248565132880feae6424047b7"><div class="ttname"><a href="class_painter.html#ad9ff6b4248565132880feae6424047b7">Painter::setFontItalic</a></div><div class="ttdeci">void setFontItalic(bool italic) const</div><div class="ttdoc">设置字体斜体</div><div class="ttdef"><b>Definition</b> Painter.cpp:190</div></div>
-<div class="ttc" id="aclass_painter_html_aea04584fed843e8d56fd1be0efde2941"><div class="ttname"><a href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">Painter::drawFillCircle</a></div><div class="ttdeci">void drawFillCircle(int x, int y, int r) const</div><div class="ttdoc">绘制填充圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:1086</div></div>
-<div class="ttc" id="aclass_painter_html_afc046eecb1690bc6b65644a2424f8138"><div class="ttname"><a href="class_painter.html#afc046eecb1690bc6b65644a2424f8138">Painter::setBrushColor</a></div><div class="ttdeci">void setBrushColor(const Color &amp;color) const</div><div class="ttdoc">设置画刷颜色</div><div class="ttdef"><b>Definition</b> Painter.cpp:131</div></div>
-<div class="ttc" id="aclass_painter_html_afe37b4e38f94776eb4f40394ead8a115"><div class="ttname"><a href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">Painter::drawArc</a></div><div class="ttdeci">void drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const</div><div class="ttdoc">绘制弧线</div><div class="ttdef"><b>Definition</b> Painter.cpp:371</div></div>
-<div class="ttc" id="aclass_pixel_map_html"><div class="ttname"><a href="class_pixel_map.html">PixelMap</a></div><div class="ttdoc">像素图类</div><div class="ttdef"><b>Definition</b> PixelMap.h:18</div></div>
-<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdoc">此类定义二维坐标点</div><div class="ttdef"><b>Definition</b> Point.h:17</div></div>
-<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:15</div></div>
-<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ga3ba8a1cdd2e577efbad7c7b88e1c6175"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a></div><div class="ttdeci">TextVAlign</div><div class="ttdef"><b>Definition</b> Painter.h:68</div></div>
-<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ga696d25264ac639804b3f4384961bbc27"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a></div><div class="ttdeci">TextHAlign</div><div class="ttdef"><b>Definition</b> Painter.h:58</div></div>
-<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gab70170afb6347d18ff9dac17e05e133e"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a></div><div class="ttdeci">PenStyle</div><div class="ttdoc">线条样式</div><div class="ttdef"><b>Definition</b> Painter.h:22</div></div>
-<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gaf67a889bc5e9f8ab3a59fe58b0fa2128"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a></div><div class="ttdeci">BrushStyle</div><div class="ttdoc">画刷样式</div><div class="ttdef"><b>Definition</b> Painter.h:39</div></div>
+<div class="ttc" id="aclass_painter_html"><div class="ttname"><a href="class_painter.html">Painter</a></div><div class="ttdef"><b>Definition</b> Painter.h:355</div></div>
+<div class="ttc" id="aclass_painter_html_a04f2aa4ecc1f0144edde494e71df962e"><div class="ttname"><a href="class_painter.html#a04f2aa4ecc1f0144edde494e71df962e">Painter::drawEllipse</a></div><div class="ttdeci">void drawEllipse(int x, int y, int w, int h) const</div><div class="ttdoc">这是一个重载，绘制圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:294</div></div>
+<div class="ttc" id="aclass_painter_html_a0c9524a1abb9ac1ee1b72dd9db1b3d1e"><div class="ttname"><a href="class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e">Painter::drawFillEllipse</a></div><div class="ttdeci">void drawFillEllipse(int x, int y, int w, int h) const</div><div class="ttdoc">绘制填充椭圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:316</div></div>
+<div class="ttc" id="aclass_painter_html_a18457bc8ffdd88a9d34b1b6b2e8e923e"><div class="ttname"><a href="class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e">Painter::drawCircle</a></div><div class="ttdeci">void drawCircle(int x, int y, int r) const</div><div class="ttdoc">绘制圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:1079</div></div>
+<div class="ttc" id="aclass_painter_html_a19e1b8037a8af78b38d1b2604b7d779d"><div class="ttname"><a href="class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d">Painter::setFont</a></div><div class="ttdeci">void setFont(const std::string &amp;fontName, int size) const</div><div class="ttdoc">设置字体</div><div class="ttdef"><b>Definition</b> Painter.cpp:157</div></div>
+<div class="ttc" id="aclass_painter_html_a21aed26db8f3266a9e0a925d3dc0dc07"><div class="ttname"><a href="class_painter.html#a21aed26db8f3266a9e0a925d3dc0dc07">Painter::setPenColor</a></div><div class="ttdeci">void setPenColor(const Color &amp;color) const</div><div class="ttdoc">设置画笔颜色</div><div class="ttdef"><b>Definition</b> Painter.cpp:74</div></div>
+<div class="ttc" id="aclass_painter_html_a2bc526a39b2c79915ae9fc44c07296f7"><div class="ttname"><a href="class_painter.html#a2bc526a39b2c79915ae9fc44c07296f7">Painter::drawRoundRect</a></div><div class="ttdeci">void drawRoundRect(int x, int y, int w, int h, int rx, int ry) const</div><div class="ttdoc">绘制圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:1099</div></div>
+<div class="ttc" id="aclass_painter_html_a4342f738e74f99d9e64cbfe435a86bd7"><div class="ttname"><a href="class_painter.html#a4342f738e74f99d9e64cbfe435a86bd7">Painter::setPenStyle</a></div><div class="ttdeci">void setPenStyle(PenStyle style) const</div><div class="ttdoc">设置画笔样式</div><div class="ttdef"><b>Definition</b> Painter.cpp:91</div></div>
+<div class="ttc" id="aclass_painter_html_a49c82801b32bc04e0f8c0bf4f8972292"><div class="ttname"><a href="class_painter.html#a49c82801b32bc04e0f8c0bf4f8972292">Painter::setPenWidth</a></div><div class="ttdeci">void setPenWidth(int width) const</div><div class="ttdoc">设置画笔宽度</div><div class="ttdef"><b>Definition</b> Painter.cpp:83</div></div>
+<div class="ttc" id="aclass_painter_html_a4a9ae8879c81382a2348ad606582f5ac"><div class="ttname"><a href="class_painter.html#a4a9ae8879c81382a2348ad606582f5ac">Painter::drawRect</a></div><div class="ttdeci">void drawRect(int x, int y, int w, int h) const</div><div class="ttdoc">绘制矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:254</div></div>
+<div class="ttc" id="aclass_painter_html_a4e6f355f06a06b7e88f65e1744525066"><div class="ttname"><a href="class_painter.html#a4e6f355f06a06b7e88f65e1744525066">Painter::drawFillRect</a></div><div class="ttdeci">void drawFillRect(int x, int y, int w, int h) const</div><div class="ttdoc">绘制填充矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:278</div></div>
+<div class="ttc" id="aclass_painter_html_a64a729bdb59937403f0623a66258ed85"><div class="ttname"><a href="class_painter.html#a64a729bdb59937403f0623a66258ed85">Painter::setFontSize</a></div><div class="ttdeci">void setFontSize(int size) const</div><div class="ttdoc">设置字体大小</div><div class="ttdef"><b>Definition</b> Painter.cpp:175</div></div>
+<div class="ttc" id="aclass_painter_html_a6ab38ea82f8c0f35e72e71b6230c25e6"><div class="ttname"><a href="class_painter.html#a6ab38ea82f8c0f35e72e71b6230c25e6">Painter::setFontWeight</a></div><div class="ttdeci">void setFontWeight(int weight) const</div><div class="ttdoc">设置字体粗细</div><div class="ttdef"><b>Definition</b> Painter.cpp:183</div></div>
+<div class="ttc" id="aclass_painter_html_a72670841002558a056ea4a9fdd4ae447"><div class="ttname"><a href="class_painter.html#a72670841002558a056ea4a9fdd4ae447">Painter::drawPixel</a></div><div class="ttdeci">void drawPixel(int x, int y, const Color &amp;color) const</div><div class="ttdoc">绘制像素点</div><div class="ttdef"><b>Definition</b> Painter.cpp:221</div></div>
+<div class="ttc" id="aclass_painter_html_a74f2d4d985989ec46440dcf50e0f641e"><div class="ttname"><a href="class_painter.html#a74f2d4d985989ec46440dcf50e0f641e">Painter::setFontUnderline</a></div><div class="ttdeci">void setFontUnderline(bool underline) const</div><div class="ttdoc">设置字体是否具有下划线</div><div class="ttdef"><b>Definition</b> Painter.cpp:199</div></div>
+<div class="ttc" id="aclass_painter_html_a7883dac1ed6fbed8e50760d17d068adf"><div class="ttname"><a href="class_painter.html#a7883dac1ed6fbed8e50760d17d068adf">Painter::drawPixelMap</a></div><div class="ttdeci">void drawPixelMap(int x, int y, const PixelMap &amp;pixelmap, BlendMode blendMode=BlendMode::S) const</div><div class="ttdoc">绘制像素图</div><div class="ttdef"><b>Definition</b> Painter.cpp:1027</div></div>
+<div class="ttc" id="aclass_painter_html_a84fcd7926748b4262882609c572c62ec"><div class="ttname"><a href="class_painter.html#a84fcd7926748b4262882609c572c62ec">Painter::drawLine</a></div><div class="ttdeci">void drawLine(int x1, int y1, int x2, int y2) const</div><div class="ttdoc">绘制线</div><div class="ttdef"><b>Definition</b> Painter.cpp:231</div></div>
+<div class="ttc" id="aclass_painter_html_a8b54e9a37fa8b0ebb42c00c3a46b1fff"><div class="ttname"><a href="class_painter.html#a8b54e9a37fa8b0ebb42c00c3a46b1fff">Painter::setTextAlign</a></div><div class="ttdeci">void setTextAlign(TextHAlign halign, TextVAlign valign) const</div><div class="ttdoc">设置文本对齐方式</div><div class="ttdef"><b>Definition</b> Painter.cpp:215</div></div>
+<div class="ttc" id="aclass_painter_html_a8e949edbb612be813b62d914f4508cd4"><div class="ttname"><a href="class_painter.html#a8e949edbb612be813b62d914f4508cd4">Painter::drawPolyline</a></div><div class="ttdeci">void drawPolyline(const std::vector&lt; Point &gt; &amp;points) const</div><div class="ttdoc">绘制折线</div><div class="ttdef"><b>Definition</b> Painter.cpp:356</div></div>
+<div class="ttc" id="aclass_painter_html_a9e35eaf3b7d53f940022e67e4a29d479"><div class="ttname"><a href="class_painter.html#a9e35eaf3b7d53f940022e67e4a29d479">Painter::setFontStrikeOut</a></div><div class="ttdeci">void setFontStrikeOut(bool strikeOut) const</div><div class="ttdoc">设置字体是否有删除线</div><div class="ttdef"><b>Definition</b> Painter.cpp:207</div></div>
+<div class="ttc" id="aclass_painter_html_aacbbb479b8054a8039c0b128a4b91b31"><div class="ttname"><a href="class_painter.html#aacbbb479b8054a8039c0b128a4b91b31">Painter::drawPolygon</a></div><div class="ttdeci">void drawPolygon(const std::vector&lt; Point &gt; &amp;points) const</div><div class="ttdoc">绘制多边形</div><div class="ttdef"><b>Definition</b> Painter.cpp:338</div></div>
+<div class="ttc" id="aclass_painter_html_abb6d08bee46a190a9562682bd898c684"><div class="ttname"><a href="class_painter.html#abb6d08bee46a190a9562682bd898c684">Painter::setBrushStyle</a></div><div class="ttdeci">void setBrushStyle(BrushStyle style) const</div><div class="ttdoc">设置画刷样式</div><div class="ttdef"><b>Definition</b> Painter.cpp:142</div></div>
+<div class="ttc" id="aclass_painter_html_ac3cd6c874423e41909326b76778eefb3"><div class="ttname"><a href="class_painter.html#ac3cd6c874423e41909326b76778eefb3">Painter::drawText</a></div><div class="ttdeci">void drawText(int x, int y, const std::string &amp;text) const</div><div class="ttdoc">绘制文本</div><div class="ttdef"><b>Definition</b> Painter.cpp:402</div></div>
+<div class="ttc" id="aclass_painter_html_ac8c5e6b618679c12c26a2a5a607076ee"><div class="ttname"><a href="class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee">Painter::drawFillRoundRect</a></div><div class="ttdeci">void drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const</div><div class="ttdoc">绘制填充圆角矩形</div><div class="ttdef"><b>Definition</b> Painter.cpp:1116</div></div>
+<div class="ttc" id="aclass_painter_html_ad9ff6b4248565132880feae6424047b7"><div class="ttname"><a href="class_painter.html#ad9ff6b4248565132880feae6424047b7">Painter::setFontItalic</a></div><div class="ttdeci">void setFontItalic(bool italic) const</div><div class="ttdoc">设置字体斜体</div><div class="ttdef"><b>Definition</b> Painter.cpp:191</div></div>
+<div class="ttc" id="aclass_painter_html_aea04584fed843e8d56fd1be0efde2941"><div class="ttname"><a href="class_painter.html#aea04584fed843e8d56fd1be0efde2941">Painter::drawFillCircle</a></div><div class="ttdeci">void drawFillCircle(int x, int y, int r) const</div><div class="ttdoc">绘制填充圆</div><div class="ttdef"><b>Definition</b> Painter.cpp:1089</div></div>
+<div class="ttc" id="aclass_painter_html_afc046eecb1690bc6b65644a2424f8138"><div class="ttname"><a href="class_painter.html#afc046eecb1690bc6b65644a2424f8138">Painter::setBrushColor</a></div><div class="ttdeci">void setBrushColor(const Color &amp;color) const</div><div class="ttdoc">设置画刷颜色</div><div class="ttdef"><b>Definition</b> Painter.cpp:132</div></div>
+<div class="ttc" id="aclass_painter_html_afe37b4e38f94776eb4f40394ead8a115"><div class="ttname"><a href="class_painter.html#afe37b4e38f94776eb4f40394ead8a115">Painter::drawArc</a></div><div class="ttdeci">void drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const</div><div class="ttdoc">绘制弧线</div><div class="ttdef"><b>Definition</b> Painter.cpp:372</div></div>
+<div class="ttc" id="aclass_pixel_map_html"><div class="ttname"><a href="class_pixel_map.html">PixelMap</a></div><div class="ttdoc">像素图类</div><div class="ttdef"><b>Definition</b> PixelMap.h:21</div></div>
+<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdoc">此类定义二维坐标点</div><div class="ttdef"><b>Definition</b> Point.h:20</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:18</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ga30323fa90e24ca484998b9fba6c40e85"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85">BlendMode</a></div><div class="ttdeci">BlendMode</div><div class="ttdoc">颜色混合模式</div><div class="ttdef"><b>Definition</b> Painter.h:36</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ga3ba8a1cdd2e577efbad7c7b88e1c6175"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175">TextVAlign</a></div><div class="ttdeci">TextVAlign</div><div class="ttdef"><b>Definition</b> Painter.h:345</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ga696d25264ac639804b3f4384961bbc27"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a></div><div class="ttdeci">TextHAlign</div><div class="ttdef"><b>Definition</b> Painter.h:335</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gab70170afb6347d18ff9dac17e05e133e"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e">PenStyle</a></div><div class="ttdeci">PenStyle</div><div class="ttdoc">线条样式</div><div class="ttdef"><b>Definition</b> Painter.h:299</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gaf67a889bc5e9f8ab3a59fe58b0fa2128"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a></div><div class="ttdeci">BrushStyle</div><div class="ttdoc">画刷样式</div><div class="ttdef"><b>Definition</b> Painter.h:316</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4">TextVAlign::Bottom</a></div><div class="ttdeci">@ Bottom</div><div class="ttdoc">底部对齐</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00">TextVAlign::Top</a></div><div class="ttdeci">@ Top</div><div class="ttdoc">顶部对齐</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">TextHAlign::Center</a></div><div class="ttdeci">@ Center</div><div class="ttdoc">居中对齐</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c">TextHAlign::Right</a></div><div class="ttdeci">@ Right</div><div class="ttdoc">右对齐</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff">TextHAlign::Left</a></div><div class="ttdeci">@ Left</div><div class="ttdoc">左对齐</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab3c7af4820830f9166ede9e5623c4e73a44c29edb103a2872f519ad0c9a0fdaaa"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a44c29edb103a2872f519ad0c9a0fdaaa">Key::P</a></div><div class="ttdeci">@ P</div><div class="ttdoc">P键</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab3c7af4820830f9166ede9e5623c4e73a5dbc98dcc983a70728bd082d1a47546e"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5dbc98dcc983a70728bd082d1a47546e">Key::S</a></div><div class="ttdeci">@ S</div><div class="ttdoc">S键</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab3c7af4820830f9166ede9e5623c4e73af623e75af30e62bbd73d6df5b50bb7b5"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73af623e75af30e62bbd73d6df5b50bb7b5">Key::D</a></div><div class="ttdeci">@ D</div><div class="ttdoc">D键</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab70170afb6347d18ff9dac17e05e133ea3663598d5c5858b5a6040b1bbed4f187"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133ea3663598d5c5858b5a6040b1bbed4f187">PenStyle::Dash</a></div><div class="ttdeci">@ Dash</div><div class="ttdoc">虚线</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab70170afb6347d18ff9dac17e05e133eaaf6c6cf7a454b4ef4a850ac4d960a2cc"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaaf6c6cf7a454b4ef4a850ac4d960a2cc">PenStyle::Dot</a></div><div class="ttdeci">@ Dot</div><div class="ttdoc">点线</div></div>
 <div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab70170afb6347d18ff9dac17e05e133eabbb93ef26e3c101ff11cdd21cab08a94"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eabbb93ef26e3c101ff11cdd21cab08a94">PenStyle::Null</a></div><div class="ttdeci">@ Null</div><div class="ttdoc">无样式线</div></div>
@@ -365,7 +630,7 @@ $(function(){initNavTree('_painter_8h_source.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d03cbfd2f64df20252359f4b8046046f.html">view</a></li><li class="navelem"><b>Painter.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d03cbfd2f64df20252359f4b8046046f.html">view</a></li><li class="navelem"><a class="el" href="_painter_8h.html">Painter.h</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

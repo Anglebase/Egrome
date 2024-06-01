@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exception_0',['Exception',['../class_exception.html',1,'']]]
+  ['divider_0',['Divider',['../class_divider.html',1,'']]]
 ];

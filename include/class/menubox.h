@@ -1,11 +1,26 @@
 #pragma once
 
+/**
+ * @file menubox.h
+ * @brief 菜单列表控件
+*/
+
 #include "Block.h"
 #include "Color.h"
 #include "Animation.hpp"
 #include <vector>
 #include "label.h"
 class MenuBox;
+
+/**
+ * @addtogroup 控件
+ * @{
+*/
+
+/**
+ * @addtogroup 菜单控件
+ * @{
+*/
 /**
  * @brief 菜单项
  * @details 用于显示菜单项
@@ -247,3 +262,6 @@ public:
      */
     int getHeight() const;
 };
+
+/** @} */
+/** @} */

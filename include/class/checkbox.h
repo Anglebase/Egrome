@@ -1,5 +1,9 @@
 #pragma once
-
+/**
+ * @file checkbox.h
+ * @brief 复选框控件
+ * @details 继承自 Block 类，实现了鼠标点击事件，以及信号槽机制
+*/
 #include <string>
 #include "../view/Block.h"
 #include "../view/Color.h"

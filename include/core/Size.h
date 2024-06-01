@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Size.h
+ * @brief 二维尺寸类
+*/
 #include <iostream>
 
 class SizeF;

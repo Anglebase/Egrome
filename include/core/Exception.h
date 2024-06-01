@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Exception.h
+ * @brief 异常类
+*/
 #include <iostream>
 
 /**

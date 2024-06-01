@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file PointF.h
+ * @brief 定义PointF类
+*/
 #include <iostream>
 class Point;
 class Rect;

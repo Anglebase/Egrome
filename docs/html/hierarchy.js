@@ -6,7 +6,10 @@ var hierarchy =
     [ "Block", "class_block.html", [
       [ "Button", "class_button.html", null ],
       [ "Checkbox", "class_checkbox.html", null ],
+      [ "Divider", "class_divider.html", null ],
       [ "Label", "class_label.html", null ],
+      [ "MenuBox", "class_menu_box.html", null ],
+      [ "MenuItem", "class_menu_item.html", null ],
       [ "RadioBox", "class_radio_box.html", null ]
     ] ],
     [ "Color", "class_color.html", null ],

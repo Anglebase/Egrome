@@ -119,8 +119,11 @@ $(function(){initNavTree('class_block.html',''); initResizable(); });
   <map id="Block_map" name="Block_map">
 <area href="class_button.html" title="按钮控件" alt="Button" shape="rect" coords="0,56,68,80"/>
 <area href="class_checkbox.html" title="复选框控件" alt="Checkbox" shape="rect" coords="78,56,146,80"/>
-<area href="class_label.html" title="标签控件" alt="Label" shape="rect" coords="156,56,224,80"/>
-<area href="class_radio_box.html" title="单选框" alt="RadioBox" shape="rect" coords="234,56,302,80"/>
+<area href="class_divider.html" title="分割线" alt="Divider" shape="rect" coords="156,56,224,80"/>
+<area href="class_label.html" title="标签控件" alt="Label" shape="rect" coords="234,56,302,80"/>
+<area href="class_menu_box.html" title="菜单框" alt="MenuBox" shape="rect" coords="312,56,380,80"/>
+<area href="class_menu_item.html" title="菜单项" alt="MenuItem" shape="rect" coords="390,56,458,80"/>
+<area href="class_radio_box.html" title="单选框" alt="RadioBox" shape="rect" coords="468,56,536,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -141,6 +144,15 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a2e7363fe8ca8da5b722406572d26b68f" id="r_a2e7363fe8ca8da5b722406572d26b68f"><td class="memItemLeft" align="right" valign="top"><a id="a2e7363fe8ca8da5b722406572d26b68f" name="a2e7363fe8ca8da5b722406572d26b68f"></a>
 const <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rect</b> () const</td></tr>
 <tr class="separator:a2e7363fe8ca8da5b722406572d26b68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4380b68a9d9e8ff1c4883925bd9186" id="r_a0d4380b68a9d9e8ff1c4883925bd9186"><td class="memItemLeft" align="right" valign="top"><a id="a0d4380b68a9d9e8ff1c4883925bd9186" name="a0d4380b68a9d9e8ff1c4883925bd9186"></a>
+<a class="el" href="class_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> () const</td></tr>
+<tr class="separator:a0d4380b68a9d9e8ff1c4883925bd9186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50623bee8bd4b176278f438e12b015cb" id="r_a50623bee8bd4b176278f438e12b015cb"><td class="memItemLeft" align="right" valign="top"><a id="a50623bee8bd4b176278f438e12b015cb" name="a50623bee8bd4b176278f438e12b015cb"></a>
+std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>childs</b> ()</td></tr>
+<tr class="separator:a50623bee8bd4b176278f438e12b015cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a546bf38cd158b322fe67f60f56f6890e" id="r_a546bf38cd158b322fe67f60f56f6890e"><td class="memItemLeft" align="right" valign="top"><a id="a546bf38cd158b322fe67f60f56f6890e" name="a546bf38cd158b322fe67f60f56f6890e"></a>
+const std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>childs</b> () const</td></tr>
+<tr class="separator:a546bf38cd158b322fe67f60f56f6890e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -406,6 +418,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onMoved 信号、onEnter 信号和 onLeave 信号 </dd></dl>
 
+<p>被 <a class="el" href="class_menu_item.html#af260d35a7fbb09b5b0aab093ac783f5c">MenuItem</a> , 以及 <a class="el" href="class_menu_box.html#aa21609cb374385f982a5390290413fb2">MenuBox</a> 重载.</p>
+
 </div>
 </div>
 <a id="a71e4bfdb94b9f4e281331632319e4a69" name="a71e4bfdb94b9f4e281331632319e4a69"></a>
@@ -445,7 +459,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_checkbox.html#a7447728c93ba5f8f8c7bbe383a203de8">Checkbox</a> , 以及 <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_checkbox.html#a7447728c93ba5f8f8c7bbe383a203de8">Checkbox</a>, <a class="el" href="class_menu_item.html#a7c999384cda32b57386379b8d14707dc">MenuItem</a>, <a class="el" href="class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a">MenuBox</a> , 以及 <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> 重载.</p>
 
 </div>
 </div>
@@ -486,7 +500,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a>, <a class="el" href="class_menu_item.html#a29a21f83c257aecbc3b0efd5495f4da7">MenuItem</a> , 以及 <a class="el" href="class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f">MenuBox</a> 重载.</p>
 
 </div>
 </div>
@@ -562,7 +576,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类重写该函数时应当调用父类的 paint() 函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_checkbox.html#a8ca1a5487e68cdff18d08a872448bd3b">Checkbox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a> , 以及 <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_checkbox.html#a8ca1a5487e68cdff18d08a872448bd3b">Checkbox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a>, <a class="el" href="class_menu_item.html#a0d4bb7808b030873cdcff2a59ff042ff">MenuItem</a>, <a class="el" href="class_divider.html#a26947f96da5ef86354df39e106c03535">Divider</a>, <a class="el" href="class_menu_box.html#abdd366ec8c449d531d207918e0c5f643">MenuBox</a> , 以及 <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> 重载.</p>
 
 </div>
 </div>

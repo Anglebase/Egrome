@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file App.h
+ * @brief 应用程序类
+*/
 #include <string>
 class Size;
 class Point;

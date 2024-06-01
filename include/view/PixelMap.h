@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file PixelMap.h
+ * @brief 像素图类
+*/
 #include <memory>
 
 class Size;

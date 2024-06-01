@@ -1,4 +1,9 @@
 #pragma once
+/**
+ * @file radiobox.h
+ * @brief 单选框控件
+ * @details 单选框控件用于表示一个可选中的选项，单选框组中只能有一个被选中，当选中组中某个单选框时，组中已选中的单选框的选中状态会自动变为未选中
+*/
 #include "../view/Block.h"
 #include "../view/Color.h"
 
@@ -6,6 +11,11 @@ class RadioBox;
 
 /**
  * @addtogroup 控件
+ * @{
+*/
+
+/**
+ * @addtogroup 单选框控件
  * @{
 */
 
@@ -143,4 +153,5 @@ public:
     void setBorderWidth(int width);
 };
 
+/** @} */
 /** @} */

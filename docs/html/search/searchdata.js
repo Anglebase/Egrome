@@ -1,14 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghijklmnopqrstuvwxyz~控核视",
-  1: "abcehlprs",
-  2: "s",
-  3: "abcdegiklmopqrstvw~",
+  0: "abcdefghijklmnopqrstuvwxyz~单控核菜视",
+  1: "abcdehlmprs",
+  2: "abcelmprs",
+  3: "abcdeghiklmopqrstvw~",
   4: "choprsv",
   5: "abikmpt",
   6: "abcdefghijklmnopqrstuvwxyz",
   7: "o",
-  8: "控核视"
+  8: "单控核菜视"
 };
 
 var indexSectionNames =

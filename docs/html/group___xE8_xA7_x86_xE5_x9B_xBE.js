@@ -64,9 +64,9 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "drawLine", "class_painter.html#a84fcd7926748b4262882609c572c62ec", null ],
       [ "drawPixel", "class_painter.html#a57a97ccc4c9afc58a672721211edc979", null ],
       [ "drawPixel", "class_painter.html#a72670841002558a056ea4a9fdd4ae447", null ],
-      [ "drawPixelMap", "class_painter.html#add27ee96723a559afda32edd3981b5eb", null ],
-      [ "drawPixelMap", "class_painter.html#a1536b1e32ae09cd7dc6ee214aa7394e6", null ],
-      [ "drawPixelMap", "class_painter.html#a62e5ba47d3b57c8dc506722e08b2a5f8", null ],
+      [ "drawPixelMap", "class_painter.html#a0d17a27187c0b0cb844664f8634c8a4b", null ],
+      [ "drawPixelMap", "class_painter.html#a7689903e9056de5b92845d15d84d881b", null ],
+      [ "drawPixelMap", "class_painter.html#a7883dac1ed6fbed8e50760d17d068adf", null ],
       [ "drawPolygon", "class_painter.html#aacbbb479b8054a8039c0b128a4b91b31", null ],
       [ "drawPolyline", "class_painter.html#a8e949edbb612be813b62d914f4508cd4", null ],
       [ "drawRect", "class_painter.html#aa8ee44a7654659f5ecb69983f96ad638", null ],
@@ -109,6 +109,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "setSize", "class_pixel_map.html#a96920314a4b67145f05f1ca99849d9da", null ],
       [ "setSize", "class_pixel_map.html#a69e2ea9c2be9438d6c39bc930837c8c0", null ]
     ] ],
+    [ "BlendMode", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85", null ],
     [ "BrushStyle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128", [
       [ "BrushStyle::EMPTY", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb", null ],
       [ "BrushStyle::SOLID", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9", null ],

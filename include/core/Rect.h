@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Rect.h
+ * @brief 矩形类
+*/
 #include <iostream>
 class Point;
 class Size;

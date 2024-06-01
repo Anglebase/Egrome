@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file Animation.hpp
+ * @brief 动画支持类
+*/
+
 #include <chrono>
 #include <functional>
 

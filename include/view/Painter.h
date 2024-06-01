@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Painter.h
+ * @brief 绘图类
+*/
 #include <string>
 #include <vector>
 
@@ -15,9 +18,22 @@ class PixelMap;
  * @{
  */
 
+/**
+ * @brief 颜色混合模式
+ * @details 该枚举采用三元光栅操作码的后缀表达式表示
+ * @note 三元光栅操作码由三个字符组成，分别为：
+ * - S：Source，源像素
+ * - D：Destination，目标像素
+ * - P：Pattern，模式像素(当前填充颜色)
+ * 三元光栅操作码的后缀表达式表示法为：
+ * - S与D进行与操作：例如 S & D 表示为 SDa
+ * - S与D进行或操作：例如 S | D 表示为 SDo
+ * - S与D进行异或操作：例如 S ^ D 表示为 SDx
+ * - S与D进行反相操作：例如 ~S 表示为 Sn
+ * 目前支持的三元光栅操作码有256个
+ */
 enum class BlendMode
 {
-
     Mode_0,
     DPSoon,
     DPSona,

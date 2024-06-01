@@ -1,5 +1,9 @@
 #pragma once
-
+/**
+ * @file Button.h
+ * @brief 按钮控件类
+ * @details 按钮控件是一种基本的控件，可以响应鼠标点击、悬停、按下、释放等事件，并提供相关的信号
+*/
 #include "../core/Animation.hpp"
 #include "../core/SignalSlots.hpp"
 #include "../view/Block.h"

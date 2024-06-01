@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Point.h
+ * @brief 定义二维坐标点
+*/
 #include <iostream>
 class PointF;
 class Rect;

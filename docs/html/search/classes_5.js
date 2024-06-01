@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['label_0',['Label',['../class_label.html',1,'']]]
+  ['hsl_0',['HSL',['../struct_h_s_l.html',1,'']]],
+  ['hsv_1',['HSV',['../struct_h_s_v.html',1,'']]]
 ];

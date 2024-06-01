@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file Block.h
+ * @brief 块基类
+*/
 #include <vector>
 #include "../core/SignalSlots.hpp"
 #include "../core/Rect.h"
