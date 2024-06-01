@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['brushstyle_0',['BrushStyle',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128',1,'Painter.h']]]
+  ['alignment_0',['Alignment',['../class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634',1,'Label']]]
 ];

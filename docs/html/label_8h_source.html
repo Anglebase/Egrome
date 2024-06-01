@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/class/label.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('label_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">label.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../view/Block.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../view/Color.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_label.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_label.html">Label</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_block.html">Block</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634">   17</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634">Alignment</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634af792d927013bc67cbfc7a840d73b021d">   20</a></span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634af792d927013bc67cbfc7a840d73b021d">Left</a> = 0x01,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a57011fe31348c234e6ec6b7d617b0fbc">   22</a></span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a57011fe31348c234e6ec6b7d617b0fbc">Center</a> = 0x03,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460">   24</a></span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460">Right</a> = 0x02,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a24c4c01e01a16b6a9cc0090de19f69d9">   26</a></span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a24c4c01e01a16b6a9cc0090de19f69d9">Top</a> = 0x01 &lt;&lt; 2,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634aaf4ba6fc4458a7c1ce9b2e86b12099eb">   28</a></span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634aaf4ba6fc4458a7c1ce9b2e86b12099eb">Middle</a> = 0x03 &lt;&lt; 2,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_enumvalue" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f">Bottom</a> = 0x02 &lt;&lt; 2</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f">   31</a></span>    };</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::wstring text_;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_color.html">Color</a> textColor_;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> alignment_;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> leftpadding_{0};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> rightpadding_{0};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> toppadding_{0};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> bottompadding_{0};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">paintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="class_label.html#a8512607f9a6c354e26870a3b2bd8ab92">Label</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;rect, <a class="code hl_class" href="class_block.html">Block</a> *parent);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_label.html#a48f21bf7bb9191496565ed6f0290fab9">   60</a></span>    <a class="code hl_function" href="class_label.html#a48f21bf7bb9191496565ed6f0290fab9">~Label</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_label.html#a8a36c03f03dc0321846bf26c0cd4f92a">setText</a>(<span class="keyword">const</span> std::wstring &amp;text);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">const</span> std::wstring &amp;<a class="code hl_function" href="class_label.html#a57ee9d402783fb40620a2a7ba5cfc37d">getText</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_label.html#ad1af2638a94a757a39a6e5d362584d9b">setAlignment</a>(<span class="keywordtype">int</span> alignment);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_label.html#ae5d58081d6bcaa4c6583c223fa86e2df">getAlignment</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_label.html#a50e614bb241e84320e1b08f01b91a001">setPadding</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> top, <span class="keywordtype">int</span> right, <span class="keywordtype">int</span> bottom);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#afa98da8ba7648ef6430e03671014987d">leftPadding</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a18e170b73271163583e7380fe384c9a6">topPadding</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a877622d3b4205876123ca14e47aba811">rightPadding</a>();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a4162c43d25e42f72557bb17376d0a2b5">bottomPadding</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#afa98da8ba7648ef6430e03671014987d">leftPadding</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a18e170b73271163583e7380fe384c9a6">topPadding</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a877622d3b4205876123ca14e47aba811">rightPadding</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;<a class="code hl_function" href="class_label.html#a4162c43d25e42f72557bb17376d0a2b5">bottomPadding</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_label.html#a9e574e1616107672225cce74e69cef61">setTextColor</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_color.html">Color</a> &amp;color);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>};</div>
+</div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:264</div></div>
+<div class="ttc" id="aclass_color_html"><div class="ttname"><a href="class_color.html">Color</a></div><div class="ttdoc">此类以 RGB 颜色模型对颜色进行存储</div><div class="ttdef"><b>Definition</b> Color.h:32</div></div>
+<div class="ttc" id="aclass_label_html"><div class="ttname"><a href="class_label.html">Label</a></div><div class="ttdoc">标签控件</div><div class="ttdef"><b>Definition</b> label.h:12</div></div>
+<div class="ttc" id="aclass_label_html_a18e170b73271163583e7380fe384c9a6"><div class="ttname"><a href="class_label.html#a18e170b73271163583e7380fe384c9a6">Label::topPadding</a></div><div class="ttdeci">int &amp; topPadding()</div><div class="ttdoc">访问标签控件上内边距</div><div class="ttdef"><b>Definition</b> label.cpp:86</div></div>
+<div class="ttc" id="aclass_label_html_a4162c43d25e42f72557bb17376d0a2b5"><div class="ttname"><a href="class_label.html#a4162c43d25e42f72557bb17376d0a2b5">Label::bottomPadding</a></div><div class="ttdeci">int &amp; bottomPadding()</div><div class="ttdoc">访问标签控件下内边距</div><div class="ttdef"><b>Definition</b> label.cpp:96</div></div>
+<div class="ttc" id="aclass_label_html_a48f21bf7bb9191496565ed6f0290fab9"><div class="ttname"><a href="class_label.html#a48f21bf7bb9191496565ed6f0290fab9">Label::~Label</a></div><div class="ttdeci">~Label() override=default</div><div class="ttdoc">析构函数</div></div>
+<div class="ttc" id="aclass_label_html_a50e614bb241e84320e1b08f01b91a001"><div class="ttname"><a href="class_label.html#a50e614bb241e84320e1b08f01b91a001">Label::setPadding</a></div><div class="ttdeci">void setPadding(int left, int top, int right, int bottom)</div><div class="ttdoc">设置标签控件内边距</div><div class="ttdef"><b>Definition</b> label.cpp:73</div></div>
+<div class="ttc" id="aclass_label_html_a57ee9d402783fb40620a2a7ba5cfc37d"><div class="ttname"><a href="class_label.html#a57ee9d402783fb40620a2a7ba5cfc37d">Label::getText</a></div><div class="ttdeci">const std::wstring &amp; getText() const</div><div class="ttdoc">获取标签文本内容</div><div class="ttdef"><b>Definition</b> label.cpp:58</div></div>
+<div class="ttc" id="aclass_label_html_a5d6f6dec0678bb3e2bcf874165cc52d3"><div class="ttname"><a href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label::paintEvent</a></div><div class="ttdeci">void paintEvent(const PaintEvent &amp;event) override</div><div class="ttdoc">重写 paintEvent() 函数，实现文本标签的显示</div><div class="ttdef"><b>Definition</b> label.cpp:6</div></div>
+<div class="ttc" id="aclass_label_html_a8512607f9a6c354e26870a3b2bd8ab92"><div class="ttname"><a href="class_label.html#a8512607f9a6c354e26870a3b2bd8ab92">Label::Label</a></div><div class="ttdeci">Label(const Rect &amp;rect, Block *parent)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> label.cpp:45</div></div>
+<div class="ttc" id="aclass_label_html_a877622d3b4205876123ca14e47aba811"><div class="ttname"><a href="class_label.html#a877622d3b4205876123ca14e47aba811">Label::rightPadding</a></div><div class="ttdeci">int &amp; rightPadding()</div><div class="ttdoc">访问标签控件右内边距</div><div class="ttdef"><b>Definition</b> label.cpp:91</div></div>
+<div class="ttc" id="aclass_label_html_a8a36c03f03dc0321846bf26c0cd4f92a"><div class="ttname"><a href="class_label.html#a8a36c03f03dc0321846bf26c0cd4f92a">Label::setText</a></div><div class="ttdeci">void setText(const std::wstring &amp;text)</div><div class="ttdoc">设置标签文本内容</div><div class="ttdef"><b>Definition</b> label.cpp:53</div></div>
+<div class="ttc" id="aclass_label_html_a9e574e1616107672225cce74e69cef61"><div class="ttname"><a href="class_label.html#a9e574e1616107672225cce74e69cef61">Label::setTextColor</a></div><div class="ttdeci">void setTextColor(const Color &amp;color)</div><div class="ttdoc">设置标签文本颜色</div><div class="ttdef"><b>Definition</b> label.cpp:121</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634">Label::Alignment</a></div><div class="ttdeci">Alignment</div><div class="ttdoc">对齐方式</div><div class="ttdef"><b>Definition</b> label.h:18</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634a24c4c01e01a16b6a9cc0090de19f69d9"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a24c4c01e01a16b6a9cc0090de19f69d9">Label::Top</a></div><div class="ttdeci">@ Top</div><div class="ttdoc">顶部对齐</div><div class="ttdef"><b>Definition</b> label.h:26</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f">Label::Bottom</a></div><div class="ttdeci">@ Bottom</div><div class="ttdoc">底部对齐</div><div class="ttdef"><b>Definition</b> label.h:30</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460">Label::Right</a></div><div class="ttdeci">@ Right</div><div class="ttdoc">右对齐</div><div class="ttdef"><b>Definition</b> label.h:24</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634a57011fe31348c234e6ec6b7d617b0fbc"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a57011fe31348c234e6ec6b7d617b0fbc">Label::Center</a></div><div class="ttdeci">@ Center</div><div class="ttdoc">水平居中对齐</div><div class="ttdef"><b>Definition</b> label.h:22</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634aaf4ba6fc4458a7c1ce9b2e86b12099eb"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634aaf4ba6fc4458a7c1ce9b2e86b12099eb">Label::Middle</a></div><div class="ttdeci">@ Middle</div><div class="ttdoc">垂直居中对齐</div><div class="ttdef"><b>Definition</b> label.h:28</div></div>
+<div class="ttc" id="aclass_label_html_ac93b52bed4ae2c239e1a4a5c4b7bd634af792d927013bc67cbfc7a840d73b021d"><div class="ttname"><a href="class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634af792d927013bc67cbfc7a840d73b021d">Label::Left</a></div><div class="ttdeci">@ Left</div><div class="ttdoc">左对齐</div><div class="ttdef"><b>Definition</b> label.h:20</div></div>
+<div class="ttc" id="aclass_label_html_ad1af2638a94a757a39a6e5d362584d9b"><div class="ttname"><a href="class_label.html#ad1af2638a94a757a39a6e5d362584d9b">Label::setAlignment</a></div><div class="ttdeci">void setAlignment(int alignment)</div><div class="ttdoc">设置标签文本对齐方式</div><div class="ttdef"><b>Definition</b> label.cpp:63</div></div>
+<div class="ttc" id="aclass_label_html_ae5d58081d6bcaa4c6583c223fa86e2df"><div class="ttname"><a href="class_label.html#ae5d58081d6bcaa4c6583c223fa86e2df">Label::getAlignment</a></div><div class="ttdeci">int getAlignment() const</div><div class="ttdoc">获取标签文本对齐方式</div><div class="ttdef"><b>Definition</b> label.cpp:68</div></div>
+<div class="ttc" id="aclass_label_html_afa98da8ba7648ef6430e03671014987d"><div class="ttname"><a href="class_label.html#afa98da8ba7648ef6430e03671014987d">Label::leftPadding</a></div><div class="ttdeci">int &amp; leftPadding()</div><div class="ttdoc">访问标签控件左内边距</div><div class="ttdef"><b>Definition</b> label.cpp:81</div></div>
+<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdef"><b>Definition</b> Painter.h:464</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e476b43ffada8fe94e322482066afde7.html">class</a></li><li class="navelem"><b>label.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -4,6 +4,7 @@ var class_rect =
     [ "Rect", "class_rect.html#a97bb88b8531bd72cd5b42b791267b928", null ],
     [ "adjusted", "class_rect.html#a4c2bbbd646c1ec52f99e535d9b6fa8a7", null ],
     [ "bottom", "class_rect.html#ae4f3e31ce1bf00869b2f1ab0416a4f1a", null ],
+    [ "center", "class_rect.html#ac09f796e8d3b7757bc845f10b240ce47", null ],
     [ "centerWith", "class_rect.html#a8fc4e312eff11b42bd5f098494ece90b", null ],
     [ "contains", "class_rect.html#a1c38f1896dd038b566feaa724d4db644", null ],
     [ "contains", "class_rect.html#a3637d46e844608e7974857ec29892410", null ],

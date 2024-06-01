@@ -298,6 +298,7 @@ public:
      * @param ry 弧线的y半径
      * @param startAngle 弧线的起始角度
      * @param endAngle 弧线的终止角度
+     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
      */
     void drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const;
 
@@ -306,6 +307,7 @@ public:
      * @param rect 弧线所在椭圆的外接矩形
      * @param startAngle 弧线的起始角度
      * @param endAngle 弧线的终止角度
+     * @see drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle)
      */
     void drawArc(const Rect &rect, int startAngle, int endAngle) const;
 
