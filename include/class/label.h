@@ -4,6 +4,11 @@
 #include "../view/Color.h"
 
 /**
+ * @addtogroup 控件
+ * @{
+*/
+
+/**
  * @brief 标签控件
  * @details 继承自Block类，实现了文本标签的显示功能，包括文本内容、对齐方式、边距等属性
  * @details 显示的文本溢出控件范围时，默认行为是隐藏溢出内容
@@ -134,3 +139,5 @@ public:
      */
     void setTextColor(const Color &color);
 };
+
+/** @} */

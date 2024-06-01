@@ -5,6 +5,11 @@
 class RadioBox;
 
 /**
+ * @addtogroup 控件
+ * @{
+*/
+
+/**
  * @brief 单选框组
  * @details 单选框组用于管理一组单选框，一组单选框中只能有一个被选中，当选中某个单选框时，已选中的单选框的选中状态会自动变为未选中
  */
@@ -137,3 +142,5 @@ public:
      */
     void setBorderWidth(int width);
 };
+
+/** @} */
