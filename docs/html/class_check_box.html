@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Egrome: MenuItem类 参考</title>
+<title>Egrome: CheckBox类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('class_menu_item.html',''); initResizable(); });
+$(function(){initNavTree('class_check_box.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -101,57 +101,58 @@ $(function(){initNavTree('class_menu_item.html',''); initResizable(); });
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
-<a href="#pro-attribs">Protected 属性</a> &#124;
-<a href="#friends">友元</a> &#124;
-<a href="class_menu_item-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">MenuItem类 参考<div class="ingroups"><a class="el" href="group___xE6_x8E_xA7_xE4_xBB_xB6.html">控件</a> &raquo; <a class="el" href="group___xE8_x8F_x9C_xE5_x8D_x95_xE6_x8E_xA7_xE4_xBB_xB6.html">菜单控件</a></div></div></div>
+<a href="class_check_box-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">CheckBox类 参考<div class="ingroups"><a class="el" href="group___xE6_x8E_xA7_xE4_xBB_xB6.html">控件</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>菜单项  
+<p>复选框控件  
  <a href="#details">更多...</a></p>
 
-<p><code>#include &lt;<a class="el" href="menubox_8h_source.html">menubox.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="checkbox_8h_source.html">checkbox.h</a>&gt;</code></p>
 <div class="dynheader">
-类 MenuItem 继承关系图:</div>
+类 CheckBox 继承关系图:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_menu_item.png" usemap="#MenuItem_map" alt=""/>
-  <map id="MenuItem_map" name="MenuItem_map">
-<area href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能" alt="Block" shape="rect" coords="0,0,66,24"/>
+  <img src="class_check_box.png" usemap="#CheckBox_map" alt=""/>
+  <map id="CheckBox_map" name="CheckBox_map">
+<area href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能" alt="Block" shape="rect" coords="0,0,69,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a5d0762e4c0cda951e1e7e1be2e0a55c7" id="r_a5d0762e4c0cda951e1e7e1be2e0a55c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d0762e4c0cda951e1e7e1be2e0a55c7">MenuItem</a> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_menu_box.html">MenuBox</a> *parent)</td></tr>
-<tr class="memdesc:a5d0762e4c0cda951e1e7e1be2e0a55c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
-<tr class="separator:a5d0762e4c0cda951e1e7e1be2e0a55c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a576c5d9b360a5257327a058c05cf6fa0" id="r_a576c5d9b360a5257327a058c05cf6fa0"><td class="memItemLeft" align="right" valign="top"><a id="a576c5d9b360a5257327a058c05cf6fa0" name="a576c5d9b360a5257327a058c05cf6fa0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~MenuItem</b> () override</td></tr>
-<tr class="memdesc:a576c5d9b360a5257327a058c05cf6fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
-<tr class="separator:a576c5d9b360a5257327a058c05cf6fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa20be1ba00e99f4dc9eec9403dfd8bd3" id="r_aa20be1ba00e99f4dc9eec9403dfd8bd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa20be1ba00e99f4dc9eec9403dfd8bd3">setText</a> (const std::wstring &amp;text)</td></tr>
-<tr class="memdesc:aa20be1ba00e99f4dc9eec9403dfd8bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置菜单项的文本  <br /></td></tr>
-<tr class="separator:aa20be1ba00e99f4dc9eec9403dfd8bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34d9c99e0d8998908d89be4fa6a0193" id="r_ac34d9c99e0d8998908d89be4fa6a0193"><td class="memItemLeft" align="right" valign="top">const std::wstring &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac34d9c99e0d8998908d89be4fa6a0193">getText</a> () const</td></tr>
-<tr class="memdesc:ac34d9c99e0d8998908d89be4fa6a0193"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取菜单项的文本  <br /></td></tr>
-<tr class="separator:ac34d9c99e0d8998908d89be4fa6a0193"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d9ab79268e1358a2d8b469f4da250d4" id="r_a4d9ab79268e1358a2d8b469f4da250d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d9ab79268e1358a2d8b469f4da250d4">setTextColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
-<tr class="memdesc:a4d9ab79268e1358a2d8b469f4da250d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置菜单项的字体颜色  <br /></td></tr>
-<tr class="separator:a4d9ab79268e1358a2d8b469f4da250d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a375f5b1521e4223710bb2deacbc7c660" id="r_a375f5b1521e4223710bb2deacbc7c660"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a375f5b1521e4223710bb2deacbc7c660">setHoverColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
-<tr class="memdesc:a375f5b1521e4223710bb2deacbc7c660"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置菜单项鼠标悬浮时的颜色  <br /></td></tr>
-<tr class="separator:a375f5b1521e4223710bb2deacbc7c660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fba0ce9031e5fada550849cb968145f" id="r_a6fba0ce9031e5fada550849cb968145f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fba0ce9031e5fada550849cb968145f">setClickColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
-<tr class="memdesc:a6fba0ce9031e5fada550849cb968145f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置菜单项鼠标点击时的颜色  <br /></td></tr>
-<tr class="separator:a6fba0ce9031e5fada550849cb968145f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7404cc499e647a700abb85639f9f15c" id="r_af7404cc499e647a700abb85639f9f15c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7404cc499e647a700abb85639f9f15c">setDefaultColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
-<tr class="memdesc:af7404cc499e647a700abb85639f9f15c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置菜单项默认颜色  <br /></td></tr>
-<tr class="separator:af7404cc499e647a700abb85639f9f15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a147d1e19fa6ab44c4fa6700ae5c1d6b3" id="r_a147d1e19fa6ab44c4fa6700ae5c1d6b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a147d1e19fa6ab44c4fa6700ae5c1d6b3">addChildMenu</a> (<a class="el" href="class_menu_box.html">MenuBox</a> *menu)</td></tr>
-<tr class="memdesc:a147d1e19fa6ab44c4fa6700ae5c1d6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置子菜单  <br /></td></tr>
-<tr class="separator:a147d1e19fa6ab44c4fa6700ae5c1d6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce98fdf31ea1327a8c3db4375771e6a" id="r_a8ce98fdf31ea1327a8c3db4375771e6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ce98fdf31ea1327a8c3db4375771e6a">CheckBox</a> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *parent=nullptr)</td></tr>
+<tr class="memdesc:a8ce98fdf31ea1327a8c3db4375771e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:a8ce98fdf31ea1327a8c3db4375771e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b2790cd4a99b41e9b608b283d2142fe" id="r_a9b2790cd4a99b41e9b608b283d2142fe"><td class="memItemLeft" align="right" valign="top"><a id="a9b2790cd4a99b41e9b608b283d2142fe" name="a9b2790cd4a99b41e9b608b283d2142fe"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~CheckBox</b> () override=default</td></tr>
+<tr class="memdesc:a9b2790cd4a99b41e9b608b283d2142fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
+<tr class="separator:a9b2790cd4a99b41e9b608b283d2142fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167b1e397619962c72acdbcd69c228d0" id="r_a167b1e397619962c72acdbcd69c228d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a167b1e397619962c72acdbcd69c228d0">isChecked</a> () const</td></tr>
+<tr class="memdesc:a167b1e397619962c72acdbcd69c228d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取复选框是否被选中  <br /></td></tr>
+<tr class="separator:a167b1e397619962c72acdbcd69c228d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c0f2607a12dbc2db6772c92f8a3754" id="r_a58c0f2607a12dbc2db6772c92f8a3754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58c0f2607a12dbc2db6772c92f8a3754">setChecked</a> (bool checked)</td></tr>
+<tr class="memdesc:a58c0f2607a12dbc2db6772c92f8a3754"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框是否被选中  <br /></td></tr>
+<tr class="separator:a58c0f2607a12dbc2db6772c92f8a3754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da394e7f9bde35d126d471a2a325229" id="r_a9da394e7f9bde35d126d471a2a325229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9da394e7f9bde35d126d471a2a325229">setText</a> (const std::wstring &amp;text)</td></tr>
+<tr class="memdesc:a9da394e7f9bde35d126d471a2a325229"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的文本内容  <br /></td></tr>
+<tr class="separator:a9da394e7f9bde35d126d471a2a325229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e56d7ea47d51598d23a08f17514602e" id="r_a9e56d7ea47d51598d23a08f17514602e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e56d7ea47d51598d23a08f17514602e">setTextColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
+<tr class="memdesc:a9e56d7ea47d51598d23a08f17514602e"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的文字颜色  <br /></td></tr>
+<tr class="separator:a9e56d7ea47d51598d23a08f17514602e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ae6a361888cddf7d06dad55320d748" id="r_a09ae6a361888cddf7d06dad55320d748"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09ae6a361888cddf7d06dad55320d748">setCheckColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
+<tr class="memdesc:a09ae6a361888cddf7d06dad55320d748"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的勾选框颜色  <br /></td></tr>
+<tr class="separator:a09ae6a361888cddf7d06dad55320d748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9892d8ad189224ff3b3b9e3ee32564" id="r_a5b9892d8ad189224ff3b3b9e3ee32564"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b9892d8ad189224ff3b3b9e3ee32564">setBorderColor</a> (const <a class="el" href="class_color.html">Color</a> &amp;color)</td></tr>
+<tr class="memdesc:a5b9892d8ad189224ff3b3b9e3ee32564"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的边框颜色  <br /></td></tr>
+<tr class="separator:a5b9892d8ad189224ff3b3b9e3ee32564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b06a1f971ce7622404fd8076854feb7" id="r_a0b06a1f971ce7622404fd8076854feb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b06a1f971ce7622404fd8076854feb7">setBorderWidth</a> (int width)</td></tr>
+<tr class="memdesc:a0b06a1f971ce7622404fd8076854feb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的边框宽度  <br /></td></tr>
+<tr class="separator:a0b06a1f971ce7622404fd8076854feb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e12a6a4cb98644353db80410acf317" id="r_a37e12a6a4cb98644353db80410acf317"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37e12a6a4cb98644353db80410acf317">setBoxSize</a> (int size)</td></tr>
+<tr class="memdesc:a37e12a6a4cb98644353db80410acf317"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置复选框的尺寸  <br /></td></tr>
+<tr class="separator:a37e12a6a4cb98644353db80410acf317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
 <tr class="memitem:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block" id="r_a09fc96783c1ffbeaa5887a8e1aaf30c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1">Block</a> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *parent=nullptr)</td></tr>
 <tr class="memdesc:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
@@ -180,10 +181,9 @@ const std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &am
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:ac7279f48816fdd1aee8e9a5de7843f96" id="r_ac7279f48816fdd1aee8e9a5de7843f96"><td class="memItemLeft" align="right" valign="top"><a id="ac7279f48816fdd1aee8e9a5de7843f96" name="ac7279f48816fdd1aee8e9a5de7843f96"></a>
-<a class="el" href="class_signal.html">Signal</a>&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clicked</b></td></tr>
-<tr class="memdesc:ac7279f48816fdd1aee8e9a5de7843f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">菜单项被点击时发出此信号 <br /></td></tr>
-<tr class="separator:ac7279f48816fdd1aee8e9a5de7843f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9637c57f1b66ef1e93936d7998575104" id="r_a9637c57f1b66ef1e93936d7998575104"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; void(bool)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9637c57f1b66ef1e93936d7998575104">checkedChanged</a></td></tr>
+<tr class="memdesc:a9637c57f1b66ef1e93936d7998575104"><td class="mdescLeft">&#160;</td><td class="mdescRight">复选框状态改变信号  <br /></td></tr>
+<tr class="separator:a9637c57f1b66ef1e93936d7998575104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_block')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
 <tr class="memitem:a511e62a2e3a18766363bdad6b8c589bb inherit pub_attribs_class_block" id="r_a511e62a2e3a18766363bdad6b8c589bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a511e62a2e3a18766363bdad6b8c589bb">onClicked</a></td></tr>
 <tr class="memdesc:a511e62a2e3a18766363bdad6b8c589bb inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标点击信号  <br /></td></tr>
@@ -215,19 +215,19 @@ Public 属性</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:a0d4bb7808b030873cdcff2a59ff042ff" id="r_a0d4bb7808b030873cdcff2a59ff042ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d4bb7808b030873cdcff2a59ff042ff">paintEvent</a> (const <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;event) override</td></tr>
-<tr class="memdesc:a0d4bb7808b030873cdcff2a59ff042ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写了 <a class="el" href="class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e" title="虚函数，用于绘制 Block">Block::paintEvent()</a> 函数，绘制菜单项  <br /></td></tr>
-<tr class="separator:a0d4bb7808b030873cdcff2a59ff042ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c999384cda32b57386379b8d14707dc" id="r_a7c999384cda32b57386379b8d14707dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c999384cda32b57386379b8d14707dc">mousePressEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos, <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button) override</td></tr>
-<tr class="memdesc:a7c999384cda32b57386379b8d14707dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写了 <a class="el" href="class_block.html#a71e4bfdb94b9f4e281331632319e4a69" title="虚函数，用于处理鼠标按钮按下事件">Block::mousePressEvent()</a> 函数，处理鼠标点击事件  <br /></td></tr>
-<tr class="separator:a7c999384cda32b57386379b8d14707dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29a21f83c257aecbc3b0efd5495f4da7" id="r_a29a21f83c257aecbc3b0efd5495f4da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29a21f83c257aecbc3b0efd5495f4da7">mouseReleaseEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos, <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button) override</td></tr>
-<tr class="memdesc:a29a21f83c257aecbc3b0efd5495f4da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写了 <a class="el" href="class_block.html#ad27dee1ce1692964c7f209af129e3322" title="虚函数，用于处理鼠标按钮释放事件">Block::mouseReleaseEvent()</a> 函数，处理鼠标释放事件  <br /></td></tr>
-<tr class="separator:a29a21f83c257aecbc3b0efd5495f4da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af260d35a7fbb09b5b0aab093ac783f5c" id="r_af260d35a7fbb09b5b0aab093ac783f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af260d35a7fbb09b5b0aab093ac783f5c">mouseMoveEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos) override</td></tr>
-<tr class="memdesc:af260d35a7fbb09b5b0aab093ac783f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写了 <a class="el" href="class_block.html#a379ce9a26e377c7c1b41d206f23c97f7" title="虚函数，用于处理鼠标移动事件">Block::mouseMoveEvent()</a> 函数，处理鼠标移动事件  <br /></td></tr>
-<tr class="separator:af260d35a7fbb09b5b0aab093ac783f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8870a984d83d5ac949574a5fd3c23a" id="r_aca8870a984d83d5ac949574a5fd3c23a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca8870a984d83d5ac949574a5fd3c23a">paintEvent</a> (const <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;event) override</td></tr>
+<tr class="memdesc:aca8870a984d83d5ac949574a5fd3c23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写 <a class="el" href="#aca8870a984d83d5ac949574a5fd3c23a" title="重写 paintEvent() 函数，绘制复选框">paintEvent()</a> 函数，绘制复选框  <br /></td></tr>
+<tr class="separator:aca8870a984d83d5ac949574a5fd3c23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad381b0411599be94f84469b6727f8dab" id="r_ad381b0411599be94f84469b6727f8dab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad381b0411599be94f84469b6727f8dab">mousePressEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos, <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button) override</td></tr>
+<tr class="memdesc:ad381b0411599be94f84469b6727f8dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">重写 <a class="el" href="#ad381b0411599be94f84469b6727f8dab" title="重写 mousePressEvent() 函数，响应鼠标点击事件">mousePressEvent()</a> 函数，响应鼠标点击事件  <br /></td></tr>
+<tr class="separator:ad381b0411599be94f84469b6727f8dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
+<tr class="memitem:ad27dee1ce1692964c7f209af129e3322 inherit pro_methods_class_block" id="r_ad27dee1ce1692964c7f209af129e3322"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ad27dee1ce1692964c7f209af129e3322">mouseReleaseEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos, <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> button)</td></tr>
+<tr class="memdesc:ad27dee1ce1692964c7f209af129e3322 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标按钮释放事件  <br /></td></tr>
+<tr class="separator:ad27dee1ce1692964c7f209af129e3322 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379ce9a26e377c7c1b41d206f23c97f7 inherit pro_methods_class_block" id="r_a379ce9a26e377c7c1b41d206f23c97f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a379ce9a26e377c7c1b41d206f23c97f7">mouseMoveEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos)</td></tr>
+<tr class="memdesc:a379ce9a26e377c7c1b41d206f23c97f7 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标移动事件  <br /></td></tr>
+<tr class="separator:a379ce9a26e377c7c1b41d206f23c97f7 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block" id="r_a2a82987e8d7415c7ac8dd7a3f3ef0eb6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2a82987e8d7415c7ac8dd7a3f3ef0eb6">mouseWheelEvent</a> (const <a class="el" href="class_point.html">Point</a> &amp;pos, <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ga50141e5caf407b67b163b8d85585efa1">MouseWheel</a> wheel)</td></tr>
 <tr class="memdesc:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标滚轮事件  <br /></td></tr>
 <tr class="separator:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,41 +240,27 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:a2eb7e1ce045bab598c5f8972fd910227 inherit pro_methods_class_block" id="r_a2eb7e1ce045bab598c5f8972fd910227"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2eb7e1ce045bab598c5f8972fd910227">InputTextEvent</a> (int inputChar)</td></tr>
 <tr class="memdesc:a2eb7e1ce045bab598c5f8972fd910227 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理输入文本事件  <br /></td></tr>
 <tr class="separator:a2eb7e1ce045bab598c5f8972fd910227 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected 属性</h2></td></tr>
-<tr class="memitem:a528b55248fd65f392f781b6c3b8128bc" id="r_a528b55248fd65f392f781b6c3b8128bc"><td class="memItemLeft" align="right" valign="top"><a id="a528b55248fd65f392f781b6c3b8128bc" name="a528b55248fd65f392f781b6c3b8128bc"></a>
-<a class="el" href="class_animation.html">Animation</a>&lt; <a class="el" href="class_color.html">Color</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>hoverColorAnim_</b></td></tr>
-<tr class="separator:a528b55248fd65f392f781b6c3b8128bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5b44db68555336a3f7008e7b3920219" id="r_ae5b44db68555336a3f7008e7b3920219"><td class="memItemLeft" align="right" valign="top"><a id="ae5b44db68555336a3f7008e7b3920219" name="ae5b44db68555336a3f7008e7b3920219"></a>
-<a class="el" href="class_animation.html">Animation</a>&lt; <a class="el" href="class_color.html">Color</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>clickColorAnim_</b></td></tr>
-<tr class="separator:ae5b44db68555336a3f7008e7b3920219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
-友元</h2></td></tr>
-<tr class="memitem:aafde4a1f7d80621c51bfb4bdc3eda427" id="r_aafde4a1f7d80621c51bfb4bdc3eda427"><td class="memItemLeft" align="right" valign="top"><a id="aafde4a1f7d80621c51bfb4bdc3eda427" name="aafde4a1f7d80621c51bfb4bdc3eda427"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr>
-<tr class="separator:aafde4a1f7d80621c51bfb4bdc3eda427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>菜单项 </p>
-<p>用于显示菜单项 </p>
+<div class="textblock"><p>复选框控件 </p>
+<p>继承自 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 类，实现了鼠标点击事件，以及信号槽机制</p>
+<p>此类所提供的复选框具有基本交互功能，包括选中和取消选中，以及鼠标悬停状态的变化 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a5d0762e4c0cda951e1e7e1be2e0a55c7" name="a5d0762e4c0cda951e1e7e1be2e0a55c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d0762e4c0cda951e1e7e1be2e0a55c7">&#9670;&#160;</a></span>MenuItem()</h2>
+<a id="a8ce98fdf31ea1327a8c3db4375771e6a" name="a8ce98fdf31ea1327a8c3db4375771e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce98fdf31ea1327a8c3db4375771e6a">&#9670;&#160;</a></span>CheckBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MenuItem::MenuItem </td>
+          <td class="memname">CheckBox::CheckBox </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_rect.html">Rect</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_menu_box.html">MenuBox</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_block.html">Block</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -282,51 +268,23 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
 <p>构造函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rect</td><td>菜单项的矩形 </td></tr>
-    <tr><td class="paramname">parent</td><td>菜单项的父级菜单框 </td></tr>
+    <tr><td class="paramname">rect</td><td>复选框的矩形区域 </td></tr>
+    <tr><td class="paramname">parent</td><td>父控件指针 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>菜单项的父级菜单框必须是 <a class="el" href="class_menu_box.html" title="菜单框">MenuBox</a> 类型 </dd>
-<dd>
-菜单项的矩形仅有高度会生效，宽度继承自 <a class="el" href="class_menu_box.html" title="菜单框">MenuBox</a> </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a147d1e19fa6ab44c4fa6700ae5c1d6b3" name="a147d1e19fa6ab44c4fa6700ae5c1d6b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a147d1e19fa6ab44c4fa6700ae5c1d6b3">&#9670;&#160;</a></span>addChildMenu()</h2>
+<a id="a167b1e397619962c72acdbcd69c228d0" name="a167b1e397619962c72acdbcd69c228d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a167b1e397619962c72acdbcd69c228d0">&#9670;&#160;</a></span>isChecked()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::addChildMenu </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_menu_box.html">MenuBox</a> *</td>          <td class="paramname"><span class="paramname"><em>menu</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置子菜单 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td>子菜单 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac34d9c99e0d8998908d89be4fa6a0193" name="ac34d9c99e0d8998908d89be4fa6a0193"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac34d9c99e0d8998908d89be4fa6a0193">&#9670;&#160;</a></span>getText()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::wstring &amp; MenuItem::getText </td>
+          <td class="memname">bool CheckBox::isChecked </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -334,13 +292,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>获取菜单项的文本 </p>
-<dl class="section return"><dt>返回</dt><dd>菜单项的文本 </dd></dl>
+<p>获取复选框是否被选中 </p>
+<dl class="section return"><dt>返回</dt><dd>true 表示被选中，false 表示未被选中 </dd></dl>
 
 </div>
 </div>
-<a id="af260d35a7fbb09b5b0aab093ac783f5c" name="af260d35a7fbb09b5b0aab093ac783f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af260d35a7fbb09b5b0aab093ac783f5c">&#9670;&#160;</a></span>mouseMoveEvent()</h2>
+<a id="ad381b0411599be94f84469b6727f8dab" name="ad381b0411599be94f84469b6727f8dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad381b0411599be94f84469b6727f8dab">&#9670;&#160;</a></span>mousePressEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,42 +307,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::mouseMoveEvent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>重写了 <a class="el" href="class_block.html#a379ce9a26e377c7c1b41d206f23c97f7" title="虚函数，用于处理鼠标移动事件">Block::mouseMoveEvent()</a> 函数，处理鼠标移动事件 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>鼠标移动位置 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>重载 <a class="el" href="class_block.html#a379ce9a26e377c7c1b41d206f23c97f7">Block</a> .</p>
-
-</div>
-</div>
-<a id="a7c999384cda32b57386379b8d14707dc" name="a7c999384cda32b57386379b8d14707dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c999384cda32b57386379b8d14707dc">&#9670;&#160;</a></span>mousePressEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MenuItem::mousePressEvent </td>
+          <td class="memname">void CheckBox::mousePressEvent </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em>, </span></td>
         </tr>
@@ -401,8 +324,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
 </table>
 </div><div class="memdoc">
 
-<p>重写了 <a class="el" href="class_block.html#a71e4bfdb94b9f4e281331632319e4a69" title="虚函数，用于处理鼠标按钮按下事件">Block::mousePressEvent()</a> 函数，处理鼠标点击事件 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>重写 <a class="el" href="#ad381b0411599be94f84469b6727f8dab" title="重写 mousePressEvent() 函数，响应鼠标点击事件">mousePressEvent()</a> 函数，响应鼠标点击事件 </p>
+<p>这里响应鼠标点击事件，当鼠标点击在复选框内部时，将其选中或取消选中，并发出信号 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">pos</td><td>鼠标点击位置 </td></tr>
     <tr><td class="paramname">button</td><td>鼠标按键 </td></tr>
@@ -414,8 +337,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
 
 </div>
 </div>
-<a id="a29a21f83c257aecbc3b0efd5495f4da7" name="a29a21f83c257aecbc3b0efd5495f4da7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29a21f83c257aecbc3b0efd5495f4da7">&#9670;&#160;</a></span>mouseReleaseEvent()</h2>
+<a id="aca8870a984d83d5ac949574a5fd3c23a" name="aca8870a984d83d5ac949574a5fd3c23a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca8870a984d83d5ac949574a5fd3c23a">&#9670;&#160;</a></span>paintEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -424,47 +347,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::mouseReleaseEvent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a></td>          <td class="paramname"><span class="paramname"><em>button</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>重写了 <a class="el" href="class_block.html#ad27dee1ce1692964c7f209af129e3322" title="虚函数，用于处理鼠标按钮释放事件">Block::mouseReleaseEvent()</a> 函数，处理鼠标释放事件 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>鼠标释放位置 </td></tr>
-    <tr><td class="paramname">button</td><td>鼠标按键 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>重载 <a class="el" href="class_block.html#ad27dee1ce1692964c7f209af129e3322">Block</a> .</p>
-
-</div>
-</div>
-<a id="a0d4bb7808b030873cdcff2a59ff042ff" name="a0d4bb7808b030873cdcff2a59ff042ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d4bb7808b030873cdcff2a59ff042ff">&#9670;&#160;</a></span>paintEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MenuItem::paintEvent </td>
+          <td class="memname">void CheckBox::paintEvent </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
@@ -477,10 +360,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
 </table>
 </div><div class="memdoc">
 
-<p>重写了 <a class="el" href="class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e" title="虚函数，用于绘制 Block">Block::paintEvent()</a> 函数，绘制菜单项 </p>
-<dl class="params"><dt>参数</dt><dd>
+<p>重写 <a class="el" href="#aca8870a984d83d5ac949574a5fd3c23a" title="重写 paintEvent() 函数，绘制复选框">paintEvent()</a> 函数，绘制复选框 </p>
+<p>这里绘制将整个复选框控件视为一个默认不可见的矩形，在其内部绘制文本和勾选框 </p><dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>绘制事件 </td></tr>
+    <tr><td class="paramname">event</td><td><a class="el" href="class_paint_event.html">PaintEvent</a> 事件 </td></tr>
   </table>
   </dd>
 </dl>
@@ -489,14 +372,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
 
 </div>
 </div>
-<a id="a6fba0ce9031e5fada550849cb968145f" name="a6fba0ce9031e5fada550849cb968145f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fba0ce9031e5fada550849cb968145f">&#9670;&#160;</a></span>setClickColor()</h2>
+<a id="a5b9892d8ad189224ff3b3b9e3ee32564" name="a5b9892d8ad189224ff3b3b9e3ee32564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b9892d8ad189224ff3b3b9e3ee32564">&#9670;&#160;</a></span>setBorderColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::setClickColor </td>
+          <td class="memname">void CheckBox::setBorderColor </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
           <td></td>
@@ -504,24 +387,74 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>设置菜单项鼠标点击时的颜色 </p>
+<p>设置复选框的边框颜色 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>菜单项鼠标点击时的颜色 </td></tr>
+    <tr><td class="paramname">color</td><td>边框颜色 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af7404cc499e647a700abb85639f9f15c" name="af7404cc499e647a700abb85639f9f15c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7404cc499e647a700abb85639f9f15c">&#9670;&#160;</a></span>setDefaultColor()</h2>
+<a id="a0b06a1f971ce7622404fd8076854feb7" name="a0b06a1f971ce7622404fd8076854feb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b06a1f971ce7622404fd8076854feb7">&#9670;&#160;</a></span>setBorderWidth()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::setDefaultColor </td>
+          <td class="memname">void CheckBox::setBorderWidth </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置复选框的边框宽度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>边框宽度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a37e12a6a4cb98644353db80410acf317" name="a37e12a6a4cb98644353db80410acf317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e12a6a4cb98644353db80410acf317">&#9670;&#160;</a></span>setBoxSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckBox::setBoxSize </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置复选框的尺寸 </p>
+<p>这里的尺寸指的是勾选框的大小，单位为像素 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>尺寸 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a09ae6a361888cddf7d06dad55320d748" name="a09ae6a361888cddf7d06dad55320d748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ae6a361888cddf7d06dad55320d748">&#9670;&#160;</a></span>setCheckColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckBox::setCheckColor </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
           <td></td>
@@ -529,49 +462,49 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>设置菜单项默认颜色 </p>
+<p>设置复选框的勾选框颜色 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>菜单项默认颜色 </td></tr>
+    <tr><td class="paramname">color</td><td>勾选框颜色 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a375f5b1521e4223710bb2deacbc7c660" name="a375f5b1521e4223710bb2deacbc7c660"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a375f5b1521e4223710bb2deacbc7c660">&#9670;&#160;</a></span>setHoverColor()</h2>
+<a id="a58c0f2607a12dbc2db6772c92f8a3754" name="a58c0f2607a12dbc2db6772c92f8a3754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c0f2607a12dbc2db6772c92f8a3754">&#9670;&#160;</a></span>setChecked()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::setHoverColor </td>
+          <td class="memname">void CheckBox::setChecked </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>checked</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>设置菜单项鼠标悬浮时的颜色 </p>
+<p>设置复选框是否被选中 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>菜单项鼠标悬浮时的颜色 </td></tr>
+    <tr><td class="paramname">checked</td><td>true 表示被选中，false 表示未被选中 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aa20be1ba00e99f4dc9eec9403dfd8bd3" name="aa20be1ba00e99f4dc9eec9403dfd8bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa20be1ba00e99f4dc9eec9403dfd8bd3">&#9670;&#160;</a></span>setText()</h2>
+<a id="a9da394e7f9bde35d126d471a2a325229" name="a9da394e7f9bde35d126d471a2a325229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9da394e7f9bde35d126d471a2a325229">&#9670;&#160;</a></span>setText()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::setText </td>
+          <td class="memname">void CheckBox::setText </td>
           <td>(</td>
           <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
           <td></td>
@@ -579,24 +512,24 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>设置菜单项的文本 </p>
+<p>设置复选框的文本内容 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>菜单项的文本 </td></tr>
+    <tr><td class="paramname">text</td><td>文本内容 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a4d9ab79268e1358a2d8b469f4da250d4" name="a4d9ab79268e1358a2d8b469f4da250d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d9ab79268e1358a2d8b469f4da250d4">&#9670;&#160;</a></span>setTextColor()</h2>
+<a id="a9e56d7ea47d51598d23a08f17514602e" name="a9e56d7ea47d51598d23a08f17514602e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e56d7ea47d51598d23a08f17514602e">&#9670;&#160;</a></span>setTextColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MenuItem::setTextColor </td>
+          <td class="memname">void CheckBox::setTextColor </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
           <td></td>
@@ -604,26 +537,44 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MenuBox</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>设置菜单项的字体颜色 </p>
+<p>设置复选框的文字颜色 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>菜单项的字体颜色 </td></tr>
+    <tr><td class="paramname">color</td><td>文字颜色 </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a9637c57f1b66ef1e93936d7998575104" name="a9637c57f1b66ef1e93936d7998575104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9637c57f1b66ef1e93936d7998575104">&#9670;&#160;</a></span>checkedChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_signal.html">Signal</a>&lt;void(bool)&gt; CheckBox::checkedChanged</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>复选框状态改变信号 </p>
+<p>当复选框状态改变时，发出此信号，并带有新的状态值 </p>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>include/class/<a class="el" href="menubox_8h_source.html">menubox.h</a></li>
-<li>src/class/<b>menubox.cpp</b></li>
+<li>include/class/<a class="el" href="checkbox_8h_source.html">checkbox.h</a></li>
+<li>src/class/<b>checkbox.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_menu_item.html">MenuItem</a></li>
+    <li class="navelem"><a class="el" href="class_check_box.html">CheckBox</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

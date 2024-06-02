@@ -8,6 +8,7 @@ var class_menu_box =
     [ "getHeight", "class_menu_box.html#a7a93116eba5d1f5f8b57457b8c343ae1", null ],
     [ "getItemCount", "class_menu_box.html#ad5b8b4f101b45ea0209fe722e3bedb3e", null ],
     [ "hide", "class_menu_box.html#a549c971bc6a60b309c1e0b184c6c6fb3", null ],
+    [ "isVisible", "class_menu_box.html#a150179068601631af14410391ab74a93", null ],
     [ "mouseMoveEvent", "class_menu_box.html#aa21609cb374385f982a5390290413fb2", null ],
     [ "mousePressEvent", "class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a", null ],
     [ "mouseReleaseEvent", "class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f", null ],

@@ -4,7 +4,7 @@ var annotated_dup =
     [ "App", "class_app.html", "class_app" ],
     [ "Block", "class_block.html", "class_block" ],
     [ "Button", "class_button.html", "class_button" ],
-    [ "Checkbox", "class_checkbox.html", "class_checkbox" ],
+    [ "CheckBox", "class_check_box.html", "class_check_box" ],
     [ "Color", "class_color.html", "class_color" ],
     [ "Divider", "class_divider.html", "class_divider" ],
     [ "Exception", "class_exception.html", "class_exception" ],

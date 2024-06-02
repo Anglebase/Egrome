@@ -5,7 +5,7 @@ var hierarchy =
     [ "App", "class_app.html", null ],
     [ "Block", "class_block.html", [
       [ "Button", "class_button.html", null ],
-      [ "Checkbox", "class_checkbox.html", null ],
+      [ "CheckBox", "class_check_box.html", null ],
       [ "Divider", "class_divider.html", null ],
       [ "Label", "class_label.html", null ],
       [ "MenuBox", "class_menu_box.html", null ],

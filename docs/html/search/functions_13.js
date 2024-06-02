@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7echeckbox_0',['~Checkbox',['../class_checkbox.html#a2efef30d5ff374d1e16eafcee2357f8d',1,'Checkbox']]],
+  ['_7echeckbox_0',['~CheckBox',['../class_check_box.html#a9b2790cd4a99b41e9b608b283d2142fe',1,'CheckBox']]],
   ['_7edivider_1',['~Divider',['../class_divider.html#a926a5d279990de6ef2f0fc464843936b',1,'Divider']]],
   ['_7elabel_2',['~Label',['../class_label.html#a48f21bf7bb9191496565ed6f0290fab9',1,'Label']]],
   ['_7emenubox_3',['~MenuBox',['../class_menu_box.html#aeecaacd6dae7c49970c4e21b0ed93cb0',1,'MenuBox']]],

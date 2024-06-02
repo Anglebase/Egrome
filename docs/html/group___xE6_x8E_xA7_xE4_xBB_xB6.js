@@ -20,20 +20,20 @@ var group___xE6_x8E_xA7_xE4_xBB_xB6 =
       [ "pressedColorAnim", "class_button.html#acb949b3f08217d5118cceca0506fb0cf", null ],
       [ "released", "class_button.html#a80d484ba33f8a257435d808c5d84ae6b", null ]
     ] ],
-    [ "Checkbox", "class_checkbox.html", [
-      [ "Checkbox", "class_checkbox.html#ac40c173ac4d144f372f0ceec8841604a", null ],
-      [ "~Checkbox", "class_checkbox.html#a2efef30d5ff374d1e16eafcee2357f8d", null ],
-      [ "isChecked", "class_checkbox.html#a186f541cd644204424bc72e22d992a49", null ],
-      [ "mousePressEvent", "class_checkbox.html#a7447728c93ba5f8f8c7bbe383a203de8", null ],
-      [ "paintEvent", "class_checkbox.html#a8ca1a5487e68cdff18d08a872448bd3b", null ],
-      [ "setBorderColor", "class_checkbox.html#ad24b9ba758f6b1d70f3c0189fb992a36", null ],
-      [ "setBorderWidth", "class_checkbox.html#ad07e194e9a88b04e6343eba7072c1001", null ],
-      [ "setBoxSize", "class_checkbox.html#ae4f94619cfdd5e5d12bb67f36d243173", null ],
-      [ "setCheckColor", "class_checkbox.html#a5829ffb19f12453b281c609a44b0ff1e", null ],
-      [ "setChecked", "class_checkbox.html#a93f354cae0a46b95efd2c156dc639bf1", null ],
-      [ "setText", "class_checkbox.html#a5a7e0aac698d2d6e232f3ce3216ffa08", null ],
-      [ "setTextColor", "class_checkbox.html#adddf03d70a3199bc5db826459393cd19", null ],
-      [ "checkedChanged", "class_checkbox.html#aae6ba2e629166401c9a69ac3c3ccade6", null ]
+    [ "CheckBox", "class_check_box.html", [
+      [ "CheckBox", "class_check_box.html#a8ce98fdf31ea1327a8c3db4375771e6a", null ],
+      [ "~CheckBox", "class_check_box.html#a9b2790cd4a99b41e9b608b283d2142fe", null ],
+      [ "isChecked", "class_check_box.html#a167b1e397619962c72acdbcd69c228d0", null ],
+      [ "mousePressEvent", "class_check_box.html#ad381b0411599be94f84469b6727f8dab", null ],
+      [ "paintEvent", "class_check_box.html#aca8870a984d83d5ac949574a5fd3c23a", null ],
+      [ "setBorderColor", "class_check_box.html#a5b9892d8ad189224ff3b3b9e3ee32564", null ],
+      [ "setBorderWidth", "class_check_box.html#a0b06a1f971ce7622404fd8076854feb7", null ],
+      [ "setBoxSize", "class_check_box.html#a37e12a6a4cb98644353db80410acf317", null ],
+      [ "setCheckColor", "class_check_box.html#a09ae6a361888cddf7d06dad55320d748", null ],
+      [ "setChecked", "class_check_box.html#a58c0f2607a12dbc2db6772c92f8a3754", null ],
+      [ "setText", "class_check_box.html#a9da394e7f9bde35d126d471a2a325229", null ],
+      [ "setTextColor", "class_check_box.html#a9e56d7ea47d51598d23a08f17514602e", null ],
+      [ "checkedChanged", "class_check_box.html#a9637c57f1b66ef1e93936d7998575104", null ]
     ] ],
     [ "Label", "class_label.html", [
       [ "Alignment", "class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634", [

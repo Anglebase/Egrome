@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Egrome", "index.html", [
+    [ "Bug 列表", "bug.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "类", "annotated.html", [
       [ "类列表", "annotated.html", "annotated_dup" ],
@@ -55,8 +56,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
-"class_point.html#a417c3ccb0ae5c2ce47428855d92f9ea6",
-"group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5dbc98dcc983a70728bd082d1a47546e"
+"class_point.html#a3a6e3ab3998a4e26c11736cbdbc832ac",
+"group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5ba0bc18e02f9d47f2f4bf9f1100437e"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

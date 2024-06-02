@@ -2,7 +2,7 @@ var searchData=
 [
   ['center_0',['center',['../class_rect.html#ac09f796e8d3b7757bc845f10b240ce47',1,'Rect']]],
   ['centerwith_1',['centerWith',['../class_rect.html#a8fc4e312eff11b42bd5f098494ece90b',1,'Rect']]],
-  ['checkbox_2',['Checkbox',['../class_checkbox.html#ac40c173ac4d144f372f0ceec8841604a',1,'Checkbox']]],
+  ['checkbox_2',['CheckBox',['../class_check_box.html#a8ce98fdf31ea1327a8c3db4375771e6a',1,'CheckBox']]],
   ['clearitems_3',['clearItems',['../class_menu_box.html#af49581cb8bf84455de4c020e4718fa90',1,'MenuBox']]],
   ['clip_4',['clip',['../class_pixel_map.html#a7d11af48b607a3c0b5125819eaf6f93b',1,'PixelMap']]],
   ['clone_5',['clone',['../class_pixel_map.html#ae9b0bbab091890df42ec6f1bd4320800',1,'PixelMap']]],
