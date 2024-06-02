@@ -35,6 +35,7 @@ public:
         for (int i = 0; i < 3; i++)
         {
             menuBox[i] = new MenuBox(Rect(0, 0, 100, 0), this);
+            menuBox[i]->setZindex(-1);
         }
         for (int i = 0; i < 15; i++)
         {

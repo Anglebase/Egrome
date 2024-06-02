@@ -2,7 +2,7 @@ import os,shutil
 
 ## 编译代码
 
-VERSION = "v1.1"
+VERSION = "v0.0.1-alpha.1"
 
 print(VERSION)
 input("按Enter键继续...")

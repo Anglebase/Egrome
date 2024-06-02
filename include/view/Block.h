@@ -273,6 +273,8 @@ private:
     std::vector<Block *> childBlocks;
     Block *parentBlock;
 
+    long long zindex_ = 0;
+
 private:
     // 用于 BUG-20240529-20 修复
     Point lastPos;
@@ -430,6 +432,18 @@ public:
     Block *parent() const;
     std::vector<Block *> &childs();
     const std::vector<Block *> &childs() const;
+
+    /**
+     * @brief 获取Block的Z索引顺序
+     * @return Block的Z索引顺序
+     */
+    long long zindex() const;
+    /**
+     * @brief 设置Block的Z索引顺序
+     * @param zindex Block的Z索引顺序
+     * @note Z索引决定了同一父Block下的Block的事件处理函数的调用顺序，对于绘图函数来说，越小的Z索引越先绘制，其它事件处理函数则按照Z索引越大越先调用，Z索引的默认值为0，相同Z索引的Block事件触发顺序不确定
+     */
+    void setZindex(long long zindex);
 };
 
 /** @} */

@@ -91,7 +91,7 @@ Block::Block(const Rect &rect, Block *parent)
         this->rect_.x_ = 0;
         this->rect_.y_ = 0;
     }
-
+    this->setZindex(0);
     onClicked.connect(
         [this]()
         {
@@ -131,4 +131,21 @@ std::vector<Block *> &Block::childs()
 const std::vector<Block *> &Block::childs() const
 {
     return this->childBlocks;
+}
+
+long long Block::zindex() const
+{
+    return this->zindex_;
+}
+
+void Block::setZindex(long long zindex)
+{
+    this->zindex_ = zindex;
+    if (parentBlock)
+        std::sort(parentBlock->childBlocks.begin(),
+                  parentBlock->childBlocks.end(),
+                  [](const Block *a, const Block *b)
+                  {
+                      return a->zindex_ > b->zindex_;
+                  });
 }
