@@ -28,11 +28,6 @@ protected:
         }
         return Block::mousePressEvent(pos, button);
     }
-    void mouseMoveEvent(const Point &pos) override
-    {
-        std::cout << "mouse move event:" << pos << std::endl;
-        return Block::mouseMoveEvent(pos);
-    }
 
 public:
     Window(const Rect &rect) : Block(rect)
