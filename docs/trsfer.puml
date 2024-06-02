@@ -1,0 +1,37 @@
+@startuml Call
+
+skinparam DefaultFontName "JetBrains Mono"
+skinparam DefaultFontSize 16
+
+object App
+object Window
+package WindowList <<Rectangle>>{
+    object Group1
+    object Button1
+}
+package Group1List <<Rectangle>>{
+    object Button2
+    object Button3
+}
+object Label1
+object Label2
+object Label3
+
+App : +run():void
+Group1 : -zindex = -1
+Button1 : -zindex = 0
+Button2 : -zindex = 0
+Button3 : -zindex = 0
+
+Window <-- Button1
+Window <-- Group1
+Group1 <-- Button2
+Group1 <-- Button3
+
+Button1 <-- Label1
+Button2 <-- Label2
+Button3 <-- Label3
+
+App <- Window
+
+@enduml

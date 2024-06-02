@@ -1,0 +1,18 @@
+@startuml card
+
+package Window{
+    package Button1{
+        package Label1{}
+    }
+    package Group1{
+        package Button2{
+            package Label2{}
+        }
+        package Button3{
+            package Label3{}
+        }
+    }
+}
+
+
+@enduml

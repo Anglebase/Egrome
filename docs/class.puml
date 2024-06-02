@@ -1,0 +1,29 @@
+@startuml class
+
+skinparam DefaultFontName "JetBrains Mono"
+skinparam DefaultFontSize 16
+
+class Window{}
+class Block{
+    #paintEvent(event):void
+    #mousePressEvent(event):void
+    ...
+}
+class Button{}
+class Label{}
+class Group{}
+class App{
+    +run():void
+}
+Block <|-- Window
+Block <|-- Button
+Block <|-- Label
+Block <|-- Group
+
+App *-- Window
+Window *-- Button
+Window *-- Label
+Window *-- Group
+Button *-- Label
+
+@enduml
