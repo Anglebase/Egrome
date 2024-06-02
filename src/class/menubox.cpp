@@ -66,7 +66,6 @@ void MenuItem::mousePressEvent(const Point &pos, MouseButton button)
         else
             menuBox->hide();
     }
-    return Block::mousePressEvent(pos, button);
 }
 
 void MenuItem::mouseReleaseEvent(const Point &pos, MouseButton button)
@@ -76,18 +75,33 @@ void MenuItem::mouseReleaseEvent(const Point &pos, MouseButton button)
         this->clicked_ = false;
         this->clickColorAnim_->run(true);
     }
-    return Block::mouseReleaseEvent(pos, button);
 }
 
 void MenuItem::mouseMoveEvent(const Point &pos)
 {
     if (!(this->childMenu_ && this->childMenu_->visible_))
         return Block::mouseMoveEvent(pos);
+        
     Rect rect = this->childMenu_->rect();
     rect.height() = this->childMenu_->getHeight();
-    if (!pos.inside(this->rect()) && !pos.inside(rect))
-        this->childMenu_->hide();
-    return Block::mouseMoveEvent(pos);
+
+    if (pos.inside(this->rect()) || pos.inside(rect))
+        return;
+
+    // 如果子菜单的子菜单中有打开的菜单，则不隐藏
+    for (auto item : this->childMenu_->items_)
+    {
+        if (typeid(*item) != typeid(MenuItem))
+            continue;
+
+        auto menuItem = dynamic_cast<MenuItem *>(item);
+        if (!menuItem->childMenu_)
+            continue;
+
+        if (menuItem->childMenu_->isVisible())
+            return;
+    }
+    this->childMenu_->hide();
 }
 
 MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
@@ -266,6 +280,7 @@ void MenuBox::show(const Point &pos)
             menuItem->hoverColorAnim_->reset();
         }
     }
+    this->rect().height() = height;
     this->visible_ = true;
     this->shown.emit();
 }
@@ -301,4 +316,9 @@ int MenuBox::getHeight() const
             height += (item->rect().height());
     }
     return height;
+}
+
+bool MenuBox::isVisible() const
+{
+    return this->visible_;
 }

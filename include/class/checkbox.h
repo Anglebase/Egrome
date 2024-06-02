@@ -19,7 +19,7 @@
  * @details 继承自 Block 类，实现了鼠标点击事件，以及信号槽机制
  * @details 此类所提供的复选框具有基本交互功能，包括选中和取消选中，以及鼠标悬停状态的变化
  */
-class Checkbox : public Block
+class CheckBox : public Block
 {
 private:
     bool checked_;
@@ -60,11 +60,11 @@ public:
      * @param rect 复选框的矩形区域
      * @param parent 父控件指针
      */
-    Checkbox(const Rect &rect, Block *parent = nullptr);
+    CheckBox(const Rect &rect, Block *parent = nullptr);
     /**
      * @brief 析构函数
      */
-    ~Checkbox() override = default;
+    ~CheckBox() override = default;
 
     /**
      * @brief 获取复选框是否被选中

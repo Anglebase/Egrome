@@ -2,7 +2,7 @@
 #include "Painter.h"
 #include "Size.h"
 
-void Checkbox::paintEvent(const PaintEvent &event)
+void CheckBox::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
     Rect textrect = painter.rect().adjusted(
@@ -32,7 +32,7 @@ void Checkbox::paintEvent(const PaintEvent &event)
     event.endPaint();
 }
 
-void Checkbox::mousePressEvent(const Point &pos, MouseButton button)
+void CheckBox::mousePressEvent(const Point &pos, MouseButton button)
 {
     if (button == MouseButton::Left && this->rect().contains(pos))
     {
@@ -42,7 +42,7 @@ void Checkbox::mousePressEvent(const Point &pos, MouseButton button)
     return Block::mousePressEvent(pos, button);
 }
 
-Checkbox::Checkbox(const Rect &rect, Block *parent)
+CheckBox::CheckBox(const Rect &rect, Block *parent)
     : Block(rect, parent),
       checked_(false),
       checkColor_(Color::White),
@@ -50,7 +50,7 @@ Checkbox::Checkbox(const Rect &rect, Block *parent)
       borderWidth_(1),
       textColor_(Color::White),
       boxSize_(10),
-      text_(L"Checkbox")
+      text_(L"CheckBox")
 {
     this->onEnter.connect([this]()
                           { this->hovered_ = true; });
@@ -58,42 +58,42 @@ Checkbox::Checkbox(const Rect &rect, Block *parent)
                           { this->hovered_ = false; });
 }
 
-bool Checkbox::isChecked() const
+bool CheckBox::isChecked() const
 {
     return this->checked_;
 }
 
-void Checkbox::setChecked(bool checked)
+void CheckBox::setChecked(bool checked)
 {
     this->checked_ = checked;
 }
 
-void Checkbox::setText(const std::wstring &text)
+void CheckBox::setText(const std::wstring &text)
 {
     this->text_ = text;
 }
 
-void Checkbox::setTextColor(const Color &color)
+void CheckBox::setTextColor(const Color &color)
 {
     this->textColor_ = color;
 }
 
-void Checkbox::setCheckColor(const Color &color)
+void CheckBox::setCheckColor(const Color &color)
 {
     this->checkColor_ = color;
 }
 
-void Checkbox::setBorderColor(const Color &color)
+void CheckBox::setBorderColor(const Color &color)
 {
     this->borderColor_ = color;
 }
 
-void Checkbox::setBorderWidth(int width)
+void CheckBox::setBorderWidth(int width)
 {
     this->borderWidth_ = width;
 }
 
-void Checkbox::setBoxSize(int size)
+void CheckBox::setBoxSize(int size)
 {
     this->boxSize_ = size;
 }

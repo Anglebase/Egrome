@@ -11,7 +11,7 @@ int main()
             1000,
             600,
         }};
-    Checkbox checkbox{
+    CheckBox checkbox{
         Rect{
             100,
             100,
@@ -22,7 +22,7 @@ int main()
     };
     checkbox.setText(L"复选框");
     checkbox.checkedChanged.connect([](bool checked)
-                                    { std::cout << "Checkbox checked: " << checked << std::endl; });
+                                    { std::cout << "CheckBox checked: " << checked << std::endl; });
     checkbox.setBoxSize(20);
     App app{
         &block,

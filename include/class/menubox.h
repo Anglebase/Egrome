@@ -5,11 +5,11 @@
  * @brief 菜单列表控件
 */
 
-#include "Block.h"
-#include "Color.h"
-#include "Animation.hpp"
 #include <vector>
-#include "label.h"
+#include "../view/Block.h"
+#include "../view/Color.h"
+#include "../core/Animation.hpp"
+#include "./label.h"
 class MenuBox;
 
 /**
@@ -79,6 +79,8 @@ public:
      * @brief 构造函数
      * @param rect 菜单项的矩形
      * @param parent 菜单项的父级菜单框
+     * @note 菜单项的父级菜单框必须是 MenuBox 类型
+     * @note 菜单项的矩形仅有高度会生效，宽度继承自 MenuBox
      */
     MenuItem(const Rect &rect, MenuBox *parent);
     /**
@@ -216,6 +218,8 @@ public:
      * @brief 构造函数
      * @param rect 菜单框的矩形
      * @param parent 菜单框的父级菜单框
+     * @note 菜单框的矩形仅有宽度会生效，高度是由内容计算得出的
+     * @see getHeight()
      */
     MenuBox(const Rect &rect, Block *parent);
     /**
@@ -225,6 +229,7 @@ public:
     /**
      * @brief 添加菜单项
      * @param item 菜单项
+     * @bug 如果此处的依赖关系与构造时的依赖关系不一致，会导致异常情况
      */
     void addItem(MenuItem *item);
     /**
@@ -261,6 +266,12 @@ public:
      * @return 菜单项实际高度
      */
     int getHeight() const;
+
+    /**
+     * @brief 获取菜单框是否可见
+    * @return 菜单框是否可见
+    */
+    bool isVisible() const;
 };
 
 /** @} */
