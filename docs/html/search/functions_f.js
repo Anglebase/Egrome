@@ -52,9 +52,10 @@ var searchData=
   ['setweight_49',['setWeight',['../class_label.html#a60c621873ba87ab7b6090fc158e38268',1,'Label']]],
   ['setwindowpos_50',['setWindowPos',['../class_app.html#a1a18f2acf3301a8878dda19bd5c64ce6',1,'App::setWindowPos(int x, int y)'],['../class_app.html#ad2d6fae7c21cf50dac66b3c6d3681c0b',1,'App::setWindowPos(const Point &amp;pos)']]],
   ['setwindowsize_51',['setWindowSize',['../class_app.html#a53e6ef60b12b74e3effb2cf2d71551be',1,'App::setWindowSize(int width, int height)'],['../class_app.html#a4017feed72ad8d649589081098990cce',1,'App::setWindowSize(const Size &amp;size)']]],
-  ['show_52',['show',['../class_menu_box.html#a5d3853c17fc81b1484a252371541ab42',1,'MenuBox']]],
-  ['size_53',['Size',['../class_size.html#a81d0604aae93de6c290c8b256845a0be',1,'Size']]],
-  ['sizef_54',['SizeF',['../class_size_f.html#a66b68b94f6826d9c16e88afdc5d73bf4',1,'SizeF']]],
-  ['start_55',['start',['../class_animation.html#a93d864e0a9faafef077ecefd976a8b8b',1,'Animation']]],
-  ['stop_56',['stop',['../class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd',1,'Animation']]]
+  ['setzindex_52',['setZindex',['../class_block.html#a793f603073525e79a6bafac2efed1a28',1,'Block']]],
+  ['show_53',['show',['../class_menu_box.html#a5d3853c17fc81b1484a252371541ab42',1,'MenuBox']]],
+  ['size_54',['Size',['../class_size.html#a81d0604aae93de6c290c8b256845a0be',1,'Size']]],
+  ['sizef_55',['SizeF',['../class_size_f.html#a66b68b94f6826d9c16e88afdc5d73bf4',1,'SizeF']]],
+  ['start_56',['start',['../class_animation.html#a93d864e0a9faafef077ecefd976a8b8b',1,'Animation']]],
+  ['stop_57',['stop',['../class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd',1,'Animation']]]
 ];

@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "abcdefghijklmnopqrstuvwxyz~列单控核菜视",
   1: "abcdehlmprs",
   2: "abcelmprs",
-  3: "abcdeghiklmopqrstvw~",
+  3: "abcdeghiklmopqrstvwz~",
   4: "choprsv",
   5: "abikmpt",
   6: "abcdefghijklmnopqrstuvwxyz",

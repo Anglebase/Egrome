@@ -153,6 +153,12 @@ std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#16
 <tr class="memitem:a546bf38cd158b322fe67f60f56f6890e" id="r_a546bf38cd158b322fe67f60f56f6890e"><td class="memItemLeft" align="right" valign="top"><a id="a546bf38cd158b322fe67f60f56f6890e" name="a546bf38cd158b322fe67f60f56f6890e"></a>
 const std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>childs</b> () const</td></tr>
 <tr class="separator:a546bf38cd158b322fe67f60f56f6890e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2961b8a21011af984f05f2eef32dd4e1" id="r_a2961b8a21011af984f05f2eef32dd4e1"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2961b8a21011af984f05f2eef32dd4e1">zindex</a> () const</td></tr>
+<tr class="memdesc:a2961b8a21011af984f05f2eef32dd4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Block的Z索引顺序  <br /></td></tr>
+<tr class="separator:a2961b8a21011af984f05f2eef32dd4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a793f603073525e79a6bafac2efed1a28" id="r_a793f603073525e79a6bafac2efed1a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a793f603073525e79a6bafac2efed1a28">setZindex</a> (long long <a class="el" href="#a2961b8a21011af984f05f2eef32dd4e1">zindex</a>)</td></tr>
+<tr class="memdesc:a793f603073525e79a6bafac2efed1a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置Block的Z索引顺序  <br /></td></tr>
+<tr class="separator:a793f603073525e79a6bafac2efed1a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -602,6 +608,53 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a793f603073525e79a6bafac2efed1a28" name="a793f603073525e79a6bafac2efed1a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793f603073525e79a6bafac2efed1a28">&#9670;&#160;</a></span>setZindex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Block::setZindex </td>
+          <td>(</td>
+          <td class="paramtype">long long</td>          <td class="paramname"><span class="paramname"><em>zindex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置Block的Z索引顺序 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zindex</td><td>Block的Z索引顺序 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>Z索引决定了同一父Block下的Block的事件处理函数的调用顺序，对于绘图函数来说，越小的Z索引越先绘制，其它事件处理函数则按照Z索引越大越先调用，Z索引的默认值为0，相同Z索引的Block事件触发顺序不确定 </dd></dl>
+
+</div>
+</div>
+<a id="a2961b8a21011af984f05f2eef32dd4e1" name="a2961b8a21011af984f05f2eef32dd4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2961b8a21011af984f05f2eef32dd4e1">&#9670;&#160;</a></span>zindex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long Block::zindex </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取Block的Z索引顺序 </p>
+<dl class="section return"><dt>返回</dt><dd>Block的Z索引顺序 </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#a793f603073525e79a6bafac2efed1a28" title="设置Block的Z索引顺序">setZindex()</a> </dd></dl>
 
 </div>
 </div>

@@ -11,6 +11,8 @@ var class_block =
     [ "mouseWheelEvent", "class_block.html#a2a82987e8d7415c7ac8dd7a3f3ef0eb6", null ],
     [ "paintEvent", "class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e", null ],
     [ "setRect", "class_block.html#a11c84bbe9838102e16b66f7a7c2c0917", null ],
+    [ "setZindex", "class_block.html#a793f603073525e79a6bafac2efed1a28", null ],
+    [ "zindex", "class_block.html#a2961b8a21011af984f05f2eef32dd4e1", null ],
     [ "onClicked", "class_block.html#a511e62a2e3a18766363bdad6b8c589bb", null ],
     [ "onEnter", "class_block.html#aa583a4efcb0e906f18f0e2c29b31bbd2", null ],
     [ "onFocused", "class_block.html#a237db30b794a083b038f441edd04ac8d", null ],
