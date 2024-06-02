@@ -8,8 +8,8 @@
 
 void Block::paintEvent(const PaintEvent &event)
 {
-    for (auto child : childBlocks)
-        child->paintEvent(event);
+    for (auto child = childBlocks.begin(); child != childBlocks.end(); ++child)
+        (*child)->paintEvent(event);
 }
 
 void Block::mousePressEvent(const Point &pos, MouseButton button)
