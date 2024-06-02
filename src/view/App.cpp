@@ -154,7 +154,7 @@ void App::run()
                 default:
                     break;
                 }
-                if (ege::kbhit()) // 文本输入(英文、字符和ASCII符号)
+                if (ege::kbhit()) // 文本输入(ASCII字符)
                 {
                     auto ch = ege::getch();
                     if (std::isprint(ch))
