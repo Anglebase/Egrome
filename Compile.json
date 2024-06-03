@@ -1,0 +1,60 @@
+{
+    "test": {
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\test.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        // "complie": true,
+        // "start": true,
+        "target": ".\\bin\\test.exe"
+    },
+    "progressbar-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\progressbar.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\progressbar.exe"
+    }
+}

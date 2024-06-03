@@ -5,6 +5,13 @@ Egrome 是一个原生C++库，它基于开源图形引擎 EGE(Easy Graphics Eng
 ## 依赖
 目前 Egrome 依赖于 EGE20.08 ，需要先安装 EGE20.08 
 
+## 项目功能测试
+项目根目录下的Compiler.py文件通过解析指定的json配置文件，即可自动化编译项目
+```
+python.exe .\Compile.py .\Compile.json
+```
+json配置文件的格式参见Compiler.py文件中的注释
+
 ## 项目编译
 Egrome 并不依赖任何构建系统，通过运行test.py即可进行自动编译，但要确保您已安装GCC编译器和EGE库，编译结果会生成在release文件夹下
 
