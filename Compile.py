@@ -14,17 +14,18 @@ import json, os, re, time, sys
     option      ::list  ：其它编译选项
     args        ::list  ：目标程序的命令行参数
     define      ::list  ：指定预定义宏
-    start       ::bool  ：是否启动测试任务
-    compile     ::bool  ：是否执行编译
+    start       ::bool  ：是否在编译完成后立即启动测试任务(True则启动)
+    compile     ::bool  ：是否执行此任务的编译(True则执行)
+**所有的配置参数都会被传递给编译器**
 
 json配置格式：
 {
-    "task-name1":{
+    [task-name1]:{
         [option]:[value],
         [option]:[value],
        ...
     },
-    "task-name2":{
+    [task-name2]:{
         [option]:[value],
         [option]:[value],
        ...
