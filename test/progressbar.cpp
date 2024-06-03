@@ -10,7 +10,7 @@ class Window : public Block
 protected:
     void paintEvent(const PaintEvent &event) override
     {
-
+        progress->setProgress(animation->value());
         return Block::paintEvent(event);
     }
 
@@ -18,11 +18,11 @@ public:
     Window(const Rect &rect, Block *parent = nullptr) : Block(rect, parent)
     {
         using namespace std::chrono_literals;
-        progress = new ProgressBar(Rect(0, 0, 100, 20), this);
+        progress = new ProgressBar(Rect(100, 80, 600, 20), this);
         animation = new Animation<double>{};
         animation->set(0.0, 1.0, 5s);
         animation->start();
-        animation.
+        animation->finished.connect(this->animation, &Animation<double>::start);
     }
     ~Window()
     {
@@ -30,3 +30,11 @@ public:
         delete animation;
     }
 };
+
+int main()
+{
+    Window window(Rect(0, 0, 800, 600));
+    App app{&window};
+    app.run();
+    return 0;
+}

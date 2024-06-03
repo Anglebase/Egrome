@@ -26,14 +26,14 @@ class Animation
     T startValue_;                                    // 起始值
     T endValue_;                                      // 终止值
     std::chrono::milliseconds time_;                  // 动画时间
-    mutable bool running_ = false;                    // 动画是否正在运行
-    mutable double t_ = 0.0;                          // 当前时长比例
+    bool running_ = false;                            // 动画是否正在运行
+    double t_ = 0.0;                                  // 当前时长比例
     std::chrono::steady_clock::time_point startTime_; // 动画开始时间
     bool is_reverse_ = false;                         // 是否反向播放
 signals:
-    Signal<void()> finished; // 动画结束信号
-    Signal<void()> started;  // 动画开始信号
-    Signal<void()> stopted; // 动画停止信号
+    Signal<void()> finished;  // 动画结束信号
+    Signal<void()> started;   // 动画开始信号
+    Signal<void()> stopted;   // 动画停止信号
     Signal<void()> continued; // 动画继续信号
 
 protected:
@@ -149,7 +149,7 @@ public:
      * @note 该函数会根据当前动画时间和插值计算函数，计算当前动画值
      * @return 当前值
      */
-    T value() const
+    T value()
     {
         if (running_)
         {
