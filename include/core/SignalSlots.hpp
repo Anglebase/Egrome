@@ -76,6 +76,16 @@ public:
         for (auto &slot : slots)
             slot.second(std::forward<Args>(args)...);
     }
+
+    /**
+     * @brief 发送信号，调用所有槽函数
+     * @param ...args 槽函数参数列表
+     * @note 重载了 () 操作符，方便调用，效果等同于 emit 函数
+     */
+    void operator()(Args... args)
+    {
+        this->emit(std::forward<Args>(args)...);
+    }
 };
 
 /**
@@ -131,13 +141,22 @@ public:
         for (auto &slot : slots)
             slot.second();
     }
+
+    /**
+     * @brief 发送信号，调用所有槽函数
+     * @note 重载了 () 操作符，方便调用，效果等同于 emit 函数
+     */
+    void operator()()
+    {
+        this->emit();
+    }
 };
 
 #ifndef signals
 /**
  * @brief 信号列表宏定义
  * @note 信号列表仅用于语义化表示，实际上并没有定义信号列表，只是为了方便使用信号槽机制而定义的宏定义
-*/
+ */
 #define signals public
 #endif
 
