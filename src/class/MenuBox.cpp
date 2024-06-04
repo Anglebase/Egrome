@@ -24,8 +24,6 @@ void Divider::paintEvent(const PaintEvent &event)
 Divider::Divider(MenuBox *parent)
     : Divider(Rect{0, parent->getHeight(), parent->rect().width(), 5}, parent)
 {
-    if (parent)
-        parent->items_.push_back(this);
 }
 
 void Divider::setColor(const Color &color)
@@ -146,8 +144,6 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
             this->hovered_ = false;
             this->hoverColorAnim_->run(true);
         });
-    if (parent)
-        parent->items_.push_back(this);
 }
 
 MenuItem::~MenuItem()

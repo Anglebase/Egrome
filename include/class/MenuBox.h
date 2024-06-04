@@ -230,19 +230,16 @@ public:
     /**
      * @brief 添加菜单项
      * @param item 菜单项
-     * @deprecated 菜单顺序由子对象构造函数调用顺序决定，不建议使用此函数
      */
     void addItem(MenuItem *item);
     /**
      * @brief 移除菜单项
      * @param itemIndex 菜单项索引
-     * @deprecated 菜单顺序由子对象构造函数调用顺序决定，不建议使用此函数
      */
     void removeItem(int itemIndex);
     /**
      * @brief 添加分割线
      * @param divider 分割线
-     * @deprecated 菜单顺序由子对象构造函数调用顺序决定，不建议使用此函数
      */
     void addDivider(Divider *divider);
     /**

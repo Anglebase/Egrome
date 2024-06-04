@@ -172,7 +172,7 @@ Color::operator HSL() const
     return hsl;
 }
 
-Color operator""_$(unsigned long long hex)
+Color operator""_color(unsigned long long hex)
 {
     return Color(hex);
 }

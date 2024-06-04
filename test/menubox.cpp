@@ -36,20 +36,6 @@ public:
         menuItems_[0]->setText(L"File");
         menuItems_[1] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
         menuItems_[1]->setText(L"Edit");
-        menuItems_[2] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[2]->setText(L"View");
-        menuItems_[3] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[3]->setText(L"Help");
-        menuItems_[4] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[4]->setText(L"Exit");
-        divider_ = new Divider(this->menuBox_);
-        this->menuBox_->addItem(menuItems_[0]);
-        this->menuBox_->addItem(menuItems_[1]);
-        this->menuBox_->addItem(menuItems_[2]);
-        this->menuBox_->addDivider(divider_);
-        this->menuBox_->addItem(menuItems_[3]);
-        this->menuBox_->addItem(menuItems_[4]);
-
         subMenuBox_ = new MenuBox(Rect(0, 0, 200, 0), menuItems_[1]);
         subMenuItems_[0] = new MenuItem(Rect(0, 0, 300, 40), subMenuBox_);
         subMenuItems_[0]->setText(L"Undo");
@@ -61,6 +47,19 @@ public:
         this->subMenuBox_->addItem(subMenuItems_[0]);
         this->subMenuBox_->addItem(subMenuItems_[1]);
         this->subMenuBox_->addItem(subMenuItems_[2]);
+        menuItems_[2] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[2]->setText(L"View");
+        divider_ = new Divider(this->menuBox_);
+        menuItems_[3] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[3]->setText(L"Help");
+        menuItems_[4] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[4]->setText(L"Exit");
+        this->menuBox_->addItem(menuItems_[0]);
+        this->menuBox_->addItem(menuItems_[1]);
+        this->menuBox_->addItem(menuItems_[2]);
+        this->menuBox_->addDivider(divider_);
+        this->menuBox_->addItem(menuItems_[3]);
+        this->menuBox_->addItem(menuItems_[4]);
 
         this->menuItems_[0]->clicked.connect(
             [this]()
