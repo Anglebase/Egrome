@@ -1,4 +1,4 @@
-#include "radiobox.h"
+#include "RadioBox.h"
 #include "Painter.h"
 
 void RadioBox::paintEvent(const PaintEvent &event)

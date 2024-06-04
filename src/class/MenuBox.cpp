@@ -1,4 +1,4 @@
-#include "menubox.h"
+#include "MenuBox.h"
 #include "Painter.h"
 #include "Size.h"
 #include "Rect.h"

@@ -1,4 +1,4 @@
-#include "checkbox.h"
+#include "CheckBox.h"
 #include "Painter.h"
 #include "Size.h"
 

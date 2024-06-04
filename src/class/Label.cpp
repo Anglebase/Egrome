@@ -1,4 +1,4 @@
-#include "label.h"
+#include "Label.h"
 #include "Painter.h"
 #include "PixelMap.h"
 #include "Size.h"
