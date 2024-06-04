@@ -126,8 +126,10 @@ $(function(){initNavTree('group___xE8_xA7_x86_xE5_x9B_xBE.html',''); initResizab
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">此类以 RGB 颜色模型对颜色进行存储  <a href="class_color.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html">Painter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Painter类，提供绘图相关的接口  <a href="class_painter.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_paint_event.html">PaintEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">PainterEvent类  <a href="class_paint_event.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel_map.html">PixelMap</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">像素图类  <a href="class_pixel_map.html#details">更多...</a><br /></td></tr>
@@ -679,6 +681,9 @@ $(function(){initNavTree('group___xE8_xA7_x86_xE5_x9B_xBE.html',''); initResizab
 <tr class="memitem:gae9c226b8edb91ca6c373681420e4f51f" id="r_gae9c226b8edb91ca6c373681420e4f51f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9c226b8edb91ca6c373681420e4f51f">operator&quot;&quot;_vh</a> (unsigned long long vh)</td></tr>
 <tr class="memdesc:gae9c226b8edb91ca6c373681420e4f51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">相对于视口高度百分比的字面量运算符  <br /></td></tr>
 <tr class="separator:gae9c226b8edb91ca6c373681420e4f51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b5dbb78fdfbfc8d1c27a0ded72121a8" id="r_ga3b5dbb78fdfbfc8d1c27a0ded72121a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3b5dbb78fdfbfc8d1c27a0ded72121a8">operator&quot;&quot;_$</a> (unsigned long long hex)</td></tr>
+<tr class="memdesc:ga3b5dbb78fdfbfc8d1c27a0ded72121a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">颜色的字面量形式  <br /></td></tr>
+<tr class="separator:ga3b5dbb78fdfbfc8d1c27a0ded72121a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <p>视图绘制相关 </p>
@@ -1078,6 +1083,37 @@ $(function(){initNavTree('group___xE8_xA7_x86_xE5_x9B_xBE.html',''); initResizab
 </div>
 </div>
 <h2 class="groupheader">函数说明</h2>
+<a id="ga3b5dbb78fdfbfc8d1c27a0ded72121a8" name="ga3b5dbb78fdfbfc8d1c27a0ded72121a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3b5dbb78fdfbfc8d1c27a0ded72121a8">&#9670;&#160;</a></span>operator&quot;&quot;_$()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> operator&quot;&quot;_$ </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long</td>          <td class="paramname"><span class="paramname"><em>hex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>颜色的字面量形式 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hex</td><td>十六进制颜色 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>颜色对象 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>该函数的作用是方便地用颜色字面量来表示颜色，例如： <div class="fragment"><div class="line"><span class="keyword">auto</span> w = 0xFFFFFF_$; <span class="comment">// 白色</span></div>
+<div class="line"><span class="keyword">auto</span> r = 0xFF0000_$; <span class="comment">// 红色</span></div>
+<div class="line"><span class="keyword">auto</span> g = 0x00FF00_$; <span class="comment">// 绿色</span></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_color.html" title="此类以 RGB 颜色模型对颜色进行存储">Color</a> </dd></dl>
+
+</div>
+</div>
 <a id="gae9c226b8edb91ca6c373681420e4f51f" name="gae9c226b8edb91ca6c373681420e4f51f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gae9c226b8edb91ca6c373681420e4f51f">&#9670;&#160;</a></span>operator&quot;&quot;_vh()</h2>
 

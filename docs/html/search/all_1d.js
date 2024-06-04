@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['控件_0',['控件',['../group___xE6_x8E_xA7_xE4_xBB_xB6.html',1,'']]]
+  ['弃用列表_0',['弃用列表',['../deprecated.html',1,'']]]
 ];

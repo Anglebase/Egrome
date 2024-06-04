@@ -1,15 +1,15 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghijklmnopqrstuvwxyz~列单控核菜视",
+  0: "abcdefghijklmnopqrstuvwxyz~单常弃控核菜视",
   1: "abcdehlmprs",
   2: "abcelmprs",
-  3: "abcdeghiklmopqrstvwz~",
-  4: "bcfhoprsv",
+  3: "abcdefghiklmopqrstvwz~",
+  4: "bcdfghloprsvwy",
   5: "abikmpt",
   6: "abcdefghijklmnopqrstuvwxyz",
   7: "o",
-  8: "单控核菜视",
-  9: "b列"
+  8: "单常控核菜视",
+  9: "弃"
 };
 
 var indexSectionNames =

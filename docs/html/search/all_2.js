@@ -20,5 +20,6 @@ var searchData=
   ['contains_17',['contains',['../class_rect.html#a1c38f1896dd038b566feaa724d4db644',1,'Rect::contains(const Point &amp;point) const'],['../class_rect.html#a3637d46e844608e7974857ec29892410',1,'Rect::contains(long x, long y) const'],['../class_rect_f.html#a27ec23f6cce88d8c19fd60ab51906d4f',1,'RectF::contains(const PointF &amp;pointF) const'],['../class_rect_f.html#a3d0f45c85cd5d99304ec8eb0149e4a78',1,'RectF::contains(double x, double y) const']]],
   ['control_18',['Control',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73aa1595abbb4c3a326636dd178757cd6c1',1,'Block.h']]],
   ['control_5fl_19',['Control_l',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a1b96684dfabeb16bc5b32ca04bfea3f5',1,'Block.h']]],
-  ['control_5fr_20',['Control_r',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5ba0bc18e02f9d47f2f4bf9f1100437e',1,'Block.h']]]
+  ['control_5fr_20',['Control_r',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5ba0bc18e02f9d47f2f4bf9f1100437e',1,'Block.h']]],
+  ['cyan_21',['Cyan',['../group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#gaba8a75025a243f2186eef9bc5f8b0536',1,'Color']]]
 ];

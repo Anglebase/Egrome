@@ -8,5 +8,6 @@ var searchData=
   ['signal_3c_20void_28double_20progress_29_3e_5',['Signal&lt; void(double progress)&gt;',['../class_signal.html',1,'']]],
   ['signal_3c_20void_28int_20inputchar_29_3e_6',['Signal&lt; void(int inputChar)&gt;',['../class_signal.html',1,'']]],
   ['size_7',['Size',['../class_size.html',1,'']]],
-  ['sizef_8',['SizeF',['../class_size_f.html',1,'']]]
+  ['sizef_8',['SizeF',['../class_size_f.html',1,'']]],
+  ['sliderbar_9',['SliderBar',['../class_slider_bar.html',1,'']]]
 ];

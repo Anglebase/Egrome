@@ -21,5 +21,7 @@ var searchData=
   ['gettopleft_18',['getTopLeft',['../class_rect.html#a578cd20dd9c605eb0efc55b722fadcee',1,'Rect::getTopLeft()'],['../class_rect_f.html#a7629de5f325e6a7bb6beb6d3ce26e35f',1,'RectF::getTopLeft()']]],
   ['gettopright_19',['getTopRight',['../class_rect.html#ac4b44ef57cb81abf947e98fa930c05cf',1,'Rect::getTopRight()'],['../class_rect_f.html#a222a3e95ce74456e63a80a9a9098be17',1,'RectF::getTopRight()']]],
   ['getwindowpos_20',['getWindowPos',['../class_app.html#a7cce2c5150e1a77583204be81267f57e',1,'App']]],
-  ['getwindowsize_21',['getWindowSize',['../class_app.html#a8e8a9b9fc17acfe4247111aa1c9dbfee',1,'App']]]
+  ['getwindowsize_21',['getWindowSize',['../class_app.html#a8e8a9b9fc17acfe4247111aa1c9dbfee',1,'App']]],
+  ['gray_22',['Gray',['../group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga369553012abed2a1d35d852fad97402d',1,'Color']]],
+  ['green_23',['Green',['../group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga99d190056130b083fe716a721f0e2b74',1,'Color']]]
 ];

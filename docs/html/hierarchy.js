@@ -11,7 +11,8 @@ var hierarchy =
       [ "MenuBox", "class_menu_box.html", null ],
       [ "MenuItem", "class_menu_item.html", null ],
       [ "ProgressBar", "class_progress_bar.html", null ],
-      [ "RadioBox", "class_radio_box.html", null ]
+      [ "RadioBox", "class_radio_box.html", null ],
+      [ "SliderBar", "class_slider_bar.html", null ]
     ] ],
     [ "Color", "class_color.html", null ],
     [ "Exception", "class_exception.html", null ],

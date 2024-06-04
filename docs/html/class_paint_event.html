@@ -104,6 +104,11 @@ $(function(){initNavTree('class_paint_event.html',''); initResizable(); });
   <div class="headertitle"><div class="title">PaintEvent类 参考<div class="ingroups"><a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html">视图</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>PainterEvent类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_painter_8h_source.html">Painter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
@@ -122,9 +127,6 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a8f3abb7a6618bee2e1c5e9123a5566a1" id="r_a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a> (const <a class="el" href="class_block.html">Block</a> *block) const</td></tr>
 <tr class="memdesc:a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造Painter对象  <br /></td></tr>
 <tr class="separator:a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32442c624ea13c519a3619524a085417" id="r_a32442c624ea13c519a3619524a085417"><td class="memItemLeft" align="right" valign="top"><a id="a32442c624ea13c519a3619524a085417" name="a32442c624ea13c519a3619524a085417"></a>
-const <a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>beginPaint</b> (<a class="el" href="class_block.html">Block</a> *block)=delete</td></tr>
-<tr class="separator:a32442c624ea13c519a3619524a085417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24f230eac627a7a2e484529f7269324c" id="r_a24f230eac627a7a2e484529f7269324c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24f230eac627a7a2e484529f7269324c">endPaint</a> () const</td></tr>
 <tr class="memdesc:a24f230eac627a7a2e484529f7269324c"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束绘制  <br /></td></tr>
 <tr class="separator:a24f230eac627a7a2e484529f7269324c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,7 +137,23 @@ const <a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td cl
 class&#160;</td><td class="memItemRight" valign="bottom"><b>App</b></td></tr>
 <tr class="separator:a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">成员函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>PainterEvent类 </p>
+<p>PainterEvent类是用于绘图事件传递的类，负责创建Painter对象并提供绘图相关的接口 </p><dl class="section note"><dt>注解</dt><dd>用户可以通过在绘图时间传递函数中如下的调用方式来创建Painter对象： <div class="fragment"><div class="line"><span class="keyword">auto</span> &amp;painter = <span class="keyword">event</span>.beginPaint(<span class="keyword">this</span>); <span class="comment">// 获取Painter对象</span></div>
+<div class="line"><span class="comment">// 绘图代码</span></div>
+<div class="line">painter.<a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(0, 0, 100, 100);</div>
+<div class="line">...</div>
+<div class="line">event.endPaint(); <span class="comment">// 绘图结束时，必须调用该函数</span></div>
+<div class="ttc" id="aclass_painter_html_a84fcd7926748b4262882609c572c62ec"><div class="ttname"><a href="class_painter.html#a84fcd7926748b4262882609c572c62ec">Painter::drawLine</a></div><div class="ttdeci">void drawLine(int x1, int y1, int x2, int y2) const</div><div class="ttdoc">绘制线</div><div class="ttdef"><b>Definition</b> Painter.cpp:231</div></div>
+</div><!-- fragment --> </dd>
+<dd>
+用户无法直接创建PainterEvent对象，只能通过App来创建，此对象仅在绘图事件中使用 </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_app.html" title="应用程序类">App</a> </dd>
+<dd>
+<a class="el" href="class_painter.html" title="Painter类，提供绘图相关的接口">Painter</a> </dd>
+<dd>
+<a class="el" href="class_pixel_map.html" title="像素图类">PixelMap</a> </dd></dl>
+</div><h2 class="groupheader">成员函数说明</h2>
 <a id="a8f3abb7a6618bee2e1c5e9123a5566a1" name="a8f3abb7a6618bee2e1c5e9123a5566a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f3abb7a6618bee2e1c5e9123a5566a1">&#9670;&#160;</a></span>beginPaint()</h2>
 
@@ -178,7 +196,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>App</b></td></tr>
 </div><div class="memdoc">
 
 <p>结束绘制 </p>
-<p>结束绘制，释放Painter对象，如果该函数未被调用，此类析构时会自动释放Painter对象 </p>
+<p>结束绘制，释放Painter对象 </p><dl class="section note"><dt>注解</dt><dd>绘图结束时，必须调用该函数，否则会引起不可预知的错误 </dd></dl>
 
 </div>
 </div>

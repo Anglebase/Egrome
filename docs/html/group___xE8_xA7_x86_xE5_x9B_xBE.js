@@ -234,6 +234,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "TextVAlign::Center", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a4f1f6016fc9f3f2353c0cc7c67b292bd", null ],
       [ "TextVAlign::Bottom", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4", null ]
     ] ],
+    [ "operator\"\"_$", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3b5dbb78fdfbfc8d1c27a0ded72121a8", null ],
     [ "operator\"\"_vh", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gae9c226b8edb91ca6c373681420e4f51f", null ],
     [ "operator\"\"_vw", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gaeebfa33c937131403e4a9dbda7da8ced", null ]
 ];
