@@ -60,12 +60,12 @@ print(Green("正在解析配置文件..."))
 conftext: str = open(sys.argv[1], mode="r", encoding="utf-8").read()
 conf: dict = json.loads(re.sub(r"\/\*[\s\S]*?\*\/|\/\/.*", "", conftext))
 
-task: list = []
-exls: list = []
+task: dict = {}
+exls: dict = {}
 
 
 def complie(conf: dict, name: str):
-    if conf.get("compile", True):
+    if not conf.get("compile", False):
         return
 
     commandline = ""
@@ -126,30 +126,13 @@ def complie(conf: dict, name: str):
     if options:
         commandline += f' {" ".join(options)}'
 
-    c = ""
-    for ch in commandline:
-        if ch == "/":
-            c += "\\"
-        else:
-            c += ch
-    commandline = c
-
-    task.append(commandline)
+    task[name] = commandline.replace("/", "\\")
 
     if conf.get("start", False):
         # 目标的命令行参数
         args: list = conf.get("args", [])
         cmd = f"{target} {' '.join(args)}".strip()
-
-        c = ""
-        for ch in cmd:
-            if ch == "/":
-                c += "\\"
-            else:
-                c += ch
-        cmd = c
-
-        exls.append(cmd)
+        exls[name] = cmd.replace("/", "\\")
 
 
 for name in conf:
@@ -159,10 +142,10 @@ print(Yello("开始生成..."))
 g_start = time.time()
 
 # 执行编译任务
-for cmdline in task:
-    print(Blue(f"正在执行：{Cyan(cmdline)}"))
+for name in task:
+    print(Blue("正在执行： {} {}".format(Green("[{}]".format(name)), Cyan(task[name]))))
     start = time.time()
-    res = os.system(command=cmdline)
+    res = os.system(command=task[name])
     end = time.time()
     print(Green(f"^任务用时 {end-start}s"))
     if res:
@@ -177,9 +160,15 @@ print(Green(f"共计用时：{g_end-g_start}s"))
 if exls:
     print(Yello("正在启动任务..."))
 
-    for e in exls:
-        print(Cyan("{:*<80}".format(e + " ")))
+    for name in exls:
+        print(
+            Cyan(
+                "{:*<80}".format(
+                    "{}->{}".format(Green("[{}]".format(name)), exls[name])
+                )
+            )
+        )
         start = time.time()
-        res = os.system(command=e)
+        res = os.system(command=exls[name])
         end = time.time()
         print(Yello(f"\n==> return -> {res}; 用时 {end-start}s"))

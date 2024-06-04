@@ -24,9 +24,154 @@
             "oleaut32",
             "winmm"
         ],
-        // "complie": true,
-        // "start": true,
+        "complie": true,
+        "start": true,
         "target": ".\\bin\\test.exe"
+    },
+    "button-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\button.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\button.exe"
+    },
+    "checkbox-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\checkbox.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\checkbox.exe"
+    },
+    "label-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\label.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\label.exe"
+    },
+    "menubox-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\menubox.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\menubox.exe"
+    },
+    "radiobox-test":{
+        "compiler": "g++",
+        "src": [
+            ".\\src\\view\\*.cpp",
+            ".\\src\\class\\*.cpp",
+            ".\\src\\core\\*.cpp",
+            ".\\test\\radiobox.cpp"
+        ],
+        "include": [
+            ".\\include\\view\\",
+            ".\\include\\class\\",
+            ".\\include\\core\\",
+            ".\\include\\"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": ".\\bin\\radiobox.exe"
     },
     "progressbar-test":{
         "compiler": "g++",
