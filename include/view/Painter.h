@@ -354,7 +354,7 @@ enum class TextVAlign
 /**
  * @brief Painter类，提供绘图相关的接口
  * @details Painter类提供了绘图相关的接口，包括画笔、画刷、字体、颜色等属性的设置，以及绘制各种图形的接口
- * @note Painter类是视图系统的核心类，负责绘制各种图形，并提供绘图相关的接口
+ * @details Painter类是视图系统的核心类，负责绘制各种图形，并提供绘图相关的接口
  * @note 用户无法直接创建Painter对象，只能通过PainterEvent或PixelMap来创建
  * @see PaintEvent
  * @see PixelMap

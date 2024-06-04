@@ -16,7 +16,7 @@ class Rect;
 
 /**
  * @brief 像素图类
- * @note 像素图类用于绘制图像，并提供裁剪、复制以及混合等功能
+ * @details 像素图类用于绘制图像，并提供裁剪、复制以及混合等功能
  * @note 用户可以通过如下方式获取位图对象的Painter对象：
  * @code
  * PixelMap bitmap(100, 100);

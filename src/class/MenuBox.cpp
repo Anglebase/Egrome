@@ -22,7 +22,11 @@ void Divider::paintEvent(const PaintEvent &event)
 }
 
 Divider::Divider(MenuBox *parent)
-    : Divider(Rect{0, parent->getHeight(), parent->rect().width(), 5}, parent) {}
+    : Divider(Rect{0, parent->getHeight(), parent->rect().width(), 5}, parent)
+{
+    if (parent)
+        parent->items_.push_back(this);
+}
 
 void Divider::setColor(const Color &color)
 {
@@ -81,7 +85,7 @@ void MenuItem::mouseMoveEvent(const Point &pos)
 {
     if (!(this->childMenu_ && this->childMenu_->visible_))
         return Block::mouseMoveEvent(pos);
-        
+
     Rect rect = this->childMenu_->rect();
     rect.height() = this->childMenu_->getHeight();
 
@@ -142,6 +146,8 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
             this->hovered_ = false;
             this->hoverColorAnim_->run(true);
         });
+    if (parent)
+        parent->items_.push_back(this);
 }
 
 MenuItem::~MenuItem()
@@ -235,6 +241,10 @@ MenuBox::MenuBox(const Rect &rect, Block *parent)
 
 void MenuBox::addItem(MenuItem *item)
 {
+    if (std::find(this->items_.begin(),
+                  this->items_.end(),
+                  (Block *)item) != this->items_.end())
+        return;
     item->rect().x() = 0;
     item->rect().y() = this->getHeight();
     item->rect().width() = this->rect().width();
@@ -252,6 +262,13 @@ void MenuBox::removeItem(int itemIndex)
 
 void MenuBox::addDivider(Divider *divider)
 {
+    if (std::find(this->items_.begin(),
+                  this->items_.end(),
+                  (Block *)divider) != this->items_.end())
+        return;
+    divider->rect().x() = 0;
+    divider->rect().y() = this->getHeight();
+    divider->rect().width() = this->rect().width();
     this->items_.push_back(divider);
 }
 
