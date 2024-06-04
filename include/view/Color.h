@@ -3,7 +3,7 @@
 /**
  * @file Color.h
  * @brief 颜色类
-*/
+ */
 
 /**
  * @addtogroup 视图
@@ -38,14 +38,53 @@ class Color
     friend class Painter;
 
 public:
+    /**
+     * @brief 常用颜色
+     * @addtogroup 常用颜色
+     * @{
+     */
+
+    /// 黑色
     static const Color Black;
+    /// 白色
     static const Color White;
+    /// 红色
     static const Color Red;
+    /// 绿色
     static const Color Green;
+    /// 蓝色
     static const Color Blue;
+    /// 灰色
     static const Color Gray;
+    /// 亮灰色
     static const Color LightGray;
+    /// 深灰色
     static const Color DarkGray;
+    /// 紫色
+    static const Color Purple;
+    /// 黄色
+    static const Color Yellow;
+    /// 青色
+    static const Color Cyan;
+    /// 粉色
+    static const Color Pink;
+    /// 亮红色
+    static const Color LightRed;
+    /// 亮绿色
+    static const Color LightGreen;
+    /// 亮蓝色
+    static const Color LightBlue;
+    /// 亮黄色
+    static const Color LightYellow;
+    /// 亮青色
+    static const Color LightCyan;
+    /// 亮粉色
+    static const Color LightPink;
+
+
+
+
+    /** @} */
 
     /**
      * @brief 颜色的线性插值函数
@@ -150,5 +189,19 @@ public:
      */
     operator HSL() const;
 };
+
+/**
+ * @brief 颜色的字面量形式
+ * @param hex 十六进制颜色
+ * @return 颜色对象
+ * @note 该函数的作用是方便地用颜色字面量来表示颜色，例如：
+ * @code
+ * auto w = 0xFFFFFF_$; // 白色
+ * auto r = 0xFF0000_$; // 红色
+ * auto g = 0x00FF00_$; // 绿色
+ * @endcode
+ * @see Color
+ */
+Color operator""_$(unsigned long long hex);
 
 /** @} */

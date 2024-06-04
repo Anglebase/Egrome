@@ -1,14 +1,42 @@
 #include "Color.h"
 #include <ege.h>
 
+/// 黑色
 const Color Color::Black{0x000000};
-const Color Color::White{0xffffff};
-const Color Color::Red{0xff0000};
-const Color Color::Green{0x00ff00};
-const Color Color::Blue{0x0000ff};
+/// 白色
+const Color Color::White{0xFFFFFF};
+/// 红色
+const Color Color::Red{0xFF0000};
+/// 绿色
+const Color Color::Green{0x00FF00};
+/// 蓝色
+const Color Color::Blue{0x0000FF};
+/// 灰色
 const Color Color::Gray{0x808080};
-const Color Color::LightGray{0xc0c0c0};
+/// 亮灰色
+const Color Color::LightGray{0xC0C0C0};
+/// 深灰色
 const Color Color::DarkGray{0x404040};
+/// 紫色
+const Color Color::Purple{0xFF00FF};
+/// 黄色
+const Color Color::Yellow{0xFFFF00};
+/// 青色
+const Color Color::Cyan{0x00FEC0};
+/// 粉色
+const Color Color::Pink{0xFFC0CB};
+/// 亮红色
+const Color Color::LightRed{0xFFA07A};
+/// 亮绿色
+const Color Color::LightGreen{0x90EE90};
+/// 亮蓝色
+const Color Color::LightBlue{0xADD8E6};
+/// 亮黄色
+const Color Color::LightYellow{0xFFFFE0};
+/// 亮青色
+const Color Color::LightCyan{0x00FFFF};
+/// 亮粉色
+const Color Color::LightPink{0xFFB6C1};
 
 Color Color::color_lerp(Color start, Color end, double t)
 {
@@ -142,4 +170,9 @@ Color::operator HSL() const
     ege::rgb2hsl(EGERGB(red, green, blue),
                  &hsl.hue, &hsl.saturation, &hsl.lightness);
     return hsl;
+}
+
+Color operator""_$(unsigned long long hex)
+{
+    return Color(hex);
 }
