@@ -58,6 +58,8 @@ def Cyan(s):
 print(Green("正在解析配置文件..."))
 
 conftext: str = open(sys.argv[1], mode="r", encoding="utf-8").read()
+
+# 去除注释
 conf: dict = json.loads(re.sub(r"\/\*[\s\S]*?\*\/|\/\/.*", "", conftext))
 
 task: dict = {}

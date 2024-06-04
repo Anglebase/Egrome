@@ -24,8 +24,8 @@
             "oleaut32",
             "winmm"
         ],
-        "complie": true,
-        "start": true,
+        // "complie": true,
+        // "start": true,
         "target": ".\\bin\\test.exe"
     },
     "button-test":{
@@ -53,8 +53,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\button.exe"
     },
     "checkbox-test":{
@@ -82,8 +82,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\checkbox.exe"
     },
     "label-test":{
@@ -111,8 +111,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\label.exe"
     },
     "menubox-test":{
@@ -140,8 +140,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\menubox.exe"
     },
     "radiobox-test":{
@@ -169,8 +169,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\radiobox.exe"
     },
     "progressbar-test":{
@@ -198,8 +198,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": ".\\bin\\progressbar.exe"
     }
 }
