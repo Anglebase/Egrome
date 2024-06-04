@@ -9,6 +9,6 @@ var class_animation =
     [ "set", "class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de", null ],
     [ "start", "class_animation.html#a93d864e0a9faafef077ecefd976a8b8b", null ],
     [ "stop", "class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd", null ],
-    [ "value", "class_animation.html#ab322303b32b0153e45e5714f70760ac2", null ],
+    [ "value", "class_animation.html#ad60734ce9a229954fb6b16f049a9827c", null ],
     [ "valueComputer_", "class_animation.html#a68f5e744732c9f30c4b34b2575d0a457", null ]
 ];

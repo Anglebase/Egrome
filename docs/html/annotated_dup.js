@@ -18,6 +18,7 @@ var annotated_dup =
     [ "PixelMap", "class_pixel_map.html", "class_pixel_map" ],
     [ "Point", "class_point.html", "class_point" ],
     [ "PointF", "class_point_f.html", "class_point_f" ],
+    [ "ProgressBar", "class_progress_bar.html", "class_progress_bar" ],
     [ "RadioBox", "class_radio_box.html", "class_radio_box" ],
     [ "RadioBoxGroup", "class_radio_box_group.html", "class_radio_box_group" ],
     [ "Rect", "class_rect.html", "class_rect" ],

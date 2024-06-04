@@ -6,6 +6,7 @@ var searchData=
   ['_7emenubox_3',['~MenuBox',['../class_menu_box.html#aeecaacd6dae7c49970c4e21b0ed93cb0',1,'MenuBox']]],
   ['_7emenuitem_4',['~MenuItem',['../class_menu_item.html#a576c5d9b360a5257327a058c05cf6fa0',1,'MenuItem']]],
   ['_7epixelmap_5',['~PixelMap',['../class_pixel_map.html#a576c8df5242a00960195f891b7ba91d3',1,'PixelMap']]],
-  ['_7eradiobox_6',['~RadioBox',['../class_radio_box.html#a82051d9d00fb6a7dfb6a844fd3ec1560',1,'RadioBox']]],
-  ['_7eradioboxgroup_7',['~RadioBoxGroup',['../class_radio_box_group.html#aa0dc83ab01369a50c7fad35bb5ff4866',1,'RadioBoxGroup']]]
+  ['_7eprogressbar_6',['~ProgressBar',['../class_progress_bar.html#a76e7d7cfdb7fca10d85dab5e244d9ac3',1,'ProgressBar']]],
+  ['_7eradiobox_7',['~RadioBox',['../class_radio_box.html#a82051d9d00fb6a7dfb6a844fd3ec1560',1,'RadioBox']]],
+  ['_7eradioboxgroup_8',['~RadioBoxGroup',['../class_radio_box_group.html#aa0dc83ab01369a50c7fad35bb5ff4866',1,'RadioBoxGroup']]]
 ];

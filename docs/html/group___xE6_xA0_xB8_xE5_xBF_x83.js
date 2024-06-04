@@ -10,7 +10,7 @@ var group___xE6_xA0_xB8_xE5_xBF_x83 =
       [ "set", "class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de", null ],
       [ "start", "class_animation.html#a93d864e0a9faafef077ecefd976a8b8b", null ],
       [ "stop", "class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd", null ],
-      [ "value", "class_animation.html#ab322303b32b0153e45e5714f70760ac2", null ],
+      [ "value", "class_animation.html#ad60734ce9a229954fb6b16f049a9827c", null ],
       [ "valueComputer_", "class_animation.html#a68f5e744732c9f30c4b34b2575d0a457", null ]
     ] ],
     [ "Exception", "class_exception.html", [
@@ -109,13 +109,15 @@ var group___xE6_xA0_xB8_xE5_xBF_x83 =
       [ "connect", "class_signal_3_01void_07_args_8_8_8_08_4.html#ab7a06ab0bf5a549fc4f3a7439c66b7ef", null ],
       [ "connect", "class_signal_3_01void_07_args_8_8_8_08_4.html#ac18c914ed2fec55c01a6d213da2e6201", null ],
       [ "disconnect", "class_signal_3_01void_07_args_8_8_8_08_4.html#af44767aa5895ecefc9b0459e03ccb624", null ],
-      [ "emit", "class_signal_3_01void_07_args_8_8_8_08_4.html#af697faf6a3170f3bdd55ca6523f73c66", null ]
+      [ "emit", "class_signal_3_01void_07_args_8_8_8_08_4.html#af697faf6a3170f3bdd55ca6523f73c66", null ],
+      [ "operator()", "class_signal_3_01void_07_args_8_8_8_08_4.html#aacb03622c9d80a0d7fde51e5169f61f5", null ]
     ] ],
     [ "Signal< void()>", "class_signal_3_01void_07_08_4.html", [
       [ "connect", "class_signal_3_01void_07_08_4.html#a6c78dbab55eb469a0513c6a9d6f4a1ee", null ],
       [ "connect", "class_signal_3_01void_07_08_4.html#ac768903c2e336d286e45d4b396691528", null ],
       [ "disconnect", "class_signal_3_01void_07_08_4.html#ac9c6d5851f9d9bcdac93a61532238495", null ],
-      [ "emit", "class_signal_3_01void_07_08_4.html#a16c1791b803c0c623b5ea2f4834a1fc7", null ]
+      [ "emit", "class_signal_3_01void_07_08_4.html#a16c1791b803c0c623b5ea2f4834a1fc7", null ],
+      [ "operator()", "class_signal_3_01void_07_08_4.html#a485f822a460fab05732c4cfff5dc9dc5", null ]
     ] ],
     [ "Size", "class_size.html", [
       [ "Size", "class_size.html#a81d0604aae93de6c290c8b256845a0be", null ],

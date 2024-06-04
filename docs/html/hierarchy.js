@@ -10,6 +10,7 @@ var hierarchy =
       [ "Label", "class_label.html", null ],
       [ "MenuBox", "class_menu_box.html", null ],
       [ "MenuItem", "class_menu_item.html", null ],
+      [ "ProgressBar", "class_progress_bar.html", null ],
       [ "RadioBox", "class_radio_box.html", null ]
     ] ],
     [ "Color", "class_color.html", null ],
@@ -29,6 +30,7 @@ var hierarchy =
     [ "Signal< void(Args...)>", "class_signal_3_01void_07_args_8_8_8_08_4.html", null ],
     [ "Signal< void(bool selected)>", "class_signal.html", null ],
     [ "Signal< void(bool)>", "class_signal.html", null ],
+    [ "Signal< void(double progress)>", "class_signal.html", null ],
     [ "Signal< void(int inputChar)>", "class_signal.html", null ],
     [ "Size", "class_size.html", null ],
     [ "SizeF", "class_size_f.html", null ]

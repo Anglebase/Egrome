@@ -56,8 +56,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
-"class_point.html",
-"group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a4b6bf4b531770872d4328ce69bef5627"
+"class_pixel_map.html#a664275e7fe9ffea89dfa9fcb4536d9d1",
+"group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a0581cd1de881a0f697f3b46741fb326b"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
