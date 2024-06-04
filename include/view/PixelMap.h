@@ -16,15 +16,37 @@ class Rect;
 
 /**
  * @brief 像素图类
+ * @note 像素图类用于绘制图像，并提供裁剪、复制以及混合等功能
+ * @note 用户可以通过如下方式获取位图对象的Painter对象：
+ * @code
+ * PixelMap bitmap(100, 100);
+ * auto& painter = bitmap.beginPaint();
+ * // 绘制图像
+ * painter.drawLine(0, 0, 100, 100);
+ * // 结束绘制
+ * bitmap.endPaint(); // 绘图结束后，必须调用该函数
+ * @endcode
+ * @see Painter
+ * @see PaintEvent
  */
 class PixelMap
 {
     friend class Painter;
 
 public:
+    /**
+     * @brief 从屏幕创建像素图
+     * @param rect 屏幕矩形区域
+     * @return 创建出的像素图
+     */
     static std::shared_ptr<PixelMap> FormScreen(const Rect &rect);
+    /**
+     * @brief 从文件创建像素图
+     * @param filename 文件名
+     * @return 创建出的像素图
+     */
     static std::shared_ptr<PixelMap> FromFile(const std::string &filename);
-    static std::shared_ptr<PixelMap> FromFile(const std::wstring &filename);
+    // static std::shared_ptr<PixelMap> FromFile(const std::wstring &filename);
 
 private:
     void *image_;

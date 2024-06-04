@@ -54,6 +54,11 @@ void PixelMap::setSize(int width, int height)
     ege::resize((ege::IMAGE *)this->image_, width, height);
 }
 
+void PixelMap::setSize(const Size &size)
+{
+    this->setSize(size.width(), size.height());
+}
+
 const Painter &PixelMap::beginPaint() const
 {
     if (this->painter_ == nullptr)

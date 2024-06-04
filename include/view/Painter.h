@@ -351,6 +351,14 @@ enum class TextVAlign
     Bottom
 };
 
+/**
+ * @brief Painter类，提供绘图相关的接口
+ * @details Painter类提供了绘图相关的接口，包括画笔、画刷、字体、颜色等属性的设置，以及绘制各种图形的接口
+ * @note Painter类是视图系统的核心类，负责绘制各种图形，并提供绘图相关的接口
+ * @note 用户无法直接创建Painter对象，只能通过PainterEvent或PixelMap来创建
+ * @see PaintEvent
+ * @see PixelMap
+ */
 class Painter
 {
     friend class PaintEvent;
@@ -747,6 +755,22 @@ public:
 
 };
 
+/**
+ * @brief PainterEvent类
+ * @details PainterEvent类是用于绘图事件传递的类，负责创建Painter对象并提供绘图相关的接口
+ * @note 用户可以通过在绘图时间传递函数中如下的调用方式来创建Painter对象：
+ * @code
+ * auto &painter = event.beginPaint(this); // 获取Painter对象
+ * // 绘图代码
+ * painter.drawLine(0, 0, 100, 100);
+ * ...
+ * event.endPaint(); // 绘图结束时，必须调用该函数
+ * @endcode
+ * @note 用户无法直接创建PainterEvent对象，只能通过App来创建，此对象仅在绘图事件中使用
+ * @see App
+ * @see Painter
+ * @see PixelMap
+ */
 class PaintEvent
 {
 private:
@@ -771,11 +795,11 @@ public:
      * @return Painter对象
      */
     const Painter &beginPaint(const Block *block) const;
-    const Painter &beginPaint(Block *block) = delete;
 
     /**
      * @brief 结束绘制
-     * @brief 结束绘制，释放Painter对象，如果该函数未被调用，此类析构时会自动释放Painter对象
+     * @brief 结束绘制，释放Painter对象
+     * @note 绘图结束时，必须调用该函数，否则会引起不可预知的错误
      */
     void endPaint() const;
 };
