@@ -68,6 +68,8 @@ void MenuItem::mousePressEvent(const Point &pos, MouseButton button)
         else
             menuBox->hide();
     }
+
+    return Block::mousePressEvent(pos, button);
 }
 
 void MenuItem::mouseReleaseEvent(const Point &pos, MouseButton button)
@@ -77,6 +79,8 @@ void MenuItem::mouseReleaseEvent(const Point &pos, MouseButton button)
         this->clicked_ = false;
         this->clickColorAnim_->run(true);
     }
+    return Block::mouseReleaseEvent(pos, button);
+    // return Block::mouseReleaseEvent(pos, button);
 }
 
 void MenuItem::mouseMoveEvent(const Point &pos)
@@ -104,6 +108,7 @@ void MenuItem::mouseMoveEvent(const Point &pos)
             return;
     }
     this->childMenu_->hide();
+    return Block::mouseMoveEvent(pos);
 }
 
 MenuItem::MenuItem(const Rect &rect, MenuBox *parent)

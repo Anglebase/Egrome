@@ -2,16 +2,16 @@
     "test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\test.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/test.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -26,21 +26,21 @@
         ],
         // "complie": true,
         // "start": true,
-        "target": ".\\bin\\test.exe"
+        "target": "./bin/test.exe"
     },
-    "button-test":{
+    "button-test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\button.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/button.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -55,21 +55,21 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": ".\\bin\\button.exe"
+        "target": "./bin/button.exe"
     },
-    "checkbox-test":{
+    "checkbox-test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\checkbox.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/checkbox.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -84,21 +84,21 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": ".\\bin\\checkbox.exe"
+        "target": "./bin/checkbox.exe"
     },
-    "label-test":{
+    "label-test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\label.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/label.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -113,21 +113,53 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": ".\\bin\\label.exe"
+        "target": "./bin/label.exe"
     },
-    "menubox-test":{
+    "menubox-test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\menubox.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/menubox.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": "./bin/menubox.exe",
+        "option": [
+            "-g"
+        ]
+    },
+    "radiobox-test": {
+        "compiler": "g++",
+        "src": [
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/radiobox.cpp"
+        ],
+        "include": [
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -142,21 +174,21 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": ".\\bin\\menubox.exe"
+        "target": "./bin/radiobox.exe"
     },
-    "radiobox-test":{
+    "progressbar-test": {
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\radiobox.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/progressbar.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -171,21 +203,21 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": ".\\bin\\radiobox.exe"
+        "target": "./bin/progressbar.exe"
     },
-    "progressbar-test":{
+    "debugtest":{
         "compiler": "g++",
         "src": [
-            ".\\src\\view\\*.cpp",
-            ".\\src\\class\\*.cpp",
-            ".\\src\\core\\*.cpp",
-            ".\\test\\progressbar.cpp"
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/debug/test.cpp"
         ],
         "include": [
-            ".\\include\\view\\",
-            ".\\include\\class\\",
-            ".\\include\\core\\",
-            ".\\include\\"
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
         ],
         "link": [
             "graphics64",
@@ -198,8 +230,8 @@
             "oleaut32",
             "winmm"
         ],
-        // "compile": true,
-        // "start": true,
-        "target": ".\\bin\\progressbar.exe"
+        "compile": true,
+        "start": true,
+        "target": "./bin/debugtest.exe"
     }
 }

@@ -36,24 +36,26 @@ public:
         menuItems_[0]->setText(L"File");
         menuItems_[1] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
         menuItems_[1]->setText(L"Edit");
-        subMenuBox_ = new MenuBox(Rect(0, 0, 200, 0), menuItems_[1]);
+        menuItems_[2] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[2]->setText(L"View");
+        menuItems_[3] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[3]->setText(L"Help");
+        menuItems_[4] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
+        menuItems_[4]->setText(L"Exit");
+
+        subMenuBox_ = new MenuBox(Rect(0, 0, 200, 0), this);
         subMenuItems_[0] = new MenuItem(Rect(0, 0, 300, 40), subMenuBox_);
         subMenuItems_[0]->setText(L"Undo");
         subMenuItems_[1] = new MenuItem(Rect(0, 0, 300, 40), subMenuBox_);
         subMenuItems_[1]->setText(L"Redo");
         subMenuItems_[2] = new MenuItem(Rect(0, 0, 300, 40), subMenuBox_);
         subMenuItems_[2]->setText(L"Cut");
-        menuItems_[1]->addChildMenu(subMenuBox_);
+
         this->subMenuBox_->addItem(subMenuItems_[0]);
         this->subMenuBox_->addItem(subMenuItems_[1]);
         this->subMenuBox_->addItem(subMenuItems_[2]);
-        menuItems_[2] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[2]->setText(L"View");
+        menuItems_[1]->addChildMenu(subMenuBox_);
         divider_ = new Divider(this->menuBox_);
-        menuItems_[3] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[3]->setText(L"Help");
-        menuItems_[4] = new MenuItem(Rect(0, 0, 300, 40), menuBox_);
-        menuItems_[4]->setText(L"Exit");
         this->menuBox_->addItem(menuItems_[0]);
         this->menuBox_->addItem(menuItems_[1]);
         this->menuBox_->addItem(menuItems_[2]);
