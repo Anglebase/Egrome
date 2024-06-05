@@ -24,6 +24,7 @@ class MenuBox;
 /**
  * @brief 菜单项
  * @details 用于显示菜单项
+ * @note 
  */
 class MenuItem : public Block
 {
@@ -171,6 +172,7 @@ public:
 /**
  * @brief 菜单框
  * @details 用于包装菜单项
+ * @note 对于多级菜单栏，所有 MenuBox 对象都应该具有同一父对象
  */
 class MenuBox : public Block
 {
