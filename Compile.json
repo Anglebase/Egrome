@@ -140,8 +140,8 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": "./bin/menubox.exe",
         "option": [
             "-g"
@@ -205,7 +205,7 @@
         // "start": true,
         "target": "./bin/progressbar.exe"
     },
-    "debugtest":{
+    "debugtest": {
         "compiler": "g++",
         "src": [
             "./src/view/*.cpp",
@@ -230,8 +230,40 @@
             "oleaut32",
             "winmm"
         ],
+        // "compile": true,
+        // "start": true,
+        "target": "./bin/debugtest.exe"
+    },
+    "slider": {
+        "compiler": "g++",
+        "src": [
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/slider.cpp"
+        ],
+        "include": [
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
         "compile": true,
         "start": true,
-        "target": "./bin/debugtest.exe"
+        "target": "./bin/slider.exe",
+        "option": [
+            "-g"
+        ]
     }
 }
