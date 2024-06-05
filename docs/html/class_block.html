@@ -125,7 +125,7 @@ $(function(){initNavTree('class_block.html',''); initResizable(); });
 <area href="class_menu_item.html" title="菜单项" alt="MenuItem" shape="rect" coords="93,336,176,360"/>
 <area href="class_progress_bar.html" title="进度条控件" alt="ProgressBar" shape="rect" coords="93,392,176,416"/>
 <area href="class_radio_box.html" title="单选框" alt="RadioBox" shape="rect" coords="93,448,176,472"/>
-<area href="class_slider_bar.html" alt="SliderBar" shape="rect" coords="93,504,176,528"/>
+<area href="class_slider.html" alt="Slider" shape="rect" coords="93,504,176,528"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -426,7 +426,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onMoved 信号、onEnter 信号和 onLeave 信号 </dd></dl>
 
-<p>被 <a class="el" href="class_menu_item.html#af260d35a7fbb09b5b0aab093ac783f5c">MenuItem</a>, <a class="el" href="class_menu_box.html#aa21609cb374385f982a5390290413fb2">MenuBox</a> , 以及 <a class="el" href="class_slider_bar.html#ad41a19b2531ce1344b0970279b2cb900">SliderBar</a> 重载.</p>
+<p>被 <a class="el" href="class_menu_item.html#af260d35a7fbb09b5b0aab093ac783f5c">MenuItem</a>, <a class="el" href="class_menu_box.html#aa21609cb374385f982a5390290413fb2">MenuBox</a> , 以及 <a class="el" href="class_slider.html#ad7654ceeb17564eda770c0c25ecbfc14">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -467,7 +467,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_check_box.html#ad381b0411599be94f84469b6727f8dab">CheckBox</a>, <a class="el" href="class_menu_item.html#a7c999384cda32b57386379b8d14707dc">MenuItem</a>, <a class="el" href="class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a">MenuBox</a>, <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> , 以及 <a class="el" href="class_slider_bar.html#a5d2df0fcf26c57f75ebdd9aed0351586">SliderBar</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_check_box.html#ad381b0411599be94f84469b6727f8dab">CheckBox</a>, <a class="el" href="class_menu_item.html#a7c999384cda32b57386379b8d14707dc">MenuItem</a>, <a class="el" href="class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a">MenuBox</a>, <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a3d34912bd30c044534f6ce43895aeb99">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -508,7 +508,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a>, <a class="el" href="class_menu_item.html#a29a21f83c257aecbc3b0efd5495f4da7">MenuItem</a>, <a class="el" href="class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f">MenuBox</a> , 以及 <a class="el" href="class_slider_bar.html#a23b55ea2ea818a5b3ef6ee50ffe908e4">SliderBar</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a>, <a class="el" href="class_menu_item.html#a29a21f83c257aecbc3b0efd5495f4da7">MenuItem</a>, <a class="el" href="class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f">MenuBox</a> , 以及 <a class="el" href="class_slider.html#a3a6007152c722016a5eb7b246587ee11">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -584,7 +584,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类重写该函数时应当调用父类的 paint() 函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_check_box.html#aca8870a984d83d5ac949574a5fd3c23a">CheckBox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a>, <a class="el" href="class_menu_item.html#a0d4bb7808b030873cdcff2a59ff042ff">MenuItem</a>, <a class="el" href="class_divider.html#a26947f96da5ef86354df39e106c03535">Divider</a>, <a class="el" href="class_menu_box.html#abdd366ec8c449d531d207918e0c5f643">MenuBox</a>, <a class="el" href="class_progress_bar.html#a5a6a8f492471f807e6d84621347de674">ProgressBar</a>, <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> , 以及 <a class="el" href="class_slider_bar.html#a5211dd62eb9ac9d31e80648aa973667e">SliderBar</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_check_box.html#aca8870a984d83d5ac949574a5fd3c23a">CheckBox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a>, <a class="el" href="class_menu_item.html#a0d4bb7808b030873cdcff2a59ff042ff">MenuItem</a>, <a class="el" href="class_divider.html#a26947f96da5ef86354df39e106c03535">Divider</a>, <a class="el" href="class_menu_box.html#abdd366ec8c449d531d207918e0c5f643">MenuBox</a>, <a class="el" href="class_progress_bar.html#a5a6a8f492471f807e6d84621347de674">ProgressBar</a>, <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a9f8cfdac2807789e0b9b14127e9a7525">Slider</a> 重载.</p>
 
 </div>
 </div>

@@ -28,5 +28,6 @@ var annotated_dup =
     [ "Signal< void(Args...)>", "class_signal_3_01void_07_args_8_8_8_08_4.html", "class_signal_3_01void_07_args_8_8_8_08_4" ],
     [ "Size", "class_size.html", "class_size" ],
     [ "SizeF", "class_size_f.html", "class_size_f" ],
-    [ "SliderBar", "class_slider_bar.html", "class_slider_bar" ]
+    [ "Slider", "class_slider.html", "class_slider" ],
+    [ "Var", "class_var.html", "class_var" ]
 ];

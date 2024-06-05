@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/core/Var.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_var_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Var.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_signal_slots_8hpp.html">./SignalSlots.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_var.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_var.html">Var</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value_;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><a class="code hl_define" href="group___xE6_xA0_xB8_xE5_xBF_x83.html#gaabbcb0bbcbcb6adcf20d63cc22f83649">signals</a>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_var.html#a1151d913e3e8d20568244b9ed7855864">   20</a></span>    <a class="code hl_class" href="class_signal.html">Signal</a>&lt;void(<a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value)&gt; <a class="code hl_variable" href="class_var.html#a1151d913e3e8d20568244b9ed7855864">valueChanged</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_var.html#ab71aa7c589c6fa392205335323f650b6">   26</a></span>    <a class="code hl_function" href="class_var.html#ab71aa7c589c6fa392205335323f650b6">Var</a>() : value_() {}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_var.html#a19c344722ec5a641f8b87d156e3e6695">   31</a></span>    <a class="code hl_function" href="class_var.html#a19c344722ec5a641f8b87d156e3e6695">Var</a>(<a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value) : value_(value) {}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_var.html#a8840ea7ecf7f2a2da194f01f5cbee377">   36</a></span>    <span class="keyword">const</span> <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;<a class="code hl_function" href="class_var.html#a8840ea7ecf7f2a2da194f01f5cbee377">get</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value_; }</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_var.html#aafb93b84d8fb9c785709c4c90cdbd93e">   41</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_var.html#aafb93b84d8fb9c785709c4c90cdbd93e">set</a>(<a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> (value_ != value)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            value_ = value;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <a class="code hl_variable" href="class_var.html#a1151d913e3e8d20568244b9ed7855864">valueChanged</a>(value_);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_var.html#a8fd982744116e8ca6c86c9b592c42b38">   55</a></span>    <span class="keyword">const</span> <a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;<a class="code hl_function" href="class_var.html#a8fd982744116e8ca6c86c9b592c42b38">operator=</a>(<a class="code hl_enumvalue" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_function" href="class_var.html#aafb93b84d8fb9c785709c4c90cdbd93e">set</a>(value);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> value_;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="ttc" id="a_signal_slots_8hpp_html"><div class="ttname"><a href="_signal_slots_8hpp.html">SignalSlots.hpp</a></div><div class="ttdoc">信号-槽机制</div></div>
+<div class="ttc" id="aclass_signal_html"><div class="ttname"><a href="class_signal.html">Signal</a></div><div class="ttdoc">信号类，是信号槽机制的核心类</div><div class="ttdef"><b>Definition</b> SignalSlots.hpp:20</div></div>
+<div class="ttc" id="aclass_var_html"><div class="ttname"><a href="class_var.html">Var</a></div><div class="ttdoc">可监测变量类</div><div class="ttdef"><b>Definition</b> Var.hpp:11</div></div>
+<div class="ttc" id="aclass_var_html_a1151d913e3e8d20568244b9ed7855864"><div class="ttname"><a href="class_var.html#a1151d913e3e8d20568244b9ed7855864">Var::valueChanged</a></div><div class="ttdeci">Signal&lt; void(T value)&gt; valueChanged</div><div class="ttdoc">变量值改变信号，当变量值改变时发出此信号</div><div class="ttdef"><b>Definition</b> Var.hpp:20</div></div>
+<div class="ttc" id="aclass_var_html_a19c344722ec5a641f8b87d156e3e6695"><div class="ttname"><a href="class_var.html#a19c344722ec5a641f8b87d156e3e6695">Var::Var</a></div><div class="ttdeci">Var(T value)</div><div class="ttdoc">构造函数，初始化变量值为传入值</div><div class="ttdef"><b>Definition</b> Var.hpp:31</div></div>
+<div class="ttc" id="aclass_var_html_a8840ea7ecf7f2a2da194f01f5cbee377"><div class="ttname"><a href="class_var.html#a8840ea7ecf7f2a2da194f01f5cbee377">Var::get</a></div><div class="ttdeci">const T &amp; get() const</div><div class="ttdoc">获取变量值</div><div class="ttdef"><b>Definition</b> Var.hpp:36</div></div>
+<div class="ttc" id="aclass_var_html_a8fd982744116e8ca6c86c9b592c42b38"><div class="ttname"><a href="class_var.html#a8fd982744116e8ca6c86c9b592c42b38">Var::operator=</a></div><div class="ttdeci">const T &amp; operator=(T value)</div><div class="ttdoc">重载赋值运算符</div><div class="ttdef"><b>Definition</b> Var.hpp:55</div></div>
+<div class="ttc" id="aclass_var_html_aafb93b84d8fb9c785709c4c90cdbd93e"><div class="ttname"><a href="class_var.html#aafb93b84d8fb9c785709c4c90cdbd93e">Var::set</a></div><div class="ttdeci">void set(T value)</div><div class="ttdoc">设置变量值，并发出valueChanged信号</div><div class="ttdef"><b>Definition</b> Var.hpp:41</div></div>
+<div class="ttc" id="aclass_var_html_ab71aa7c589c6fa392205335323f650b6"><div class="ttname"><a href="class_var.html#ab71aa7c589c6fa392205335323f650b6">Var::Var</a></div><div class="ttdeci">Var()</div><div class="ttdoc">默认构造函数</div><div class="ttdef"><b>Definition</b> Var.hpp:26</div></div>
+<div class="ttc" id="agroup___xE6_xA0_xB8_xE5_xBF_x83_html_gaabbcb0bbcbcb6adcf20d63cc22f83649"><div class="ttname"><a href="group___xE6_xA0_xB8_xE5_xBF_x83.html#gaabbcb0bbcbcb6adcf20d63cc22f83649">signals</a></div><div class="ttdeci">#define signals</div><div class="ttdoc">信号列表宏定义</div><div class="ttdef"><b>Definition</b> SignalSlots.hpp:160</div></div>
+<div class="ttc" id="agroup___xE8_xA7_x86_xE5_x9B_xBE_html_ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3"><div class="ttname"><a href="group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">Key::T</a></div><div class="ttdeci">@ T</div><div class="ttdoc">T键</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><b>Var.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
