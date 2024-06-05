@@ -61,8 +61,8 @@ g++ [源文件] -o [输出文件] -legrome -lgraphics64 -lgdiplus -luuid -lmsimg
 
 *此项目提供了API文档，你可以通过阅读文档来学习 Egrome 的使用方法。*
 
-[Egrome教程(尚不完善)](https://anglebase.github.io/Egrome/learn/learn.html)
-[Egrome API文档](https://anglebase.github.io/Egrome/html/index.html)
++ [Egrome教程(尚不完善)](https://anglebase.github.io/Egrome/learn/learn.html)
++ [Egrome API文档](https://anglebase.github.io/Egrome/html/index.html)
 
 ## 开发者
 - Weiyi Anglebase (Github)
