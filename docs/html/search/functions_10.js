@@ -1,7 +1,7 @@
 var searchData=
 [
   ['selected_0',['selected',['../class_radio_box_group.html#a177be0dccc05edf30bbc006d0d79c1be',1,'RadioBoxGroup']]],
-  ['set_1',['set',['../class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de',1,'Animation::set(T startValue, T endValue, std::chrono::milliseconds time)'],['../class_animation.html#a8a49d6a110b84a70703932bd73e775e5',1,'Animation::set(std::function&lt; T(T, T, double)&gt; valueComputer)']]],
+  ['set_1',['set',['../class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de',1,'Animation::set(T startValue, T endValue, std::chrono::milliseconds time)'],['../class_animation.html#a8a49d6a110b84a70703932bd73e775e5',1,'Animation::set(std::function&lt; T(T, T, double)&gt; valueComputer)'],['../class_var.html#aafb93b84d8fb9c785709c4c90cdbd93e',1,'Var::set()']]],
   ['setalignment_2',['setAlignment',['../class_label.html#ad1af2638a94a757a39a6e5d362584d9b',1,'Label']]],
   ['setbackgroundcolor_3',['setBackgroundColor',['../class_button.html#ad7ce4f432d26cb7e25c8d6362f0bc6e8',1,'Button::setBackgroundColor()'],['../class_divider.html#ad3b718d2434444d2a5ee65f6325b162f',1,'Divider::setBackgroundColor()']]],
   ['setblue_4',['setBlue',['../class_color.html#ac1b97cf50c8c110fac18830464247bc1',1,'Color']]],

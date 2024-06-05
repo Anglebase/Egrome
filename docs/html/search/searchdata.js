@@ -1,15 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghijklmnopqrstuvwxyz~单常弃控核菜视",
-  1: "abcdehlmprs",
+  0: "abcdefghijklmnopqrstuvwxyz~单常控核菜视",
+  1: "abcdehlmprsv",
   2: "abcelmprs",
   3: "abcdefghiklmopqrstvwz~",
   4: "bcdfghloprsvwy",
   5: "abikmpt",
   6: "abcdefghijklmnopqrstuvwxyz",
   7: "o",
-  8: "单常控核菜视",
-  9: "弃"
+  8: "单常控核菜视"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "enums",
   6: "enumvalues",
   7: "related",
-  8: "groups",
-  9: "pages"
+  8: "groups"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "枚举",
   6: "枚举值",
   7: "友元",
-  8: "组",
-  9: "页"
+  8: "组"
 };
 
