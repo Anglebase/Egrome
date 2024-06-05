@@ -6,7 +6,44 @@
     <title>Learn Egrome</title>
 </head>
 <body>
-    <h1>第一个Egrome程序</h1>
-    <p>我们将通过编写一个基于Egrome的Hello World程序来学习Egrome的基本概念与设计理念，但在此之前，请先确保你的环境已经可以正常编译README.md中的示例代码。</p>
+    <h1 class="title">第一个Egrome程序</h1>
+    <p class="intro">在阅读本教程之前，请确保你已经安装了Egrome的开发环境，并至少对C++有一定了解。我们将通过编写一个基于Egrome的Hello World程序来学习Egrome的基本概念与设计理念，但在此之前，请先确保你的环境已经可以正常编译README.md中的示例代码。</p>
+    <code class="code"><pre>#include &lt;egrome/App&gt;
+        #include &lt;egrome/Block&gt;
+        #include &lt;egrome/Painter&gt;
+        
+        class Window : public Block
+        {
+        protected:
+            void paintEvent(const PaintEvent &event) override
+            {
+                auto &painter = event.beginPaint(this);
+                painter.drawText(10, 10, "Hello, World!");
+                event.endPaint();
+            }
+        
+        public:
+            Window(const Rect &rect, Block *parent = nullptr)
+                : Block(rect, parent)
+            {
+            }
+        };
+        
+        int main()
+        {
+            Window window(Rect(0, 0, 800, 600));
+            App app{&window};
+            app.run();
+            return 0;
+        }</pre></code>
+    <p>编译并运行上述代码，你将看到如下结果：</p>
+    <img src="./helloworldtest.png" alt="HelloWorld示例">
+    <p>接下来，我将通过讲解这段HellWorld程序的编写过程来详细介绍Egrome的基本概念与设计理念</p>
+    <p>首先是头文件，Egrome的头文件统一采用了&lt;egrome/xxx&gt;这种C++风格的头文件格式，其中xxx代表Egrome的模块名称。</p>
+    <p>然后就是类Window，它继承了类Block，Block类是Egrome的核心类，所有的组件都继承自Block类。Block类提供了一些基本的功能，比如绘制、事件处理等。在上面的示例中，Window类重写了Block类的paintEvent()方法，在paintEvent()方法中调用了drawText()方法，用来绘制一个Hello World的字符串。想必你已经猜到了，drawText()方法是用来绘制文本的，但是它似乎并不如在控制台打印字符串那么简单，为了调用这个函数，我们需要创建一个引用来获取Painter对象，然后通过它调用drawText()方法。为什么不能像EGE一样提供一个全局的函数？因为这样做会导致命名空间污染，使得代码难以维护。因此，我们需要通过一个类的成员函数来调用Painter的drawText()方法。其次，Painter对象本身也是无法被直接创建的，这样做的目的是为了避免滥用。由于EGE的绘图函数都是全局有效的，这意味着，如果可以，你可以在任意地方创建Painter对象用于绘图，这样会使得代码变得杂乱无章，不利于维护，因而Egrome就将Painter类设计为一个不可复制且只能由App类和Pixmap类创建的私有类，这样做的好处是，它可以防止用户在意外地创建Painter对象，并可以确保Painter对象的生命周期与App或Pixmap对象一致。</p>
+    <p>其次，使用Painter对象时，在绘制之前和之后要分别调用beginPaint()和endPaint()方法，上面我们说到，EGE的绘图函数都是全局有效的，那为什么还要添加beginPaint()和endPaint()看起来多此一举的行为呢？这是因为Painter对象在绘制图像时，采用的是相对坐标，向beginPaint()方法传入当前Block对象的this指针，这样Painter对象就知道该把图像向哪里绘制，然后通过endPaint()方法告诉Painter对象绘制结束，释放掉存储的坐标信息，为下一次绘制做准备。</p>
+    <p>最后，在main()函数中，我们创建了一个Window对象，并将它作为App类的构造函数的参数传入，这样就完成了App类的创建。最后，我们调用App类的run()方法，启动事件循环，程序开始运行。由于Egrome是基于EGE所编写的，EGE并不支持窗口的拖动缩放和多窗口应用，因而目前Egrome只存在一个窗口，App将它作为根节点，也就是上面hello world程序中的window对象，将它作为App类的构造函数的参数传入。事实上，Block类是在维护一个对象树，它掌管了事件的传递顺序，以及绘制顺序。当我们向根节点传入的矩形，只有宽高是有效的，因为它没有父对象，在Block的构造函数中，会将它的位置设置为(0, 0)，以此保证它的子对象会有正确的位置，存在父对象的情况下，它的位置是一个相对于父对象位置的偏移量。</p>
+    <h1>事件处理机制</h1>
+    <h1>信号槽机制</h1>
 </body>
 </html>
