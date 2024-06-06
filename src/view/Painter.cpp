@@ -463,7 +463,7 @@ void Painter::drawText(const Rect &rect, const std::string &text) const
     case TextVAlign::Top:
         p.y_ = 0;
         break;
-    case TextVAlign::Center:
+    case TextVAlign::Middle:
         p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
         break;
     case TextVAlign::Bottom:
@@ -493,7 +493,7 @@ void Painter::drawText(const Rect &rect, const std::wstring &text) const
     case TextVAlign::Top:
         p.y_ = 0;
         break;
-    case TextVAlign::Center:
+    case TextVAlign::Middle:
         p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
         break;
     case TextVAlign::Bottom:
@@ -1126,4 +1126,40 @@ void Painter::drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) cons
 void Painter::drawFillRoundRect(const Rect &rect, int rx, int ry) const
 {
     this->drawFillRoundRect(rect.x_, rect.y_, rect.width_, rect.height_, rx, ry);
+}
+
+long Painter::getTextWidth(const std::string &text) const
+{
+    if (this->block)
+        return ege::textwidth(text.c_str());
+    if (this->pixelMap)
+        return ege::textwidth(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
+    return -1;
+}
+
+long Painter::getTextWidth(const std::wstring &text) const
+{
+    if (this->block)
+        return ege::textwidth(text.c_str());
+    if (this->pixelMap)
+        return ege::textwidth(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
+    return -1;
+}
+
+long Painter::getTextHeight(const std::string &text) const
+{
+    if (this->block)
+        return ege::textheight(text.c_str());
+    if (this->pixelMap)
+        return ege::textheight(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
+    return -1;
+}
+
+long Painter::getTextHeight(const std::wstring &text) const
+{
+    if (this->block)
+        return ege::textheight(text.c_str());
+    if (this->pixelMap)
+        return ege::textheight(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
+    return -1;
 }

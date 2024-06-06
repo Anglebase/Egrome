@@ -2,7 +2,7 @@
 /**
  * @file Painter.h
  * @brief 绘图类
-*/
+ */
 #include <string>
 #include <vector>
 
@@ -346,7 +346,7 @@ enum class TextVAlign
     /// 顶部对齐
     Top,
     /// 居中对齐
-    Center,
+    Middle,
     /// 底部对齐
     Bottom
 };
@@ -753,6 +753,30 @@ public:
      */
     void drawFillRoundRect(const Rect &rect, int rx, int ry) const;
 
+    /**
+     * @brief 获取文本宽度
+     * @param text 文本内容
+     * @return 文本宽度
+     */
+    long getTextWidth(const std::string &text) const;
+    /**
+     * @brief 获取文本宽度
+     * @param text 文本内容
+     * @return 文本宽度
+     */
+    long getTextWidth(const std::wstring &text) const;
+    /**
+     * @brief 获取文本高度
+     * @param text 文本内容
+     * @return 文本高度
+     */
+    long getTextHeight(const std::string &text) const;
+    /**
+     * @brief 获取文本高度
+     * @param text 文本内容
+     * @return 文本高度
+     */
+    long getTextHeight(const std::wstring &text) const;
 };
 
 /**
