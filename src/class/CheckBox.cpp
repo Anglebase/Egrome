@@ -11,7 +11,7 @@ void CheckBox::paintEvent(const PaintEvent &event)
         0, 0,
         -textrect.width(), 0);
     painter.setPenColor(this->textColor_);
-    painter.setTextAlign(TextHAlign::Left, TextVAlign::Center);
+    painter.setTextAlign(TextHAlign::Left, TextVAlign::Middle);
     painter.drawText(textrect, this->text_);
     Rect paintrect = boxrect.centerWith(Size{this->boxSize_, this->boxSize_});
     if (this->hovered_)

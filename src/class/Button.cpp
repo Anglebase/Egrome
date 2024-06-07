@@ -5,7 +5,7 @@ void Button::paintEvent(const PaintEvent &event)
 {
     // 绘制按钮
     auto &painter = event.beginPaint(this);
-    painter.setTextAlign(TextHAlign::Center, TextVAlign::Center);
+    painter.setTextAlign(TextHAlign::Center, TextVAlign::Middle);
     // 状态判断与显示
     if (this->isDisabled)
     {

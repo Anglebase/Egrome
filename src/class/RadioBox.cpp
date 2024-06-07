@@ -7,7 +7,7 @@ void RadioBox::paintEvent(const PaintEvent &event)
     auto textrect = painter.rect().adjusted(
         4 + 2 * borderRadius_, 0, 0, 0);
     painter.setPenColor(textColor_);
-    painter.setTextAlign(TextHAlign::Left, TextVAlign::Center);
+    painter.setTextAlign(TextHAlign::Left, TextVAlign::Middle);
     painter.drawText(textrect, text_);
     auto selectrect = painter.rect().adjusted(
         0, 0, -textrect.width(), 0);

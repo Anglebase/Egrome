@@ -31,9 +31,9 @@ void Label::paintEvent(const PaintEvent &event)
     else if (alignment_ & Label::Bottom && !(alignment_ & Label::Top))
         vAlign = TextVAlign::Bottom;
     else if (alignment_ & Label::Middle)
-        vAlign = TextVAlign::Center;
+        vAlign = TextVAlign::Middle;
     else
-        vAlign = TextVAlign::Center;
+        vAlign = TextVAlign::Middle;
     painter.setTextAlign(hAlign, vAlign);
     painter.drawText(textRect, text_);
 
