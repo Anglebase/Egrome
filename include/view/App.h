@@ -2,7 +2,7 @@
 /**
  * @file App.h
  * @brief 应用程序类
-*/
+ */
 #include <string>
 class Size;
 class Point;
@@ -11,7 +11,7 @@ class Block;
 /**
  * @addtogroup 视图
  * @{
-*/
+ */
 
 /**
  * @brief 初始化标志
@@ -106,6 +106,17 @@ public:
     static void setMousePos(const Point &pos);
 
     /**
+     * @brief 获取剪切板文本
+     * @return 剪切板文本
+     */
+    static std::wstring getCilpboardText();
+    /**
+     * @brief 设置剪切板文本
+     * @param text 剪切板文本
+     */
+    static void setCilpboardText(const std::wstring &text);
+
+    /**
      * @brief 获取当前实际帧率
      * @return 实际帧率
      */
@@ -167,6 +178,5 @@ int operator""_vw(unsigned long long vw);
  * @return 视口高度百分比对应的像素值
  */
 int operator""_vh(unsigned long long vh);
-
 
 /** @} */

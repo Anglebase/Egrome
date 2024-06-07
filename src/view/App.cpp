@@ -58,18 +58,51 @@ void App::setTitle(const std::wstring &title)
 Point App::getMousePos()
 {
     POINT point;
-    GetCursorPos(&point);
+    ::GetCursorPos(&point);
     return Point(point.x, point.y);
 }
 
 void App::setMousePos(int x, int y)
 {
-    SetCursorPos(x, y);
+    ::SetCursorPos(x, y);
 }
 
 void App::setMousePos(const Point &pos)
 {
-    SetCursorPos(pos.x(), pos.y());
+    ::SetCursorPos(pos.x(), pos.y());
+}
+
+std::wstring App::getCilpboardText()
+{
+    HWND hWnd = ege::getHWnd();
+    ::OpenClipboard(hWnd);
+    HANDLE hClipMemory = ::GetClipboardData(CF_UNICODETEXT);
+    DWORD dwLength = ::GlobalSize(hClipMemory);
+    LPBYTE lpClipMemory = (LPBYTE)::GlobalLock(hClipMemory);
+    auto text = std::wstring((wchar_t *)lpClipMemory, dwLength / 2 - 2);
+    ::GlobalUnlock(hClipMemory);
+    ::CloseClipboard();
+    return text;
+}
+
+void App::setCilpboardText(const std::wstring &text)
+{
+    DWORD dwLength = text.size() + 1;
+    HANDLE hGlobalMemory = ::GlobalAlloc(GHND, dwLength*2 + 2);
+    LPBYTE lpGlobalMemory = (LPBYTE)::GlobalLock(hGlobalMemory);
+    for (int i = 0; i < dwLength; i++)
+    {
+        *lpGlobalMemory++ = (text[i] & 0xff);
+        *lpGlobalMemory++ = (text[i] >> 8) & 0xff;
+    }
+    *lpGlobalMemory++ = (L'\0' & 0xff);
+    *lpGlobalMemory = (L'\0' >> 8) & 0xff;
+    ::GlobalUnlock(hGlobalMemory);
+    HWND hWnd = ege::getHWnd();
+    ::OpenClipboard(hWnd);
+    ::EmptyClipboard();
+    ::SetClipboardData(CF_UNICODETEXT, hGlobalMemory);
+    ::CloseClipboard();
 }
 
 float App::getFps()
@@ -108,8 +141,8 @@ App::~App() {}
 
 void App::run()
 {
-    // 用于清晰显示文本
-    SetProcessDPIAware();
+    // 用于高清显示
+    ::SetProcessDPIAware();
     // 初始化环境
     ege::initgraph(this->block_->rect().width(),
                    this->block_->rect().height());
@@ -146,7 +179,7 @@ void App::run()
                     do
                     {
                         if (App::focusBlock)
-                            App::focusBlock->InputTextEvent(keymsg.key);
+                            App::focusBlock->InputTextEvent((wchar_t)keymsg.key);
                         keymsg = ege::getkey();
                     } while (keymsg.msg == ege::key_msg_char);
                 }
@@ -159,7 +192,7 @@ void App::run()
                     auto ch = ege::getch();
                     if (std::isprint(ch))
                         if (App::focusBlock)
-                            App::focusBlock->InputTextEvent(ch);
+                            App::focusBlock->InputTextEvent((wchar_t)ch);
                 }
                 // ege::flushkey();
             }

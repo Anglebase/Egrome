@@ -259,11 +259,47 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": "./bin/slider.exe",
         "option": [
             "-g"
+        ]
+    },
+    "lineedit": {
+        "compiler": "g++",
+        "src": [
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/lineedit.cpp"
+        ],
+        "include": [
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": "./bin/lineedit.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
         ]
     }
 }

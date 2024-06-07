@@ -70,7 +70,7 @@ void Block::keyReleaseEvent(Key key, KeyFlag flag)
         child->keyReleaseEvent(key, flag);
 }
 
-void Block::InputTextEvent(int inputChar)
+void Block::InputTextEvent(wchar_t inputChar)
 {
     onInputText.emit(inputChar);
     for (auto child : childBlocks)

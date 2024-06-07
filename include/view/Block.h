@@ -44,7 +44,7 @@ enum class Key
     /// 鼠标中键
     Mouse_m = 0x04,
     /// 退格键
-    Back = 0x08,
+    BackSpace = 0x08,
     /// Tab键
     Tab = 0x09,
     /// 回车键
@@ -67,10 +67,10 @@ enum class Key
     Pageup = 0x21,
     /// Pagedown键
     Pagedown = 0x22,
-    /// Home键
-    Home = 0x23,
     /// End键
-    End = 0x24,
+    End = 0x23,
+    /// Home键
+    Home = 0x24,
 
     /// 左方向键
     Left = 0x25,
@@ -339,7 +339,7 @@ protected:
      * @param inputChar 输入的字符
      * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onInputText 信号
      */
-    virtual void InputTextEvent(int inputChar);
+    virtual void InputTextEvent(wchar_t inputChar);
 
 signals:
     /**
