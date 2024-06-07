@@ -11,6 +11,7 @@ void LineEdit::paintEvent(const PaintEvent &event)
 {
     PixelMap pm(1, 1);
     auto &painter = pm.beginPaint();
+    painter.setFont(this->fontName_, this->fontSize_);
     // 计算所有光标位置
     if (this->textChangedFlag_)
     {
@@ -25,7 +26,7 @@ void LineEdit::paintEvent(const PaintEvent &event)
         }
     }
     // 绘制内容
-    painter.setFontSize(this->fontSize_);
+    // painter.setFontSize(this->fontSize_);
     pm.setSize(painter.getTextWidth(this->text_),
                painter.getTextHeight(L"_"));
     painter.setPenColor(Color::White);
@@ -145,6 +146,8 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
         }
         break;
     case Key::Enter:
+        this->textEnter.emit(this->text_);
+        std::wcout << L"Enter" << std::endl;
         break;
     case Key::Left:
         if (this->cursorPos_ > 0)
@@ -269,4 +272,10 @@ void LineEdit::setText(const std::wstring &text)
     this->text_ = text;
     this->cursorPos_ = this->text_.size();
     this->textChanged.emit(this->text_);
+}
+
+void LineEdit::setFont(const std::wstring &fontName, long fontSize)
+{
+    this->fontName_ = fontName;
+    this->fontSize_ = fontSize;
 }

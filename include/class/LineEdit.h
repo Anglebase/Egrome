@@ -12,7 +12,8 @@ class LineEdit : public Block
 {
 private:
     std::wstring text_;
-    long fontSize_{12};
+    std::wstring fontName_{L"宋体"};
+    long fontSize_{36};
 
     bool isPressed_{false};
 
@@ -31,6 +32,7 @@ signals:
     Signal<void(const std::wstring &text)> textChanged;
     Signal<void()> cursorShow;
     Signal<void()> cursorHide;
+    Signal<void(const std::wstring &text)> textEnter;
 
 protected:
     void paintEvent(const PaintEvent &event) override;
@@ -43,4 +45,5 @@ protected:
 public:
     LineEdit(const Rect &rect, Block *parent = nullptr);
     void setText(const std::wstring &text);
+    void setFont(const std::wstring &fontName, long fontSize);
 };
