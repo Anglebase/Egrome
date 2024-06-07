@@ -134,7 +134,7 @@ App::App(Block *block, int flags) : block_(block)
 {
     App::focusBlock = block;
     App::fps_ = 60;
-    ege::setinitmode(flags | ege::INIT_ANIMATION);
+    ege::setinitmode(flags | ege::INIT_ANIMATION | ege::INIT_UNICODE);
 }
 
 App::~App() {}

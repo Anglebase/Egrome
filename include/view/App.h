@@ -25,9 +25,7 @@ enum InitFlag
     /// 作为子窗口
     Child = 0x02,
     /// 置顶窗口
-    TopMost = 0x04,
-    /// 使用Unicode字符集
-    Unicode = 0x20
+    TopMost = 0x04
 };
 
 /**
