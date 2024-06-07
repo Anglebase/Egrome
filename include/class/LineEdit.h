@@ -27,7 +27,9 @@ private:
     int clipOffsetX_{0};
     int clipWidth_;
     std::vector<int> widths_;
-    bool textChangedFlag_{false};
+    bool viewChangedFlag_{false};
+
+    std::function<void()> updateCursorPosition{([]() -> void {})};
 signals:
     Signal<void(const std::wstring &text)> textChanged;
     Signal<void()> cursorShow;

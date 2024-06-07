@@ -13,16 +13,38 @@ void LineEdit::paintEvent(const PaintEvent &event)
     auto &painter = pm.beginPaint();
     painter.setFont(this->fontName_, this->fontSize_);
     // 计算所有光标位置
-    if (this->textChangedFlag_)
+    if (this->viewChangedFlag_)
     {
-        this->textChangedFlag_ = false;
+        this->viewChangedFlag_ = false;
         std::wstring text{L""};
         this->widths_.clear();
-        this->widths_.push_back(0);
+        this->widths_.push_back(-this->clipOffsetX_);
         for (int i = 0; i < this->text_.size(); i++)
         {
             text += this->text_[i];
-            this->widths_.push_back(painter.getTextWidth(text));
+            this->widths_.push_back(painter.getTextWidth(text) - this->clipOffsetX_);
+        }
+        auto pixelpos = this->widths_[this->cursorPos_];
+        if (pixelpos > this->clipWidth_)
+        {
+            this->clipOffsetX_ += pixelpos - this->clipWidth_;
+        }
+        else if (pixelpos < 0)
+        {
+            this->clipOffsetX_ += pixelpos;
+        }
+        if (painter.getTextWidth(this->text_) > this->clipWidth_ &&
+            painter.getTextWidth(this->text_) - this->widths_[this->cursorPos_] - this->clipOffsetX_ < this->clipWidth_)
+        {
+            this->clipOffsetX_ = painter.getTextWidth(this->text_) - this->clipWidth_;
+        }
+        text.clear();
+        this->widths_.clear();
+        this->widths_.push_back(-this->clipOffsetX_);
+        for (int i = 0; i < this->text_.size(); i++)
+        {
+            text += this->text_[i];
+            this->widths_.push_back(painter.getTextWidth(text) - this->clipOffsetX_);
         }
     }
     // 绘制内容
@@ -71,13 +93,10 @@ void LineEdit::paintEvent(const PaintEvent &event)
                 offsetY_ + painter.getTextHeight(L"_"));
         else
         {
-            int pixeloffset = painter.getTextWidth(
-                this->text_.substr(0,
-                                   this->cursorPos_));
             paint.drawLine(
-                pixeloffset + offsetX_,
+                this->widths_[this->cursorPos_] + offsetX_,
                 offsetY_,
-                pixeloffset + offsetX_,
+                this->widths_[this->cursorPos_] + offsetX_,
                 offsetY_ + painter.getTextHeight(L"_"));
         }
     }
@@ -97,6 +116,7 @@ void LineEdit::mousePressEvent(const Point &pos, MouseButton button)
         {
             this->isPressed_ = true;
             this->hasSelect_ = false;
+            // 计算光标位置
             auto relativePos = pos - this->rect().getTopLeft() - Point(offsetX_, offsetY_);
             auto ais = this->widths_;
             for (auto &e : ais)
@@ -246,23 +266,13 @@ LineEdit::LineEdit(const Rect &rect, Block *parent)
         [this](int value)
         {
             this->cursorVisible_ = true;
-            if (!this->widths_.empty())
-            {
-                auto pixelpos = this->widths_[value] + this->clipOffsetX_;
-                // if (pixelpos < this->clipOffsetX_)
-                // {
-                //     this->clipOffsetX_ = pixelpos;
-                // }
-                // else if (pixelpos > this->clipOffsetX_ + this->clipWidth_)
-                // {
-                //     this->clipOffsetX_ = pixelpos - this->clipWidth_;
-                // }
-            }
+            this->viewChangedFlag_ = true;
+            std::cout << "cursorPos: " << value << std::endl;
         });
     this->textChanged.connect(
         [this](const std::wstring &text)
         {
-            this->textChangedFlag_ = true;
+            this->viewChangedFlag_ = true;
         });
     this->clipWidth_ = this->rect().width() - 2 * this->offsetX_;
 }
