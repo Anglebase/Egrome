@@ -79,7 +79,7 @@ std::wstring App::getCilpboardText()
     HANDLE hClipMemory = ::GetClipboardData(CF_UNICODETEXT);
     DWORD dwLength = ::GlobalSize(hClipMemory);
     LPBYTE lpClipMemory = (LPBYTE)::GlobalLock(hClipMemory);
-    auto text = std::wstring((wchar_t *)lpClipMemory, dwLength / 2 - 2);
+    auto text = std::wstring((wchar_t *)lpClipMemory);
     ::GlobalUnlock(hClipMemory);
     ::CloseClipboard();
     return text;
@@ -88,7 +88,7 @@ std::wstring App::getCilpboardText()
 void App::setCilpboardText(const std::wstring &text)
 {
     DWORD dwLength = text.size() + 1;
-    HANDLE hGlobalMemory = ::GlobalAlloc(GHND, dwLength*2 + 2);
+    HANDLE hGlobalMemory = ::GlobalAlloc(GHND, dwLength * 2 + 2);
     LPBYTE lpGlobalMemory = (LPBYTE)::GlobalLock(hGlobalMemory);
     for (int i = 0; i < dwLength; i++)
     {

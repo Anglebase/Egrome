@@ -43,7 +43,7 @@ public:
 private:
     std::wstring text_;
     Color textColor_;
-    int alignment_;
+    int alignment_{Left | Middle};
     int leftpadding_{0};
     int rightpadding_{0};
     int toppadding_{0};
