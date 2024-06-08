@@ -36,6 +36,12 @@ class App
 {
 public:
     /**
+     * @brief 获取屏幕大小
+     * @return 屏幕大小
+     */
+    static Size getScreenSize();
+
+    /**
      * @brief 获取窗口大小
      * @return 窗口大小
      */

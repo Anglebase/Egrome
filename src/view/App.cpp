@@ -11,6 +11,14 @@
 Block *App::focusBlock = nullptr;
 int App::fps_ = 60;
 
+Size App::getScreenSize()
+{
+    return Size{
+        ::GetSystemMetrics(SM_CXSCREEN),
+        ::GetSystemMetrics(SM_CYSCREEN),
+    };
+}
+
 Size App::getWindowSize()
 {
     return Size(ege::getwidth(), ege::getheight());
@@ -235,5 +243,7 @@ void App::run()
 
 void App::quit(int exitCode)
 {
+    this->windowDestroy.emit();
+    ege::closegraph();
     exit(exitCode);
 }
