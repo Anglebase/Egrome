@@ -4,6 +4,7 @@
 #include "../view/Block.h"
 #include "../core/SignalSlots.hpp"
 #include "../core/Var.hpp"
+#include "../view/Color.h"
 
 /**
  * @brief 行文本编辑框
@@ -12,8 +13,6 @@ class LineEdit : public Block
 {
 private:
     std::wstring text_;
-    std::wstring fontName_{L"宋体"};
-    long fontSize_{36};
 
     bool isPressed_{false};
 
@@ -45,7 +44,21 @@ protected:
     void mouseReleaseEvent(const Point &pos, MouseButton button) override;
 
 public:
+    struct StyleSheet
+    {
+        Color textColor{Color::White};
+        Color cursorColor{Color::White};
+        Color backgroundColor{Color::Black};
+        Color onFocusBorderColor{Color::White};
+        Color offFocusBorderColor{Color::Gray};
+        int borderWidth{1};
+        int borderRadius{0};
+        int cursorWidth{1};
+        std::wstring fontName{L"宋体"};
+        long fontSize{16};
+    } style;
+
+public:
     LineEdit(const Rect &rect, Block *parent = nullptr);
-    void setText(const std::wstring &text);
-    void setFont(const std::wstring &fontName, long fontSize);
+    ~LineEdit() override = default;
 };

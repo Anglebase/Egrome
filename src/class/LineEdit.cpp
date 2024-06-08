@@ -11,8 +11,8 @@ void LineEdit::paintEvent(const PaintEvent &event)
 {
     PixelMap pm(1, 1);
     auto &painter = pm.beginPaint();
-    painter.setFont(this->fontName_, this->fontSize_);
-    // 计算所有光标位置
+    painter.setFont(this->style.fontName, this->style.fontSize);
+    // 计算以及更新所有光标位置
     if (this->viewChangedFlag_)
     {
         this->viewChangedFlag_ = false;
@@ -51,7 +51,10 @@ void LineEdit::paintEvent(const PaintEvent &event)
     // painter.setFontSize(this->fontSize_);
     pm.setSize(painter.getTextWidth(this->text_),
                painter.getTextHeight(L"_"));
-    painter.setPenColor(Color::White);
+    // painter.setBrushColor(this->style.backgroundColor);
+    // painter.drawFillRect(painter.rect());
+    painter.clear(this->style.backgroundColor);
+    painter.setPenColor(this->style.textColor);
     painter.drawText(0, 0, this->text_);
 
     auto now = std::chrono::system_clock::now();
@@ -60,31 +63,46 @@ void LineEdit::paintEvent(const PaintEvent &event)
 
     // 绘制UI
     auto &paint = event.beginPaint(this);
+    paint.setBrushColor(this->style.backgroundColor);
+    paint.drawFillRoundRect(paint.rect(),
+                            this->style.borderRadius,
+                            this->style.borderRadius);
     if (App::getFocusBlock() == this)
-        paint.setPenColor(Color::White);
+        paint.setPenColor(this->style.onFocusBorderColor);
     else
-        paint.setPenColor(Color::Gray);
-    paint.drawRect(paint.rect());
+        paint.setPenColor(this->style.offFocusBorderColor);
+    paint.setPenWidth(this->style.borderWidth);
+    paint.drawRoundRect(paint.rect(),
+                        this->style.borderRadius,
+                        this->style.borderRadius);
     // this->offsetX_ = (this->rect().width() - pm.getSize().width()) / 2;
     this->offsetY_ = (this->rect().height() - pm.getSize().height()) / 2;
-    paint.drawPixelMap(offsetX_, offsetY_,
-                       *pm.clip(Rect{
-                           this->clipOffsetX_,
-                           0,
-                           this->clipWidth_,
-                           pm.getSize().height(),
-                       }));
+    if (this->clipWidth_ > pm.getSize().width())
+    {
+        paint.drawPixelMap(offsetX_, offsetY_, pm);
+    }
+    else
+    {
+        auto viewPart = pm.clip(Rect{
+            this->clipOffsetX_,
+            0,
+            this->clipWidth_,
+            pm.getSize().height(),
+        });
+        paint.drawPixelMap(offsetX_, offsetY_, *viewPart);
+    }
     // 绘制光标
     static bool state{false};
     bool s = state;
     if (App::getFocusBlock() == this && ((s = value % 1000 < 500) || this->cursorVisible_))
     {
+        paint.setPenColor(this->style.cursorColor);
+        paint.setPenWidth(this->style.cursorWidth);
         if (s != state)
         {
             this->cursorVisible_ = false;
             state = s;
         }
-        paint.setPenColor(Color::White);
         if (this->cursorPos_ == 0)
             paint.drawLine(
                 offsetX_,
@@ -101,9 +119,9 @@ void LineEdit::paintEvent(const PaintEvent &event)
         }
     }
     // 绘制选择区域
-    if (this->hasSelect_)
-    {
-    }
+    // if (this->hasSelect_)
+    // {
+    // }
     event.endPaint();
     pm.endPaint();
 }
@@ -275,17 +293,4 @@ LineEdit::LineEdit(const Rect &rect, Block *parent)
             this->viewChangedFlag_ = true;
         });
     this->clipWidth_ = this->rect().width() - 2 * this->offsetX_;
-}
-
-void LineEdit::setText(const std::wstring &text)
-{
-    this->text_ = text;
-    this->cursorPos_ = this->text_.size();
-    this->textChanged.emit(this->text_);
-}
-
-void LineEdit::setFont(const std::wstring &fontName, long fontSize)
-{
-    this->fontName_ = fontName;
-    this->fontSize_ = fontSize;
 }

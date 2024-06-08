@@ -13,7 +13,18 @@ public:
         lineEdit = new LineEdit(Rect{100, 100, 400, 40}, this);
         label = new Label(Rect{100, 200, 400, 50}, this);
         label->setPadding(0, 0, 0, 0);
-        lineEdit->setFont(L"思源黑体", 36);
+
+        lineEdit->style = {
+            .textColor = Color::Black,
+            .cursorColor = Color::Black,
+            .backgroundColor = 0xFFFFFF_color,
+            .onFocusBorderColor = Color::LightCyan,
+            .offFocusBorderColor = Color::LightRed,
+            .borderRadius = 10,
+            .fontName = L"思源黑体",
+            .fontSize = 36,
+        };
+
         lineEdit->textEnter.connect(
             [this](const std::wstring &text)
             {
