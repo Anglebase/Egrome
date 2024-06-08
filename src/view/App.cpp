@@ -227,6 +227,7 @@ void App::run()
             }
         }
         // 更新显示
+        ege::setbkcolor(EGERGB(0, 0, 0));
         ege::cleardevice();
         this->block_->paintEvent(paintEvent);
     }

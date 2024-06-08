@@ -41,6 +41,7 @@ Painter::Painter(const Block *block)
     ege::getfont(&font);
     font.lfQuality = PROOF_QUALITY;
     ege::setfont(&font);
+    ege::ege_enable_aa(true);
 }
 
 Painter::Painter(const PixelMap *pixelMap)
@@ -51,6 +52,7 @@ Painter::Painter(const PixelMap *pixelMap)
     ege::getfont(&font);
     font.lfQuality = PROOF_QUALITY;
     ege::setfont(&font);
+    ege::ege_enable_aa(true, (ege::IMAGE *)pixelMap->image_);
 }
 
 Painter::~Painter()
@@ -127,6 +129,21 @@ void Painter::setPenStyle(PenStyle style) const
     if (this->pixelMap)
         ege::setlinestyle(linestyle, NULL, linewidth,
                           (ege::IMAGE *)this->pixelMap->image_);
+}
+
+void Painter::clear(const Color &color) const
+{
+    if (this->block)
+    {
+        ege::setbkcolor(EGERGB(color.red, color.green, color.blue));
+        ege::cleardevice();
+    }
+    if (this->pixelMap)
+    {
+        ege::setbkcolor(EGERGB(color.red, color.green, color.blue),
+                        (ege::IMAGE *)this->pixelMap->image_);
+        ege::cleardevice((ege::IMAGE *)this->pixelMap->image_);
+    }
 }
 
 void Painter::setBrushColor(const Color &color) const

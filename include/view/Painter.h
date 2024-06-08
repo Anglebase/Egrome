@@ -406,6 +406,12 @@ public:
     void setPenStyle(PenStyle style) const;
 
     /**
+     * @brief 使用指定颜色清除对象内容
+     * @param color 指定的颜色
+     */
+    void clear(const Color &color) const;
+
+    /**
      * @brief 设置画刷颜色
      * @param color 画刷颜色
      */
