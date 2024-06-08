@@ -4,6 +4,7 @@
  * @brief 应用程序类
  */
 #include <string>
+#include "../core/SignalSlots.hpp"
 class Size;
 class Point;
 class Block;
@@ -138,6 +139,18 @@ private:
     static Block *focusBlock;
     Block *block_{nullptr};
     static int fps_;
+
+signals:
+    /**
+     * @brief 窗口创建信号
+     * @note 当窗口创建时发出此信号
+     */
+    Signal<void()> windowCreate;
+    /**
+     * @brief 窗口销毁信号
+     * @note 当窗口销毁时发出此信号
+     */
+    Signal<void()> windowDestroy;
 
 public:
     /**

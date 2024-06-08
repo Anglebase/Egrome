@@ -35,15 +35,12 @@ Point App::getWindowPos()
 
 void App::setWindowPos(int x, int y)
 {
-    ege::setviewport(x, y,
-                     x + ege::getwidth(), y + ege::getheight());
+    ege::movewindow(x, y);
 }
 
 void App::setWindowPos(const Point &pos)
 {
-    ege::setviewport(pos.x(), pos.y(),
-                     pos.x() + ege::getwidth(),
-                     pos.y() + ege::getheight());
+    ege::movewindow(pos.x(), pos.y());
 }
 void App::setTitle(const std::string &title)
 {
@@ -146,6 +143,7 @@ void App::run()
     // 初始化环境
     ege::initgraph(this->block_->rect().width(),
                    this->block_->rect().height());
+    this->windowCreate.emit();
     ege::setbkmode(TRANSPARENT);
     App::setTitle(L"Egrome");
 
@@ -231,6 +229,8 @@ void App::run()
         ege::cleardevice();
         this->block_->paintEvent(paintEvent);
     }
+    this->windowDestroy.emit();
+    ege::closegraph();
 }
 
 void App::quit(int exitCode)
