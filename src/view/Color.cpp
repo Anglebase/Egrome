@@ -2,41 +2,41 @@
 #include <ege.h>
 
 /// 黑色
-const Color Color::Black{0x000000};
+const Color Color::Black{0x000000_rgb};
 /// 白色
-const Color Color::White{0xFFFFFF};
+const Color Color::White{0xFFFFFF_rgb};
 /// 红色
-const Color Color::Red{0xFF0000};
+const Color Color::Red{0xFF0000_rgb};
 /// 绿色
-const Color Color::Green{0x00FF00};
+const Color Color::Green{0x00FF00_rgb};
 /// 蓝色
-const Color Color::Blue{0x0000FF};
+const Color Color::Blue{0x0000FF_rgb};
 /// 灰色
-const Color Color::Gray{0x808080};
+const Color Color::Gray{0x808080_rgb};
 /// 亮灰色
-const Color Color::LightGray{0xC0C0C0};
+const Color Color::LightGray{0xC0C0C0_rgb};
 /// 深灰色
-const Color Color::DarkGray{0x404040};
+const Color Color::DarkGray{0x404040_rgb};
 /// 紫色
-const Color Color::Purple{0xFF00FF};
+const Color Color::Purple{0xFF00FF_rgb};
 /// 黄色
-const Color Color::Yellow{0xFFFF00};
+const Color Color::Yellow{0xFFFF00_rgb};
 /// 青色
-const Color Color::Cyan{0x00FEC0};
+const Color Color::Cyan{0x00FEC0_rgb};
 /// 粉色
-const Color Color::Pink{0xFFC0CB};
+const Color Color::Pink{0xFFC0CB_rgb};
 /// 亮红色
-const Color Color::LightRed{0xFFA07A};
+const Color Color::LightRed{0xFFA07A_rgb};
 /// 亮绿色
-const Color Color::LightGreen{0x90EE90};
+const Color Color::LightGreen{0x90EE90_rgb};
 /// 亮蓝色
-const Color Color::LightBlue{0xADD8E6};
+const Color Color::LightBlue{0xADD8E6_rgb};
 /// 亮黄色
-const Color Color::LightYellow{0xFFFFE0};
+const Color Color::LightYellow{0xFFFFE0_rgb};
 /// 亮青色
-const Color Color::LightCyan{0x00FFFF};
+const Color Color::LightCyan{0x00FFFF_rgb};
 /// 亮粉色
-const Color Color::LightPink{0xFFB6C1};
+const Color Color::LightPink{0xFFB6C1_rgb};
 
 Color Color::color_lerp(Color start, Color end, double t)
 {
@@ -49,10 +49,7 @@ Color Color::color_lerp(Color start, Color end, double t)
     };
 }
 
-Color::Color(int r, int g, int b) : red(r), green(g), blue(b) {}
-
-Color::Color(long hex)
-    : red((hex >> 16) & 0xFF), green((hex >> 8) & 0xFF), blue(hex & 0xFF) {}
+Color::Color(int r, int g, int b, int a) : red(r), green(g), blue(b), alpha(a) {}
 
 Color::Color(const HSV &hsv)
 {
@@ -129,10 +126,11 @@ int Color::getBlue() const
     return blue;
 }
 
-long Color::getHex() const
+int Color::getAlpha() const
 {
-    return (red << 16) | (green << 8) | blue;
+    return this->alpha;
 }
+
 
 void Color::setRed(int r)
 {
@@ -149,11 +147,9 @@ void Color::setBlue(int b)
     blue = b;
 }
 
-void Color::setHex(long hex)
+void Color::setAlpha(int a)
 {
-    red = (hex >> 16) & 0xFF;
-    green = (hex >> 8) & 0xFF;
-    blue = hex & 0xFF;
+    this->alpha = a;
 }
 
 Color::operator HSV() const
@@ -172,7 +168,12 @@ Color::operator HSL() const
     return hsl;
 }
 
-Color operator""_color(unsigned long long hex)
+Color operator""_rgb(unsigned long long hex)
 {
-    return Color(hex);
+    return Color((hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF, 0xFF);
+}
+
+Color operator""_rgba(unsigned long long hex)
+{
+    return Color((hex >> 24) & 0xFF, (hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF);
 }

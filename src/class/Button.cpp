@@ -74,16 +74,18 @@ Button::Button(const Rect &rect, Block *parent)
 {
     using namespace std::chrono_literals;
     // 注册颜色过渡动画
-    this->hoverColorAnim = new Animation<Color>{Color::color_lerp};
-    this->hoverColorAnim->set(
-        this->backgroundColor,
-        this->hoverColor,
-        300ms);
-    this->pressedColorAnim = new Animation<Color>{Color::color_lerp};
-    this->pressedColorAnim->set(
-        this->hoverColor,
-        this->pressedColor,
-        100ms);
+    this->hoverColorAnim = new Animation<Color>({
+        .startValue = this->backgroundColor,
+        .endValue = this->hoverColor,
+        .duration = 300ms,
+        .function = Color::color_lerp,
+    });
+    this->pressedColorAnim = new Animation<Color>({
+        .startValue = this->hoverColor,
+        .endValue = this->pressedColor,
+        .duration = 100ms,
+        .function = Color::color_lerp,
+    });
     // 连接槽函数
     this->onEnter.connect(
         [this]()

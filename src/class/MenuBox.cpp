@@ -121,16 +121,18 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
     this->label_->setText(L"Menu Item");
     this->label_->setPadding(5, 5, 5, 5);
 
-    this->clickColorAnim_ = new Animation<Color>{Color::color_lerp};
-    this->clickColorAnim_->set(
-        this->hoverColor_,
-        this->clickColor_,
-        100ms);
-    this->hoverColorAnim_ = new Animation<Color>{Color::color_lerp};
-    this->hoverColorAnim_->set(
-        this->defaultColor_,
-        this->hoverColor_,
-        100ms);
+    this->clickColorAnim_ = new Animation<Color>(Animation<Color>::Args{
+        .startValue = this->hoverColor_,
+        .endValue = this->clickColor_,
+        .duration = 100ms,
+        .function = Color::color_lerp,
+    });
+    this->hoverColorAnim_ = new Animation<Color>({
+        .startValue = this->defaultColor_,
+        .endValue = this->hoverColor_,
+        .duration = 100ms,
+        .function = Color::color_lerp,
+    });
 
     this->onEnter.connect(
         [this]()

@@ -81,9 +81,6 @@ public:
     /// 亮粉色
     static const Color LightPink;
 
-
-
-
     /** @} */
 
     /**
@@ -99,6 +96,7 @@ private:
     int red;
     int green;
     int blue;
+    int alpha;
 
 public:
     /**
@@ -107,13 +105,7 @@ public:
      * @param g 绿色分量
      * @param b 蓝色分量
      */
-    Color(int r, int g, int b);
-
-    /**
-     * @brief 构造函数
-     * @param hex 颜色的十六进制表示，以0xRRGGBB的形式，如 0xFF0000 表示红色，0x00FF00 表示绿色，0x0000FF 表示蓝色
-     */
-    Color(long hex);
+    Color(int r, int g, int b, int a = 0xFF);
 
     /**
      * @brief 以 HSV 颜色模型构造
@@ -151,11 +143,12 @@ public:
      * @return 蓝色分量
      */
     int getBlue() const;
+
     /**
-     * @brief 获取颜色的十六进制表示
-     * @return 颜色的十六进制表示，以0xRRGGBB的形式
+     * @brief 获取颜色的透明度
+     * @return 透明度
      */
-    long getHex() const;
+    int getAlpha() const;
 
     /**
      * @brief 设置颜色的红色分量
@@ -172,36 +165,43 @@ public:
      * @param b 蓝色分量
      */
     void setBlue(int b);
+
     /**
-     * @brief 设置颜色的十六进制表示
-     * @param hex 颜色的十六进制表示，以0xRRGGBB的形式
+     * @brief 设置颜色的透明度
+     * @param a 透明度
      */
-    void setHex(long hex);
+    void setAlpha(int a);
 
     /**
      * @brief 转换为 HSV 颜色模型
      * @return HSV 颜色模型
+     * @note 该转换会丢失透明度信息
      */
     operator HSV() const;
     /**
      * @brief 转换为 HSL 颜色模型
      * @return HSL 颜色模型
+     * @note 该转换会丢失透明度信息
      */
     operator HSL() const;
 };
 
 /**
- * @brief 颜色的字面量形式
- * @param hex 十六进制颜色
- * @return 颜色对象
- * @note 该函数的作用是方便地用颜色字面量来表示颜色，例如：
- * @code
- * auto w = 0xFFFFFF_$; // 白色
- * auto r = 0xFF0000_$; // 红色
- * auto g = 0x00FF00_$; // 绿色
- * @endcode
- * @see Color
+ * @addtogroup 字面量
+ * @{
  */
-Color operator""_color(unsigned long long hex);
+/**
+ * @brief 颜色的字面量形式
+ * @param hex 颜色的十六进制表示，以0xRRGGBB的形式
+ * @return 颜色对象
+ */
+Color operator""_rgb(unsigned long long hex);
+/**
+ * @brief 颜色的字面量形式
+ * @param hex 颜色的十六进制表示，以0xRRGGBBAA的形式
+ * @return 颜色对象
+ */
+Color operator""_rgba(unsigned long long hex);
+/** @} */
 
 /** @} */

@@ -17,10 +17,12 @@ public:
         lineEdit->style = {
             .textColor = Color::Black,
             .cursorColor = Color::Black,
-            .backgroundColor = 0xFFFFFF_color,
+            .backgroundColor = 0xFFFFFF_rgb,
             .onFocusBorderColor = Color::LightCyan,
             .offFocusBorderColor = Color::LightRed,
+            .borderWidth = 5,
             .borderRadius = 10,
+            .cursorWidth = 2,
             .fontName = L"思源黑体",
             .fontSize = 36,
         };

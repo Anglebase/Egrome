@@ -583,24 +583,24 @@ public:
 
     /**
      * @brief 绘制弧线
-     * @param x 弧线的圆心x坐标
-     * @param y 弧线的圆心y坐标
-     * @param rx 弧线的x半径
-     * @param ry 弧线的y半径
+     * @param x 弧线所在椭圆的外接矩形的左上角的x坐标
+     * @param y 弧线所在椭圆的外接矩形的左上角的y坐标
+     * @param w 弧线所在椭圆的外接矩形的宽度
+     * @param h 弧线所在椭圆的外接矩形的高度
      * @param startAngle 弧线的起始角度
-     * @param endAngle 弧线的终止角度
+     * @param angle 弧线扫过的角度
      * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
      */
-    void drawArc(int x, int y, int rx, int ry, int startAngle, int endAngle) const;
+    void drawArc(int x, int y, int rx, int ry, int startAngle, int angle) const;
 
     /**
      * @brief 这是一个重载，绘制弧线
      * @param rect 弧线所在椭圆的外接矩形
      * @param startAngle 弧线的起始角度
-     * @param endAngle 弧线的终止角度
+     * @param angle 弧线扫过的角度
      * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
      */
-    void drawArc(const Rect &rect, int startAngle, int endAngle) const;
+    void drawArc(const Rect &rect, int startAngle, int angle) const;
 
     /**
      * @brief 绘制文本

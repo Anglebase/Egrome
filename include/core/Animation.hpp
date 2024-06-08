@@ -23,6 +23,20 @@
 template <typename T>
 class Animation
 {
+public:
+    struct Args
+    {
+        /// 起始值
+        T startValue;
+        /// 终止值
+        T endValue;
+        /// 时长
+        std::chrono::milliseconds duration;
+        /// 插值计算函数
+        std::function<T(T, T, double)> function;
+    };
+
+private:
     T startValue_;                                    // 起始值
     T endValue_;                                      // 终止值
     std::chrono::milliseconds time_;                  // 动画时间
@@ -51,7 +65,7 @@ protected:
 public:
     /**
      * @brief 构造函数
-     * @note 默认插值计算函数为线性插值
+     * @note 默认构造函数仅适用于重载了+、-以及*运算符且提供了0初始化的类型，否则会导致编译错误
      */
     Animation()
         : startValue_(0), endValue_(0), time_(0),
@@ -60,11 +74,11 @@ public:
 
     /**
      * @brief 构造函数
-     * @param valueComputer 插值计算函数
+     * @param args 动画参数结构体
      */
-    Animation(std::function<T(T, T, double)> valueComputer)
-        : startValue_(0), endValue_(0), time_(0),
-          valueComputer_(valueComputer) {}
+    Animation(Args args)
+        : startValue_(args.startValue), endValue_(args.endValue), time_(args.duration),
+          valueComputer_(args.function) {}
 
     /**
      * @brief 判断动画是否正在运行
