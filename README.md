@@ -66,3 +66,26 @@ g++ [源文件] -o [输出文件] -legrome -lgraphics64 -lgdiplus -luuid -lmsimg
 
 ## 开发者
 - Weiyi Anglebase (Github)
+
+## 统计信息
++ 592 text files.
++ 495 unique files.
++ 164 files ignored.
+
+github.com/AlDanial/cloc v 2.00  T=3.71 s (133.4 files/s, 17504.2 lines/s)
+
+|Language            |         files  |        blank   |     comment    |       code|
+|--------------------|---------------:|---------------:|---------------:|----------:|
+|HTML                |           207  |         1824   |        1015    |      42365|
+|JavaScript          |           192  |          172   |         207    |       4919|
+|C++                 |            28  |          426   |          64    |       3746|
+|C/C++ Header        |            32  |          608   |        3331    |       2398|
+|CSS                 |             5  |          423   |         106    |       2178|
+|JSON                |             4  |            0   |           0    |        399|
+|SVG                 |            19  |            0   |           2    |        266|
+|PlantUML            |             5  |           22   |           0    |        149|
+|Python              |             2  |           57   |          51    |        147|
+|Markdown            |             1  |           22   |           0    |         46|
+|SUM:                |           495  |         3554   |        4776    |      56613|
+
+---
