@@ -11,6 +11,7 @@ var annotated_dup =
     [ "HSL", "struct_h_s_l.html", null ],
     [ "HSV", "struct_h_s_v.html", null ],
     [ "Label", "class_label.html", "class_label" ],
+    [ "LineEdit", "class_line_edit.html", "class_line_edit" ],
     [ "MenuBox", "class_menu_box.html", "class_menu_box" ],
     [ "MenuItem", "class_menu_item.html", "class_menu_item" ],
     [ "Painter", "class_painter.html", "class_painter" ],
@@ -29,5 +30,6 @@ var annotated_dup =
     [ "Size", "class_size.html", "class_size" ],
     [ "SizeF", "class_size_f.html", "class_size_f" ],
     [ "Slider", "class_slider.html", "class_slider" ],
-    [ "Var", "class_var.html", "class_var" ]
+    [ "Var", "class_var.html", "class_var" ],
+    [ "Var< int >", "class_var_3_01int_01_4.html", "class_var_3_01int_01_4" ]
 ];

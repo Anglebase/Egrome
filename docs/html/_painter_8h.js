@@ -286,7 +286,7 @@ var _painter_8h =
     ] ],
     [ "TextVAlign", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175", [
       [ "Top", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
-      [ "Center", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a4f1f6016fc9f3f2353c0cc7c67b292bd", null ],
+      [ "Middle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175ab1ca34f82e83c52b010f86955f264e05", null ],
       [ "Bottom", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4", null ]
     ] ]
 ];

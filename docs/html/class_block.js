@@ -2,7 +2,7 @@ var class_block =
 [
     [ "Block", "class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1", null ],
     [ "getRect", "class_block.html#a00c956ee81acd407f99e8402a370820e", null ],
-    [ "InputTextEvent", "class_block.html#a2eb7e1ce045bab598c5f8972fd910227", null ],
+    [ "InputTextEvent", "class_block.html#a90e0bbaea24817177537b99507041aeb", null ],
     [ "keyPressEvent", "class_block.html#a757c4552853538a17fc0f927ed4b27d3", null ],
     [ "keyReleaseEvent", "class_block.html#abb78322e3b4f03d83df97bb938eb4889", null ],
     [ "mouseMoveEvent", "class_block.html#a379ce9a26e377c7c1b41d206f23c97f7", null ],

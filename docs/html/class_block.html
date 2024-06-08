@@ -121,11 +121,12 @@ $(function(){initNavTree('class_block.html',''); initResizable(); });
 <area href="class_check_box.html" title="复选框控件" alt="CheckBox" shape="rect" coords="93,112,176,136"/>
 <area href="class_divider.html" title="分割线" alt="Divider" shape="rect" coords="93,168,176,192"/>
 <area href="class_label.html" title="标签控件" alt="Label" shape="rect" coords="93,224,176,248"/>
-<area href="class_menu_box.html" title="菜单框" alt="MenuBox" shape="rect" coords="93,280,176,304"/>
-<area href="class_menu_item.html" title="菜单项" alt="MenuItem" shape="rect" coords="93,336,176,360"/>
-<area href="class_progress_bar.html" title="进度条控件" alt="ProgressBar" shape="rect" coords="93,392,176,416"/>
-<area href="class_radio_box.html" title="单选框" alt="RadioBox" shape="rect" coords="93,448,176,472"/>
-<area href="class_slider.html" alt="Slider" shape="rect" coords="93,504,176,528"/>
+<area href="class_line_edit.html" title="行文本编辑框" alt="LineEdit" shape="rect" coords="93,280,176,304"/>
+<area href="class_menu_box.html" title="菜单框" alt="MenuBox" shape="rect" coords="93,336,176,360"/>
+<area href="class_menu_item.html" title="菜单项" alt="MenuItem" shape="rect" coords="93,392,176,416"/>
+<area href="class_progress_bar.html" title="进度条控件" alt="ProgressBar" shape="rect" coords="93,448,176,472"/>
+<area href="class_radio_box.html" title="单选框" alt="RadioBox" shape="rect" coords="93,504,176,528"/>
+<area href="class_slider.html" alt="Slider" shape="rect" coords="93,560,176,584"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -215,9 +216,9 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:abb78322e3b4f03d83df97bb938eb4889" id="r_abb78322e3b4f03d83df97bb938eb4889"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb78322e3b4f03d83df97bb938eb4889">keyReleaseEvent</a> (<a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a> key, KeyFlag flag)</td></tr>
 <tr class="memdesc:abb78322e3b4f03d83df97bb938eb4889"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理键盘释放事件  <br /></td></tr>
 <tr class="separator:abb78322e3b4f03d83df97bb938eb4889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb7e1ce045bab598c5f8972fd910227" id="r_a2eb7e1ce045bab598c5f8972fd910227"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eb7e1ce045bab598c5f8972fd910227">InputTextEvent</a> (int inputChar)</td></tr>
-<tr class="memdesc:a2eb7e1ce045bab598c5f8972fd910227"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理输入文本事件  <br /></td></tr>
-<tr class="separator:a2eb7e1ce045bab598c5f8972fd910227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e0bbaea24817177537b99507041aeb" id="r_a90e0bbaea24817177537b99507041aeb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e0bbaea24817177537b99507041aeb">InputTextEvent</a> (wchar_t inputChar)</td></tr>
+<tr class="memdesc:a90e0bbaea24817177537b99507041aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理输入文本事件  <br /></td></tr>
+<tr class="separator:a90e0bbaea24817177537b99507041aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
@@ -284,8 +285,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 
 </div>
 </div>
-<a id="a2eb7e1ce045bab598c5f8972fd910227" name="a2eb7e1ce045bab598c5f8972fd910227"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eb7e1ce045bab598c5f8972fd910227">&#9670;&#160;</a></span>InputTextEvent()</h2>
+<a id="a90e0bbaea24817177537b99507041aeb" name="a90e0bbaea24817177537b99507041aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e0bbaea24817177537b99507041aeb">&#9670;&#160;</a></span>InputTextEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,7 +297,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
         <tr>
           <td class="memname">void Block::InputTextEvent </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>inputChar</em></span></td><td>)</td>
+          <td class="paramtype">wchar_t</td>          <td class="paramname"><span class="paramname"><em>inputChar</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -315,6 +316,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onInputText 信号 </dd></dl>
+
+<p>被 <a class="el" href="class_line_edit.html#a87c6688ee10f877c2aadb78758b03159">LineEdit</a> 重载.</p>
 
 </div>
 </div>
@@ -353,6 +356,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onNext 信号 </dd></dl>
+
+<p>被 <a class="el" href="class_line_edit.html#ab510c9ff4f502bc336e696d7e921d2f5">LineEdit</a> 重载.</p>
 
 </div>
 </div>
@@ -426,7 +431,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onMoved 信号、onEnter 信号和 onLeave 信号 </dd></dl>
 
-<p>被 <a class="el" href="class_menu_item.html#af260d35a7fbb09b5b0aab093ac783f5c">MenuItem</a>, <a class="el" href="class_menu_box.html#aa21609cb374385f982a5390290413fb2">MenuBox</a> , 以及 <a class="el" href="class_slider.html#ad7654ceeb17564eda770c0c25ecbfc14">Slider</a> 重载.</p>
+<p>被 <a class="el" href="class_line_edit.html#a0113529d86cfb99ea893556370a65bee">LineEdit</a>, <a class="el" href="class_menu_item.html#af260d35a7fbb09b5b0aab093ac783f5c">MenuItem</a>, <a class="el" href="class_menu_box.html#aa21609cb374385f982a5390290413fb2">MenuBox</a> , 以及 <a class="el" href="class_slider.html#ad7654ceeb17564eda770c0c25ecbfc14">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -467,7 +472,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_check_box.html#ad381b0411599be94f84469b6727f8dab">CheckBox</a>, <a class="el" href="class_menu_item.html#a7c999384cda32b57386379b8d14707dc">MenuItem</a>, <a class="el" href="class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a">MenuBox</a>, <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a3d34912bd30c044534f6ce43895aeb99">Slider</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#aa89ff1715671d77bd5a66b380ca3f461">Button</a>, <a class="el" href="class_check_box.html#ad381b0411599be94f84469b6727f8dab">CheckBox</a>, <a class="el" href="class_line_edit.html#adedfe4b1e832255c6df8d79857ac19b6">LineEdit</a>, <a class="el" href="class_menu_item.html#a7c999384cda32b57386379b8d14707dc">MenuItem</a>, <a class="el" href="class_menu_box.html#ac0acaa83f5df76db6a1833c55ccdca5a">MenuBox</a>, <a class="el" href="class_radio_box.html#a83300b266879eb506a7bdfa785fda0ff">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a3d34912bd30c044534f6ce43895aeb99">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -508,7 +513,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a>, <a class="el" href="class_menu_item.html#a29a21f83c257aecbc3b0efd5495f4da7">MenuItem</a>, <a class="el" href="class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f">MenuBox</a> , 以及 <a class="el" href="class_slider.html#a3a6007152c722016a5eb7b246587ee11">Slider</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button</a>, <a class="el" href="class_line_edit.html#a35988f148bbb03b847f5264d8d7fc216">LineEdit</a>, <a class="el" href="class_menu_item.html#a29a21f83c257aecbc3b0efd5495f4da7">MenuItem</a>, <a class="el" href="class_menu_box.html#a9f4b5a567d8e1f1bd6f1fa7d2c1b693f">MenuBox</a> , 以及 <a class="el" href="class_slider.html#a3a6007152c722016a5eb7b246587ee11">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -584,7 +589,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
 </dl>
 <dl class="section note"><dt>注解</dt><dd>子类重写该函数时应当调用父类的 paint() 函数 </dd></dl>
 
-<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_check_box.html#aca8870a984d83d5ac949574a5fd3c23a">CheckBox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a>, <a class="el" href="class_menu_item.html#a0d4bb7808b030873cdcff2a59ff042ff">MenuItem</a>, <a class="el" href="class_divider.html#a26947f96da5ef86354df39e106c03535">Divider</a>, <a class="el" href="class_menu_box.html#abdd366ec8c449d531d207918e0c5f643">MenuBox</a>, <a class="el" href="class_progress_bar.html#a5a6a8f492471f807e6d84621347de674">ProgressBar</a>, <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a9f8cfdac2807789e0b9b14127e9a7525">Slider</a> 重载.</p>
+<p>被 <a class="el" href="class_button.html#a945190ef087c8af1977e09313aac7cee">Button</a>, <a class="el" href="class_check_box.html#aca8870a984d83d5ac949574a5fd3c23a">CheckBox</a>, <a class="el" href="class_label.html#a5d6f6dec0678bb3e2bcf874165cc52d3">Label</a>, <a class="el" href="class_line_edit.html#a1b7ab9a5734eec4973b78793e27beb64">LineEdit</a>, <a class="el" href="class_menu_item.html#a0d4bb7808b030873cdcff2a59ff042ff">MenuItem</a>, <a class="el" href="class_divider.html#a26947f96da5ef86354df39e106c03535">Divider</a>, <a class="el" href="class_menu_box.html#abdd366ec8c449d531d207918e0c5f643">MenuBox</a>, <a class="el" href="class_progress_bar.html#a5a6a8f492471f807e6d84621347de674">ProgressBar</a>, <a class="el" href="class_radio_box.html#a59b2538b7e8f0ef06cdea1811d25234b">RadioBox</a> , 以及 <a class="el" href="class_slider.html#a9f8cfdac2807789e0b9b14127e9a7525">Slider</a> 重载.</p>
 
 </div>
 </div>
@@ -740,7 +745,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="#a2eb7e1ce045bab598c5f8972fd910227" title="虚函数，用于处理输入文本事件">InputTextEvent()</a> </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="#a90e0bbaea24817177537b99507041aeb" title="虚函数，用于处理输入文本事件">InputTextEvent()</a> </dd></dl>
 
 </div>
 </div>

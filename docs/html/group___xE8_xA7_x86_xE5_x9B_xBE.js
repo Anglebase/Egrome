@@ -1,14 +1,17 @@
 var group___xE8_xA7_x86_xE5_x9B_xBE =
 [
+    [ "字面量", "group___xE5_xAD_x97_xE9_x9D_xA2_xE9_x87_x8F.html", "group___xE5_xAD_x97_xE9_x9D_xA2_xE9_x87_x8F" ],
     [ "App", "class_app.html", [
       [ "App", "class_app.html#a6886f5dc6c83da9ae35542ac27f3da40", null ],
       [ "quit", "class_app.html#a944c81b59b52fcfb13e643bb2956e204", null ],
-      [ "run", "class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1", null ]
+      [ "run", "class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1", null ],
+      [ "windowCreate", "class_app.html#a0c1733bb4b9a639daf5b39a5bfd4bc2a", null ],
+      [ "windowDestroy", "class_app.html#a438e1ac016a9cd8a97cb06d6557b9742", null ]
     ] ],
     [ "Block", "class_block.html", [
       [ "Block", "class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1", null ],
       [ "getRect", "class_block.html#a00c956ee81acd407f99e8402a370820e", null ],
-      [ "InputTextEvent", "class_block.html#a2eb7e1ce045bab598c5f8972fd910227", null ],
+      [ "InputTextEvent", "class_block.html#a90e0bbaea24817177537b99507041aeb", null ],
       [ "keyPressEvent", "class_block.html#a757c4552853538a17fc0f927ed4b27d3", null ],
       [ "keyReleaseEvent", "class_block.html#abb78322e3b4f03d83df97bb938eb4889", null ],
       [ "mouseMoveEvent", "class_block.html#a379ce9a26e377c7c1b41d206f23c97f7", null ],
@@ -32,24 +35,24 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
     [ "HSV", "struct_h_s_v.html", null ],
     [ "HSL", "struct_h_s_l.html", null ],
     [ "Color", "class_color.html", [
-      [ "Color", "class_color.html#a154354d16fc63294355979095a3b6d65", null ],
-      [ "Color", "class_color.html#ac10dc78b46397ed3747b00cb1c22d514", null ],
+      [ "Color", "class_color.html#a93cb0fe975ac713deb2b1f3cb438c91d", null ],
       [ "Color", "class_color.html#ac93ca6dcb1c158c0b09ff546daa9ce1c", null ],
       [ "Color", "class_color.html#af08c725a9e0b43cb082dc7c5a97aae1d", null ],
+      [ "getAlpha", "class_color.html#a5b0d577c9edf65e6587e102aeb4c74f9", null ],
       [ "getBlue", "class_color.html#ab7caa1306b0bdd9c5a49ce640da1a8e8", null ],
       [ "getGreen", "class_color.html#aa32e85661f7d2844ea20e4ffe2f1fa62", null ],
-      [ "getHex", "class_color.html#aebd36ca6b1455d81071773f6d87da8b8", null ],
       [ "getRed", "class_color.html#aed1e9e09db006f0546c4621ba387efb6", null ],
       [ "operator HSL", "class_color.html#ae7d80b3eec55709e8d57f7647fe084d3", null ],
       [ "operator HSV", "class_color.html#a9ff42da066c9ce77031d5b77a8b6264a", null ],
+      [ "setAlpha", "class_color.html#a5f3ef6470241fda50da5887eca22bb41", null ],
       [ "setBlue", "class_color.html#ac1b97cf50c8c110fac18830464247bc1", null ],
       [ "setGreen", "class_color.html#af015cb498147d0fe1db0c3c73c7980aa", null ],
-      [ "setHex", "class_color.html#aa31f863783bb39f15d1b6139e2672706", null ],
       [ "setRed", "class_color.html#a4362605630e70563f67c77410abd97c1", null ]
     ] ],
     [ "Painter", "class_painter.html", [
-      [ "drawArc", "class_painter.html#aa722adac37f4b3224b00d0c962124972", null ],
-      [ "drawArc", "class_painter.html#afe37b4e38f94776eb4f40394ead8a115", null ],
+      [ "clear", "class_painter.html#ab3315bc6a1c9f8d85b216db03e4a839f", null ],
+      [ "drawArc", "class_painter.html#af732620c700ef55cb20b64670f24b06b", null ],
+      [ "drawArc", "class_painter.html#ac66b5e8b34e3a273330ebeae594dd81c", null ],
       [ "drawCircle", "class_painter.html#a4ad44ea20e8ab6b2e5d08ef97f54d58e", null ],
       [ "drawCircle", "class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e", null ],
       [ "drawEllipse", "class_painter.html#ac45764dc34e7fdea77e0d453de005612", null ],
@@ -81,6 +84,10 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "drawText", "class_painter.html#a8a1382590e1d5d18d951e63f0179a2aa", null ],
       [ "drawText", "class_painter.html#ac3cd6c874423e41909326b76778eefb3", null ],
       [ "drawText", "class_painter.html#abd36f0cf3723e0beeb9ce6a159d183b6", null ],
+      [ "getTextHeight", "class_painter.html#ab36ed85f5ca3846aeec78eb2af3058bd", null ],
+      [ "getTextHeight", "class_painter.html#a06f37cc4a7a26153c953754a2aaedac1", null ],
+      [ "getTextWidth", "class_painter.html#a7170b750058ff4c5a0d77ab03b702250", null ],
+      [ "getTextWidth", "class_painter.html#a701f67474dd8807f18bc18c57e477b78", null ],
       [ "setBrushColor", "class_painter.html#afc046eecb1690bc6b65644a2424f8138", null ],
       [ "setBrushStyle", "class_painter.html#abb6d08bee46a190a9562682bd898c684", null ],
       [ "setFont", "class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d", null ],
@@ -121,14 +128,13 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "Default", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600a79935518a3889663d8688b6b01fff051", null ],
       [ "NoBorder", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600a61f42831da11041963029d0d79b6ead3", null ],
       [ "Child", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600af3ac5689ddebbc8eadb75d72640940b6", null ],
-      [ "TopMost", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600ace0dd42e146c74be9f64c59a7ae4a281", null ],
-      [ "Unicode", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600a88cdf41a8c428a6b5e2abd32fa7b1cbf", null ]
+      [ "TopMost", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga0de316d7b5acb4445779e058b1d6e600ace0dd42e146c74be9f64c59a7ae4a281", null ]
     ] ],
     [ "Key", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gab3c7af4820830f9166ede9e5623c4e73", [
       [ "Key::Mouse_l", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73aeb7855ff2eeba1bcf6abec109b0b0ada", null ],
       [ "Key::Mouse_r", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a973f3a66e541ce4b10699da207880794", null ],
       [ "Key::Mouse_m", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a41ff090bc1448f884515cadf62088f46", null ],
-      [ "Key::Back", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a0557fa923dcee4d0f86b1409f5c2167f", null ],
+      [ "Key::BackSpace", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ae3fb3f3381b848f57f35cb3558733f84", null ],
       [ "Key::Tab", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a5c6ba25104401c9ee0650230fc6ba413", null ],
       [ "Key::Enter", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73af1851d5600eae616ee802a31ac74701b", null ],
       [ "Key::Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a825a3d98017bab11815ad2817201324c", null ],
@@ -139,8 +145,8 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "Key::Space", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ad511f8439ecde36647437fbba67a4394", null ],
       [ "Key::Pageup", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a6c3ed4da1857f68db50d1d91d0fca345", null ],
       [ "Key::Pagedown", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a778e7127ddf764c35ad11a12e7c083cc", null ],
-      [ "Key::Home", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a8cf04a9734132302f96da8e113e80ce5", null ],
       [ "Key::End", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a87557f11575c0ad78e4e28abedc13b6e", null ],
+      [ "Key::Home", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a8cf04a9734132302f96da8e113e80ce5", null ],
       [ "Key::Left", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a945d5e233cf7d6240f6b783b36a374ff", null ],
       [ "Key::Up", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a258f49887ef8d14ac268c92b02503aaa", null ],
       [ "Key::Right", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a92b09c7c48c520c3c55e497875da437c", null ],
@@ -231,10 +237,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
     ] ],
     [ "TextVAlign", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga3ba8a1cdd2e577efbad7c7b88e1c6175", [
       [ "TextVAlign::Top", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
-      [ "TextVAlign::Center", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a4f1f6016fc9f3f2353c0cc7c67b292bd", null ],
+      [ "TextVAlign::Middle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175ab1ca34f82e83c52b010f86955f264e05", null ],
       [ "TextVAlign::Bottom", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4", null ]
-    ] ],
-    [ "operator\"\"_color", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gacd5da2ece0452a3764071fc32de0a336", null ],
-    [ "operator\"\"_vh", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gae9c226b8edb91ca6c373681420e4f51f", null ],
-    [ "operator\"\"_vw", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gaeebfa33c937131403e4a9dbda7da8ced", null ]
+    ] ]
 ];

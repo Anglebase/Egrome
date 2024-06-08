@@ -1,7 +1,8 @@
 var class_painter =
 [
-    [ "drawArc", "class_painter.html#aa722adac37f4b3224b00d0c962124972", null ],
-    [ "drawArc", "class_painter.html#afe37b4e38f94776eb4f40394ead8a115", null ],
+    [ "clear", "class_painter.html#ab3315bc6a1c9f8d85b216db03e4a839f", null ],
+    [ "drawArc", "class_painter.html#af732620c700ef55cb20b64670f24b06b", null ],
+    [ "drawArc", "class_painter.html#ac66b5e8b34e3a273330ebeae594dd81c", null ],
     [ "drawCircle", "class_painter.html#a4ad44ea20e8ab6b2e5d08ef97f54d58e", null ],
     [ "drawCircle", "class_painter.html#a18457bc8ffdd88a9d34b1b6b2e8e923e", null ],
     [ "drawEllipse", "class_painter.html#ac45764dc34e7fdea77e0d453de005612", null ],
@@ -33,6 +34,10 @@ var class_painter =
     [ "drawText", "class_painter.html#a8a1382590e1d5d18d951e63f0179a2aa", null ],
     [ "drawText", "class_painter.html#ac3cd6c874423e41909326b76778eefb3", null ],
     [ "drawText", "class_painter.html#abd36f0cf3723e0beeb9ce6a159d183b6", null ],
+    [ "getTextHeight", "class_painter.html#ab36ed85f5ca3846aeec78eb2af3058bd", null ],
+    [ "getTextHeight", "class_painter.html#a06f37cc4a7a26153c953754a2aaedac1", null ],
+    [ "getTextWidth", "class_painter.html#a7170b750058ff4c5a0d77ab03b702250", null ],
+    [ "getTextWidth", "class_painter.html#a701f67474dd8807f18bc18c57e477b78", null ],
     [ "setBrushColor", "class_painter.html#afc046eecb1690bc6b65644a2424f8138", null ],
     [ "setBrushStyle", "class_painter.html#abb6d08bee46a190a9562682bd898c684", null ],
     [ "setFont", "class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d", null ],

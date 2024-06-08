@@ -1,8 +1,14 @@
 var group___xE6_xA0_xB8_xE5_xBF_x83 =
 [
     [ "Animation< T >", "class_animation.html", [
+      [ "Args", "struct_animation_1_1_args.html", [
+        [ "duration", "struct_animation_1_1_args.html#afcc97462505feaad5fa28734094278dd", null ],
+        [ "endValue", "struct_animation_1_1_args.html#a5a3e117297e7dd62eb757a75e6f23d33", null ],
+        [ "function", "struct_animation_1_1_args.html#a44f643cf7dc18c71d5d5cb25a9b8949b", null ],
+        [ "startValue", "struct_animation_1_1_args.html#a6466a49f283b428bda8e121e66def56a", null ]
+      ] ],
       [ "Animation", "class_animation.html#a4684b5581c15851cc4ec715d827c85e6", null ],
-      [ "Animation", "class_animation.html#a8ccdc936023a5eaeec9327d2960027b6", null ],
+      [ "Animation", "class_animation.html#a3e4b73a683a0d69c7d1c9a137ed21a32", null ],
       [ "isRunning", "class_animation.html#a52f062cffe443478285eb59fa0876abe", null ],
       [ "reset", "class_animation.html#ae377f18a76bb33774ca3318a25ad4c37", null ],
       [ "run", "class_animation.html#ab28a93741831689cb42f29845b09efa6", null ],

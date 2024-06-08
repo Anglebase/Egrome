@@ -3,11 +3,13 @@ var hierarchy =
     [ "Animation< T >", "class_animation.html", null ],
     [ "Animation< Color >", "class_animation.html", null ],
     [ "App", "class_app.html", null ],
+    [ "Animation< T >::Args", "struct_animation_1_1_args.html", null ],
     [ "Block", "class_block.html", [
       [ "Button", "class_button.html", null ],
       [ "CheckBox", "class_check_box.html", null ],
       [ "Divider", "class_divider.html", null ],
       [ "Label", "class_label.html", null ],
+      [ "LineEdit", "class_line_edit.html", null ],
       [ "MenuBox", "class_menu_box.html", null ],
       [ "MenuItem", "class_menu_item.html", null ],
       [ "ProgressBar", "class_progress_bar.html", null ],
@@ -33,8 +35,11 @@ var hierarchy =
     [ "Signal< void(bool)>", "class_signal.html", null ],
     [ "Signal< void(double progress)>", "class_signal.html", null ],
     [ "Signal< void(int inputChar)>", "class_signal.html", null ],
+    [ "Signal< void(int value)>", "class_signal.html", null ],
     [ "Signal< void(T value)>", "class_signal.html", null ],
     [ "Size", "class_size.html", null ],
     [ "SizeF", "class_size_f.html", null ],
-    [ "Var< T >", "class_var.html", null ]
+    [ "LineEdit::StyleSheet", "struct_line_edit_1_1_style_sheet.html", null ],
+    [ "Var< T >", "class_var.html", null ],
+    [ "Var< int >", "class_var_3_01int_01_4.html", null ]
 ];

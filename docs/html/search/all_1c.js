@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['常用颜色_0',['常用颜色',['../group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html',1,'']]]
+  ['字面量_0',['字面量',['../group___xE5_xAD_x97_xE9_x9D_xA2_xE9_x87_x8F.html',1,'']]]
 ];

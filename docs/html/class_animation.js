@@ -1,7 +1,8 @@
 var class_animation =
 [
+    [ "Args", "struct_animation_1_1_args.html", "struct_animation_1_1_args" ],
     [ "Animation", "class_animation.html#a4684b5581c15851cc4ec715d827c85e6", null ],
-    [ "Animation", "class_animation.html#a8ccdc936023a5eaeec9327d2960027b6", null ],
+    [ "Animation", "class_animation.html#a3e4b73a683a0d69c7d1c9a137ed21a32", null ],
     [ "isRunning", "class_animation.html#a52f062cffe443478285eb59fa0876abe", null ],
     [ "reset", "class_animation.html#ae377f18a76bb33774ca3318a25ad4c37", null ],
     [ "run", "class_animation.html#ab28a93741831689cb42f29845b09efa6", null ],
