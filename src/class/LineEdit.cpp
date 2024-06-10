@@ -280,12 +280,12 @@ void LineEdit::mouseReleaseEvent(const Point &pos, MouseButton button)
 LineEdit::LineEdit(const Rect &rect, Block *parent)
     : Block(rect, parent), text_(L"")
 {
+    this->setCursorType(CursorType::IBeam);
     this->cursorPos_.valueChanged.connect(
         [this](int value)
         {
             this->cursorVisible_ = true;
             this->viewChangedFlag_ = true;
-            std::cout << "cursorPos: " << value << std::endl;
         });
     this->textChanged.connect(
         [this](const std::wstring &text)

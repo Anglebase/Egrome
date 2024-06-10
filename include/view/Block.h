@@ -2,7 +2,7 @@
 /**
  * @file Block.h
  * @brief 块基类
-*/
+ */
 #include <vector>
 #include "../core/SignalSlots.hpp"
 #include "../core/Rect.h"
@@ -259,6 +259,14 @@ enum class KeyFlag
     Shift = 0x100,
 };
 
+enum class CursorType
+{
+    Arrow,
+    IBeam,
+    Cross,
+    Hand,
+};
+
 /**
  * @brief Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能
  * @brief 用户可以通过继承Block类来实现自己的UI对象，通过重写paint()函数来实现自己的绘制逻辑，通过重写update()函数来实现自己的更新逻辑
@@ -270,14 +278,23 @@ class Block
 
 private:
     Rect rect_;
-    std::vector<Block *> childBlocks;
-    Block *parentBlock;
+    std::vector<Block *> childBlocks_;
+    Block *parentBlock_;
 
     long long zindex_ = 0;
 
+    CursorType cursorType_ = CursorType::Arrow;
+    void *lastCursor_ = nullptr;
+
 private:
     // 用于 BUG-20240529-20 修复
-    Point lastPos;
+    Point lastPos_;
+
+private:
+    static void* cursorArrow;
+    static void* cursorIBeam;
+    static void* cursorCross;
+    static void* cursorHand;
 
 protected:
     /**
@@ -405,6 +422,11 @@ signals:
     Signal<void(Block *block)> onUnfocused;
 
 public:
+    /**
+     * @brief 设置当鼠标悬浮于此Block上时的光标类型
+     * @param cursorType 鼠标光标类型
+     */
+    void setCursorType(CursorType cursorType);
     /**
      * @brief 构造函数
      * @param rect Block的矩形区域
