@@ -141,6 +141,12 @@ public:
     static void setFocusBlock(Block *block);
     static Block *getFocusBlock();
 
+    /**
+     * @brief 最小化窗口
+     * @note 最小化窗口后，窗口将不可见，但仍然存在于任务栏中
+     */
+    static void setMinimize();
+
 private:
     static Block *focusBlock;
     Block *block_{nullptr};

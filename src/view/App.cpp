@@ -137,6 +137,11 @@ Block *App::getFocusBlock()
     return App::focusBlock;
 }
 
+void App::setMinimize()
+{
+    ::ShowWindow(ege::getHWnd(), SW_MINIMIZE);
+}
+
 App::App(Block *block, int flags) : block_(block)
 {
     App::focusBlock = block;
