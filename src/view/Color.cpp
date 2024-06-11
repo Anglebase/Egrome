@@ -46,6 +46,7 @@ Color Color::color_lerp(Color start, Color end, double t)
         f(start.getRed(), end.getRed(), t),
         f(start.getGreen(), end.getGreen(), t),
         f(start.getBlue(), end.getBlue(), t),
+        f(start.getAlpha(), end.getAlpha(), t),
     };
 }
 
@@ -130,7 +131,6 @@ int Color::getAlpha() const
 {
     return this->alpha;
 }
-
 
 void Color::setRed(int r)
 {

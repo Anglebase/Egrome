@@ -178,7 +178,7 @@ public:
      * @note 调用此函数将会导致应用程序退出，并返回exitCode作为退出代码
      * @param exitCode 退出代码
      */
-    void quit(int exitCode);
+    static void quit(int exitCode);
 };
 
 /** @} */
