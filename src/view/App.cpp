@@ -140,6 +140,7 @@ App::App(Block *block, int flags) : block_(block)
     App::focusBlock = block;
     App::fps_ = 60;
     ege::setinitmode(flags | ege::INIT_ANIMATION | ege::INIT_UNICODE);
+    App::instance_ = this;
 }
 
 App::~App() {}
@@ -243,7 +244,8 @@ void App::run()
 
 void App::quit(int exitCode)
 {
-    this->windowDestroy.emit();
+    if (App::instance_)
+        App::instance_->windowDestroy.emit();
     ege::closegraph();
     exit(exitCode);
 }

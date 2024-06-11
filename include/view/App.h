@@ -145,7 +145,7 @@ private:
     static Block *focusBlock;
     Block *block_{nullptr};
     static int fps_;
-
+    static App* instance_;
 signals:
     /**
      * @brief 窗口创建信号

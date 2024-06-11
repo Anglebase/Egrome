@@ -10,7 +10,7 @@ input("按Enter键继续...")
 os.system("md out")
 print("正在编译代码...")
 ret = os.system(
-    "cd out && g++ -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE".replace(
+    "cd out && g++ -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O3".replace(
         "/", "\\"
     )
 )
