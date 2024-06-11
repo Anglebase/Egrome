@@ -14,7 +14,9 @@ var searchData=
   ['f8_11',['F8',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a4787509ad9f9d747a81a30e9dde3d4a7',1,'Block.h']]],
   ['f9_12',['F9',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a892a245e287c163080b23db737d3c4c9',1,'Block.h']]],
   ['finished_13',['finished',['../class_progress_bar.html#aa818c7a5202b1f9f86e97f9c2401c667',1,'ProgressBar']]],
-  ['formscreen_14',['FormScreen',['../class_pixel_map.html#acf680e9ec8879d64ee10b53d7f735772',1,'PixelMap']]],
-  ['fromfile_15',['FromFile',['../class_pixel_map.html#a494232d0a71e5f48579dcd1283b08abe',1,'PixelMap']]],
-  ['function_16',['function',['../struct_animation_1_1_args.html#a44f643cf7dc18c71d5d5cb25a9b8949b',1,'Animation::Args']]]
+  ['fontname_14',['fontName',['../struct_label_1_1_style_sheet.html#a17b1a5caa0383f542d1790f5f005456d',1,'Label::StyleSheet::fontName'],['../struct_line_edit_1_1_style_sheet.html#ae71261a33dfb3048ba5f0dfd47a1065e',1,'LineEdit::StyleSheet::fontName']]],
+  ['fontsize_15',['fontSize',['../struct_label_1_1_style_sheet.html#a6902d040067a160664747ba925745bc6',1,'Label::StyleSheet::fontSize'],['../struct_line_edit_1_1_style_sheet.html#a62d6cc12d946c5ab84cc872c8791e13a',1,'LineEdit::StyleSheet::fontSize']]],
+  ['formscreen_16',['FormScreen',['../class_pixel_map.html#acf680e9ec8879d64ee10b53d7f735772',1,'PixelMap']]],
+  ['fromfile_17',['FromFile',['../class_pixel_map.html#a494232d0a71e5f48579dcd1283b08abe',1,'PixelMap']]],
+  ['function_18',['function',['../struct_animation_1_1_args.html#a44f643cf7dc18c71d5d5cb25a9b8949b',1,'Animation::Args']]]
 ];

@@ -11,8 +11,8 @@ void Label::paintEvent(const PaintEvent &event)
     // 绘制位图内容
     painter.setPenColor(Color::White);
     painter.setFont(style.fontName, style.fontSize);
-    painter.setFontItalic(style.italic_);
-    painter.setFontWeight(style.weight_);
+    painter.setFontItalic(style.italic);
+    painter.setFontWeight(style.weight);
     auto textRect = painter.rect().adjusted(
         leftpadding_, toppadding_,
         -rightpadding_, -bottompadding_);

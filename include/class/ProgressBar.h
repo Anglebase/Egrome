@@ -18,11 +18,18 @@ class ProgressBar : public Block
     double progress{0.0};
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
+        /// @brief 进度条颜色
         Color progressColor{Color::White};
+        /// @brief 背景颜色
         Color backgroundColor{Color::Black};
+        /// @brief 边框颜色
         Color borderColor{Color::White};
+        /// @brief 边框宽度
         int borderWidth{1};
     } style;
 

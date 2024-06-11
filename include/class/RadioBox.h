@@ -67,13 +67,22 @@ class RadioBox : public Block
     std::wstring text_;
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
+        /// @brief 文本颜色
         Color textColor_{Color::White};
+        /// @brief 选中时单选框颜色
         Color selectedColor_{Color::Blue};
+        /// @brief 单选框边框颜色
         Color borderColor_{Color::White};
+        /// @brief 鼠标悬停时单选框外框颜色
         Color hoverColor_{Color::LightGray};
+        /// @brief 单选框边框宽度
         int borderWidth_{1};
+        /// @brief 单选框半径
         int borderRadius_{5};
     } style;
 

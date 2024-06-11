@@ -10,6 +10,7 @@ var class_block =
     [ "mouseReleaseEvent", "class_block.html#ad27dee1ce1692964c7f209af129e3322", null ],
     [ "mouseWheelEvent", "class_block.html#a2a82987e8d7415c7ac8dd7a3f3ef0eb6", null ],
     [ "paintEvent", "class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e", null ],
+    [ "setCursorType", "class_block.html#a7c98f8c53e968eb90fc282800b9265fa", null ],
     [ "setRect", "class_block.html#a11c84bbe9838102e16b66f7a7c2c0917", null ],
     [ "setZindex", "class_block.html#a793f603073525e79a6bafac2efed1a28", null ],
     [ "zindex", "class_block.html#a2961b8a21011af984f05f2eef32dd4e1", null ],

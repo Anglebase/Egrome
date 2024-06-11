@@ -11,9 +11,9 @@ Divider::Divider(const Rect &rect, Block *parent)
 void Divider::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
-    painter.setBrushColor(this->style.backgroundColor_);
+    painter.setBrushColor(this->style.backgroundColor);
     painter.drawFillRect(painter.rect());
-    painter.setPenColor(style.color_);
+    painter.setPenColor(style.color);
     painter.drawLine(
         Point{0, painter.rect().height() / 2},
         Point{painter.rect().width(), painter.rect().height() / 2});
@@ -36,7 +36,7 @@ void MenuItem::paintEvent(const PaintEvent &event)
     else if (this->hovered_ || this->hoverColorAnim_->isRunning())
         painter.setBrushColor(this->hoverColorAnim_->value());
     else
-        painter.setBrushColor(this->style.defaultColor_);
+        painter.setBrushColor(this->style.defaultColor);
     painter.drawFillRect(painter.rect());
 
     event.endPaint();
@@ -112,14 +112,14 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
     this->label_->setPadding(5, 5, 5, 5);
 
     this->clickColorAnim_ = new Animation<Color>(Animation<Color>::Args{
-        .startValue = this->style.hoverColor_,
-        .endValue = this->style.clickColor_,
+        .startValue = this->style.hoverColor,
+        .endValue = this->style.clickColor,
         .duration = 100ms,
         .function = Color::color_lerp,
     });
     this->hoverColorAnim_ = new Animation<Color>({
-        .startValue = this->style.defaultColor_,
-        .endValue = this->style.hoverColor_,
+        .startValue = this->style.defaultColor,
+        .endValue = this->style.hoverColor,
         .duration = 100ms,
         .function = Color::color_lerp,
     });

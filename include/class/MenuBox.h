@@ -38,11 +38,17 @@ private:
     bool clicked_{false};
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
-        Color hoverColor_{Color::LightGray};
-        Color clickColor_{Color::Gray};
-        Color defaultColor_{Color::White};
+        /// @brief 鼠标悬浮时背景色
+        Color hoverColor{Color::LightGray};
+        /// @brief 鼠标点击时背景色
+        Color clickColor{Color::Gray};
+        /// @brief 默认背景色
+        Color defaultColor{Color::White};
     } style;
 
 protected:
@@ -128,8 +134,10 @@ public:
      */
     struct StyleSheet
     {
-        Color color_{Color::Gray};
-        Color backgroundColor_{Color::White};
+        /// @brief 分割线颜色
+        Color color{Color::Gray};
+        /// @brief 背景颜色
+        Color backgroundColor{Color::White};
     } style;
 
 private:

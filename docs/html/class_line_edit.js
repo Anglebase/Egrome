@@ -1,6 +1,6 @@
 var class_line_edit =
 [
-    [ "StyleSheet", "struct_line_edit_1_1_style_sheet.html", null ],
+    [ "StyleSheet", "struct_line_edit_1_1_style_sheet.html", "struct_line_edit_1_1_style_sheet" ],
     [ "InputTextEvent", "class_line_edit.html#a87c6688ee10f877c2aadb78758b03159", null ],
     [ "keyPressEvent", "class_line_edit.html#ab510c9ff4f502bc336e696d7e921d2f5", null ],
     [ "mouseMoveEvent", "class_line_edit.html#a0113529d86cfb99ea893556370a65bee", null ],

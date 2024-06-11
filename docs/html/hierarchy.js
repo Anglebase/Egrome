@@ -39,7 +39,14 @@ var hierarchy =
     [ "Signal< void(T value)>", "class_signal.html", null ],
     [ "Size", "class_size.html", null ],
     [ "SizeF", "class_size_f.html", null ],
+    [ "Button::StyleSheet", "struct_button_1_1_style_sheet.html", null ],
+    [ "CheckBox::StyleSheet", "struct_check_box_1_1_style_sheet.html", null ],
+    [ "Divider::StyleSheet", "struct_divider_1_1_style_sheet.html", null ],
+    [ "Label::StyleSheet", "struct_label_1_1_style_sheet.html", null ],
     [ "LineEdit::StyleSheet", "struct_line_edit_1_1_style_sheet.html", null ],
+    [ "MenuItem::StyleSheet", "struct_menu_item_1_1_style_sheet.html", null ],
+    [ "ProgressBar::StyleSheet", "struct_progress_bar_1_1_style_sheet.html", null ],
+    [ "RadioBox::StyleSheet", "struct_radio_box_1_1_style_sheet.html", null ],
     [ "Var< T >", "class_var.html", null ],
     [ "Var< int >", "class_var_3_01int_01_4.html", null ]
 ];

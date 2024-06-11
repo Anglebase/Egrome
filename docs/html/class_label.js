@@ -1,5 +1,6 @@
 var class_label =
 [
+    [ "StyleSheet", "struct_label_1_1_style_sheet.html", "struct_label_1_1_style_sheet" ],
     [ "Alignment", "class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634", [
       [ "Left", "class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634af792d927013bc67cbfc7a840d73b021d", null ],
       [ "Center", "class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a57011fe31348c234e6ec6b7d617b0fbc", null ],
@@ -20,12 +21,8 @@ var class_label =
     [ "rightPadding", "class_label.html#a877622d3b4205876123ca14e47aba811", null ],
     [ "rightPadding", "class_label.html#a98d76dea0405065677bd13df5b261017", null ],
     [ "setAlignment", "class_label.html#ad1af2638a94a757a39a6e5d362584d9b", null ],
-    [ "setFont", "class_label.html#a43e8ddabbb4022bc8a27ca4430c15c03", null ],
-    [ "setItalic", "class_label.html#aa8d18e6a9c77e895bf528d85204494b1", null ],
     [ "setPadding", "class_label.html#a50e614bb241e84320e1b08f01b91a001", null ],
     [ "setText", "class_label.html#a8a36c03f03dc0321846bf26c0cd4f92a", null ],
-    [ "setTextColor", "class_label.html#a9e574e1616107672225cce74e69cef61", null ],
-    [ "setWeight", "class_label.html#a60c621873ba87ab7b6090fc158e38268", null ],
     [ "topPadding", "class_label.html#a18e170b73271163583e7380fe384c9a6", null ],
     [ "topPadding", "class_label.html#ac2dab4fece7658c1ade3778b4b3412b6", null ]
 ];

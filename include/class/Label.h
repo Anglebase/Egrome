@@ -49,13 +49,21 @@ private:
     int bottompadding_{0};
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
+        /// @brief 文本颜色
         Color textColor{Color::White};
+        /// @brief 字体名称
         std::wstring fontName{L"宋体"};
+        /// @brief 字体大小
         int fontSize{16};
-        bool italic_{false};
-        int weight_{400};
+        /// @brief 字重度
+        int weight{400};
+        /// @brief 是否斜体
+        bool italic{false};
     } style;
 
 protected:

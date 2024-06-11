@@ -47,17 +47,30 @@ protected:
     void mouseReleaseEvent(const Point &pos, MouseButton button) override;
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
+        /// @brief 文本颜色
         Color textColor{Color::White};
+        /// @brief 文本光标颜色
         Color cursorColor{Color::White};
+        /// @brief 文本背景颜色
         Color backgroundColor{Color::Black};
+        /// @brief 输入框聚焦时边框颜色
         Color onFocusBorderColor{Color::White};
+        /// @brief 输入框失焦时边框颜色
         Color offFocusBorderColor{Color::Gray};
+        /// @brief 边框宽度
         int borderWidth{1};
+        /// @brief 边框圆角半径
         int borderRadius{0};
+        /// @brief 文本光标宽度
         int cursorWidth{1};
+        /// @brief 文本字体
         std::wstring fontName{L"宋体"};
+        /// @brief 文本字号
         long fontSize{16};
     } style;
 

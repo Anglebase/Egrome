@@ -28,13 +28,21 @@ class Button : public Block
     bool isDisabled;   // 是否不可用
     std::wstring text; // 按钮文本内容
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
-        Color textColor{Color::Black};       // 文本颜色
-        Color backgroundColor{Color::White}; // 背景颜色
-        Color hoverColor{Color::LightGray};  // 悬停颜色
-        Color pressedColor{Color::DarkGray}; // 按下颜色
-        Color disabledColor{Color::Gray};    // 禁用颜色
+        /// @brief 按钮文本颜色
+        Color textColor{Color::Black};
+        /// @brief 按钮背景颜色
+        Color backgroundColor{Color::White};
+        /// @brief 鼠标悬停时颜色
+        Color hoverColor{Color::LightGray};
+        /// @brief 按钮按下时颜色
+        Color pressedColor{Color::DarkGray};
+        /// @brief 按钮禁用时颜色
+        Color disabledColor{Color::Gray};
     } style;
 
 protected:

@@ -27,14 +27,23 @@ private:
     std::wstring text_;
 
 public:
+    /**
+     * @brief 样式表
+     */
     struct StyleSheet
     {
+        /// @brief 文本颜色
         Color textColor{Color::White};
+        /// @brief 勾选框勾选时颜色
         Color checkColor{Color::White};
+        /// @brief 勾选框边框颜色
         Color borderColor{Color::White};
+        /// @brief 鼠标悬停时边框颜色
         Color hoverColor{Color::LightGray};
+        /// @brief 勾选框边框宽度
         int borderWidth{1};
-        int boxSize{10};
+        /// @brief 勾选框大小
+        int boxSize{8};
     } style;
 
 protected:
