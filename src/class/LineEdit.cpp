@@ -290,3 +290,15 @@ LineEdit::LineEdit(const Rect &rect, Block *parent)
         });
     this->clipWidth_ = this->rect().width() - 2 * this->offsetX_;
 }
+
+void LineEdit::setText(const std::wstring &text)
+{
+    this->text_ = text;
+    this->cursorPos_ = 0;
+    this->viewChangedFlag_ = true;
+}
+
+const std::wstring& LineEdit::text() const
+{
+    return this->text_;
+}

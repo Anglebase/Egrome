@@ -77,4 +77,15 @@ public:
 public:
     LineEdit(const Rect &rect, Block *parent = nullptr);
     ~LineEdit() override = default;
+
+    /**
+     * @brief 设置文本内容
+     * @param text 文本内容
+     */
+    void setText(const std::wstring &text);
+    /**
+     * @brief 获取文本内容
+     * @return 文本内容
+     */
+    const std::wstring& text() const;
 };
