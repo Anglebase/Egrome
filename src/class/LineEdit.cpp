@@ -185,7 +185,6 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
         break;
     case Key::Enter:
         this->textEnter.emit(this->text_);
-        std::wcout << L"Enter" << std::endl;
         break;
     case Key::Left:
         if (this->cursorPos_ > 0)
@@ -255,15 +254,10 @@ void LineEdit::InputTextEvent(wchar_t inputChar)
 
 void LineEdit::mouseMoveEvent(const Point &pos)
 {
+    using namespace std::chrono_literals;
     if (this->isPressed_)
     {
-        this->hasSelect_ = true;
-        auto relativePos = pos - this->rect().getTopLeft() - Point(offsetX_, offsetY_);
-        auto ais = this->widths_;
-        for (auto &e : ais)
-            e = abs(e - relativePos.x());
-        auto minIndex = std::min_element(ais.begin(), ais.end()) - ais.begin();
-        this->selectPos_ = minIndex;
+        
     }
     return Block::mouseMoveEvent(pos);
 }
@@ -273,6 +267,8 @@ void LineEdit::mouseReleaseEvent(const Point &pos, MouseButton button)
     if (button == MouseButton::Left)
     {
         this->isPressed_ = false;
+        if (this->hasSelect_ && this->selectPos_ == this->cursorPos_)
+            this->hasSelect_ = false;
     }
     return Block::mouseReleaseEvent(pos, button);
 }

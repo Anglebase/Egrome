@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <chrono>
 #include "../view/Block.h"
 #include "../core/SignalSlots.hpp"
 #include "../core/Var.hpp"
@@ -11,6 +12,7 @@
  */
 class LineEdit : public Block
 {
+    std::chrono::steady_clock::time_point lastTime_;
 private:
     std::wstring text_;
 
@@ -19,6 +21,7 @@ private:
     Var<int> cursorPos_{0};
     bool cursorVisible_{false};
     bool hasSelect_{false};
+    bool finisedSelect_{false};
     int selectPos_{0};
 
     int offsetX_{5};
