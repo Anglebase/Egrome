@@ -112,3 +112,24 @@ void Button::setText(const std::wstring &text)
 {
     this->text = text;
 }
+
+void Button::updateAnimations()
+{
+    using namespace std::chrono_literals;
+    if (this->hoverColorAnim)
+        delete this->hoverColorAnim;
+    if (this->pressedColorAnim)
+        delete this->pressedColorAnim;
+    this->hoverColorAnim = new Animation<Color>({
+        .startValue = this->style.backgroundColor,
+        .endValue = this->style.hoverColor,
+        .duration = 300ms,
+        .function = Color::color_lerp,
+    });
+    this->pressedColorAnim = new Animation<Color>({
+        .startValue = this->style.hoverColor,
+        .endValue = this->style.pressedColor,
+        .duration = 100ms,
+        .function = Color::color_lerp,
+    });
+}

@@ -116,6 +116,11 @@ public:
      * @param text 按钮的文本内容
      */
     void setText(const std::wstring &text);
+
+    /**
+     * @brief 更新动画状态对象
+     */
+    void updateAnimations();
 };
 
 /** @} */
