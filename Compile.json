@@ -26,7 +26,14 @@
         ],
         // "complie": true,
         // "start": true,
-        "target": "./bin/test.exe"
+        "target": "./bin/test.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "button-test": {
         "compiler": "g++",
@@ -55,7 +62,14 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/button.exe"
+        "target": "./bin/button.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "checkbox-test": {
         "compiler": "g++",
@@ -84,7 +98,14 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/checkbox.exe"
+        "target": "./bin/checkbox.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "label-test": {
         "compiler": "g++",
@@ -113,7 +134,14 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/label.exe"
+        "target": "./bin/label.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "menubox-test": {
         "compiler": "g++",
@@ -145,6 +173,10 @@
         "target": "./bin/menubox.exe",
         "option": [
             "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
         ]
     },
     "radiobox-test": {
@@ -174,7 +206,14 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/radiobox.exe"
+        "target": "./bin/radiobox.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "progressbar-test": {
         "compiler": "g++",
@@ -203,7 +242,14 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/progressbar.exe"
+        "target": "./bin/progressbar.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
     },
     "debugtest": {
         "compiler": "g++",
@@ -232,38 +278,13 @@
         ],
         // "compile": true,
         // "start": true,
-        "target": "./bin/debugtest.exe"
-    },
-    "slider": {
-        "compiler": "g++",
-        "src": [
-            "./src/view/*.cpp",
-            "./src/class/*.cpp",
-            "./src/core/*.cpp",
-            "./test/slider.cpp"
-        ],
-        "include": [
-            "./include/view/",
-            "./include/class/",
-            "./include/core/",
-            "./include/"
-        ],
-        "link": [
-            "graphics64",
-            "gdiplus",
-            "uuid",
-            "msimg32",
-            "gdi32",
-            "imm32",
-            "ole32",
-            "oleaut32",
-            "winmm"
-        ],
-        // "compile": true,
-        // "start": true,
-        "target": "./bin/slider.exe",
+        "target": "./bin/debugtest.exe",
         "option": [
             "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
         ]
     },
     "lineedit": {

@@ -34,6 +34,9 @@ json配置格式：
 }
 """
 
+lock = False
+lock = True
+
 
 def Red(s):
     return "\033[91m" + s + "\033[0m"
@@ -67,7 +70,7 @@ exls: dict = {}
 
 
 def complie(conf: dict, name: str):
-    if not conf.get("compile", False):
+    if not conf.get("compile", lock):
         return
 
     commandline = ""
@@ -130,7 +133,7 @@ def complie(conf: dict, name: str):
 
     task[name] = commandline.replace("/", "\\")
 
-    if conf.get("start", False):
+    if conf.get("start", lock):
         # 目标的命令行参数
         args: list = conf.get("args", [])
         cmd = f"{target} {' '.join(args)}".strip()
