@@ -11,6 +11,8 @@
 Block *App::focusBlock = nullptr;
 int App::fps_ = 60;
 
+App *App::instance_ = nullptr;
+
 Size App::getScreenSize()
 {
     return Size{
@@ -36,9 +38,9 @@ void App::setWindowSize(const Size &size)
 
 Point App::getWindowPos()
 {
-    int x, y, rx, ry;
-    ege::getviewport(&x, &y, &rx, &ry);
-    return Point(x, y);
+    RECT rect;
+    ::GetWindowRect(ege::getHWnd(), &rect);
+    return Point(rect.left, rect.top);
 }
 
 void App::setWindowPos(int x, int y)
