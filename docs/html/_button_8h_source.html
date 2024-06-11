@@ -150,9 +150,11 @@ $(function(){initNavTree('_button_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a05d23905c45128e7e24f4c638a1020f6">setDisabled</a>(<span class="keywordtype">bool</span> disabled);</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#ad75fd1f65085ef14e589e48fd4e9fc69">setText</a>(<span class="keyword">const</span> std::wstring &amp;text);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a4ea5a2b55787e644fc42bfd383937cd6">updateAnimations</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
 </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="ttc" id="a_animation_8hpp_html"><div class="ttname"><a href="_animation_8hpp.html">Animation.hpp</a></div><div class="ttdoc">动画支持类</div></div>
 <div class="ttc" id="a_block_8h_html"><div class="ttname"><a href="_block_8h.html">Block.h</a></div><div class="ttdoc">块基类</div></div>
 <div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">颜色类</div></div>
@@ -162,6 +164,7 @@ $(function(){initNavTree('_button_8h_source.html',''); initResizable(); });
 <div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdoc">按钮控件</div><div class="ttdef"><b>Definition</b> Button.h:25</div></div>
 <div class="ttc" id="aclass_button_html_a05d23905c45128e7e24f4c638a1020f6"><div class="ttname"><a href="class_button.html#a05d23905c45128e7e24f4c638a1020f6">Button::setDisabled</a></div><div class="ttdeci">void setDisabled(bool disabled)</div><div class="ttdoc">设置按钮是否可用</div><div class="ttdef"><b>Definition</b> Button.cpp:106</div></div>
 <div class="ttc" id="aclass_button_html_a17f0ceab8ff7648273dfb71266ce8b68"><div class="ttname"><a href="class_button.html#a17f0ceab8ff7648273dfb71266ce8b68">Button::clicked</a></div><div class="ttdeci">Signal&lt; void()&gt; clicked</div><div class="ttdoc">按钮点击信号</div><div class="ttdef"><b>Definition</b> Button.h:87</div></div>
+<div class="ttc" id="aclass_button_html_a4ea5a2b55787e644fc42bfd383937cd6"><div class="ttname"><a href="class_button.html#a4ea5a2b55787e644fc42bfd383937cd6">Button::updateAnimations</a></div><div class="ttdeci">void updateAnimations()</div><div class="ttdoc">更新动画状态对象</div><div class="ttdef"><b>Definition</b> Button.cpp:116</div></div>
 <div class="ttc" id="aclass_button_html_a53d2ab3be60af6b3f5417ff4ff8893b3"><div class="ttname"><a href="class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3">Button::mouseReleaseEvent</a></div><div class="ttdeci">void mouseReleaseEvent(const Point &amp;pos, MouseButton button) override</div><div class="ttdoc">重写 mouseReleaseEvent 方法，响应鼠标释放事件</div><div class="ttdef"><b>Definition</b> Button.cpp:50</div></div>
 <div class="ttc" id="aclass_button_html_a75925bca555a62dfd92f332c09719a6b"><div class="ttname"><a href="class_button.html#a75925bca555a62dfd92f332c09719a6b">Button::pressed</a></div><div class="ttdeci">Signal&lt; void()&gt; pressed</div><div class="ttdoc">按钮按下信号</div><div class="ttdef"><b>Definition</b> Button.h:97</div></div>
 <div class="ttc" id="aclass_button_html_a80d484ba33f8a257435d808c5d84ae6b"><div class="ttname"><a href="class_button.html#a80d484ba33f8a257435d808c5d84ae6b">Button::released</a></div><div class="ttdeci">Signal&lt; void()&gt; released</div><div class="ttdoc">按钮释放信号</div><div class="ttdef"><b>Definition</b> Button.h:102</div></div>

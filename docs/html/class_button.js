@@ -6,6 +6,7 @@ var class_button =
     [ "paintEvent", "class_button.html#a945190ef087c8af1977e09313aac7cee", null ],
     [ "setDisabled", "class_button.html#a05d23905c45128e7e24f4c638a1020f6", null ],
     [ "setText", "class_button.html#ad75fd1f65085ef14e589e48fd4e9fc69", null ],
+    [ "updateAnimations", "class_button.html#a4ea5a2b55787e644fc42bfd383937cd6", null ],
     [ "clicked", "class_button.html#a17f0ceab8ff7648273dfb71266ce8b68", null ],
     [ "hoverColorAnim", "class_button.html#ac82e24e2060af34fc27f5dfc920f774e", null ],
     [ "hovered", "class_button.html#af37d8b3e7785018f5375b5de8526c4a3", null ],
