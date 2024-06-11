@@ -4,14 +4,14 @@
  * @brief 标签控件
  * @details 继承自Block类，实现了文本标签的显示功能，包括文本内容、对齐方式、边距等属性
  * @details 显示的文本溢出控件范围时，默认行为是隐藏溢出内容
-*/
+ */
 #include "../view/Block.h"
 #include "../view/Color.h"
 
 /**
  * @addtogroup 控件
  * @{
-*/
+ */
 
 /**
  * @brief 标签控件
@@ -23,7 +23,7 @@ class Label : public Block
 public:
     /**
      * @brief 对齐方式
-    */
+     */
     enum Alignment
     {
         /// 左对齐
@@ -42,17 +42,21 @@ public:
 
 private:
     std::wstring text_;
-    Color textColor_;
     int alignment_{Left | Middle};
     int leftpadding_{0};
     int rightpadding_{0};
     int toppadding_{0};
     int bottompadding_{0};
 
-    std::wstring fontName_{L"宋体"};
-    int fontSize_{16};
-    bool italic_{false};
-    int weight_{400};
+public:
+    struct StyleSheet
+    {
+        Color textColor{Color::White};
+        std::wstring fontName{L"宋体"};
+        int fontSize{16};
+        bool italic_{false};
+        int weight_{400};
+    } style;
 
 protected:
     /**
@@ -120,7 +124,7 @@ public:
     /**
      * @brief 访问标签控件下内边距
      * @return 标签控件下内边距值的引用
-    */
+     */
     int &bottomPadding();
     /**
      * @brief 获取标签控件左内边距
@@ -142,29 +146,6 @@ public:
      * @return 标签控件下内边距值
      */
     const int &bottomPadding() const;
-
-    /**
-     * @brief 设置标签文本颜色
-     * @param color 标签文本颜色
-     */
-    void setTextColor(const Color &color);
-
-    /**
-     * @brief 设置标签字体
-     * @param fontName 字体名称
-     * @param size 字体大小
-     */
-    void setFont(const std::wstring &fontName, int size);
-    /**
-     * @brief 设置标签字体斜体
-     * @param italic true 字体斜体，false 非斜体
-     */
-    void setItalic(bool italic);
-    /**
-     * @brief 设置标签字体粗细
-     * @param weight 字体粗细，取值范围 100-900，数值越大字体越粗
-     */
-    void setWeight(int weight);
 };
 
 /** @} */

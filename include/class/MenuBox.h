@@ -3,7 +3,7 @@
 /**
  * @file menubox.h
  * @brief 菜单列表控件
-*/
+ */
 
 #include <vector>
 #include "../view/Block.h"
@@ -15,16 +15,16 @@ class MenuBox;
 /**
  * @addtogroup 控件
  * @{
-*/
+ */
 
 /**
  * @addtogroup 菜单控件
  * @{
-*/
+ */
 /**
  * @brief 菜单项
  * @details 用于显示菜单项
- * @note 
+ * @note
  */
 class MenuItem : public Block
 {
@@ -37,9 +37,13 @@ private:
     bool hovered_{false};
     bool clicked_{false};
 
-    Color hoverColor_{Color::LightGray};
-    Color clickColor_{Color::Gray};
-    Color defaultColor_{Color::White};
+public:
+    struct StyleSheet
+    {
+        Color hoverColor_{Color::LightGray};
+        Color clickColor_{Color::Gray};
+        Color defaultColor_{Color::White};
+    } style;
 
 protected:
     Animation<Color> *hoverColorAnim_;
@@ -105,21 +109,6 @@ public:
      * @param color 菜单项的字体颜色
      */
     void setTextColor(const Color &color);
-    /**
-     * @brief 设置菜单项鼠标悬浮时的颜色
-     * @param color 菜单项鼠标悬浮时的颜色
-     */
-    void setHoverColor(const Color &color);
-    /**
-     * @brief 设置菜单项鼠标点击时的颜色
-     * @param color 菜单项鼠标点击时的颜色
-     */
-    void setClickColor(const Color &color);
-    /**
-     * @brief 设置菜单项默认颜色
-     * @param color 菜单项默认颜色
-     */
-    void setDefaultColor(const Color &color);
 
     /**
      * @brief 设置子菜单
@@ -133,9 +122,17 @@ public:
  */
 class Divider : public Block
 {
+public:
+    /**
+     * @brief 样式表
+     */
+    struct StyleSheet
+    {
+        Color color_{Color::Gray};
+        Color backgroundColor_{Color::White};
+    } style;
+
 private:
-    Color color_{Color::Gray};
-    Color backgroundColor_{Color::White};
     Divider(const Rect &rect, Block *parent);
 
 protected:
@@ -155,18 +152,6 @@ public:
      * @brief 析构函数
      */
     ~Divider() override = default;
-
-    /**
-     * @brief 设置分割线颜色
-     * @param color 分割线颜色
-     */
-    void setColor(const Color &color);
-
-    /**
-     * @brief 设置分割线背景颜色
-     * @param color 分割线背景颜色
-     */
-    void setBackgroundColor(const Color &color);
 };
 
 /**
@@ -271,8 +256,8 @@ public:
 
     /**
      * @brief 获取菜单框是否可见
-    * @return 菜单框是否可见
-    */
+     * @return 菜单框是否可见
+     */
     bool isVisible() const;
 };
 

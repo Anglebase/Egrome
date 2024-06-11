@@ -23,7 +23,7 @@ int main()
     checkbox.setText(L"复选框");
     checkbox.checkedChanged.connect([](bool checked)
                                     { std::cout << "CheckBox checked: " << checked << std::endl; });
-    checkbox.setBoxSize(20);
+    checkbox.style.boxSize = 20;
     App app{
         &block,
     };

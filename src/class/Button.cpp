@@ -9,23 +9,23 @@ void Button::paintEvent(const PaintEvent &event)
     // 状态判断与显示
     if (this->isDisabled)
     {
-        painter.setBrushColor(this->disabledColor);
-        painter.setPenColor(this->textColor);
+        painter.setBrushColor(this->style.disabledColor);
+        painter.setPenColor(this->style.textColor);
     }
     else if (this->isPressed || this->pressedColorAnim->isRunning())
     {
         painter.setBrushColor(this->pressedColorAnim->value());
-        painter.setPenColor(this->textColor);
+        painter.setPenColor(this->style.textColor);
     }
     else if (this->isHovered || this->hoverColorAnim->isRunning())
     {
         painter.setBrushColor(this->hoverColorAnim->value());
-        painter.setPenColor(this->textColor);
+        painter.setPenColor(this->style.textColor);
     }
     else
     {
-        painter.setBrushColor(this->backgroundColor);
-        painter.setPenColor(this->textColor);
+        painter.setBrushColor(this->style.backgroundColor);
+        painter.setPenColor(this->style.textColor);
     }
     painter.drawFillRect(painter.rect());
     painter.drawText(painter.rect(), this->text);
@@ -62,11 +62,6 @@ void Button::mouseReleaseEvent(const Point &pos, MouseButton button)
 
 Button::Button(const Rect &rect, Block *parent)
     : Block(rect, parent),
-      textColor(Color::Black),
-      backgroundColor(Color::White),
-      hoverColor(Color::LightGray),
-      disabledColor(Color::DarkGray),
-      pressedColor(Color::Gray),
       isDisabled(false),
       isPressed(false),
       isHovered(false),
@@ -75,14 +70,14 @@ Button::Button(const Rect &rect, Block *parent)
     using namespace std::chrono_literals;
     // 注册颜色过渡动画
     this->hoverColorAnim = new Animation<Color>({
-        .startValue = this->backgroundColor,
-        .endValue = this->hoverColor,
+        .startValue = this->style.backgroundColor,
+        .endValue = this->style.hoverColor,
         .duration = 300ms,
         .function = Color::color_lerp,
     });
     this->pressedColorAnim = new Animation<Color>({
-        .startValue = this->hoverColor,
-        .endValue = this->pressedColor,
+        .startValue = this->style.hoverColor,
+        .endValue = this->style.pressedColor,
         .duration = 100ms,
         .function = Color::color_lerp,
     });
@@ -106,31 +101,6 @@ Button::~Button()
 {
     delete this->hoverColorAnim;
     delete this->pressedColorAnim;
-}
-
-void Button::setTextColor(const Color &color)
-{
-    this->textColor = color;
-}
-
-void Button::setBackgroundColor(const Color &color)
-{
-    this->backgroundColor = color;
-}
-
-void Button::setHoverColor(const Color &color)
-{
-    this->hoverColor = color;
-}
-
-void Button::setPressedColor(const Color &color)
-{
-    this->pressedColor = color;
-}
-
-void Button::setDisabledColor(const Color &color)
-{
-    this->disabledColor = color;
 }
 
 void Button::setDisabled(bool disabled)

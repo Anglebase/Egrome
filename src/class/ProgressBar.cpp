@@ -5,12 +5,12 @@ void ProgressBar::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
 
-    painter.setPenColor(this->borderColor);
-    painter.setBrushColor(this->backgroundColor);
+    painter.setPenColor(this->style.borderColor);
+    painter.setBrushColor(this->style.backgroundColor);
     painter.drawFillRect(painter.rect());
-    painter.setPenWidth(this->borderWidth);
+    painter.setPenWidth(this->style.borderWidth);
     painter.drawRect(painter.rect());
-    painter.setBrushColor(this->progressColor);
+    painter.setBrushColor(this->style.progressColor);
     painter.drawFillRect(Rect{
         painter.rect().x(),
         painter.rect().y(),

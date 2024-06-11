@@ -3,7 +3,7 @@
  * @file Button.h
  * @brief 按钮控件类
  * @details 按钮控件是一种基本的控件，可以响应鼠标点击、悬停、按下、释放等事件，并提供相关的信号
-*/
+ */
 #include "../core/Animation.hpp"
 #include "../core/SignalSlots.hpp"
 #include "../view/Block.h"
@@ -13,7 +13,7 @@
  * @addtogroup 控件
  * @brief 常用控件封装类
  * @{
-*/
+ */
 
 /**
  * @brief 按钮控件
@@ -27,13 +27,15 @@ class Button : public Block
     bool isHovered;    // 是否悬停
     bool isDisabled;   // 是否不可用
     std::wstring text; // 按钮文本内容
-
-    // Styles
-    Color textColor;       // 文本颜色
-    Color backgroundColor; // 背景颜色
-    Color hoverColor;      // 悬停颜色
-    Color pressedColor;    // 按下颜色
-    Color disabledColor;   // 禁用颜色
+public:
+    struct StyleSheet
+    {
+        Color textColor{Color::Black};       // 文本颜色
+        Color backgroundColor{Color::White}; // 背景颜色
+        Color hoverColor{Color::LightGray};  // 悬停颜色
+        Color pressedColor{Color::DarkGray}; // 按下颜色
+        Color disabledColor{Color::Gray};    // 禁用颜色
+    } style;
 
 protected:
     // Animations
@@ -94,36 +96,6 @@ signals:
 public:
     Button(const Rect &rect, Block *parent = nullptr);
     ~Button() override;
-
-    /**
-     * @brief 设置按钮的文本颜色
-     * @param color 按钮的文本颜色
-     */
-    void setTextColor(const Color &color);
-
-    /**
-     * @brief 设置按钮的默认背景颜色
-     * @param color 按钮的默认背景颜色
-     */
-    void setBackgroundColor(const Color &color);
-
-    /**
-     * @brief 设置按钮悬停时的颜色
-     * @param color 按钮悬停时的颜色
-     */
-    void setHoverColor(const Color &color);
-
-    /**
-     * @brief 设置按钮按下时的颜色
-     * @param color 按钮按下时的颜色
-     */
-    void setPressedColor(const Color &color);
-
-    /**
-     * @brief 设置按钮不可用时的颜色
-     * @param color 按钮不可用时的颜色
-     */
-    void setDisabledColor(const Color &color);
 
     /**
      * @brief 设置按钮是否可用

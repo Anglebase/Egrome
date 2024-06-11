@@ -5,24 +5,24 @@ void RadioBox::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
     auto textrect = painter.rect().adjusted(
-        4 + 2 * borderRadius_, 0, 0, 0);
-    painter.setPenColor(textColor_);
+        4 + 2 * style.borderRadius_, 0, 0, 0);
+    painter.setPenColor(style.textColor_);
     painter.setTextAlign(TextHAlign::Left, TextVAlign::Middle);
     painter.drawText(textrect, text_);
     auto selectrect = painter.rect().adjusted(
         0, 0, -textrect.width(), 0);
-    painter.setPenWidth(borderWidth_);
-    painter.setPenColor(borderColor_);
-    painter.drawCircle(selectrect.center(), borderRadius_);
+    painter.setPenWidth(style.borderWidth_);
+    painter.setPenColor(style.borderColor_);
+    painter.drawCircle(selectrect.center(), style.borderRadius_);
     if (hovered_)
     {
-        painter.setPenColor(this->hoverColor_);
+        painter.setPenColor(this->style.hoverColor_);
         painter.drawRect(painter.rect());
     }
     if (isSelected())
     {
-        painter.setBrushColor(selectedColor_);
-        painter.drawFillCircle(selectrect.center(), borderRadius_);
+        painter.setBrushColor(style.selectedColor_);
+        painter.drawFillCircle(selectrect.center(), style.borderRadius_);
     }
     event.endPaint();
 }
@@ -38,10 +38,7 @@ void RadioBox::mousePressEvent(const Point &pos, MouseButton button)
 
 RadioBox::RadioBox(const Rect &rect, RadioBoxGroup &group, Block *parent)
     : Block(rect, parent), group_(&group),
-      text_(L"RadioBox"), borderWidth_(1), borderRadius_(5),
-      borderColor_(Color::White), hoverColor_(Color::Gray),
-      textColor_(Color::White),
-      selectedColor_(Color::White), hovered_(false)
+      text_(L"RadioBox"), hovered_(false)
 {
     this->onEnter.connect([this]()
                           { this->hovered_ = true; });
@@ -76,31 +73,6 @@ void RadioBox::setSelected(bool selected)
 bool RadioBox::isSelected() const
 {
     return this->group_->selected_ == this;
-}
-
-void RadioBox::setTextColor(const Color &color)
-{
-    textColor_ = color;
-}
-
-void RadioBox::setSelectedColor(const Color &color)
-{
-    selectedColor_ = color;
-}
-
-void RadioBox::setBorderColor(const Color &color)
-{
-    borderColor_ = color;
-}
-
-void RadioBox::setHoverColor(const Color &color)
-{
-    hoverColor_ = color;
-}
-
-void RadioBox::setBorderWidth(int width)
-{
-    borderWidth_ = width;
 }
 
 RadioBox *RadioBoxGroup::selected() const

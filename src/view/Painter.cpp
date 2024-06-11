@@ -283,8 +283,8 @@ void Painter::drawRect(int x, int y, int w, int h) const
 void Painter::drawRect(const Rect &rect) const
 {
     if (this->block)
-        ege::ege_rectangle(rect.x_,
-                           rect.y_,
+        ege::ege_rectangle(this->block->rect_.x_ + rect.x_,
+                           this->block->rect_.y_ + rect.y_,
                            rect.width_,
                            rect.height_);
     if (this->pixelMap)

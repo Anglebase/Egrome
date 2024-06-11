@@ -3,7 +3,7 @@
  * @file radiobox.h
  * @brief 单选框控件
  * @details 单选框控件用于表示一个可选中的选项，单选框组中只能有一个被选中，当选中组中某个单选框时，组中已选中的单选框的选中状态会自动变为未选中
-*/
+ */
 #include "../view/Block.h"
 #include "../view/Color.h"
 
@@ -12,12 +12,12 @@ class RadioBox;
 /**
  * @addtogroup 控件
  * @{
-*/
+ */
 
 /**
  * @addtogroup 单选框控件
  * @{
-*/
+ */
 
 /**
  * @brief 单选框组
@@ -36,7 +36,7 @@ signals:
      * @details 当单选框组中选中状态改变时，会发出此信号
      * @param pass 原选中单选框
      * @param now 新选中单选框
-    */
+     */
     Signal<void(RadioBox *pass, RadioBox *now)> selectedChanged;
 
 public:
@@ -65,24 +65,29 @@ class RadioBox : public Block
     RadioBoxGroup *group_;
     bool hovered_;
     std::wstring text_;
-    Color textColor_;
-    Color selectedColor_;
-    Color borderColor_;
-    Color hoverColor_;
-    int borderWidth_;
-    int borderRadius_;
+
+public:
+    struct StyleSheet
+    {
+        Color textColor_{Color::White};
+        Color selectedColor_{Color::Blue};
+        Color borderColor_{Color::White};
+        Color hoverColor_{Color::LightGray};
+        int borderWidth_{1};
+        int borderRadius_{5};
+    } style;
 
 protected:
     /**
      * @brief 重写 paintEvent() 函数，绘制单选框
      * @param event 绘制事件
-    */
+     */
     void paintEvent(const PaintEvent &event) override;
     /**
      * @brief 重写 mousePressEvent() 函数，响应鼠标点击事件
      * @param pos 鼠标点击位置
      * @param button 鼠标按键
-    */
+     */
     void mousePressEvent(const Point &pos, MouseButton button) override;
 
 signals:
@@ -90,7 +95,7 @@ signals:
      * @brief 单选框状态改变信号
      * @details 当单选框的选中状态改变时，会发出此信号
      * @param selected 单选框当前是否被选中
-    */
+     */
     Signal<void(bool selected)> selectedChanged;
 
 public:
@@ -126,31 +131,6 @@ public:
      * @return true表示选中，false表示未选中
      */
     bool isSelected() const;
-    /**
-     * @brief 设置单选框的文本颜色
-     * @param color 文本颜色
-     */
-    void setTextColor(const Color &color);
-    /**
-     * @brief 设置单选框的选中颜色
-     * @param color 选中颜色
-     */
-    void setSelectedColor(const Color &color);
-    /**
-     * @brief 设置单选框的边框颜色
-     * @param color 边框颜色
-     */
-    void setBorderColor(const Color &color);
-    /**
-     * @brief 设置单选框的悬停时控件边框颜色
-     * @param color 悬停时控件边框颜色
-     */
-    void setHoverColor(const Color &color);
-    /**
-     * @brief 设置单选框的边框宽度
-     * @param width 边框宽度
-     */
-    void setBorderWidth(int width);
 };
 
 /** @} */

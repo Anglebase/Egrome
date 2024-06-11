@@ -10,9 +10,9 @@ void Label::paintEvent(const PaintEvent &event)
 
     // 绘制位图内容
     painter.setPenColor(Color::White);
-    painter.setFont(fontName_, fontSize_);
-    painter.setFontItalic(italic_);
-    painter.setFontWeight(weight_);
+    painter.setFont(style.fontName, style.fontSize);
+    painter.setFontItalic(style.italic_);
+    painter.setFontWeight(style.weight_);
     auto textRect = painter.rect().adjusted(
         leftpadding_, toppadding_,
         -rightpadding_, -bottompadding_);
@@ -41,7 +41,7 @@ void Label::paintEvent(const PaintEvent &event)
 
     // 将位图绘制到屏幕上
     auto &painter2 = event.beginPaint(this);
-    painter2.setBrushColor(textColor_);
+    painter2.setBrushColor(style.textColor);
     painter2.drawPixelMap(
         painter2.rect().getTopLeft(), pm, BlendMode::DSna);
     painter2.drawPixelMap(
@@ -50,7 +50,7 @@ void Label::paintEvent(const PaintEvent &event)
 }
 
 Label::Label(const Rect &rect, Block *parent)
-    : Block(rect, parent), text_(L"Label"), textColor_(Color::White),
+    : Block(rect, parent), text_(L"Label"),
       alignment_(Label::Left | Label::Middle),
       leftpadding_(0), toppadding_(0),
       rightpadding_(0), bottompadding_(0)
@@ -123,25 +123,4 @@ const int &Label::rightPadding() const
 const int &Label::bottomPadding() const
 {
     return bottompadding_;
-}
-
-void Label::setTextColor(const Color &color)
-{
-    textColor_ = color;
-}
-
-void Label::setFont(const std::wstring &fontName, int size)
-{
-    this->fontName_ = fontName;
-    this->fontSize_ = size;
-}
-
-void Label::setItalic(bool italic)
-{
-    this->italic_ = italic;
-}
-
-void Label::setWeight(int weight)
-{
-    this->weight_ = weight;
 }

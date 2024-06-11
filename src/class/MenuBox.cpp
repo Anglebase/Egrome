@@ -11,9 +11,9 @@ Divider::Divider(const Rect &rect, Block *parent)
 void Divider::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
-    painter.setBrushColor(this->backgroundColor_);
+    painter.setBrushColor(this->style.backgroundColor_);
     painter.drawFillRect(painter.rect());
-    painter.setPenColor(color_);
+    painter.setPenColor(style.color_);
     painter.drawLine(
         Point{0, painter.rect().height() / 2},
         Point{painter.rect().width(), painter.rect().height() / 2});
@@ -26,16 +26,6 @@ Divider::Divider(MenuBox *parent)
 {
 }
 
-void Divider::setColor(const Color &color)
-{
-    color_ = color;
-}
-
-void Divider::setBackgroundColor(const Color &color)
-{
-    backgroundColor_ = color;
-}
-
 void MenuItem::paintEvent(const PaintEvent &event)
 {
     auto &painter = event.beginPaint(this);
@@ -46,7 +36,7 @@ void MenuItem::paintEvent(const PaintEvent &event)
     else if (this->hovered_ || this->hoverColorAnim_->isRunning())
         painter.setBrushColor(this->hoverColorAnim_->value());
     else
-        painter.setBrushColor(this->defaultColor_);
+        painter.setBrushColor(this->style.defaultColor_);
     painter.drawFillRect(painter.rect());
 
     event.endPaint();
@@ -117,19 +107,19 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
     using namespace std::chrono_literals;
     this->label_ = new Label(rect, this);
     this->label_->setAlignment(Label::Left | Label::Middle);
-    this->label_->setTextColor(Color::Black);
+    this->label_->style.textColor = Color::Black;
     this->label_->setText(L"Menu Item");
     this->label_->setPadding(5, 5, 5, 5);
 
     this->clickColorAnim_ = new Animation<Color>(Animation<Color>::Args{
-        .startValue = this->hoverColor_,
-        .endValue = this->clickColor_,
+        .startValue = this->style.hoverColor_,
+        .endValue = this->style.clickColor_,
         .duration = 100ms,
         .function = Color::color_lerp,
     });
     this->hoverColorAnim_ = new Animation<Color>({
-        .startValue = this->defaultColor_,
-        .endValue = this->hoverColor_,
+        .startValue = this->style.defaultColor_,
+        .endValue = this->style.hoverColor_,
         .duration = 100ms,
         .function = Color::color_lerp,
     });
@@ -172,22 +162,7 @@ const std::wstring &MenuItem::getText() const
 
 void MenuItem::setTextColor(const Color &color)
 {
-    this->label_->setTextColor(color);
-}
-
-void MenuItem::setHoverColor(const Color &color)
-{
-    hoverColor_ = color;
-}
-
-void MenuItem::setClickColor(const Color &color)
-{
-    clickColor_ = color;
-}
-
-void MenuItem::setDefaultColor(const Color &color)
-{
-    defaultColor_ = color;
+    this->label_->style.textColor = color;
 }
 
 void MenuItem::addChildMenu(MenuBox *menu)

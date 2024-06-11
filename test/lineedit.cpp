@@ -32,7 +32,8 @@ public:
             {
                 label->setText(text);
             });
-        label->setFont(L"思源黑体", 36);
+        label->style.fontName = L"思源黑体";
+        label->style.fontSize = 36;
         label->setText(L"按Enter显示到此...");
     }
     ~Window()

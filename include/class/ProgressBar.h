@@ -8,7 +8,7 @@
 /**
  * @addtogroup 控件
  * @{
-*/
+ */
 
 /**
  * @brief 进度条控件
@@ -17,11 +17,14 @@ class ProgressBar : public Block
 {
     double progress{0.0};
 
-    Color progressColor{Color::White};
-    Color backgroundColor{Color::Black};
-    Color borderColor{Color::White};
-
-    int borderWidth{1};
+public:
+    struct StyleSheet
+    {
+        Color progressColor{Color::White};
+        Color backgroundColor{Color::Black};
+        Color borderColor{Color::White};
+        int borderWidth{1};
+    } style;
 
 protected:
     /**
@@ -34,7 +37,7 @@ signals:
     /**
      * @brief 进度发生变化的信号
      * @param progress 进度值
-    */
+     */
     Signal<void(double progress)> progressChanged;
     /**
      * @brief 进度条完成的信号
@@ -50,7 +53,7 @@ public:
      * @brief 构造函数
      * @param rect 进度条的矩形区域
      * @param parent 父控件
-    */
+     */
     ProgressBar(const Rect &rect, Block *parent = nullptr);
     /**
      * @brief 析构函数

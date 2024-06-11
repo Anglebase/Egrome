@@ -3,7 +3,7 @@
  * @file checkbox.h
  * @brief 复选框控件
  * @details 继承自 Block 类，实现了鼠标点击事件，以及信号槽机制
-*/
+ */
 #include <string>
 #include "../view/Block.h"
 #include "../view/Color.h"
@@ -12,7 +12,7 @@
 /**
  * @addtogroup 控件
  * @{
-*/
+ */
 
 /**
  * @brief 复选框控件
@@ -25,12 +25,17 @@ private:
     bool checked_;
     bool hovered_;
     std::wstring text_;
-    
-    Color textColor_;
-    Color checkColor_;
-    Color borderColor_;
-    int borderWidth_;
-    int boxSize_;
+
+public:
+    struct StyleSheet
+    {
+        Color textColor{Color::White};
+        Color checkColor{Color::White};
+        Color borderColor{Color::White};
+        Color hoverColor{Color::LightGray};
+        int borderWidth{1};
+        int boxSize{10};
+    } style;
 
 protected:
     /**
@@ -51,7 +56,7 @@ signals:
     /**
      * @brief 复选框状态改变信号
      * @details 当复选框状态改变时，发出此信号，并带有新的状态值
-    */
+     */
     Signal<void(bool)> checkedChanged;
 
 public:
@@ -81,32 +86,6 @@ public:
      * @param text 文本内容
      */
     void setText(const std::wstring &text);
-    /**
-     * @brief 设置复选框的文字颜色
-     * @param color 文字颜色
-     */
-    void setTextColor(const Color &color);
-    /**
-     * @brief 设置复选框的勾选框颜色
-     * @param color 勾选框颜色
-     */
-    void setCheckColor(const Color &color);
-    /**
-     * @brief 设置复选框的边框颜色
-     * @param color 边框颜色
-     */
-    void setBorderColor(const Color &color);
-    /**
-     * @brief 设置复选框的边框宽度
-     * @param width 边框宽度
-     */
-    void setBorderWidth(int width);
-    /**
-     * @brief 设置复选框的尺寸
-     * @details 这里的尺寸指的是勾选框的大小，单位为像素
-     * @param size 尺寸
-     */
-    void setBoxSize(int size);
 };
 
 /** @} */

@@ -14,7 +14,7 @@ int main()
         &block,
     };
     label.setText(L"古时候有个私塾先生教着几个学生，有个学生挺笨，念书时把“委蛇”念成weishe，先生打他一顿手板，告诉他记住了，这字要念yi，再念错还打你。");
-    label.setTextColor(Color{255, 0, 0});
+    label.style.textColor = (Color{255, 0, 0});
     label.setPadding(5, 5, 5, 5);
     App app{&block};
     app.run();
