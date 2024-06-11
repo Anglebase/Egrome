@@ -2,7 +2,7 @@ import os,shutil
 
 ## 编译代码
 
-VERSION = "v0.0.1-alpha.3"
+VERSION = "v0.0.1-alpha.4"
 
 print(VERSION)
 input("按Enter键继续...")
@@ -10,7 +10,7 @@ input("按Enter键继续...")
 os.system("md out")
 print("正在编译代码...")
 ret = os.system(
-    "cd out && g++ -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/".replace(
+    "cd out && g++ -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE".replace(
         "/", "\\"
     )
 )
