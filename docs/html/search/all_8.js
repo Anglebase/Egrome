@@ -10,6 +10,7 @@ var searchData=
   ['ischecked_7',['isChecked',['../class_check_box.html#a167b1e397619962c72acdbcd69c228d0',1,'CheckBox']]],
   ['isrunning_8',['isRunning',['../class_animation.html#a52f062cffe443478285eb59fa0876abe',1,'Animation']]],
   ['isselected_9',['isSelected',['../class_radio_box.html#ac33f1fe7b8b09466d899ac766e33c9da',1,'RadioBox']]],
-  ['isvisible_10',['isVisible',['../class_menu_box.html#a150179068601631af14410391ab74a93',1,'MenuBox']]],
-  ['italic_11',['italic',['../struct_label_1_1_style_sheet.html#acf27ef7ceb2635965178c75a0e986a7a',1,'Label::StyleSheet']]]
+  ['isshowplaintext_10',['isShowPlainText',['../class_line_edit.html#ae8facaf16f5870d01ac7ddfbfebd3d5b',1,'LineEdit']]],
+  ['isvisible_11',['isVisible',['../class_menu_box.html#a150179068601631af14410391ab74a93',1,'MenuBox']]],
+  ['italic_12',['italic',['../struct_label_1_1_style_sheet.html#acf27ef7ceb2635965178c75a0e986a7a',1,'Label::StyleSheet']]]
 ];
