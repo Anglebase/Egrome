@@ -30,8 +30,7 @@ private:
     int clipWidth_;
     std::vector<int> widths_;
     bool viewChangedFlag_{false};
-
-    std::function<void()> updateCursorPosition{([]() -> void {})};
+    bool showPlainText_{true};
 signals:
     Signal<void(const std::wstring &text)> textChanged;
     Signal<void()> cursorShow;
@@ -39,6 +38,8 @@ signals:
     Signal<void(const std::wstring &text)> textEnter;
 
 protected:
+    void paintText(const PaintEvent &event);
+    void paintPassword(const PaintEvent &event);
     void paintEvent(const PaintEvent &event) override;
     void mousePressEvent(const Point &pos, MouseButton button) override;
     void keyPressEvent(Key key, KeyFlag flag) override;
@@ -88,4 +89,16 @@ public:
      * @return 文本内容
      */
     const std::wstring& text() const;
+
+    /**
+     * @brief 设置是否展示明文
+     * @param show 是否展示明文
+     */
+    void setShowPlainText(bool show);
+
+    /**
+     * @brief 获取是否展示明文
+     * @return 是否展示明文
+     */
+    bool isShowPlainText() const;
 };

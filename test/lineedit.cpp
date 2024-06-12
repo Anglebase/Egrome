@@ -1,11 +1,28 @@
 #include "LineEdit.h"
 #include "App.h"
 #include "Label.h"
+#include "SignalSlots.hpp"
 
 class Window : public Block
 {
     LineEdit *lineEdit;
     Label *label;
+
+protected:
+    void keyPressEvent(Key key, KeyFlag flag)
+    {
+        if (key == Key::Tab)
+        {
+            if (App::getFocusBlock() == this)
+            {
+                this->TabPressed.emit();
+                return;
+            }
+        }
+        return Block::keyPressEvent(key, flag);
+    }
+signals:
+    Signal<void()> TabPressed;
 
 public:
     Window(const Rect &rect, Block *parent = nullptr) : Block(rect, parent)
@@ -26,6 +43,7 @@ public:
             .fontName = L"思源黑体",
             .fontSize = 36,
         };
+        lineEdit->setShowPlainText(false);
 
         lineEdit->textEnter.connect(
             [this](const std::wstring &text)
@@ -35,6 +53,10 @@ public:
         label->style.fontName = L"思源黑体";
         label->style.fontSize = 36;
         label->setText(L"按Enter显示到此...");
+
+        this->TabPressed.connect([this](){
+            this->lineEdit->setShowPlainText(!this->lineEdit->isShowPlainText());
+        });
     }
     ~Window()
     {
