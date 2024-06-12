@@ -24,6 +24,8 @@ class CheckBox : public Block
 private:
     bool checked_;
     bool hovered_;
+
+protected:
     std::wstring text_;
 
 public:

@@ -357,11 +357,27 @@ void Painter::drawPolygon(const std::vector<Point> &points) const
     auto points_ = new ege::ege_point[points.size() + 1];
     for (int i = 0; i < points.size(); i++)
     {
-        points_[i].x = points[i].x_;
-        points_[i].y = points[i].y_;
+        if (this->block)
+        {
+            points_[i].x = points[i].x_ + this->block->rect_.x_;
+            points_[i].y = points[i].y_ + this->block->rect_.y_;
+        }
+        if (this->pixelMap)
+        {
+            points_[i].x = points[i].x_;
+            points_[i].y = points[i].y_;
+        }
     }
-    points_[points.size()].x = points[0].x_;
-    points_[points.size()].y = points[0].y_;
+    if (this->block)
+    {
+        points_[points.size()].x = points[0].x_ + this->block->rect_.x_;
+        points_[points.size()].y = points[0].y_ + this->block->rect_.y_;
+    }
+    if (this->pixelMap)
+    {
+        points_[points.size()].x = points[0].x_;
+        points_[points.size()].y = points[0].y_;
+    }
     if (this->block)
         ege::ege_drawpoly(points.size() + 1, points_);
     if (this->pixelMap)
@@ -372,16 +388,24 @@ void Painter::drawPolygon(const std::vector<Point> &points) const
 
 void Painter::drawPolyline(const std::vector<Point> &points) const
 {
-    auto points_ = new ege::ege_point[points.size() * 2];
+    auto points_ = new ege::ege_point[points.size() + 1];
     for (int i = 0; i < points.size(); i++)
     {
-        points_[i].x = points[i].x_;
-        points_[i].y = points[i].y_;
+        if (this->block)
+        {
+            points_[i].x = points[i].x_ + this->block->rect_.x_;
+            points_[i].y = points[i].y_ + this->block->rect_.y_;
+        }
+        if (this->pixelMap)
+        {
+            points_[i].x = points[i].x_;
+            points_[i].y = points[i].y_;
+        }
     }
     if (this->block)
-        ege::ege_drawpoly(points.size(), points_);
+        ege::ege_drawpoly(points.size() + 1, points_);
     if (this->pixelMap)
-        ege::ege_drawpoly(points.size(), points_,
+        ege::ege_drawpoly(points.size() + 1, points_,
                           (ege::IMAGE *)this->pixelMap->image_);
     delete[] points_;
 }
