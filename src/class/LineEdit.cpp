@@ -89,7 +89,7 @@ void LineEdit::paintText(const PaintEvent &event)
             this->clipWidth_,
             pm.getSize().height(),
         });
-        paint.drawPixelMap(offsetX_, offsetY_, *viewPart);
+        paint.drawPixelMap(offsetX_, offsetY_, viewPart);
     }
     // 绘制光标
     static bool state{false};
@@ -206,7 +206,7 @@ void LineEdit::paintPassword(const PaintEvent &event)
             this->clipWidth_,
             pm.getSize().height(),
         });
-        paint.drawPixelMap(offsetX_, offsetY_, *viewPart);
+        paint.drawPixelMap(offsetX_, offsetY_, viewPart);
     }
     // 绘制光标
     static bool state{false};

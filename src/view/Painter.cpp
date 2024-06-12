@@ -9,10 +9,8 @@
 #include "Size.h"
 #include "Painter.h"
 
-PaintEvent::~PaintEvent() throw()
+PaintEvent::~PaintEvent()
 {
-    if (this->painter)
-        throw Exception("PaintEvent::endPaint() should be called before destructor");
 }
 
 const Painter &PaintEvent::beginPaint(const Block *block) const
@@ -388,7 +386,7 @@ void Painter::drawPolygon(const std::vector<Point> &points) const
 
 void Painter::drawPolyline(const std::vector<Point> &points) const
 {
-    auto points_ = new ege::ege_point[points.size() + 1];
+    auto points_ = new ege::ege_point[points.size()];
     for (int i = 0; i < points.size(); i++)
     {
         if (this->block)
@@ -403,9 +401,9 @@ void Painter::drawPolyline(const std::vector<Point> &points) const
         }
     }
     if (this->block)
-        ege::ege_drawpoly(points.size() + 1, points_);
+        ege::ege_drawpoly(points.size(), points_);
     if (this->pixelMap)
-        ege::ege_drawpoly(points.size() + 1, points_,
+        ege::ege_drawpoly(points.size(), points_,
                           (ege::IMAGE *)this->pixelMap->image_);
     delete[] points_;
 }
@@ -1102,6 +1100,33 @@ void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       (ege::IMAGE *)pixelmap.image_,
                       pixelmapSrcPos.x_, pixelmapSrcPos.y_,
                       operationCode);
+}
+
+void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
+                           BlendMode blendMode) const
+{
+    if (this->block)
+    {
+        ege::putimage(this->block->rect_.x_ + rect.x_,
+                      this->block->rect_.y_ + rect.y_,
+                      rect.width_, rect.height_,
+                      (ege::IMAGE *)pixelmap.image_,
+                      0, 0,
+                      pixelmap.width_,
+                      pixelmap.height_,
+                      translateOperationCode(blendMode));
+    }
+    if (this->pixelMap)
+    {
+        ege::putimage((ege::IMAGE *)this->pixelMap->image_,
+                      rect.x_, rect.y_,
+                      rect.width_, rect.height_,
+                      (ege::IMAGE *)pixelmap.image_,
+                      0, 0,
+                      pixelmap.width_,
+                      pixelmap.height_,
+                      translateOperationCode(blendMode));
+    }
 }
 
 void Painter::drawCircle(int x, int y, int r) const

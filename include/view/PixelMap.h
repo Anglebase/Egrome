@@ -2,7 +2,7 @@
 /**
  * @file PixelMap.h
  * @brief 像素图类
-*/
+ */
 #include <memory>
 
 class Size;
@@ -12,7 +12,7 @@ class Rect;
 /**
  * @addtogroup 视图
  * @{
-*/
+ */
 
 /**
  * @brief 像素图类
@@ -38,24 +38,38 @@ public:
      * @brief 从屏幕创建像素图
      * @param rect 屏幕矩形区域
      * @return 创建出的像素图
+     * @warning 此函数不应在构造函数中调用，如有需求，应将他在构造函数中作为槽函数连接至信号App::windowCreate
      */
-    static std::shared_ptr<PixelMap> FormScreen(const Rect &rect);
+    static PixelMap FormScreen(const Rect &rect);
     /**
      * @brief 从文件创建像素图
      * @param filename 文件名
      * @return 创建出的像素图
+     * @note 支持的图像格式：png/bmp/jpg/gif/emf/wmf/ico
+     * @warning 此函数不应在构造函数中调用，如有需求，应将他在构造函数中作为槽函数连接至信号App::windowCreate
      */
-    static std::shared_ptr<PixelMap> FromFile(const std::string &filename);
-    // static std::shared_ptr<PixelMap> FromFile(const std::wstring &filename);
+    static PixelMap FromFile(const std::string &filename);
+    /**
+     * @brief 从文件创建像素图
+     * @param filename 文件名
+     * @return 创建出的像素图
+     * @note 支持的图像格式：png/bmp/jpg/gif/emf/wmf/ico
+     * @warning 此函数不应在构造函数中调用，如有需求，应将他在构造函数中作为槽函数连接至信号App::windowCreate
+     */
+    static PixelMap FromFile(const std::wstring &filename);
 
 private:
-    void *image_;
+    void *image_{nullptr};
     int width_;
     int height_;
 
     mutable Painter *painter_{nullptr};
 
 public:
+    /**
+     * @brief 默认构造函数
+     */
+    PixelMap() = default;
     /**
      * @brief 构造函数
      * @param width 像素图宽度
@@ -67,11 +81,30 @@ public:
      * @param size 像素图大小
      */
     PixelMap(const Size &size);
-
-    PixelMap(const PixelMap &other) = delete;
-    PixelMap(PixelMap &&other) = delete;
-    PixelMap &operator=(const PixelMap &other) = delete;
-    PixelMap &operator=(PixelMap &&other) = delete;
+    /**
+     * @brief 拷贝构造函数
+     * @param other 要拷贝的对象
+     */
+    PixelMap(const PixelMap &other);
+    /**
+     * @brief 移动构造函数
+     * @param other 要移动的对象
+     * @note 该构造函数不会拷贝位图数据，只会转移指针所有权，因此可以避免内存分配和释放，被移动的对象将无法再被使用
+     */
+    PixelMap(PixelMap &&other);
+    /**
+     * @brief 复制赋值
+     * @param other 源对象
+     * @return 赋值后的对象
+     */
+    PixelMap &operator=(const PixelMap &other);
+    /**
+     * @brief 移动赋值
+     * @param other 源对象
+     * @return 赋值后的对象
+     * @note 该赋值操作不会拷贝位图数据，只会转移指针所有权，因此可以避免内存分配和释放，被移动的对象将无法再被使用
+     */
+    PixelMap &operator=(PixelMap &&other);
 
     /**
      * @brief 析构函数
@@ -104,16 +137,16 @@ public:
      */
     void endPaint() const;
     /**
-     * @brief 复制像素图
-     * @return 复制出的像素图
-     */
-    std::shared_ptr<PixelMap> clone() const;
-    /**
      * @brief 裁剪像素图
      * @param rect 裁剪区域
      * @return 裁剪出的像素图
      */
-    std::shared_ptr<PixelMap> clip(const Rect &rect) const;
+    PixelMap clip(const Rect &rect) const;
+    /**
+     * @brief 判断是否为空
+     * @return 是否为空
+     */
+    bool isNull() const;
 };
 
 /** @} */

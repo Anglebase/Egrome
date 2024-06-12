@@ -159,7 +159,7 @@ void App::run()
     // 初始化环境
     ege::initgraph(this->block_->rect().width(),
                    this->block_->rect().height());
-    this->windowCreate.emit();
+    App::windowCreate.emit();
     ege::setbkmode(TRANSPARENT);
     App::setTitle(L"Egrome");
 
@@ -245,7 +245,7 @@ void App::run()
         ege::cleardevice();
         this->block_->paintEvent(paintEvent);
     }
-    this->windowDestroy.emit();
+    App::windowDestroy.emit();
     ege::closegraph();
 }
 

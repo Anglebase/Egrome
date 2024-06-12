@@ -677,6 +677,7 @@ public:
      * @brief 绘制像素图
      * @param rect 像素图所在的矩形
      * @param pixelmap 像素图
+     * @param pixelmapSrcPos 像素图源位置
      * @param blendMode 像素图混合模式，默认值为"S"，即源像素
      * @note blendMode参数是用逆波兰表示法来表示的，具体如下：
      * @note "S" : 源像素颜色
@@ -685,6 +686,15 @@ public:
      */
     void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       const Point &pixelmapSrcPos,
+                      BlendMode blendMode = BlendMode::S) const;
+
+    /**
+     * @brief 以拉伸方式绘制像素图
+     * @param rect 像素图的目标位置
+     * @param pixelmap 像素图
+     * @param blendMode 像素图混合模式，默认值为"S"，即源像素
+     */
+    void drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
                       BlendMode blendMode = BlendMode::S) const;
 
     /**

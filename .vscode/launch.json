@@ -8,7 +8,7 @@
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
-            "target": "./bin/menubox.exe",
+            "target": "./bin/loadimage.exe",
             "cwd": "${workspaceRoot}",
             "valuesFormatting": "parseText"
         }

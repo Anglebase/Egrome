@@ -157,12 +157,12 @@ signals:
      * @brief 窗口创建信号
      * @note 当窗口创建时发出此信号
      */
-    Signal<void()> windowCreate;
+    inline static Signal<void()> windowCreate;
     /**
      * @brief 窗口销毁信号
      * @note 当窗口销毁时发出此信号
      */
-    Signal<void()> windowDestroy;
+    inline static Signal<void()> windowDestroy;
 
 public:
     /**
