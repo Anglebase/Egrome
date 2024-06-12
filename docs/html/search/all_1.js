@@ -16,11 +16,12 @@ var searchData=
   ['borderradius_5f_13',['borderRadius_',['../struct_radio_box_1_1_style_sheet.html#a86a1fe5ed22dadbe3efdaf10303b0da1',1,'RadioBox::StyleSheet']]],
   ['borderwidth_14',['borderWidth',['../struct_check_box_1_1_style_sheet.html#a7a28476a59a297d8decfca83f429e2de',1,'CheckBox::StyleSheet::borderWidth'],['../struct_line_edit_1_1_style_sheet.html#a6abe38f1c0388592582c788bfacb36f9',1,'LineEdit::StyleSheet::borderWidth'],['../struct_progress_bar_1_1_style_sheet.html#af355b6473c0674be89f8907bcde8c624',1,'ProgressBar::StyleSheet::borderWidth']]],
   ['borderwidth_5f_15',['borderWidth_',['../struct_radio_box_1_1_style_sheet.html#a99436f824c7040685797da266bbcc8a4',1,'RadioBox::StyleSheet']]],
-  ['bottom_16',['bottom',['../class_rect.html#ae4f3e31ce1bf00869b2f1ab0416a4f1a',1,'Rect::bottom()'],['../class_rect_f.html#a996717a0884f784777dd8e69b9329fd3',1,'RectF::bottom()']]],
-  ['bottom_17',['Bottom',['../class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f',1,'Label::Bottom'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4',1,'Bottom:&#160;Painter.h']]],
-  ['bottompadding_18',['bottomPadding',['../class_label.html#a4162c43d25e42f72557bb17376d0a2b5',1,'Label::bottomPadding()'],['../class_label.html#aba28a17be7898f778ab2cc1c5c6319ef',1,'Label::bottomPadding() const']]],
-  ['boxsize_19',['boxSize',['../struct_check_box_1_1_style_sheet.html#ae8ec1d548cfde7851fc834d9d9f63b6a',1,'CheckBox::StyleSheet']]],
-  ['brushstyle_20',['BrushStyle',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128',1,'Painter.h']]],
-  ['button_21',['Button',['../class_button.html',1,'']]],
-  ['button_2eh_22',['Button.h',['../_button_8h.html',1,'']]]
+  ['bottom_16',['Bottom',['../class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a3aacbd043e71406cf99ebada245b680f',1,'Label']]],
+  ['bottom_17',['bottom',['../class_rect.html#ae4f3e31ce1bf00869b2f1ab0416a4f1a',1,'Rect::bottom()'],['../class_rect_f.html#a996717a0884f784777dd8e69b9329fd3',1,'RectF::bottom()']]],
+  ['bottom_18',['Bottom',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4',1,'Painter.h']]],
+  ['bottompadding_19',['bottomPadding',['../class_label.html#a4162c43d25e42f72557bb17376d0a2b5',1,'Label::bottomPadding()'],['../class_label.html#aba28a17be7898f778ab2cc1c5c6319ef',1,'Label::bottomPadding() const']]],
+  ['boxsize_20',['boxSize',['../struct_check_box_1_1_style_sheet.html#ae8ec1d548cfde7851fc834d9d9f63b6a',1,'CheckBox::StyleSheet']]],
+  ['brushstyle_21',['BrushStyle',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128',1,'Painter.h']]],
+  ['button_22',['Button',['../class_button.html',1,'']]],
+  ['button_2eh_23',['Button.h',['../_button_8h.html',1,'']]]
 ];

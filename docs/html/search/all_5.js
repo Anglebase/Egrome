@@ -16,7 +16,7 @@ var searchData=
   ['finished_13',['finished',['../class_progress_bar.html#aa818c7a5202b1f9f86e97f9c2401c667',1,'ProgressBar']]],
   ['fontname_14',['fontName',['../struct_label_1_1_style_sheet.html#a17b1a5caa0383f542d1790f5f005456d',1,'Label::StyleSheet::fontName'],['../struct_line_edit_1_1_style_sheet.html#ae71261a33dfb3048ba5f0dfd47a1065e',1,'LineEdit::StyleSheet::fontName']]],
   ['fontsize_15',['fontSize',['../struct_label_1_1_style_sheet.html#a6902d040067a160664747ba925745bc6',1,'Label::StyleSheet::fontSize'],['../struct_line_edit_1_1_style_sheet.html#a62d6cc12d946c5ab84cc872c8791e13a',1,'LineEdit::StyleSheet::fontSize']]],
-  ['formscreen_16',['FormScreen',['../class_pixel_map.html#acf680e9ec8879d64ee10b53d7f735772',1,'PixelMap']]],
-  ['fromfile_17',['FromFile',['../class_pixel_map.html#a494232d0a71e5f48579dcd1283b08abe',1,'PixelMap']]],
+  ['formscreen_16',['FormScreen',['../class_pixel_map.html#aa5f575c5b3314507862993ed0b02e2bb',1,'PixelMap']]],
+  ['fromfile_17',['FromFile',['../class_pixel_map.html#a4b9cbcbe10544e337666208b3ff4098b',1,'PixelMap::FromFile(const std::string &amp;filename)'],['../class_pixel_map.html#a583d2a9c44a649b65dc0d8ee86b850c4',1,'PixelMap::FromFile(const std::wstring &amp;filename)']]],
   ['function_18',['function',['../struct_animation_1_1_args.html#a44f643cf7dc18c71d5d5cb25a9b8949b',1,'Animation::Args']]]
 ];

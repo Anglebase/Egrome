@@ -3,9 +3,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
     [ "字面量", "group___xE5_xAD_x97_xE9_x9D_xA2_xE9_x87_x8F.html", "group___xE5_xAD_x97_xE9_x9D_xA2_xE9_x87_x8F" ],
     [ "App", "class_app.html", [
       [ "App", "class_app.html#a6886f5dc6c83da9ae35542ac27f3da40", null ],
-      [ "run", "class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1", null ],
-      [ "windowCreate", "class_app.html#a0c1733bb4b9a639daf5b39a5bfd4bc2a", null ],
-      [ "windowDestroy", "class_app.html#a438e1ac016a9cd8a97cb06d6557b9742", null ]
+      [ "run", "class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1", null ]
     ] ],
     [ "Block", "class_block.html", [
       [ "Block", "class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1", null ],
@@ -70,6 +68,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "drawPixel", "class_painter.html#a57a97ccc4c9afc58a672721211edc979", null ],
       [ "drawPixel", "class_painter.html#a72670841002558a056ea4a9fdd4ae447", null ],
       [ "drawPixelMap", "class_painter.html#a0d17a27187c0b0cb844664f8634c8a4b", null ],
+      [ "drawPixelMap", "class_painter.html#ab0b9d30bce145b2e08e1c00d4d4e9e89", null ],
       [ "drawPixelMap", "class_painter.html#a7689903e9056de5b92845d15d84d881b", null ],
       [ "drawPixelMap", "class_painter.html#a7883dac1ed6fbed8e50760d17d068adf", null ],
       [ "drawPolygon", "class_painter.html#aacbbb479b8054a8039c0b128a4b91b31", null ],
@@ -107,14 +106,19 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "endPaint", "class_paint_event.html#a24f230eac627a7a2e484529f7269324c", null ]
     ] ],
     [ "PixelMap", "class_pixel_map.html", [
+      [ "PixelMap", "class_pixel_map.html#a908ecb024b22c48b194a9c17b864491a", null ],
       [ "PixelMap", "class_pixel_map.html#abefa6459dbad97736a8b26ff54ee32bf", null ],
       [ "PixelMap", "class_pixel_map.html#a5f61b62f15e04f4066f43968e48db9f9", null ],
+      [ "PixelMap", "class_pixel_map.html#a08239b9c7d5c3dcb9ea1b3a15d61d5ef", null ],
+      [ "PixelMap", "class_pixel_map.html#a4c0af880374dd71116c825d1f88774b2", null ],
       [ "~PixelMap", "class_pixel_map.html#a576c8df5242a00960195f891b7ba91d3", null ],
       [ "beginPaint", "class_pixel_map.html#a01af147ba55f70461b94f1050d0b1414", null ],
-      [ "clip", "class_pixel_map.html#a7d11af48b607a3c0b5125819eaf6f93b", null ],
-      [ "clone", "class_pixel_map.html#ae9b0bbab091890df42ec6f1bd4320800", null ],
+      [ "clip", "class_pixel_map.html#a9d30ff93d6f9c1a0bc734c0a56a26404", null ],
       [ "endPaint", "class_pixel_map.html#a6d15d99c115077f33bc2e7564a2c02b0", null ],
       [ "getSize", "class_pixel_map.html#a664275e7fe9ffea89dfa9fcb4536d9d1", null ],
+      [ "isNull", "class_pixel_map.html#a9a934d07fa6987a087f2a341388c07f5", null ],
+      [ "operator=", "class_pixel_map.html#a85b879cd2561ca7841b578dd27d8e5ed", null ],
+      [ "operator=", "class_pixel_map.html#a78ee7b2086e0b799b27459c3756feae9", null ],
       [ "setSize", "class_pixel_map.html#a96920314a4b67145f05f1ca99849d9da", null ],
       [ "setSize", "class_pixel_map.html#a69e2ea9c2be9438d6c39bc930837c8c0", null ]
     ] ],

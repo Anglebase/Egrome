@@ -20,6 +20,7 @@ var class_painter =
     [ "drawPixel", "class_painter.html#a57a97ccc4c9afc58a672721211edc979", null ],
     [ "drawPixel", "class_painter.html#a72670841002558a056ea4a9fdd4ae447", null ],
     [ "drawPixelMap", "class_painter.html#a0d17a27187c0b0cb844664f8634c8a4b", null ],
+    [ "drawPixelMap", "class_painter.html#ab0b9d30bce145b2e08e1c00d4d4e9e89", null ],
     [ "drawPixelMap", "class_painter.html#a7689903e9056de5b92845d15d84d881b", null ],
     [ "drawPixelMap", "class_painter.html#a7883dac1ed6fbed8e50760d17d068adf", null ],
     [ "drawPolygon", "class_painter.html#aacbbb479b8054a8039c0b128a4b91b31", null ],
