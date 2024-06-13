@@ -1,5 +1,11 @@
 var _block_8h =
 [
+    [ "CursorType", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gabbe637356c8cb749a9726f13658031fa", [
+      [ "Arrow", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faa0f4e1aaabd074689b7d3ead824d1ee8e", null ],
+      [ "IBeam", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faa4ca8b47601e7a843e23d0139a8a4ff61", null ],
+      [ "Cross", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faae76b449b9fc8536af7557ffa6321d269", null ],
+      [ "Hand", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faaa78b1ac16c0cd02168097fc9a9bd7604", null ]
+    ] ],
     [ "Key", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gab3c7af4820830f9166ede9e5623c4e73", [
       [ "Mouse_l", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73aeb7855ff2eeba1bcf6abec109b0b0ada", null ],
       [ "Mouse_r", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a973f3a66e541ce4b10699da207880794", null ],
@@ -113,6 +119,11 @@ var _block_8h =
       [ "Rbrace", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a336a4c9062c886fc8b144675d951ac4c", null ],
       [ "Quote", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ac48e929b2b1eabba2ba036884433345e", null ],
       [ "Ime_process", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a381c5f9cfa4dae862485099881241a32", null ]
+    ] ],
+    [ "KeyFlag", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb", [
+      [ "Null", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fbabbb93ef26e3c101ff11cdd21cab08a94", null ],
+      [ "Ctrl", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47", null ],
+      [ "Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c", null ]
     ] ],
     [ "MouseButton", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711", [
       [ "Left", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggac1ec3647c005eacad401b06e7e18f711a945d5e233cf7d6240f6b783b36a374ff", null ],

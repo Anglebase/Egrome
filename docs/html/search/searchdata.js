@@ -5,7 +5,7 @@ var indexSectionsWithContent =
   2: "abcelmprs",
   3: "abcdefghiklmopqrstuvwz~",
   4: "bcdefghiloprstvwy",
-  5: "abikmpt",
+  5: "abcikmpt",
   6: "abcdefghijklmnopqrstuvwxyz",
   7: "o",
   8: "单字常控核菜视"

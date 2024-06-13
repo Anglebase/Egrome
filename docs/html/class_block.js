@@ -1,6 +1,8 @@
 var class_block =
 [
     [ "Block", "class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1", null ],
+    [ "childs", "class_block.html#a50623bee8bd4b176278f438e12b015cb", null ],
+    [ "childs", "class_block.html#a546bf38cd158b322fe67f60f56f6890e", null ],
     [ "getRect", "class_block.html#a00c956ee81acd407f99e8402a370820e", null ],
     [ "InputTextEvent", "class_block.html#a90e0bbaea24817177537b99507041aeb", null ],
     [ "keyPressEvent", "class_block.html#a757c4552853538a17fc0f927ed4b27d3", null ],
@@ -10,6 +12,9 @@ var class_block =
     [ "mouseReleaseEvent", "class_block.html#ad27dee1ce1692964c7f209af129e3322", null ],
     [ "mouseWheelEvent", "class_block.html#a2a82987e8d7415c7ac8dd7a3f3ef0eb6", null ],
     [ "paintEvent", "class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e", null ],
+    [ "parent", "class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186", null ],
+    [ "rect", "class_block.html#ab64786a3db2831fc78756b78fd11d8f4", null ],
+    [ "rect", "class_block.html#a2e7363fe8ca8da5b722406572d26b68f", null ],
     [ "setCursorType", "class_block.html#a7c98f8c53e968eb90fc282800b9265fa", null ],
     [ "setRect", "class_block.html#a11c84bbe9838102e16b66f7a7c2c0917", null ],
     [ "setZindex", "class_block.html#a793f603073525e79a6bafac2efed1a28", null ],

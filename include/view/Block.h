@@ -21,16 +21,22 @@ class PaintEvent;
 /// @brief 鼠标按钮枚举
 enum class MouseButton
 {
+    /// 鼠标左键
     Left,
+    /// 鼠标右键
     Right,
+    /// 鼠标中键
     Middle
 };
 
 /// @brief 鼠标滚轮方向枚举
 enum class MouseWheel
 {
+    /// 向上滚动
     Up,
+    /// 向下滚动
     Down,
+    /// 空值
     None
 };
 
@@ -55,6 +61,7 @@ enum class Key
     Control = 0x11,
     /// Alt键
     Menu = 0x12,
+    /// Pause键
     Pause = 0x13,
     /// Capslock键(大写锁定键)
     Capslock = 0x14,
@@ -80,8 +87,9 @@ enum class Key
     Right = 0x27,
     /// 下方向键
     Down = 0x28,
-
+    /// Print键
     Print = 0x2a,
+    /// PrintScreen键(截屏键)
     Snapshot = 0x2c,
     /// Insert键
     Insert = 0x2d,
@@ -165,7 +173,7 @@ enum class Key
     Win_l = 0x5b,
     /// 右Windows键
     Win_r = 0x5c,
-
+    /// 计算机休眠键
     Sleep = 0x5f,
 
     /// 小键盘数字0键
@@ -189,11 +197,17 @@ enum class Key
     /// 小键盘数字9键
     Num9 = 0x69,
 
+    /// 小键盘乘号(*)键
     Multiply = 0x6a,
+    /// 小键盘加号(+)键
     Add = 0x6b,
+    /// 分隔符键
     Separator = 0x6c,
+    /// 小键盘减号(-)键
     Subtract = 0x6d,
+    /// 小键盘点(.)键
     Decimal = 0x6e,
+    /// 小键盘除号(/)键
     Divide = 0x6f,
 
     /// F1键
@@ -223,6 +237,7 @@ enum class Key
 
     /// Numlock键
     Numlock = 0x90,
+    /// Scrolllock键
     Scrolllock = 0x91,
 
     /// 左Shift键
@@ -237,39 +252,58 @@ enum class Key
     Menu_l = 0xa4,
     /// 右Alt键
     Menu_r = 0xa5,
-
+    /// ;:键(分号、冒号)
     Semicolon = 0xba,
+    /// =+键(等号、加号)
     Plus = 0xbb,
+    /// ,<键(逗号、小于号)
     Comma = 0xbc,
+    /// -_键(减号、下划线)
     Minus = 0xbd,
+    /// .>键(句号、大于号)
     Period = 0xbe,
+    /// /?键(斜杠、问号)
     Slash = 0xbf,
+    /// `~键(波浪线、tilde键)
     Tilde = 0xc0,
+    /// [{键(左中括号、左花括号)
     Lbrace = 0xdb,
+    /// \\|键(竖线、反斜杠)
     Backslash = 0xdc,
+    /// ]}键(右中括号、右花括号)
     Rbrace = 0xdd,
+    /// '"键(引号、双引号)
     Quote = 0xde,
-
+    /// IME_PROCESS键
     Ime_process = 0xe5,
 };
 
+/// @brief 键盘按键标志位枚举
 enum class KeyFlag
 {
+    /// 无标志位
+    Null = 0x000,
+    /// Ctrl键
     Ctrl = 0x200,
+    /// Shift键
     Shift = 0x100,
 };
 
-enum class CursorType
-{
+/// @brief 鼠标光标类型枚举
+enum class CursorType {
+    /// 箭头光标
     Arrow,
+    /// 插入光标
     IBeam,
+    /// 十字光标
     Cross,
+    /// 手型光标
     Hand,
 };
 
 /**
  * @brief Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能
- * @brief 用户可以通过继承Block类来实现自己的UI对象，通过重写paint()函数来实现自己的绘制逻辑，通过重写update()函数来实现自己的更新逻辑
+ * @brief 用户可以通过继承Block类来实现自己的UI对象，通过重写paint()函数来实现自己的绘制逻辑，通过重写update()函数来实现自己的更新逻辑，同时应注意在事件处理函数中不应执行耗时操作，用户可以在事件处理函数中手动调用父类的事件处理函数而灵活的应用Block所提供的默认行为
  */
 class Block
 {
@@ -291,18 +325,16 @@ private:
     Point lastPos_;
 
 private:
-    static void* cursorArrow;
-    static void* cursorIBeam;
-    static void* cursorCross;
-    static void* cursorHand;
+    static void *cursorArrow;
+    static void *cursorIBeam;
+    static void *cursorCross;
+    static void *cursorHand;
 
 protected:
     /**
      * @brief 虚函数，用于绘制 Block
-     * @brief 此函数内不应修改 Block 的数据状态，应采用 update() 函数来更新数据状态
-     * @brief 此函数会遍历子 Block 并调用子 Block 的 paint() 函数绘制子 Block
+     * @note 此函数会遍历子 Block 并调用子 Block 的 paint() 函数绘制子 Block，此函数每帧只会被调用一次
      * @param event 绘制事件
-     * @note 子类重写该函数时应当调用父类的 paint() 函数
      */
     virtual void paintEvent(const PaintEvent &event);
 
@@ -310,7 +342,7 @@ protected:
      * @brief 虚函数，用于处理鼠标按钮按下事件
      * @param pos 鼠标位置
      * @param button 鼠标按钮
-     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号
+     * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号，并触发 onFocused 信号，同时将 Block 设为当前焦点
      */
     virtual void mousePressEvent(const Point &pos, MouseButton button);
 
@@ -340,6 +372,7 @@ protected:
     /**
      * @brief 虚函数，用于处理键盘按下事件
      * @param key 按下的键
+     * @param flag 按键标志位，它指示Ctrl键、Shift键是否被同时按下
      * @note 子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onNext 信号
      */
     virtual void keyPressEvent(Key key, KeyFlag flag);
@@ -448,11 +481,32 @@ public:
      */
     void setRect(const Rect &rect);
 
+    /**
+     * @brief 获取当前 Block 的所在矩形区域
+     * @return 当前 Block 的所在矩形区域
+     * @note 该函数返回的区域是相对于窗口的坐标
+     */
     Rect &rect();
+    /**
+     * @brief 获取当前 Block 的所在矩形区域
+     * @return 当前 Block 的所在矩形区域
+     * @note 该函数返回的区域是相对于窗口的坐标
+     */
     const Rect &rect() const;
-
+    /**
+     * @brief 获取当前 Block 的父 Block
+     * @return 当前 Block 的父 Block
+     */
     Block *parent() const;
+    /**
+     * @brief 获取当前 Block 的子 Block 列表
+     * @return 当前 Block 的子 Block 列表
+     */
     std::vector<Block *> &childs();
+    /**
+     * @brief 获取当前 Block 的子 Block 列表
+     * @return 当前 Block 的子 Block 列表
+     */
     const std::vector<Block *> &childs() const;
 
     /**
