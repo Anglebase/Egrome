@@ -287,6 +287,8 @@ enum class KeyFlag
     Ctrl = 0x200,
     /// Shift键
     Shift = 0x100,
+    /// Ctrl+Shift键
+    CtrlShift = 0x300,
 };
 
 /// @brief 鼠标光标类型枚举

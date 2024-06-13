@@ -24,7 +24,7 @@
             "oleaut32",
             "winmm"
         ],
-        // "complie": true,
+        // "compile": true,
         // "start": true,
         "target": "./bin/test.exe",
         "option": [
