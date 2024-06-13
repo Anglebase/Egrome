@@ -7,7 +7,6 @@
 #include "../core/Var.hpp"
 #include "../view/Color.h"
 
-
 /**
  * @addtogroup 控件
  * @{
@@ -18,6 +17,7 @@
 class LineEdit : public Block
 {
     std::chrono::steady_clock::time_point lastTime_;
+
 private:
     std::wstring text_;
 
@@ -93,7 +93,7 @@ public:
      * @brief 获取文本内容
      * @return 文本内容
      */
-    const std::wstring& text() const;
+    const std::wstring &text() const;
 
     /**
      * @brief 设置是否展示明文
