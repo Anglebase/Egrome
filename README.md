@@ -52,7 +52,7 @@ Egrome 安装方式与 EGE 相同，将 include 和 lib 文件夹复制到你的
 
 ## 使用 Egrome
 
-Egrome 使用起来与 EGE 基本，仅需在编译链接参数'-lgraphics64'前额外添加'-legrome'即可，对于GCC编译器而言，命令格式如下：
+Egrome 使用起来与 EGE 基本相同，仅需在编译链接参数'-lgraphics64'前额外添加'-legrome'即可，对于GCC编译器而言，命令格式如下：
 ```
 g++ [源文件] -o [输出文件] -legrome -lgraphics64 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm
 ```
