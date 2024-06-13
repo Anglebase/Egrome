@@ -38,7 +38,7 @@ const Color Color::LightCyan{0x00FFFF_rgb};
 /// 亮粉色
 const Color Color::LightPink{0xFFB6C1_rgb};
 
-Color Color::color_lerp(Color start, Color end, double t)
+Color Color::lerp(Color start, Color end, double t)
 {
     auto f = [](int a, int b, double t) -> int
     { return a + (b - a) * t; };
@@ -104,7 +104,7 @@ const Color &Color::operator=(const HSL &hsl)
 
 bool Color::operator==(const Color &other) const
 {
-    return red == other.red && green == other.green && blue == other.blue;
+    return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
 }
 
 bool Color::operator!=(const Color &other) const
@@ -166,6 +166,11 @@ Color::operator HSL() const
     ege::rgb2hsl(EGERGB(red, green, blue),
                  &hsl.hue, &hsl.saturation, &hsl.lightness);
     return hsl;
+}
+
+Color Color::withoutAlpha() const
+{
+    return Color{red, green, blue, 0xFF};
 }
 
 Color operator""_rgb(unsigned long long hex)

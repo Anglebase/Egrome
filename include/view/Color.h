@@ -12,26 +12,35 @@
 
 /**
  * @brief HSV (Hue, Saturation, Value) 颜色模型
+ * @note 该模型中，H 表示色调，S 表示饱和度，V 表示明度
  */
 struct HSV
 {
+    /// 色调，取值范围为 [0, 360]
     float hue;
+    /// 饱和度，取值范围为 [0, 1]
     float saturation;
+    /// 明度，取值范围为 [0, 1]
     float value;
 };
 
 /**
  * @brief HSL (Hue, Saturation, Lightness) 颜色模型
+ * @note 该模型中，H 表示色调，S 表示饱和度，L 表示亮度
  */
 struct HSL
 {
+    /// 色调，取值范围为 [0, 360]
     float hue;
+    /// 饱和度，取值范围为 [0, 1]
     float saturation;
+    /// 亮度，取值范围为 [0, 1]
     float lightness;
 };
 
 /**
  * @brief 此类以 RGB 颜色模型对颜色进行存储
+ * @note 该类提供了常用颜色的预定义，以及颜色的线性插值函数
  */
 class Color
 {
@@ -90,7 +99,7 @@ public:
      * @param t 插值比例，取值范围为 [0, 1]
      * @return 插值结果
      */
-    static Color color_lerp(Color start, Color end, double t);
+    static Color lerp(Color start, Color end, double t);
 
 private:
     int red;
@@ -119,13 +128,21 @@ public:
      */
     Color(const HSL &hsl);
 
-    Color(const Color &other) = default;
     const Color &operator=(const Color &other);
     const Color &operator=(Color &&value);
     const Color &operator=(const HSV &hsv);
     const Color &operator=(const HSL &hsl);
-
+    /**
+     * @brief 颜色相等比较
+     * @param other 另一个颜色
+     * @return 相等返回 true，否则返回 false
+     */
     bool operator==(const Color &other) const;
+    /**
+     * @brief 颜色不等比较
+     * @param other 另一个颜色
+     * @return 不等返回 true，否则返回 false
+     */
     bool operator!=(const Color &other) const;
 
     /**
@@ -184,6 +201,12 @@ public:
      * @note 该转换会丢失透明度信息
      */
     operator HSL() const;
+
+    /**
+     * @brief 去除aplha通道值
+     * @return 去除aplha通道值的颜色对象
+     */
+    Color withoutAlpha() const;
 };
 
 /**
