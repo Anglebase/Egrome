@@ -7,6 +7,11 @@
 #include "../core/Var.hpp"
 #include "../view/Color.h"
 
+
+/**
+ * @addtogroup 控件
+ * @{
+ */
 /**
  * @brief 行文本编辑框
  */
@@ -102,3 +107,4 @@ public:
      */
     bool isShowPlainText() const;
 };
+/** @} */
