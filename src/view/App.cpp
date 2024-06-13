@@ -4,6 +4,7 @@
 #include "Rect.h"
 #include "Block.h"
 #include "Painter.h"
+#include "Exception.h"
 #include <ege.h>
 #include <windows.h>
 #include <chrono>
@@ -147,7 +148,10 @@ App::App(Block *block, int flags) : block_(block)
     App::focusBlock = block;
     App::fps_ = 60;
     ege::setinitmode(flags | ege::INIT_ANIMATION | ege::INIT_UNICODE);
-    App::instance_ = this;
+    if (!App::instance_)
+        App::instance_ = this;
+    else
+        throw Exception("Only one App object can be created.");
 }
 
 App::~App() {}
