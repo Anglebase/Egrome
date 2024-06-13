@@ -127,6 +127,16 @@ public:
      * @param hsl HSL 颜色模型
      */
     Color(const HSL &hsl);
+    /**
+     * @brief 拷贝构造函数
+     * @param other 要拷贝的颜色对象
+     */
+    Color(const Color &other) = default;
+    /**
+     * @brief 移动构造函数
+     * @param value 要移动的颜色对象
+     */
+    Color(Color &&value) = default;
 
     const Color &operator=(const Color &other);
     const Color &operator=(Color &&value);

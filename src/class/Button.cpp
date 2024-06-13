@@ -120,7 +120,8 @@ void Button::updateAnimations()
         delete this->hoverColorAnim;
     if (this->pressedColorAnim)
         delete this->pressedColorAnim;
-    this->hoverColorAnim = new Animation<Color>({
+    this->hoverColorAnim = new Animation<Color>(
+        Animation<Color>::Args{
         .startValue = this->style.backgroundColor,
         .endValue = this->style.hoverColor,
         .duration = 300ms,

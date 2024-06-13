@@ -73,6 +73,7 @@ const Color &Color::operator=(const Color &other)
     this->red = other.red;
     this->green = other.green;
     this->blue = other.blue;
+    this->alpha = other.alpha;
     return *this;
 }
 
@@ -81,6 +82,7 @@ const Color &Color::operator=(Color &&other)
     red = other.red;
     green = other.green;
     blue = other.blue;
+    alpha = other.alpha;
     return *this;
 }
 
@@ -90,6 +92,7 @@ const Color &Color::operator=(const HSV &hsv)
     red = EGEGET_R(rgb);
     green = EGEGET_G(rgb);
     blue = EGEGET_B(rgb);
+    alpha = 0xFF;
     return *this;
 }
 
@@ -99,6 +102,7 @@ const Color &Color::operator=(const HSL &hsl)
     red = EGEGET_R(rgb);
     green = EGEGET_G(rgb);
     blue = EGEGET_B(rgb);
+    alpha = 0xFF;
     return *this;
 }
 
