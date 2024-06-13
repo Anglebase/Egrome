@@ -170,9 +170,16 @@ void App::run()
     {
         // BUG-20240601-20
         auto lastTime = std::chrono::steady_clock::now();
+        // 更新显示
+        ege::setbkcolor(EGERGB(0, 0, 0));
+        ege::cleardevice();
+        this->block_->paintEvent(paintEvent);
+        // 帧内事件循环
         while (std::chrono::duration_cast<std::chrono::nanoseconds>(
                    std::chrono::steady_clock::now() - lastTime)
-                   .count() < 8e8 / App::fps_)
+                       .count() *
+                   App::fps_ <
+               8.5e8)
         {
             // 捕获键盘输入
             if (ege::kbmsg())
@@ -240,10 +247,6 @@ void App::run()
                 // ege::flushmouse(); // BUG20240530-21 此行引起鼠标消息丢失
             }
         }
-        // 更新显示
-        ege::setbkcolor(EGERGB(0, 0, 0));
-        ege::cleardevice();
-        this->block_->paintEvent(paintEvent);
     }
     App::windowDestroy.emit();
     ege::closegraph();
