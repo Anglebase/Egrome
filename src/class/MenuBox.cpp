@@ -115,13 +115,13 @@ MenuItem::MenuItem(const Rect &rect, MenuBox *parent)
         .startValue = this->style.hoverColor,
         .endValue = this->style.clickColor,
         .duration = 100ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
     this->hoverColorAnim_ = new Animation<Color>({
         .startValue = this->style.defaultColor,
         .endValue = this->style.hoverColor,
         .duration = 100ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
 
     this->onEnter.connect(

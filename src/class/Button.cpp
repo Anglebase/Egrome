@@ -73,13 +73,13 @@ Button::Button(const Rect &rect, Block *parent)
         .startValue = this->style.backgroundColor,
         .endValue = this->style.hoverColor,
         .duration = 300ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
     this->pressedColorAnim = new Animation<Color>({
         .startValue = this->style.hoverColor,
         .endValue = this->style.pressedColor,
         .duration = 100ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
     // 连接槽函数
     this->onEnter.connect(
@@ -124,12 +124,12 @@ void Button::updateAnimations()
         .startValue = this->style.backgroundColor,
         .endValue = this->style.hoverColor,
         .duration = 300ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
     this->pressedColorAnim = new Animation<Color>({
         .startValue = this->style.hoverColor,
         .endValue = this->style.pressedColor,
         .duration = 100ms,
-        .function = Color::color_lerp,
+        .function = Color::lerp,
     });
 }
