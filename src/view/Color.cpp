@@ -159,7 +159,7 @@ void Color::setAlpha(int a)
 Color::operator HSV() const
 {
     HSV hsv;
-    ege::rgb2hsv(EGERGB(red, green, blue),
+    ege::rgb2hsv(EGERGBA(red, green, blue, alpha),
                  &hsv.hue, &hsv.saturation, &hsv.value);
     return hsv;
 }
@@ -167,7 +167,7 @@ Color::operator HSV() const
 Color::operator HSL() const
 {
     HSL hsl;
-    ege::rgb2hsl(EGERGB(red, green, blue),
+    ege::rgb2hsl(EGERGBA(red, green, blue, alpha),
                  &hsl.hue, &hsl.saturation, &hsl.lightness);
     return hsl;
 }

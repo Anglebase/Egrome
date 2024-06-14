@@ -74,9 +74,9 @@ Rect Painter::rect() const
 void Painter::setPenColor(const Color &color) const
 {
     if (this->block)
-        ege::setcolor(EGERGB(color.red, color.green, color.blue));
+        ege::setcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
     if (this->pixelMap)
-        ege::setcolor(EGERGB(color.red, color.green, color.blue),
+        ege::setcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
                       (ege::IMAGE *)this->pixelMap->image_);
 }
 
@@ -133,12 +133,12 @@ void Painter::clear(const Color &color) const
 {
     if (this->block)
     {
-        ege::setbkcolor(EGERGB(color.red, color.green, color.blue));
+        ege::setbkcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
         ege::cleardevice();
     }
     if (this->pixelMap)
     {
-        ege::setbkcolor(EGERGB(color.red, color.green, color.blue),
+        ege::setbkcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
                         (ege::IMAGE *)this->pixelMap->image_);
         ege::cleardevice((ege::IMAGE *)this->pixelMap->image_);
     }
@@ -148,25 +148,40 @@ void Painter::setBrushColor(const Color &color) const
 {
     *this->brushColor = color;
     if (this->block)
-        ege::setfillcolor(EGERGB(color.red, color.green, color.blue));
+        ege::setfillcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
     if (this->pixelMap)
-        ege::setfillcolor(EGERGB(color.red, color.green, color.blue),
+        ege::setfillcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
                           (ege::IMAGE *)this->pixelMap->image_);
 }
 
-void Painter::setBrushStyle(BrushStyle style) const
+void Painter::setLinerGradient(const Point &start, const Color &startColor,
+                               const Point &end, const Color &endColor) const
 {
     if (this->block)
-        ege::setfillstyle(static_cast<int>(style),
-                          EGERGB(this->brushColor->red,
-                                 this->brushColor->green,
-                                 this->brushColor->blue));
+    {
+        ege::ege_setpattern_lineargradient(
+            this->block->rect_.x_ + start.x_,
+            this->block->rect_.y_ + start.y_,
+            EGERGBA(startColor.red, startColor.green,
+                    startColor.blue, startColor.alpha),
+            this->block->rect_.x_ + end.x_,
+            this->block->rect_.y_ + end.y_,
+            EGERGBA(endColor.red, endColor.green,
+                    endColor.blue, endColor.alpha));
+    }
     if (this->pixelMap)
-        ege::setfillstyle(static_cast<int>(style),
-                          EGERGB(this->brushColor->red,
-                                 this->brushColor->green,
-                                 this->brushColor->blue),
-                          (ege::IMAGE *)this->pixelMap->image_);
+    {
+        ege::ege_setpattern_lineargradient(
+            this->block->rect_.x_ + start.x_,
+            this->block->rect_.y_ + start.y_,
+            EGERGBA(startColor.red, startColor.green,
+                    startColor.blue, startColor.alpha),
+            this->block->rect_.x_ + end.x_,
+            this->block->rect_.y_ + end.y_,
+            EGERGBA(endColor.red, endColor.green,
+                    endColor.blue, endColor.alpha),
+            (ege::IMAGE *)this->pixelMap->image_);
+    }
 }
 
 void Painter::setFont(const std::string &fontName, int size) const
@@ -235,7 +250,7 @@ void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
 
 void Painter::drawPixel(int x, int y, const Color &color) const
 {
-    ege::putpixel(x, y, EGERGB(color.red, color.green, color.blue));
+    ege::putpixel(x, y, EGERGBA(color.red, color.green, color.blue, color.alpha));
 }
 
 void Painter::drawPixel(const Point &pos, const Color &color) const

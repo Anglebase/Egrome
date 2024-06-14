@@ -202,13 +202,11 @@ public:
     /**
      * @brief 转换为 HSV 颜色模型
      * @return HSV 颜色模型
-     * @note 该转换会丢失透明度信息
      */
     operator HSV() const;
     /**
      * @brief 转换为 HSL 颜色模型
      * @return HSL 颜色模型
-     * @note 该转换会丢失透明度信息
      */
     operator HSL() const;
 

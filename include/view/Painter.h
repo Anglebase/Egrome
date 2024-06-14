@@ -30,7 +30,7 @@ class PixelMap;
  * - S与D进行或操作：例如 S | D 表示为 SDo
  * - S与D进行异或操作：例如 S ^ D 表示为 SDx
  * - S与D进行反相操作：例如 ~S 表示为 Sn
- * 目前支持的三元光栅操作码有256个
+ * 目前支持的三元光栅操作码有以下256个
  */
 enum class BlendMode
 {
@@ -309,28 +309,6 @@ enum class PenStyle
     Null
 };
 
-/**
- * @brief 画刷样式
- */
-enum class BrushStyle
-{
-    /// 无填充
-    EMPTY,
-    /// 实心填充
-    SOLID,
-    /// 线状填充
-    LINE,
-    LTSLASH,
-    SLASH,
-    BKSLASH,
-    LTBKSLASH,
-    HATCH,
-    XHATCH,
-    INTERLEAVE,
-    WIDE_DOT,
-    CLOSE_DOT
-};
-
 enum class TextHAlign
 {
     /// 左对齐
@@ -412,16 +390,21 @@ public:
     void clear(const Color &color) const;
 
     /**
-     * @brief 设置画刷颜色
-     * @param color 画刷颜色
+     * @brief 设置填充颜色
+     * @param color 填充颜色
      */
     void setBrushColor(const Color &color) const;
 
     /**
-     * @brief 设置画刷样式
-     * @param style 画刷样式
+     * @brief 设置填充模式为线性渐变
+     * @param start 起点坐标
+     * @param startColor 起点颜色
+     * @param end 终点坐标
+     * @param endColor 终点颜色
+     * @note 该模式下，将忽略当前的填充颜色
      */
-    void setBrushStyle(BrushStyle style) const;
+    void setLinerGradient(const Point &start, const Color &startColor,
+                          const Point &end, const Color &endColor) const;
 
     /**
      * @brief 设置字体
