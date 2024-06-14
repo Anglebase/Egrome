@@ -16,6 +16,15 @@ protected:
         painter.drawFillCircle({100, 100}, 50);
         painter.drawFillRect({150, 150, 100, 100});
         painter.drawFillEllipse({250, 250, 100, 100});
+        painter.setPenColor(Color::Black);
+        painter.drawBezier({0, 0}, {100, 100},
+                           {0, 100}, {100, 0});
+        painter.drawFitCurve({
+            {100, 100},
+            {200, 100},
+            {200, 200},
+            {100, 200},
+        });
         event.endPaint();
         return Block::paintEvent(event);
     }

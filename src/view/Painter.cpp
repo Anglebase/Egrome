@@ -1270,3 +1270,64 @@ void Painter::drawFillPie(const Rect &rect, int startAngle, int angle) const
             startAngle, angle,
             (ege::IMAGE *)this->pixelMap->image_);
 }
+
+void Painter::drawBezier(const Point &point1, const Point &point2,
+                         const Point &control1, const Point &control2) const
+{
+    if (this->block)
+    {
+        ege::ege_point p[4] = {
+            {
+                static_cast<float>(this->block->rect_.x_ + point1.x_),
+                static_cast<float>(this->block->rect_.y_ + point1.y_),
+            },
+            {
+                static_cast<float>(this->block->rect_.x_ + control1.x_),
+                static_cast<float>(this->block->rect_.y_ + control1.y_),
+            },
+            {
+                static_cast<float>(this->block->rect_.x_ + control2.x_),
+                static_cast<float>(this->block->rect_.y_ + control2.y_),
+            },
+            {
+                static_cast<float>(this->block->rect_.x_ + point2.x_),
+                static_cast<float>(this->block->rect_.y_ + point2.y_),
+            },
+        };
+        ege::ege_bezier(4, p);
+    }
+    if (this->pixelMap)
+    {
+        ege::ege_point p[4] = {
+            {static_cast<float>(point1.x_), static_cast<float>(point1.y_)},
+            {static_cast<float>(control1.x_), static_cast<float>(control1.y_)},
+            {static_cast<float>(control2.x_), static_cast<float>(control2.y_)},
+            {static_cast<float>(point2.x_), static_cast<float>(point2.y_)},
+        };
+        ege::ege_bezier(4, p, (ege::IMAGE *)this->pixelMap->image_);
+    }
+}
+
+void Painter::drawFitCurve(const std::vector<Point> &points) const
+{
+    ege::ege_point *p = new ege::ege_point[points.size()];
+    for (size_t i = 0; i < points.size(); ++i)
+    {
+        if (this->block)
+        {
+            p[i].x = static_cast<float>(this->block->rect_.x_ + points[i].x_);
+            p[i].y = static_cast<float>(this->block->rect_.y_ + points[i].y_);
+        }
+        if (this->pixelMap)
+        {
+            p[i].x = static_cast<float>(points[i].x_);
+            p[i].y = static_cast<float>(points[i].y_);
+        }
+    }
+    if (this->block)
+        ege::ege_drawcurve(points.size(), p);
+    if (this->pixelMap)
+        ege::ege_drawcurve(points.size(), p,
+                           (ege::IMAGE *)this->pixelMap->image_);
+    delete[] p;
+}

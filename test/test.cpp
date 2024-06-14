@@ -12,7 +12,6 @@ protected:
 
         painter.setBrushColor(Color{255, 0, 0});
         painter.drawFillRoundRect(painter.rect(), 20, 10);
-
         event.endPaint();
     }
 

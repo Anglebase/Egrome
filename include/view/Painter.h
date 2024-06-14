@@ -696,7 +696,7 @@ public:
      * @brief 绘制圆
      * @param pos 圆心的位置
      * @param r 圆的半径
-     * @note 该函数等价于 
+     * @note 该函数等价于
      * @code
      * drawEllipse({pos.x()-r, pos.y()-r}, 2*r, 2*r)
      * @endcode
@@ -792,7 +792,7 @@ public:
      * @param angle 扇形扫过的角度
      * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
-    void drawPie(const Rect &rect, int startAngle, int angle)const;
+    void drawPie(const Rect &rect, int startAngle, int angle) const;
 
     /**
      * @brief 绘制填充扇形
@@ -801,7 +801,25 @@ public:
      * @param angle 扇形扫过的角度
      * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
-    void drawFillPie(const Rect &rect, int startAngle, int angle)const;
+    void drawFillPie(const Rect &rect, int startAngle, int angle) const;
+
+    /**
+     * @brief 绘制贝塞尔曲线
+     * @param point1 第一个端点
+     * @param point2 第二个端点
+     * @param control1 第一个控制点
+     * @param control2 第二个控制点
+     * @note 贝塞尔曲线由两个端点和两个控制点组成，端点决定了曲线的起止位置，控制点决定了曲线的弯曲程度
+     */
+    void drawBezier(const Point &point1, const Point &point2,
+                    const Point &control1, const Point &control2) const;
+
+    /**
+     * @brief 绘制拟合曲线
+     * @param points 曲线的取样点
+     * @note 该函数会以尽可能平滑的方式使曲线与取样点拟合，并绘制出拟合后的曲线，拟合出的曲线会经过所有取样点
+     */
+    void drawFitCurve(const std::vector<Point> &points) const;
 };
 
 /**
