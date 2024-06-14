@@ -258,20 +258,6 @@ var _painter_8h =
       [ "DPSoo", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga30323fa90e24ca484998b9fba6c40e85aff89a3051c0b8263b7d35dd954e897f0", null ],
       [ "Mode_1", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga30323fa90e24ca484998b9fba6c40e85a9e9684d0d47df731ca9bb1dd11ad2225", null ]
     ] ],
-    [ "BrushStyle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128", [
-      [ "EMPTY", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb", null ],
-      [ "SOLID", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9", null ],
-      [ "LINE", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7", null ],
-      [ "LTSLASH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a9ad67da9c608d9bc44af53027053ee65", null ],
-      [ "SLASH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a646da671ca01bb5d84dbb5fb2238dc8e", null ],
-      [ "BKSLASH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a11ee6a8771fd2f843c33d2810e2dcb88", null ],
-      [ "LTBKSLASH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a59d73f445211300c1862b2c11773139b", null ],
-      [ "HATCH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a63372385110c1d3dcdb9c6869bd75a29", null ],
-      [ "XHATCH", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aa9ded7917f13f73cafc9155c5ce0318d", null ],
-      [ "INTERLEAVE", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128acff176f0d59a95aea9cb4b4b6cad2888", null ],
-      [ "WIDE_DOT", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128af0d5d6097a617f8703efcae598f70ef3", null ],
-      [ "CLOSE_DOT", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ae9c6363cb69f26ab7f95a507cdcf449b", null ]
-    ] ],
     [ "PenStyle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gab70170afb6347d18ff9dac17e05e133e", [
       [ "Solid", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133eae41480b6bbfbf7407974a88d3d34f4fa", null ],
       [ "Dash", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab70170afb6347d18ff9dac17e05e133ea3663598d5c5858b5a6040b1bbed4f187", null ],

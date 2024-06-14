@@ -35,22 +35,35 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "onNext", "class_block.html#ac4cc9dc22bffbeaaf87628400ec05d58", null ],
       [ "onUnfocused", "class_block.html#ac657de6bf6372ec192193b0aaa762cfd", null ]
     ] ],
-    [ "HSV", "struct_h_s_v.html", null ],
-    [ "HSL", "struct_h_s_l.html", null ],
+    [ "HSV", "struct_h_s_v.html", [
+      [ "hue", "struct_h_s_v.html#a655bd5ccb6cefe58e926695f98501f69", null ],
+      [ "saturation", "struct_h_s_v.html#a004245a02506eec379b1ca7fcc5386e9", null ],
+      [ "value", "struct_h_s_v.html#a52321918e6d54bbeb8a25d3470ef78c5", null ]
+    ] ],
+    [ "HSL", "struct_h_s_l.html", [
+      [ "hue", "struct_h_s_l.html#ab9566e6a0c0f3177d988948c7845d03a", null ],
+      [ "lightness", "struct_h_s_l.html#acfc685486473723e170956215efa1b7c", null ],
+      [ "saturation", "struct_h_s_l.html#adbd21574ccaefd073b7c7b13b405122d", null ]
+    ] ],
     [ "Color", "class_color.html", [
       [ "Color", "class_color.html#a93cb0fe975ac713deb2b1f3cb438c91d", null ],
       [ "Color", "class_color.html#ac93ca6dcb1c158c0b09ff546daa9ce1c", null ],
       [ "Color", "class_color.html#af08c725a9e0b43cb082dc7c5a97aae1d", null ],
+      [ "Color", "class_color.html#aa2fc905c43fccce2f80785bdbc4ff4f8", null ],
+      [ "Color", "class_color.html#a3058cfd0dc7826ea28d7a2c9aedb0ed5", null ],
       [ "getAlpha", "class_color.html#a5b0d577c9edf65e6587e102aeb4c74f9", null ],
       [ "getBlue", "class_color.html#ab7caa1306b0bdd9c5a49ce640da1a8e8", null ],
       [ "getGreen", "class_color.html#aa32e85661f7d2844ea20e4ffe2f1fa62", null ],
       [ "getRed", "class_color.html#aed1e9e09db006f0546c4621ba387efb6", null ],
       [ "operator HSL", "class_color.html#ae7d80b3eec55709e8d57f7647fe084d3", null ],
       [ "operator HSV", "class_color.html#a9ff42da066c9ce77031d5b77a8b6264a", null ],
+      [ "operator!=", "class_color.html#a02121562a10f0bb1fc9593dd33e313fa", null ],
+      [ "operator==", "class_color.html#ae4b5d5500c2ee028e3f7d92a4d098ee0", null ],
       [ "setAlpha", "class_color.html#a5f3ef6470241fda50da5887eca22bb41", null ],
       [ "setBlue", "class_color.html#ac1b97cf50c8c110fac18830464247bc1", null ],
       [ "setGreen", "class_color.html#af015cb498147d0fe1db0c3c73c7980aa", null ],
-      [ "setRed", "class_color.html#a4362605630e70563f67c77410abd97c1", null ]
+      [ "setRed", "class_color.html#a4362605630e70563f67c77410abd97c1", null ],
+      [ "withoutAlpha", "class_color.html#a46f98b8c3a163bdcf2206b6da18e5c28", null ]
     ] ],
     [ "Painter", "class_painter.html", [
       [ "clear", "class_painter.html#ab3315bc6a1c9f8d85b216db03e4a839f", null ],
@@ -64,12 +77,14 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "drawFillCircle", "class_painter.html#aea04584fed843e8d56fd1be0efde2941", null ],
       [ "drawFillEllipse", "class_painter.html#ac7ee834f529b13e3a0d00b89e5d30da8", null ],
       [ "drawFillEllipse", "class_painter.html#a0c9524a1abb9ac1ee1b72dd9db1b3d1e", null ],
+      [ "drawFillPie", "class_painter.html#ae64e8a7f735b0c7b50126bd8f9649eaf", null ],
       [ "drawFillRect", "class_painter.html#a8f241b1bdc51a326cd8d0e76754f576d", null ],
       [ "drawFillRect", "class_painter.html#a4e6f355f06a06b7e88f65e1744525066", null ],
       [ "drawFillRoundRect", "class_painter.html#a7eb61227496b6658e07133472c2adda1", null ],
       [ "drawFillRoundRect", "class_painter.html#ac8c5e6b618679c12c26a2a5a607076ee", null ],
       [ "drawLine", "class_painter.html#aa20a4d4f1429abef9bd67c9df55e5539", null ],
       [ "drawLine", "class_painter.html#a84fcd7926748b4262882609c572c62ec", null ],
+      [ "drawPie", "class_painter.html#a5480deaa9c49d6db60861b875795924c", null ],
       [ "drawPixel", "class_painter.html#a57a97ccc4c9afc58a672721211edc979", null ],
       [ "drawPixel", "class_painter.html#a72670841002558a056ea4a9fdd4ae447", null ],
       [ "drawPixelMap", "class_painter.html#a0d17a27187c0b0cb844664f8634c8a4b", null ],
@@ -93,7 +108,6 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "getTextWidth", "class_painter.html#a7170b750058ff4c5a0d77ab03b702250", null ],
       [ "getTextWidth", "class_painter.html#a701f67474dd8807f18bc18c57e477b78", null ],
       [ "setBrushColor", "class_painter.html#afc046eecb1690bc6b65644a2424f8138", null ],
-      [ "setBrushStyle", "class_painter.html#abb6d08bee46a190a9562682bd898c684", null ],
       [ "setFont", "class_painter.html#a19e1b8037a8af78b38d1b2604b7d779d", null ],
       [ "setFont", "class_painter.html#afee14852a0faa96a8166788ecde93a88", null ],
       [ "setFontItalic", "class_painter.html#ad9ff6b4248565132880feae6424047b7", null ],
@@ -101,6 +115,7 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "setFontStrikeOut", "class_painter.html#a9e35eaf3b7d53f940022e67e4a29d479", null ],
       [ "setFontUnderline", "class_painter.html#a74f2d4d985989ec46440dcf50e0f641e", null ],
       [ "setFontWeight", "class_painter.html#a6ab38ea82f8c0f35e72e71b6230c25e6", null ],
+      [ "setLinerGradient", "class_painter.html#afc094faf41e70031d78131f9de653079", null ],
       [ "setPenColor", "class_painter.html#a21aed26db8f3266a9e0a925d3dc0dc07", null ],
       [ "setPenStyle", "class_painter.html#a4342f738e74f99d9e64cbfe435a86bd7", null ],
       [ "setPenWidth", "class_painter.html#a49c82801b32bc04e0f8c0bf4f8972292", null ],
@@ -128,11 +143,6 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
       [ "setSize", "class_pixel_map.html#a69e2ea9c2be9438d6c39bc930837c8c0", null ]
     ] ],
     [ "BlendMode", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga30323fa90e24ca484998b9fba6c40e85", null ],
-    [ "BrushStyle", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128", [
-      [ "BrushStyle::EMPTY", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb", null ],
-      [ "BrushStyle::SOLID", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9", null ],
-      [ "BrushStyle::LINE", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7", null ]
-    ] ],
     [ "CursorType", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gabbe637356c8cb749a9726f13658031fa", [
       [ "CursorType::Arrow", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faa0f4e1aaabd074689b7d3ead824d1ee8e", null ],
       [ "CursorType::IBeam", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggabbe637356c8cb749a9726f13658031faa4ca8b47601e7a843e23d0139a8a4ff61", null ],
@@ -262,7 +272,8 @@ var group___xE8_xA7_x86_xE5_x9B_xBE =
     [ "KeyFlag", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb", [
       [ "KeyFlag::Null", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fbabbb93ef26e3c101ff11cdd21cab08a94", null ],
       [ "KeyFlag::Ctrl", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47", null ],
-      [ "KeyFlag::Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c", null ]
+      [ "KeyFlag::Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c", null ],
+      [ "KeyFlag::CtrlShift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba1948fabceb4c2a37e20d6c9e38998028", null ]
     ] ],
     [ "MouseButton", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711", [
       [ "MouseButton::Left", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggac1ec3647c005eacad401b06e7e18f711a945d5e233cf7d6240f6b783b36a374ff", null ],

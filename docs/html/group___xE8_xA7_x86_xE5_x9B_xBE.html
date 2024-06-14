@@ -308,6 +308,7 @@ Topics</h2></td></tr>
 <tr class="memitem:ga7b263a18e2e46cc5365376b1eac284fb" id="r_ga7b263a18e2e46cc5365376b1eac284fb"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a> { <a class="el" href="#gga7b263a18e2e46cc5365376b1eac284fbabbb93ef26e3c101ff11cdd21cab08a94">KeyFlag::Null</a> = 0x000
 , <a class="el" href="#gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47">KeyFlag::Ctrl</a> = 0x200
 , <a class="el" href="#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c">KeyFlag::Shift</a> = 0x100
+, <a class="el" href="#gga7b263a18e2e46cc5365376b1eac284fba1948fabceb4c2a37e20d6c9e38998028">KeyFlag::CtrlShift</a> = 0x300
  }</td></tr>
 <tr class="memdesc:ga7b263a18e2e46cc5365376b1eac284fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">键盘按键标志位枚举  <a href="#ga7b263a18e2e46cc5365376b1eac284fb">更多...</a><br /></td></tr>
 <tr class="separator:ga7b263a18e2e46cc5365376b1eac284fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -653,25 +654,6 @@ Topics</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gab70170afb6347d18ff9dac17e05e133e"><td class="mdescLeft">&#160;</td><td class="mdescRight">线条样式  <a href="#gab70170afb6347d18ff9dac17e05e133e">更多...</a><br /></td></tr>
 <tr class="separator:gab70170afb6347d18ff9dac17e05e133e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf67a889bc5e9f8ab3a59fe58b0fa2128" id="r_gaf67a889bc5e9f8ab3a59fe58b0fa2128"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a> { <br />
-&#160;&#160;<a class="el" href="#ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb">BrushStyle::EMPTY</a>
-, <a class="el" href="#ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9">BrushStyle::SOLID</a>
-, <a class="el" href="#ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7">BrushStyle::LINE</a>
-, <b>LTSLASH</b>
-, <br />
-&#160;&#160;<b>SLASH</b>
-, <b>BKSLASH</b>
-, <b>LTBKSLASH</b>
-, <b>HATCH</b>
-, <br />
-&#160;&#160;<b>XHATCH</b>
-, <b>INTERLEAVE</b>
-, <b>WIDE_DOT</b>
-, <b>CLOSE_DOT</b>
-<br />
- }</td></tr>
-<tr class="memdesc:gaf67a889bc5e9f8ab3a59fe58b0fa2128"><td class="mdescLeft">&#160;</td><td class="mdescRight">画刷样式  <a href="#gaf67a889bc5e9f8ab3a59fe58b0fa2128">更多...</a><br /></td></tr>
-<tr class="separator:gaf67a889bc5e9f8ab3a59fe58b0fa2128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga696d25264ac639804b3f4384961bbc27" id="r_ga696d25264ac639804b3f4384961bbc27"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga696d25264ac639804b3f4384961bbc27">TextHAlign</a> { <a class="el" href="#gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff">TextHAlign::Left</a>
 , <a class="el" href="#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd">TextHAlign::Center</a>
 , <a class="el" href="#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c">TextHAlign::Right</a>
@@ -714,41 +696,9 @@ Topics</h2></td></tr>
 <li>S与D进行与操作：例如 S &amp; D 表示为 SDa</li>
 <li>S与D进行或操作：例如 S | D 表示为 SDo</li>
 <li>S与D进行异或操作：例如 S ^ D 表示为 SDx</li>
-<li>S与D进行反相操作：例如 ~S 表示为 Sn 目前支持的三元光栅操作码有256个 </li>
+<li>S与D进行反相操作：例如 ~S 表示为 Sn 目前支持的三元光栅操作码有以下256个 </li>
 </ul>
 </dd></dl>
-
-</div>
-</div>
-<a id="gaf67a889bc5e9f8ab3a59fe58b0fa2128" name="gaf67a889bc5e9f8ab3a59fe58b0fa2128"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf67a889bc5e9f8ab3a59fe58b0fa2128">&#9670;&#160;</a></span>BrushStyle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#gaf67a889bc5e9f8ab3a59fe58b0fa2128">BrushStyle</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>画刷样式 </p>
-<table class="fieldtable">
-<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb" name="ggaf67a889bc5e9f8ab3a59fe58b0fa2128aba2b45bdc11e2a4a6e86aab2ac693cbb"></a>EMPTY&#160;</td><td class="fielddoc"><p>无填充 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9" name="ggaf67a889bc5e9f8ab3a59fe58b0fa2128ad0dea69649a83749aa6bdf176092e8c9"></a>SOLID&#160;</td><td class="fielddoc"><p>实心填充 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7" name="ggaf67a889bc5e9f8ab3a59fe58b0fa2128a17b8ef2c330f1430e00c9de5469fc7e7"></a>LINE&#160;</td><td class="fielddoc"><p>线状填充 </p>
-</td></tr>
-</table>
 
 </div>
 </div>
@@ -1089,6 +1039,8 @@ Topics</h2></td></tr>
 <tr><td class="fieldname"><a id="gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47" name="gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47"></a>Ctrl&#160;</td><td class="fielddoc"><p>Ctrl键 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c" name="gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c"></a>Shift&#160;</td><td class="fielddoc"><p>Shift键 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga7b263a18e2e46cc5365376b1eac284fba1948fabceb4c2a37e20d6c9e38998028" name="gga7b263a18e2e46cc5365376b1eac284fba1948fabceb4c2a37e20d6c9e38998028"></a>CtrlShift&#160;</td><td class="fielddoc"><p>Ctrl+Shift键 </p>
 </td></tr>
 </table>
 

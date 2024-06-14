@@ -15,8 +15,9 @@ var searchData=
   ['released_12',['released',['../class_button.html#a80d484ba33f8a257435d808c5d84ae6b',1,'Button']]],
   ['removeitem_13',['removeItem',['../class_menu_box.html#afc09f2a710273a1246cf8df0ac726d29',1,'MenuBox']]],
   ['reset_14',['reset',['../class_animation.html#ae377f18a76bb33774ca3318a25ad4c37',1,'Animation']]],
-  ['right_15',['right',['../class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29',1,'Rect::right()'],['../class_rect_f.html#a9f59840563aef393ef5eaeff9497991c',1,'RectF::right()']]],
-  ['right_16',['Right',['../class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460',1,'Label::Right'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggac1ec3647c005eacad401b06e7e18f711a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Block.h'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Block.h'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Painter.h']]],
-  ['rightpadding_17',['rightPadding',['../class_label.html#a877622d3b4205876123ca14e47aba811',1,'Label::rightPadding()'],['../class_label.html#a98d76dea0405065677bd13df5b261017',1,'Label::rightPadding() const']]],
-  ['run_18',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
+  ['right_15',['Right',['../class_label.html#ac93b52bed4ae2c239e1a4a5c4b7bd634a4a9e1245311b2ed70b74142513901460',1,'Label']]],
+  ['right_16',['right',['../class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29',1,'Rect::right()'],['../class_rect_f.html#a9f59840563aef393ef5eaeff9497991c',1,'RectF::right()']]],
+  ['right_17',['Right',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggac1ec3647c005eacad401b06e7e18f711a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Block.h'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Block.h'],['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gga696d25264ac639804b3f4384961bbc27a92b09c7c48c520c3c55e497875da437c',1,'Right:&#160;Painter.h']]],
+  ['rightpadding_18',['rightPadding',['../class_label.html#a877622d3b4205876123ca14e47aba811',1,'Label::rightPadding()'],['../class_label.html#a98d76dea0405065677bd13df5b261017',1,'Label::rightPadding() const']]],
+  ['run_19',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
 ];

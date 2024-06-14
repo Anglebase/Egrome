@@ -22,7 +22,6 @@ var searchData=
   ['bottom_19',['Bottom',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4',1,'Painter.h']]],
   ['bottompadding_20',['bottomPadding',['../class_label.html#a4162c43d25e42f72557bb17376d0a2b5',1,'Label::bottomPadding()'],['../class_label.html#aba28a17be7898f778ab2cc1c5c6319ef',1,'Label::bottomPadding() const']]],
   ['boxsize_21',['boxSize',['../struct_check_box_1_1_style_sheet.html#ae8ec1d548cfde7851fc834d9d9f63b6a',1,'CheckBox::StyleSheet']]],
-  ['brushstyle_22',['BrushStyle',['../group___xE8_xA7_x86_xE5_x9B_xBE.html#gaf67a889bc5e9f8ab3a59fe58b0fa2128',1,'Painter.h']]],
-  ['button_23',['Button',['../class_button.html',1,'']]],
-  ['button_2eh_24',['Button.h',['../_button_8h.html',1,'']]]
+  ['button_22',['Button',['../class_button.html',1,'']]],
+  ['button_2eh_23',['Button.h',['../_button_8h.html',1,'']]]
 ];

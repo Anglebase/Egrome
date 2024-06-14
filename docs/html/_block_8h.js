@@ -123,7 +123,8 @@ var _block_8h =
     [ "KeyFlag", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb", [
       [ "Null", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fbabbb93ef26e3c101ff11cdd21cab08a94", null ],
       [ "Ctrl", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba2b61e0d5977f2e38f06e16281c802b47", null ],
-      [ "Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c", null ]
+      [ "Shift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba825a3d98017bab11815ad2817201324c", null ],
+      [ "CtrlShift", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gga7b263a18e2e46cc5365376b1eac284fba1948fabceb4c2a37e20d6c9e38998028", null ]
     ] ],
     [ "MouseButton", "group___xE8_xA7_x86_xE5_x9B_xBE.html#gac1ec3647c005eacad401b06e7e18f711", [
       [ "Left", "group___xE8_xA7_x86_xE5_x9B_xBE.html#ggac1ec3647c005eacad401b06e7e18f711a945d5e233cf7d6240f6b783b36a374ff", null ],

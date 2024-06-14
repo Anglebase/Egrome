@@ -414,7 +414,7 @@ public:
     void setFont(const std::string &fontName, int size) const;
 
     /**
-     * @brief 这是一个重载，设置字体
+     * @brief 设置字体
      * @param fontName 字体名称
      * @param size 字体大小
      */
@@ -465,7 +465,7 @@ public:
     void drawPixel(int x, int y, const Color &color) const;
 
     /**
-     * @brief 这是一个重载，绘制像素点
+     * @brief 绘制像素点
      * @param pos 像素点坐标
      */
     void drawPixel(const Point &pos, const Color &color) const;
@@ -480,7 +480,7 @@ public:
     void drawLine(int x1, int y1, int x2, int y2) const;
 
     /**
-     * @brief 这是一个重载，绘制线
+     * @brief 绘制线
      * @param p1 第一点坐标
      * @param p2 第二点坐标
      */
@@ -496,7 +496,7 @@ public:
     void drawRect(int x, int y, int w, int h) const;
 
     /**
-     * @brief 这是一个重载，绘制矩形
+     * @brief 绘制矩形
      * @param rect 矩形
      */
     void drawRect(const Rect &rect) const;
@@ -511,13 +511,13 @@ public:
     void drawFillRect(int x, int y, int w, int h) const;
 
     /**
-     * @brief 这是一个重载，绘制填充矩形
+     * @brief 绘制填充矩形
      * @param rect 矩形
      */
     void drawFillRect(const Rect &rect) const;
 
     /**
-     * @brief 这是一个重载，绘制圆角矩形
+     * @brief 绘制圆角矩形
      * @param rect 矩形
      * @param r 矩形的圆角半径
      */
@@ -532,7 +532,7 @@ public:
     void drawEllipse(int x, int y, int w, int h) const;
 
     /**
-     * @brief 这是一个重载，绘制椭圆
+     * @brief 绘制椭圆
      * @param rect 椭圆外接矩形
      */
     void drawEllipse(const Rect &rect) const;
@@ -547,7 +547,7 @@ public:
     void drawFillEllipse(int x, int y, int w, int h) const;
 
     /**
-     * @brief 这是一个重载，绘制填充椭圆
+     * @brief 绘制填充椭圆
      * @param rect 椭圆外接矩形
      */
     void drawFillEllipse(const Rect &rect) const;
@@ -572,16 +572,16 @@ public:
      * @param h 弧线所在椭圆的外接矩形的高度
      * @param startAngle 弧线的起始角度
      * @param angle 弧线扫过的角度
-     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
     void drawArc(int x, int y, int rx, int ry, int startAngle, int angle) const;
 
     /**
-     * @brief 这是一个重载，绘制弧线
+     * @brief 绘制弧线
      * @param rect 弧线所在椭圆的外接矩形
      * @param startAngle 弧线的起始角度
      * @param angle 弧线扫过的角度
-     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
     void drawArc(const Rect &rect, int startAngle, int angle) const;
 
@@ -594,7 +594,7 @@ public:
     void drawText(int x, int y, const std::string &text) const;
 
     /**
-     * @brief 这是一个重载，绘制文本
+     * @brief 绘制文本
      * @param x 文本所在的x坐标
      * @param y 文本所在的y坐标
      * @param text 文本内容
@@ -609,7 +609,7 @@ public:
     void drawText(const Point &pos, const std::string &text) const;
 
     /**
-     * @brief 这是一个重载，绘制文本
+     * @brief 绘制文本
      * @param pos 文本所在的位置
      * @param text 文本内容
      */
@@ -623,7 +623,7 @@ public:
     void drawText(const Rect &rect, const std::string &text) const;
 
     /**
-     * @brief 这是一个重载，绘制文本
+     * @brief 绘制文本
      * @param rect 文本所在的矩形
      * @param text 文本内容
      */
@@ -644,7 +644,7 @@ public:
                       BlendMode blendMode = BlendMode::S) const;
 
     /**
-     * @brief 这是一个重载，绘制像素图
+     * @brief 绘制像素图
      * @param pos 像素图左上角的位置
      * @param pixelmap 像素图
      * @param blendMode 像素图混合模式，默认值为"S"，即源像素
@@ -685,15 +685,21 @@ public:
      * @param x 圆心的x坐标
      * @param y 圆心的y坐标
      * @param r 圆的半径
-     * @note 该函数等价于drawEllipse(x-r, y-r, 2*r, 2*r)
+     * @note 该函数等价于
+     * @code
+     * drawEllipse(x-r, y-r, 2*r, 2*r)
+     * @endcode
      */
     void drawCircle(int x, int y, int r) const;
 
     /**
-     * @brief 这是一个重载，绘制圆
+     * @brief 绘制圆
      * @param pos 圆心的位置
      * @param r 圆的半径
-     * @note 该函数等价于drawEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
+     * @note 该函数等价于 
+     * @code
+     * drawEllipse({pos.x()-r, pos.y()-r}, 2*r, 2*r)
+     * @endcode
      */
     void drawCircle(const Point &pos, int r) const;
 
@@ -707,7 +713,7 @@ public:
     void drawFillCircle(int x, int y, int r) const;
 
     /**
-     * @brief 这是一个重载，绘制填充圆
+     * @brief 绘制填充圆
      * @param pos 圆心的位置
      * @param r 圆的半径
      * @note 该函数等价于drawFillEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
@@ -726,7 +732,7 @@ public:
     void drawRoundRect(int x, int y, int w, int h, int rx, int ry) const;
 
     /**
-     * @brief 这是一个重载，绘制圆角矩形
+     * @brief 绘制圆角矩形
      * @param rect 矩形
      * @param rx 矩形的圆角x方向半径
      * @param ry 矩形的圆角y方向半径
@@ -745,7 +751,7 @@ public:
     void drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const;
 
     /**
-     * @brief 这是一个重载，绘制填充圆角矩形
+     * @brief 绘制填充圆角矩形
      * @param rect 矩形
      * @param rx 矩形的圆角x方向半径
      * @param ry 矩形的圆角y方向半径
@@ -753,27 +759,29 @@ public:
     void drawFillRoundRect(const Rect &rect, int rx, int ry) const;
 
     /**
-     * @brief 获取文本宽度
+     * @brief 获取当前绘图环境下所绘制的文本宽度，单位为像素
      * @param text 文本内容
      * @return 文本宽度
      */
     long getTextWidth(const std::string &text) const;
     /**
-     * @brief 获取文本宽度
+     * @brief 获取当前绘图环境下所绘制的文本宽度，单位为像素
      * @param text 文本内容
      * @return 文本宽度
+     * @note 通常情况下，应当使用此函数
      */
     long getTextWidth(const std::wstring &text) const;
     /**
-     * @brief 获取文本高度
+     * @brief 获取当前绘图环境下所绘制的文本高度，单位为像素
      * @param text 文本内容
      * @return 文本高度
      */
     long getTextHeight(const std::string &text) const;
     /**
-     * @brief 获取文本高度
+     * @brief 获取当前绘图环境下所绘制的文本高度，单位为像素
      * @param text 文本内容
      * @return 文本高度
+     * @note 通常情况下，应当使用此函数
      */
     long getTextHeight(const std::wstring &text) const;
 
@@ -782,7 +790,7 @@ public:
      * @param rect 扇形所在椭圆的外接矩形
      * @param startAngle 扇形的起始角度
      * @param angle 扇形扫过的角度
-     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
     void drawPie(const Rect &rect, int startAngle, int angle)const;
 
@@ -791,7 +799,7 @@ public:
      * @param rect 扇形所在椭圆的外接矩形
      * @param startAngle 扇形的起始角度
      * @param angle 扇形扫过的角度
-     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
     void drawFillPie(const Rect &rect, int startAngle, int angle)const;
 };
@@ -828,7 +836,7 @@ public:
     PaintEvent(PaintEvent &&) = delete;
     PaintEvent &operator=(const PaintEvent &) = delete;
     PaintEvent &operator=(PaintEvent &&) = delete;
-    ~PaintEvent() throw();
+    ~PaintEvent();
 
     /**
      * @brief 构造Painter对象
@@ -840,7 +848,7 @@ public:
     /**
      * @brief 结束绘制
      * @brief 结束绘制，释放Painter对象
-     * @note 绘图结束时，必须调用该函数，否则会引起不可预知的错误
+     * @warning 绘图结束时，必须调用该函数，否则会引起不可预知的错误
      */
     void endPaint() const;
 };

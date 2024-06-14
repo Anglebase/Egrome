@@ -11,6 +11,12 @@
  * @addtogroup 控件
  * @{
  */
+
+/**
+ * @addtogroup 行文本输入框
+ * @{
+ */
+
 /**
  * @brief 行文本编辑框
  */
@@ -107,4 +113,5 @@ public:
      */
     bool isShowPlainText() const;
 };
+/** @} */
 /** @} */

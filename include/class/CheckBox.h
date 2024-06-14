@@ -15,6 +15,11 @@
  */
 
 /**
+ * @addtogroup 复选框
+ * @{
+ */
+
+/**
  * @brief 复选框控件
  * @details 继承自 Block 类，实现了鼠标点击事件，以及信号槽机制
  * @details 此类所提供的复选框具有基本交互功能，包括选中和取消选中，以及鼠标悬停状态的变化
@@ -99,4 +104,5 @@ public:
     void setText(const std::wstring &text);
 };
 
+/** @} */
 /** @} */

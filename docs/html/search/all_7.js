@@ -10,5 +10,6 @@ var searchData=
   ['hovercoloranim_7',['hoverColorAnim',['../class_button.html#ac82e24e2060af34fc27f5dfc920f774e',1,'Button']]],
   ['hovered_8',['hovered',['../class_button.html#af37d8b3e7785018f5375b5de8526c4a3',1,'Button']]],
   ['hsl_9',['HSL',['../struct_h_s_l.html',1,'']]],
-  ['hsv_10',['HSV',['../struct_h_s_v.html',1,'']]]
+  ['hsv_10',['HSV',['../struct_h_s_v.html',1,'']]],
+  ['hue_11',['hue',['../struct_h_s_v.html#a655bd5ccb6cefe58e926695f98501f69',1,'HSV::hue'],['../struct_h_s_l.html#ab9566e6a0c0f3177d988948c7845d03a',1,'HSL::hue']]]
 ];

@@ -11,6 +11,11 @@
  */
 
 /**
+ * @addtogroup 进度条控件
+ * @{
+ */
+
+/**
  * @brief 进度条控件
  */
 class ProgressBar : public Block
@@ -80,4 +85,5 @@ public:
     double getProgress() const;
 };
 
+/** @} */
 /** @} */
