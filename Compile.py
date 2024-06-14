@@ -35,7 +35,7 @@ json配置格式：
 """
 
 lock = False
-# lock = True
+lock = True
 
 
 def Red(s):

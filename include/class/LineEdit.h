@@ -29,7 +29,7 @@ private:
 
     bool isPressed_{false};
 
-    Var<int> cursorPos_{0};
+    Int cursorPos_{0};
     bool cursorVisible_{false};
     bool hasSelect_{false};
     bool finisedSelect_{false};

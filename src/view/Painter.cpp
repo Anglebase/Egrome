@@ -123,9 +123,9 @@ void Painter::setPenStyle(PenStyle style) const
         throw Exception("Invalid pen style");
     }
     if (this->block)
-        ege::setlinestyle(linestyle, NULL, linewidth);
+        ege::setlinestyle(linestyle, 0, linewidth);
     if (this->pixelMap)
-        ege::setlinestyle(linestyle, NULL, linewidth,
+        ege::setlinestyle(linestyle, 0, linewidth,
                           (ege::IMAGE *)this->pixelMap->image_);
 }
 
