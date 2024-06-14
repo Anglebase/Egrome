@@ -11,6 +11,11 @@
  */
 
 /**
+ * @addtogroup 颜色相关
+ * @{
+ */
+
+/**
  * @brief HSV (Hue, Saturation, Value) 颜色模型
  * @note 该模型中，H 表示色调，S 表示饱和度，V 表示明度
  */
@@ -235,4 +240,5 @@ Color operator""_rgb(unsigned long long hex);
 Color operator""_rgba(unsigned long long hex);
 /** @} */
 
+/** @} */
 /** @} */

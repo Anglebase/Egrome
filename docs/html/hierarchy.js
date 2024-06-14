@@ -35,8 +35,6 @@ var hierarchy =
     [ "Signal< void(bool)>", "class_signal.html", null ],
     [ "Signal< void(double progress)>", "class_signal.html", null ],
     [ "Signal< void(int inputChar)>", "class_signal.html", null ],
-    [ "Signal< void(int value)>", "class_signal.html", null ],
-    [ "Signal< void(T value)>", "class_signal.html", null ],
     [ "Size", "class_size.html", null ],
     [ "SizeF", "class_size_f.html", null ],
     [ "Button::StyleSheet", "struct_button_1_1_style_sheet.html", null ],
@@ -47,6 +45,15 @@ var hierarchy =
     [ "MenuItem::StyleSheet", "struct_menu_item_1_1_style_sheet.html", null ],
     [ "ProgressBar::StyleSheet", "struct_progress_bar_1_1_style_sheet.html", null ],
     [ "RadioBox::StyleSheet", "struct_radio_box_1_1_style_sheet.html", null ],
-    [ "Var< T >", "class_var.html", null ],
-    [ "Var< int >", "class_var_3_01int_01_4.html", null ]
+    [ "Var< T >", "class_var.html", [
+      [ "Number< int >", "class_number.html", null ],
+      [ "Number< T >", "class_number.html", [
+        [ "Integer< int >", "class_integer.html", null ],
+        [ "Integer< T >", "class_integer.html", null ]
+      ] ]
+    ] ],
+    [ "Var< bool >", "class_var.html", [
+      [ "Bool", "class_bool.html", null ]
+    ] ],
+    [ "Var< int >", "class_var.html", null ]
 ];

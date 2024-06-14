@@ -104,22 +104,22 @@ $(function(){initNavTree('class_exception.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>此类用于抛出异常  
+<p>此类用于抛出异常，同时也是所有异常类的基类  
  <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_exception_8h_source.html">Exception.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ac541ead5c20548813d7dea73c28c7fab" id="r_ac541ead5c20548813d7dea73c28c7fab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac541ead5c20548813d7dea73c28c7fab">Exception</a> (const char *message)</td></tr>
+<tr class="memitem:ac541ead5c20548813d7dea73c28c7fab" id="r_ac541ead5c20548813d7dea73c28c7fab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac541ead5c20548813d7dea73c28c7fab">Exception</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_var.html">char</a> *<a class="el" href="class_var.html">message</a>)</td></tr>
 <tr class="memdesc:ac541ead5c20548813d7dea73c28c7fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
 <tr class="separator:ac541ead5c20548813d7dea73c28c7fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa330aa854000f17a93919417d977bcac" id="r_aa330aa854000f17a93919417d977bcac"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa330aa854000f17a93919417d977bcac">what</a> () const</td></tr>
+<tr class="memitem:aa330aa854000f17a93919417d977bcac" id="r_aa330aa854000f17a93919417d977bcac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">const</a> <a class="el" href="class_var.html">char</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa330aa854000f17a93919417d977bcac">what</a> () <a class="el" href="class_var.html">const</a></td></tr>
 <tr class="memdesc:aa330aa854000f17a93919417d977bcac"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取异常信息  <br /></td></tr>
 <tr class="separator:aa330aa854000f17a93919417d977bcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>此类用于抛出异常 </p>
+<div class="textblock"><p>此类用于抛出异常，同时也是所有异常类的基类 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="ac541ead5c20548813d7dea73c28c7fab" name="ac541ead5c20548813d7dea73c28c7fab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac541ead5c20548813d7dea73c28c7fab">&#9670;&#160;</a></span>Exception()</h2>
@@ -133,7 +133,7 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">Exception::Exception </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_var.html">char</a> *</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -145,7 +145,7 @@ Public 成员函数</h2></td></tr>
 </div><div class="memdoc">
 
 <p>构造函数 </p>
-<p>如果在定义了_DEBUG宏，则会直接输出异常信息 </p><dl class="params"><dt>参数</dt><dd>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>异常信息 </td></tr>
   </table>
@@ -165,7 +165,7 @@ Public 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * Exception::what </td>
+          <td class="memname"><a class="el" href="class_var.html">const</a> <a class="el" href="class_var.html">char</a> * Exception::what </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>

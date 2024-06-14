@@ -11,7 +11,7 @@
  */
 
 /**
- * @brief 此类用于抛出异常
+ * @brief 此类用于抛出异常，同时也是所有异常类的基类
  */
 class Exception
 {
@@ -21,14 +21,10 @@ private:
 public:
     /**
      * @brief 构造函数
-     * @brief 如果在定义了_DEBUG宏，则会直接输出异常信息
      * @param message 异常信息
     */
     Exception(const char *message) : m_message(message)
     {
-#ifdef _DEBUG
-        std::cout << "Exception: " << message << std::endl;
-#endif
     }
 
     /**

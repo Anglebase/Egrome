@@ -15,6 +15,11 @@ class Block;
  */
 
 /**
+ * @addtogroup 枚举
+ * @{
+ */
+
+/**
  * @brief 初始化标志
  */
 enum InitFlag
@@ -28,6 +33,8 @@ enum InitFlag
     /// 置顶窗口
     TopMost = 0x04
 };
+
+/** @} */
 
 /**
  * @brief 应用程序类

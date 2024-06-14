@@ -18,6 +18,11 @@ class PaintEvent;
  * @{
  */
 
+/**
+ * @addtogroup 枚举
+ * @{
+ */
+
 /// @brief 鼠标按钮枚举
 enum class MouseButton
 {
@@ -302,6 +307,8 @@ enum class CursorType {
     /// 手型光标
     Hand,
 };
+
+/** @} */
 
 /**
  * @brief Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能

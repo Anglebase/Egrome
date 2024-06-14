@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['核心_0',['核心',['../group___xE6_xA0_xB8_xE5_xBF_x83.html',1,'']]]
+  ['文本标签_0',['文本标签',['../group___xE6_x96_x87_xE6_x9C_xAC_xE6_xA0_x87_xE7_xAD_xBE.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['label_0',['Label',['../class_label.html',1,'']]],
-  ['lineedit_1',['LineEdit',['../class_line_edit.html',1,'']]]
+  ['integer_0',['Integer',['../class_integer.html',1,'']]],
+  ['integer_3c_20int_20_3e_1',['Integer&lt; int &gt;',['../class_integer.html',1,'']]]
 ];

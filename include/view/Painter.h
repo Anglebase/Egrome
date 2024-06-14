@@ -14,7 +14,16 @@ class PixelMap;
 
 /**
  * @addtogroup 视图
- * @brief 视图绘制相关
+ * @{
+ */
+
+/**
+ * @addtogroup 视图绘制相关
+ * @{
+ */
+
+/**
+ * @addtogroup 枚举
  * @{
  */
 
@@ -328,6 +337,8 @@ enum class TextVAlign
     /// 底部对齐
     Bottom
 };
+
+/** @} */
 
 /**
  * @brief Painter类，提供绘图相关的接口
@@ -871,4 +882,5 @@ public:
     void endPaint() const;
 };
 
+/**@}*/
 /**@}*/

@@ -3,6 +3,7 @@ var annotated_dup =
     [ "Animation", "class_animation.html", "class_animation" ],
     [ "App", "class_app.html", "class_app" ],
     [ "Block", "class_block.html", "class_block" ],
+    [ "Bool", "class_bool.html", null ],
     [ "Button", "class_button.html", "class_button" ],
     [ "CheckBox", "class_check_box.html", "class_check_box" ],
     [ "Color", "class_color.html", "class_color" ],
@@ -10,10 +11,12 @@ var annotated_dup =
     [ "Exception", "class_exception.html", "class_exception" ],
     [ "HSL", "struct_h_s_l.html", "struct_h_s_l" ],
     [ "HSV", "struct_h_s_v.html", "struct_h_s_v" ],
+    [ "Integer", "class_integer.html", null ],
     [ "Label", "class_label.html", "class_label" ],
     [ "LineEdit", "class_line_edit.html", "class_line_edit" ],
     [ "MenuBox", "class_menu_box.html", "class_menu_box" ],
     [ "MenuItem", "class_menu_item.html", "class_menu_item" ],
+    [ "Number", "class_number.html", null ],
     [ "Painter", "class_painter.html", "class_painter" ],
     [ "PaintEvent", "class_paint_event.html", "class_paint_event" ],
     [ "PixelMap", "class_pixel_map.html", "class_pixel_map" ],
@@ -30,6 +33,5 @@ var annotated_dup =
     [ "Size", "class_size.html", "class_size" ],
     [ "SizeF", "class_size_f.html", "class_size_f" ],
     [ "Slider", "class_slider.html", "class_slider" ],
-    [ "Var", "class_var.html", "class_var" ],
-    [ "Var< int >", "class_var_3_01int_01_4.html", "class_var_3_01int_01_4" ]
+    [ "Var", "class_var.html", "class_var" ]
 ];
