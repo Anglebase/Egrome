@@ -1183,12 +1183,21 @@ void Painter::drawRoundRect(const Rect &rect, int rx, int ry) const
 
 void Painter::drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const
 {
-    this->drawFillRect(x + rx, y, w - 2 * rx, h);
+    this->drawFillPie(
+        {x, y, 2 * rx, 2 * ry},
+        180, 90);
+    this->drawFillPie(
+        {x + w - 2 * rx, y, 2 * rx, 2 * ry},
+        0, -90);
+    this->drawFillPie(
+        {x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry},
+        0, 90);
+    this->drawFillPie(
+        {x, y + h - 2 * ry, 2 * rx, 2 * ry},
+        90, 90);
+    this->drawFillRect(x + rx, y, w - 2 * rx, ry);
+    this->drawFillRect(x + rx, y + h - ry, w - 2 * rx, ry);
     this->drawFillRect(x, y + ry, w, h - 2 * ry);
-    this->drawFillEllipse(x, y, 2 * rx, 2 * ry);
-    this->drawFillEllipse(x, y + h - 2 * ry, 2 * rx, 2 * ry);
-    this->drawFillEllipse(x + w - 2 * rx, y, 2 * rx, 2 * ry);
-    this->drawFillEllipse(x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry);
 }
 
 void Painter::drawFillRoundRect(const Rect &rect, int rx, int ry) const
@@ -1230,4 +1239,34 @@ long Painter::getTextHeight(const std::wstring &text) const
     if (this->pixelMap)
         return ege::textheight(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
     return -1;
+}
+
+void Painter::drawPie(const Rect &rect, int startAngle, int angle) const
+{
+    if (this->block)
+        ege::ege_pie(
+            this->block->rect_.x_ + rect.x_,
+            this->block->rect_.y_ + rect.y_,
+            rect.width_, rect.height_,
+            startAngle, angle);
+    if (this->pixelMap)
+        ege::ege_pie(
+            rect.x_, rect.y_, rect.width_, rect.height_,
+            startAngle, angle,
+            (ege::IMAGE *)this->pixelMap->image_);
+}
+
+void Painter::drawFillPie(const Rect &rect, int startAngle, int angle) const
+{
+    if (this->block)
+        ege::ege_fillpie(
+            this->block->rect_.x_ + rect.x_,
+            this->block->rect_.y_ + rect.y_,
+            rect.width_, rect.height_,
+            startAngle, angle);
+    if (this->pixelMap)
+        ege::ege_fillpie(
+            rect.x_, rect.y_, rect.width_, rect.height_,
+            startAngle, angle,
+            (ege::IMAGE *)this->pixelMap->image_);
 }

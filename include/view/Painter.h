@@ -776,6 +776,24 @@ public:
      * @return 文本高度
      */
     long getTextHeight(const std::wstring &text) const;
+
+    /**
+     * @brief 绘制扇形
+     * @param rect 扇形所在椭圆的外接矩形
+     * @param startAngle 扇形的起始角度
+     * @param angle 扇形扫过的角度
+     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     */
+    void drawPie(const Rect &rect, int startAngle, int angle)const;
+
+    /**
+     * @brief 绘制填充扇形
+     * @param rect 扇形所在椭圆的外接矩形
+     * @param startAngle 扇形的起始角度
+     * @param angle 扇形扫过的角度
+     * @note 起始角度和终止角度的单位是度，逆时针方向为正，0度为3点钟方向
+     */
+    void drawFillPie(const Rect &rect, int startAngle, int angle)const;
 };
 
 /**

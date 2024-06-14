@@ -348,9 +348,45 @@
             "oleaut32",
             "winmm"
         ],
+        // "compile": true,
+        // "start": true,
+        "target": "./bin/loadimage.exe",
+        "option": [
+            "-g"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
+    },
+    "alpha-test": {
+        "compiler": "g++",
+        "src": [
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/alpha.cpp"
+        ],
+        "include": [
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
         "compile": true,
         "start": true,
-        "target": "./bin/loadimage.exe",
+        "target": "./bin/alpha.exe",
         "option": [
             "-g"
         ],
