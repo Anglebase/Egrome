@@ -49,11 +49,11 @@ void Drag::mouseMoveEvent(const Point &pos)
                 delta.x() = pos.x() - this->beginPos_.value().x();
             if (this->yEnabled_)
                 delta.y() = pos.y() - this->beginPos_.value().y();
-            std::cout << "delta: " << delta << std::endl;
         }
         break;
         }
         this->rect().setTopLeft(this->thisPos_.value() + delta);
+        this->dragged.emit(this->rect().getTopLeft());
     }
     return Block::mouseMoveEvent(pos);
 }
@@ -64,6 +64,7 @@ void Drag::mouseReleaseEvent(const Point &pos, MouseButton button)
     {
         this->beginPos_ = std::nullopt;
         this->thisPos_ = std::nullopt;
+        this->released.emit();
     }
     return Block::mouseReleaseEvent(pos, button);
 }

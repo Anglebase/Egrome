@@ -42,6 +42,9 @@ public:
         drag = new DragBlock({100, 100, 200, 200}, this);
         // drag->setEnabled(true, false);
         drag->setReference(Ref::Window);
+        drag->dragged.connect([this](const Point &pos){
+            std::cout << "dragged: " << pos << std::endl;
+        });
     }
     ~Window()
     {
@@ -51,7 +54,7 @@ public:
 
 int main()
 {
-    Window window({0, 0, 1900, 1000});
+    Window window({0, 0, 800, 600});
     App app{&window};
     app.run();
     return 0;

@@ -30,7 +30,7 @@ protected:
 signals:
     /**
      * @brief 当此对象被拖动时发出信号
-     * @param pos 此时拖动的位置，该值是窗口坐标系下的鼠标坐标
+     * @param pos 此时被拖动对象的位置
      */
     Signal<void(const Point &pos)> dragged;
     /**
