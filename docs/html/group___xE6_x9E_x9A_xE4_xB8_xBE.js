@@ -7,6 +7,10 @@ var group___xE6_x9E_x9A_xE4_xB8_xBE =
       [ "CursorType::Cross", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggabbe637356c8cb749a9726f13658031faae76b449b9fc8536af7557ffa6321d269", null ],
       [ "CursorType::Hand", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggabbe637356c8cb749a9726f13658031faaa78b1ac16c0cd02168097fc9a9bd7604", null ]
     ] ],
+    [ "HScrollPos", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2", [
+      [ "HScrollPos::Top", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
+      [ "HScrollPos::Bottom", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2a2ad9d63b69c4a10a5cc9cad923133bc4", null ]
+    ] ],
     [ "InitFlag", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga0de316d7b5acb4445779e058b1d6e600", [
       [ "Default", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0de316d7b5acb4445779e058b1d6e600a79935518a3889663d8688b6b01fff051", null ],
       [ "NoBorder", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0de316d7b5acb4445779e058b1d6e600a61f42831da11041963029d0d79b6ead3", null ],
@@ -150,6 +154,10 @@ var group___xE6_x9E_x9A_xE4_xB8_xBE =
       [ "PenStyle::DashDot", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab70170afb6347d18ff9dac17e05e133eaef1c598821948808c4dbd57821281a31", null ],
       [ "PenStyle::Null", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab70170afb6347d18ff9dac17e05e133eabbb93ef26e3c101ff11cdd21cab08a94", null ]
     ] ],
+    [ "ScrollType", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d", [
+      [ "ScrollType::Horizontal", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4dac1b5fa03ecdb95d4a45dd1c40b02527f", null ],
+      [ "ScrollType::Vertical", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4da06ce2a25e5d12c166a36f654dbea6012", null ]
+    ] ],
     [ "TextHAlign", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga696d25264ac639804b3f4384961bbc27", [
       [ "TextHAlign::Left", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga696d25264ac639804b3f4384961bbc27a945d5e233cf7d6240f6b783b36a374ff", null ],
       [ "TextHAlign::Center", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga696d25264ac639804b3f4384961bbc27a4f1f6016fc9f3f2353c0cc7c67b292bd", null ],
@@ -159,5 +167,15 @@ var group___xE6_x9E_x9A_xE4_xB8_xBE =
       [ "TextVAlign::Top", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
       [ "TextVAlign::Middle", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175ab1ca34f82e83c52b010f86955f264e05", null ],
       [ "TextVAlign::Bottom", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga3ba8a1cdd2e577efbad7c7b88e1c6175a2ad9d63b69c4a10a5cc9cad923133bc4", null ]
+    ] ],
+    [ "ScrollView::Type", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga0ea2b7326642cbada4ae22f86deeb6cc", [
+      [ "ScrollView::None", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca11966255fe9bbf98a77230015acef891", null ],
+      [ "ScrollView::Horizontal", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca0d6ca444ee12a42de6eefb6ea9070da7", null ],
+      [ "ScrollView::Vertical", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6ccade64617fd17187747970b27f0a827d75", null ],
+      [ "ScrollView::Both", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca9796a9d7588cd3b6c0f593c5560278c9", null ]
+    ] ],
+    [ "VScrollPos", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55", [
+      [ "VScrollPos::Left", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a945d5e233cf7d6240f6b783b36a374ff", null ],
+      [ "VScrollPos::Right", "group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a92b09c7c48c520c3c55e497875da437c", null ]
     ] ]
 ];

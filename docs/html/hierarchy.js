@@ -8,13 +8,20 @@ var hierarchy =
       [ "Button", "class_button.html", null ],
       [ "CheckBox", "class_check_box.html", null ],
       [ "Divider", "class_divider.html", null ],
+      [ "Drag", "class_drag.html", [
+        [ "ScrollBar", "class_scroll_bar.html", null ]
+      ] ],
       [ "Label", "class_label.html", null ],
       [ "LineEdit", "class_line_edit.html", null ],
       [ "MenuBox", "class_menu_box.html", null ],
       [ "MenuItem", "class_menu_item.html", null ],
       [ "ProgressBar", "class_progress_bar.html", null ],
       [ "RadioBox", "class_radio_box.html", null ],
-      [ "Slider", "class_slider.html", null ]
+      [ "ScrollView", "class_scroll_view.html", null ],
+      [ "TextBlock", "class_text_block.html", null ],
+      [ "TextChar", "class_text_char.html", null ],
+      [ "TextDocument", "class_text_document.html", null ],
+      [ "TextLine", "class_text_line.html", null ]
     ] ],
     [ "Color", "class_color.html", null ],
     [ "Exception", "class_exception.html", null ],
@@ -45,6 +52,9 @@ var hierarchy =
     [ "MenuItem::StyleSheet", "struct_menu_item_1_1_style_sheet.html", null ],
     [ "ProgressBar::StyleSheet", "struct_progress_bar_1_1_style_sheet.html", null ],
     [ "RadioBox::StyleSheet", "struct_radio_box_1_1_style_sheet.html", null ],
+    [ "ScrollBar::StyleSheet", "struct_scroll_bar_1_1_style_sheet.html", null ],
+    [ "ScrollView::StyleSheet", "struct_scroll_view_1_1_style_sheet.html", null ],
+    [ "TextChar::StyleSheet", "struct_text_char_1_1_style_sheet.html", null ],
     [ "Var< T >", "class_var.html", [
       [ "Number< int >", "class_number.html", null ],
       [ "Number< T >", "class_number.html", [

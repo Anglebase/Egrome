@@ -9,5 +9,7 @@ var searchData=
   ['isrunning_6',['isRunning',['../class_animation.html#a52f062cffe443478285eb59fa0876abe',1,'Animation']]],
   ['isselected_7',['isSelected',['../class_radio_box.html#ac33f1fe7b8b09466d899ac766e33c9da',1,'RadioBox']]],
   ['isshowplaintext_8',['isShowPlainText',['../class_line_edit.html#ae8facaf16f5870d01ac7ddfbfebd3d5b',1,'LineEdit']]],
-  ['isvisible_9',['isVisible',['../class_menu_box.html#a150179068601631af14410391ab74a93',1,'MenuBox']]]
+  ['isvisible_9',['isVisible',['../class_menu_box.html#a150179068601631af14410391ab74a93',1,'MenuBox']]],
+  ['isxenabled_10',['isXEnabled',['../class_drag.html#ab6656987c97380cfdecd71b60287079d',1,'Drag']]],
+  ['isyenabled_11',['isYEnabled',['../class_drag.html#a8b9ffc160738c30c7543328a472c7fbd',1,'Drag']]]
 ];

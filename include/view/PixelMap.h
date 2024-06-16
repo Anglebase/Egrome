@@ -15,6 +15,11 @@ class Rect;
  */
 
 /**
+ * @addtogroup 像素图
+ * @{
+ */
+
+/**
  * @brief 像素图类
  * @details 像素图类用于绘制图像，并提供裁剪、复制以及混合等功能
  * @note 用户可以通过如下方式获取位图对象的Painter对象：
@@ -149,4 +154,5 @@ public:
     bool isNull() const;
 };
 
+/** @} */
 /** @} */

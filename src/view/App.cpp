@@ -179,11 +179,11 @@ void App::run()
         ege::cleardevice();
         this->block_->paintEvent(paintEvent);
         // 帧内事件循环
-        while (std::chrono::duration_cast<std::chrono::nanoseconds>(
+        while (std::chrono::duration_cast<std::chrono::milliseconds>(
                    std::chrono::steady_clock::now() - lastTime)
                        .count() *
                    App::fps_ <
-               8.5e8)
+               9e2)
         {
             // 捕获键盘输入
             if (ege::kbmsg())

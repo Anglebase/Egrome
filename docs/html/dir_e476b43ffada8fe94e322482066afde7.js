@@ -7,5 +7,5 @@ var dir_e476b43ffada8fe94e322482066afde7 =
     [ "MenuBox.h", "_menu_box_8h.html", "_menu_box_8h" ],
     [ "ProgressBar.h", "_progress_bar_8h_source.html", null ],
     [ "RadioBox.h", "_radio_box_8h.html", "_radio_box_8h" ],
-    [ "Slider.h", "_slider_8h_source.html", null ]
+    [ "TextEdit.h", "_text_edit_8h_source.html", null ]
 ];
