@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['var_0',['Var',['../class_var.html',1,'']]],
-  ['var_3c_20bool_20_3e_1',['Var&lt; bool &gt;',['../class_var.html',1,'']]],
-  ['var_3c_20int_20_3e_2',['Var&lt; int &gt;',['../class_var.html',1,'']]]
+  ['textblock_0',['TextBlock',['../class_text_block.html',1,'']]],
+  ['textchar_1',['TextChar',['../class_text_char.html',1,'']]],
+  ['textdocument_2',['TextDocument',['../class_text_document.html',1,'']]],
+  ['textline_3',['TextLine',['../class_text_line.html',1,'']]]
 ];

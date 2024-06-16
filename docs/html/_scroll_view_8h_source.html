@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/view/ScrollView.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_scroll_view_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ScrollView.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_block_8h.html">Block.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_pixel_map_8h.html">PixelMap.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Drag.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">Color.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="class_scroll_view.html">ScrollView</a>;</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">   19</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">HScrollPos</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2aa4ffdcf0dc1f31b9acaf295d75b51d00">Top</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2a2ad9d63b69c4a10a5cc9cad923133bc4">Bottom</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">   27</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">VScrollPos</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a945d5e233cf7d6240f6b783b36a374ff">Left</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a92b09c7c48c520c3c55e497875da437c">Right</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">   35</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">ScrollType</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4dac1b5fa03ecdb95d4a45dd1c40b02527f">Horizontal</a>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4da06ce2a25e5d12c166a36f654dbea6012">Vertical</a>,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+</div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_scroll_bar.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="class_scroll_bar.html">ScrollBar</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_drag.html">Drag</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="struct_scroll_bar_1_1_style_sheet.html">   57</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_scroll_bar_1_1_style_sheet.html">StyleSheet</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="struct_scroll_bar_1_1_style_sheet.html#ab836a7ad3234264c55f177707f368085">   60</a></span>        <a class="code hl_class" href="class_color.html">Color</a> <a class="code hl_variable" href="struct_scroll_bar_1_1_style_sheet.html#ab836a7ad3234264c55f177707f368085">barColor</a>{<a class="code hl_variable" href="group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga369553012abed2a1d35d852fad97402d">Color::Gray</a>};</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    } style;</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="class_scroll_view.html">ScrollView</a> *parent_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_scroll_view.html">ScrollView</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_bar.html#a370c3d76f139cd3e215e028e9c894d5a">paintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;<a class="code hl_class" href="class_var.html">event</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="class_scroll_bar.html#a552fadf39139db8d4722b1812f90e10e">ScrollBar</a>(<a class="code hl_class" href="class_scroll_view.html">ScrollView</a> *<a class="code hl_function" href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">parent</a> = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_class" href="class_scroll_bar.html">~ScrollBar</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="};">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_scroll_view.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="class_scroll_view.html">ScrollView</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_block.html">Block</a></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// 页面内容</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *view_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// 滚动条</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="class_scroll_bar.html">ScrollBar</a> *horScroll_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="class_scroll_bar.html">ScrollBar</a> *verScroll_{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// 滚动条位置</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">HScrollPos</a> horPos_{<a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2a2ad9d63b69c4a10a5cc9cad923133bc4">HScrollPos::Bottom</a>};</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">VScrollPos</a> verPos_{<a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a92b09c7c48c520c3c55e497875da437c">VScrollPos::Right</a>};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">// 优先渲染的滚动条</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">ScrollType</a> firstScrollType_{<a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4da06ce2a25e5d12c166a36f654dbea6012">ScrollType::Vertical</a>};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// 页面内容的裁剪位置</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_class" href="class_point.html">Point</a> clipPos_{0, 0};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">bool</span> hasHorScroll_{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">bool</span> hasVerScroll_{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">long</span> step_{20};</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> shifting_{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="};">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="struct_scroll_view_1_1_style_sheet.html">  110</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_scroll_view_1_1_style_sheet.html">StyleSheet</a></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="struct_scroll_view_1_1_style_sheet.html#a88075a382c615808340798386adc3bc1">  113</a></span>        <a class="code hl_class" href="class_color.html">Color</a> <a class="code hl_variable" href="struct_scroll_view_1_1_style_sheet.html#a88075a382c615808340798386adc3bc1">backgroundColor</a>{<a class="code hl_variable" href="group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga64abba1de9a93b7b2cf3ddbde14f640b">Color::White</a>};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_scroll_view_1_1_style_sheet.html#aa9320f378a323b88a3c399ffb215d36f">  115</a></span>        <a class="code hl_class" href="class_color.html">Color</a> <a class="code hl_variable" href="struct_scroll_view_1_1_style_sheet.html#aa9320f378a323b88a3c399ffb215d36f">scrollBarColor</a>{0x88888880<a class="code hl_class" href="class_var.html">_rgba</a>};</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_scroll_view_1_1_style_sheet.html#afd59bd9068bdce0c1e626cc1e11a013e">  117</a></span>        <a class="code hl_class" href="class_color.html">Color</a> <a class="code hl_variable" href="struct_scroll_view_1_1_style_sheet.html#afd59bd9068bdce0c1e626cc1e11a013e">scrollLineColor</a>{0x88888880<a class="code hl_class" href="class_var.html">_rgba</a>};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="struct_scroll_view_1_1_style_sheet.html#a176ab93e67b4feae52b0d82d80f4a21b">  119</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_scroll_view_1_1_style_sheet.html#a176ab93e67b4feae52b0d82d80f4a21b">scrollBarWidth</a>{20};</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    } style;</div>
+</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="};">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga0ea2b7326642cbada4ae22f86deeb6cc">  126</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga0ea2b7326642cbada4ae22f86deeb6cc">Type</a></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca11966255fe9bbf98a77230015acef891">  129</a></span>        <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca11966255fe9bbf98a77230015acef891">None</a>,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca0d6ca444ee12a42de6eefb6ea9070da7">  131</a></span>        <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca0d6ca444ee12a42de6eefb6ea9070da7">Horizontal</a>,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6ccade64617fd17187747970b27f0a827d75">  133</a></span>        <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6ccade64617fd17187747970b27f0a827d75">Vertical</a>,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <a class="code hl_enumvalue" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca9796a9d7588cd3b6c0f593c5560278c9">Both</a></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca9796a9d7588cd3b6c0f593c5560278c9">  136</a></span>    };</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#adcd233873ad70887240e73d1554bc98f">paintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_paint_event.html">PaintEvent</a> &amp;<a class="code hl_class" href="class_var.html">event</a>) <span class="keyword">final</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a9b1c88d8bc54ef9d5abf271adda22f26">pagePaintEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_painter.html">Painter</a> &amp;painter);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a239a86018c18c6d4d26d5b1ccaaa8f66">mouseWheelEvent</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_point.html">Point</a> &amp;<a class="code hl_class" href="class_var.html">pos</a>, <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga50141e5caf407b67b163b8d85585efa1">MouseWheel</a> <a class="code hl_class" href="class_var.html">wheel</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a396b5073f3c5c41dac88ec942535e227">keyPressEvent</a>(<a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a> <a class="code hl_class" href="class_var.html">key</a>, <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a> <a class="code hl_class" href="class_var.html">flag</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a1bee18dbd02ee2f2334c039c08cb9ea1">keyReleaseEvent</a>(<a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a> <a class="code hl_class" href="class_var.html">key</a>, <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a> <a class="code hl_class" href="class_var.html">flag</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_function" href="class_scroll_view.html#a4f607397248a6d892f58f7581337fb59">ScrollView</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a> &amp;<a class="code hl_function" href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">rect</a>, <a class="code hl_class" href="class_block.html">Block</a> *<a class="code hl_function" href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">parent</a> = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_function" href="class_scroll_view.html#ae331c75f26d7971332c40caf26aaa07d">~ScrollView</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a642ddb7236b56be00ed25b61882f0fad">updateScroll</a>();</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a08164edfdcd4d8004126c4867cb810aa">setView</a>(<a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *<a class="code hl_function" href="class_scroll_view.html#a1e07175bb7a1b9e5b4e7ee346ca92387">view</a>);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <a class="code hl_class" href="class_pixel_map.html">PixelMap</a> *<a class="code hl_function" href="class_scroll_view.html#a1e07175bb7a1b9e5b4e7ee346ca92387">view</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#acba08ff0b723ef8f53dcd4e57ab23151">setHScrollPos</a>(<a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">HScrollPos</a> <a class="code hl_class" href="class_var.html">pos</a>);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">HScrollPos</a> <a class="code hl_function" href="class_scroll_view.html#a7eb44768d78d98b95b6c7c6450a0fd8f">hScrollPos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a613f38c9b21a7068c43000c0f773aec9">setVScrollPos</a>(<a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">VScrollPos</a> <a class="code hl_class" href="class_var.html">pos</a>);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">VScrollPos</a> <a class="code hl_function" href="class_scroll_view.html#a5eacdbda98173cadc13a540e94ece7ea">vScrollPos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_view.html#a18eb7b7f5f8edfb5ba942a14150a8230">setFirstScrollType</a>(<a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">ScrollType</a> <a class="code hl_class" href="class_var.html">type</a>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_enumeration" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">ScrollType</a> <a class="code hl_function" href="class_scroll_view.html#a0fec3b253aa25f41389530e560b1445c">firstScrollType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="ttc" id="a_block_8h_html"><div class="ttname"><a href="_block_8h.html">Block.h</a></div><div class="ttdoc">块基类</div></div>
+<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">颜色类</div></div>
+<div class="ttc" id="a_pixel_map_8h_html"><div class="ttname"><a href="_pixel_map_8h.html">PixelMap.h</a></div><div class="ttdoc">像素图类</div></div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能</div><div class="ttdef"><b>Definition</b> Block.h:323</div></div>
+<div class="ttc" id="aclass_block_html_a0d4380b68a9d9e8ff1c4883925bd9186"><div class="ttname"><a href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">Block::parent</a></div><div class="ttdeci">Block * parent() const</div><div class="ttdoc">获取当前 Block 的父 Block</div><div class="ttdef"><b>Definition</b> Block.cpp:157</div></div>
+<div class="ttc" id="aclass_block_html_ab64786a3db2831fc78756b78fd11d8f4"><div class="ttname"><a href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">Block::rect</a></div><div class="ttdeci">Rect &amp; rect()</div><div class="ttdoc">获取当前 Block 的所在矩形区域</div><div class="ttdef"><b>Definition</b> Block.cpp:154</div></div>
+<div class="ttc" id="aclass_color_html"><div class="ttname"><a href="class_color.html">Color</a></div><div class="ttdoc">此类以 RGB 颜色模型对颜色进行存储</div><div class="ttdef"><b>Definition</b> Color.h:51</div></div>
+<div class="ttc" id="aclass_drag_html"><div class="ttname"><a href="class_drag.html">Drag</a></div><div class="ttdoc">可拖动的块</div><div class="ttdef"><b>Definition</b> Drag.h:17</div></div>
+<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdoc">PainterEvent类</div><div class="ttdef"><b>Definition</b> Painter.h:853</div></div>
+<div class="ttc" id="aclass_painter_html"><div class="ttname"><a href="class_painter.html">Painter</a></div><div class="ttdoc">Painter类，提供绘图相关的接口</div><div class="ttdef"><b>Definition</b> Painter.h:352</div></div>
+<div class="ttc" id="aclass_pixel_map_html"><div class="ttname"><a href="class_pixel_map.html">PixelMap</a></div><div class="ttdoc">像素图类</div><div class="ttdef"><b>Definition</b> PixelMap.h:38</div></div>
+<div class="ttc" id="aclass_point_html"><div class="ttname"><a href="class_point.html">Point</a></div><div class="ttdoc">此类定义二维坐标点</div><div class="ttdef"><b>Definition</b> Point.h:20</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:18</div></div>
+<div class="ttc" id="aclass_scroll_bar_html"><div class="ttname"><a href="class_scroll_bar.html">ScrollBar</a></div><div class="ttdoc">滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.h:54</div></div>
+<div class="ttc" id="aclass_scroll_bar_html_a370c3d76f139cd3e215e028e9c894d5a"><div class="ttname"><a href="class_scroll_bar.html#a370c3d76f139cd3e215e028e9c894d5a">ScrollBar::paintEvent</a></div><div class="ttdeci">void paintEvent(const PaintEvent &amp;event) override</div><div class="ttdoc">重写此方法，用于滚动条的绘制</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:806</div></div>
+<div class="ttc" id="aclass_scroll_bar_html_a552fadf39139db8d4722b1812f90e10e"><div class="ttname"><a href="class_scroll_bar.html#a552fadf39139db8d4722b1812f90e10e">ScrollBar::ScrollBar</a></div><div class="ttdeci">ScrollBar(ScrollView *parent=nullptr)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:814</div></div>
+<div class="ttc" id="aclass_scroll_view_html"><div class="ttname"><a href="class_scroll_view.html">ScrollView</a></div><div class="ttdoc">滚动视图</div><div class="ttdef"><b>Definition</b> ScrollView.h:87</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a08164edfdcd4d8004126c4867cb810aa"><div class="ttname"><a href="class_scroll_view.html#a08164edfdcd4d8004126c4867cb810aa">ScrollView::setView</a></div><div class="ttdeci">void setView(PixelMap *view)</div><div class="ttdoc">设置页面内容</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:766</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a0fec3b253aa25f41389530e560b1445c"><div class="ttname"><a href="class_scroll_view.html#a0fec3b253aa25f41389530e560b1445c">ScrollView::firstScrollType</a></div><div class="ttdeci">ScrollType firstScrollType() const</div><div class="ttdoc">获取优先渲染的滚动条类型</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:801</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a18eb7b7f5f8edfb5ba942a14150a8230"><div class="ttname"><a href="class_scroll_view.html#a18eb7b7f5f8edfb5ba942a14150a8230">ScrollView::setFirstScrollType</a></div><div class="ttdeci">void setFirstScrollType(ScrollType type)</div><div class="ttdoc">设置优先渲染的滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:796</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a1bee18dbd02ee2f2334c039c08cb9ea1"><div class="ttname"><a href="class_scroll_view.html#a1bee18dbd02ee2f2334c039c08cb9ea1">ScrollView::keyReleaseEvent</a></div><div class="ttdeci">void keyReleaseEvent(Key key, KeyFlag flag) override</div><div class="ttdoc">此方法用于监测Shift键是否松开</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:407</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a1e07175bb7a1b9e5b4e7ee346ca92387"><div class="ttname"><a href="class_scroll_view.html#a1e07175bb7a1b9e5b4e7ee346ca92387">ScrollView::view</a></div><div class="ttdeci">PixelMap * view() const</div><div class="ttdoc">获取页面内容</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:771</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a239a86018c18c6d4d26d5b1ccaaa8f66"><div class="ttname"><a href="class_scroll_view.html#a239a86018c18c6d4d26d5b1ccaaa8f66">ScrollView::mouseWheelEvent</a></div><div class="ttdeci">void mouseWheelEvent(const Point &amp;pos, MouseWheel wheel) override</div><div class="ttdoc">重写此方法，用于滚动视图的鼠标事件</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:308</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a396b5073f3c5c41dac88ec942535e227"><div class="ttname"><a href="class_scroll_view.html#a396b5073f3c5c41dac88ec942535e227">ScrollView::keyPressEvent</a></div><div class="ttdeci">void keyPressEvent(Key key, KeyFlag flag) override</div><div class="ttdoc">此方法用于监测Shift键是否按下</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:398</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a4f607397248a6d892f58f7581337fb59"><div class="ttname"><a href="class_scroll_view.html#a4f607397248a6d892f58f7581337fb59">ScrollView::ScrollView</a></div><div class="ttdeci">ScrollView(const Rect &amp;rect, Block *parent=nullptr)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:416</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a5eacdbda98173cadc13a540e94ece7ea"><div class="ttname"><a href="class_scroll_view.html#a5eacdbda98173cadc13a540e94ece7ea">ScrollView::vScrollPos</a></div><div class="ttdeci">VScrollPos vScrollPos() const</div><div class="ttdoc">获取垂直滚动条的位置</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:791</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a613f38c9b21a7068c43000c0f773aec9"><div class="ttname"><a href="class_scroll_view.html#a613f38c9b21a7068c43000c0f773aec9">ScrollView::setVScrollPos</a></div><div class="ttdeci">void setVScrollPos(VScrollPos pos)</div><div class="ttdoc">设置垂直滚动条的位置</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:786</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a642ddb7236b56be00ed25b61882f0fad"><div class="ttname"><a href="class_scroll_view.html#a642ddb7236b56be00ed25b61882f0fad">ScrollView::updateScroll</a></div><div class="ttdeci">void updateScroll()</div><div class="ttdoc">依据页面的位置计算并更新滚动条的位置</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:543</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a7eb44768d78d98b95b6c7c6450a0fd8f"><div class="ttname"><a href="class_scroll_view.html#a7eb44768d78d98b95b6c7c6450a0fd8f">ScrollView::hScrollPos</a></div><div class="ttdeci">HScrollPos hScrollPos() const</div><div class="ttdoc">获取水平滚动条的位置</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:781</div></div>
+<div class="ttc" id="aclass_scroll_view_html_a9b1c88d8bc54ef9d5abf271adda22f26"><div class="ttname"><a href="class_scroll_view.html#a9b1c88d8bc54ef9d5abf271adda22f26">ScrollView::pagePaintEvent</a></div><div class="ttdeci">virtual void pagePaintEvent(const Painter &amp;painter)</div><div class="ttdoc">此方法替代paintEvent(const PaintEvent &amp;event)，用于向页面绘制内容</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:302</div></div>
+<div class="ttc" id="aclass_scroll_view_html_acba08ff0b723ef8f53dcd4e57ab23151"><div class="ttname"><a href="class_scroll_view.html#acba08ff0b723ef8f53dcd4e57ab23151">ScrollView::setHScrollPos</a></div><div class="ttdeci">void setHScrollPos(HScrollPos pos)</div><div class="ttdoc">设置水平滚动条的位置</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:776</div></div>
+<div class="ttc" id="aclass_scroll_view_html_adcd233873ad70887240e73d1554bc98f"><div class="ttname"><a href="class_scroll_view.html#adcd233873ad70887240e73d1554bc98f">ScrollView::paintEvent</a></div><div class="ttdeci">void paintEvent(const PaintEvent &amp;event) final override</div><div class="ttdoc">重写此方法，用于滚动视图的绘制</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:6</div></div>
+<div class="ttc" id="aclass_scroll_view_html_ae331c75f26d7971332c40caf26aaa07d"><div class="ttname"><a href="class_scroll_view.html#ae331c75f26d7971332c40caf26aaa07d">ScrollView::~ScrollView</a></div><div class="ttdeci">~ScrollView() override</div><div class="ttdoc">析构函数</div><div class="ttdef"><b>Definition</b> ScrollView.cpp:537</div></div>
+<div class="ttc" id="aclass_var_html"><div class="ttname"><a href="class_var.html">Var</a></div><div class="ttdoc">变量类基类</div><div class="ttdef"><b>Definition</b> Var.hpp:17</div></div>
+<div class="ttc" id="agroup___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2_html_ga369553012abed2a1d35d852fad97402d"><div class="ttname"><a href="group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga369553012abed2a1d35d852fad97402d">Color::Gray</a></div><div class="ttdeci">static const Color Gray</div><div class="ttdoc">灰色</div><div class="ttdef"><b>Definition</b> Color.h:15</div></div>
+<div class="ttc" id="agroup___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2_html_ga64abba1de9a93b7b2cf3ddbde14f640b"><div class="ttname"><a href="group___xE5_xB8_xB8_xE7_x94_xA8_xE9_xA2_x9C_xE8_x89_xB2.html#ga64abba1de9a93b7b2cf3ddbde14f640b">Color::White</a></div><div class="ttdeci">static const Color White</div><div class="ttdoc">白色</div><div class="ttdef"><b>Definition</b> Color.h:7</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga0ea2b7326642cbada4ae22f86deeb6cc"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga0ea2b7326642cbada4ae22f86deeb6cc">ScrollView::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">滚动视图类型</div><div class="ttdef"><b>Definition</b> ScrollView.h:127</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga12b2e6898fbc2b4b2d2207db38407c55"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga12b2e6898fbc2b4b2d2207db38407c55">VScrollPos</a></div><div class="ttdeci">VScrollPos</div><div class="ttdoc">垂直滚动条位置</div><div class="ttdef"><b>Definition</b> ScrollView.h:28</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga43457efdb1b25b9a17d42e9fb0b684c2"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga43457efdb1b25b9a17d42e9fb0b684c2">HScrollPos</a></div><div class="ttdeci">HScrollPos</div><div class="ttdoc">水平滚动条位置</div><div class="ttdef"><b>Definition</b> ScrollView.h:20</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga50141e5caf407b67b163b8d85585efa1"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga50141e5caf407b67b163b8d85585efa1">MouseWheel</a></div><div class="ttdeci">MouseWheel</div><div class="ttdoc">鼠标滚轮方向枚举</div><div class="ttdef"><b>Definition</b> Block.h:39</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga7b263a18e2e46cc5365376b1eac284fb"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a></div><div class="ttdeci">KeyFlag</div><div class="ttdoc">键盘按键标志位枚举</div><div class="ttdef"><b>Definition</b> Block.h:288</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_ga9611c8ec37ba9a84fb6cbd1227a08a4d"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga9611c8ec37ba9a84fb6cbd1227a08a4d">ScrollType</a></div><div class="ttdeci">ScrollType</div><div class="ttdoc">滚动条类型</div><div class="ttdef"><b>Definition</b> ScrollView.h:36</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gab3c7af4820830f9166ede9e5623c4e73"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a></div><div class="ttdeci">Key</div><div class="ttdoc">键盘按键枚举</div><div class="ttdef"><b>Definition</b> Block.h:50</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga0ea2b7326642cbada4ae22f86deeb6cca0d6ca444ee12a42de6eefb6ea9070da7"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca0d6ca444ee12a42de6eefb6ea9070da7">ScrollView::Horizontal</a></div><div class="ttdeci">@ Horizontal</div><div class="ttdoc">具有水平滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.h:131</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga0ea2b7326642cbada4ae22f86deeb6cca11966255fe9bbf98a77230015acef891"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca11966255fe9bbf98a77230015acef891">ScrollView::None</a></div><div class="ttdeci">@ None</div><div class="ttdoc">无滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.h:129</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga0ea2b7326642cbada4ae22f86deeb6cca9796a9d7588cd3b6c0f593c5560278c9"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6cca9796a9d7588cd3b6c0f593c5560278c9">ScrollView::Both</a></div><div class="ttdeci">@ Both</div><div class="ttdoc">具有水平和垂直滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.h:135</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga0ea2b7326642cbada4ae22f86deeb6ccade64617fd17187747970b27f0a827d75"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga0ea2b7326642cbada4ae22f86deeb6ccade64617fd17187747970b27f0a827d75">ScrollView::Vertical</a></div><div class="ttdeci">@ Vertical</div><div class="ttdoc">具有垂直滚动条</div><div class="ttdef"><b>Definition</b> ScrollView.h:133</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga12b2e6898fbc2b4b2d2207db38407c55a92b09c7c48c520c3c55e497875da437c"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a92b09c7c48c520c3c55e497875da437c">VScrollPos::Right</a></div><div class="ttdeci">@ Right</div><div class="ttdoc">滚动视图右侧</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga12b2e6898fbc2b4b2d2207db38407c55a945d5e233cf7d6240f6b783b36a374ff"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga12b2e6898fbc2b4b2d2207db38407c55a945d5e233cf7d6240f6b783b36a374ff">VScrollPos::Left</a></div><div class="ttdeci">@ Left</div><div class="ttdoc">滚动视图左侧</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga43457efdb1b25b9a17d42e9fb0b684c2a2ad9d63b69c4a10a5cc9cad923133bc4"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2a2ad9d63b69c4a10a5cc9cad923133bc4">HScrollPos::Bottom</a></div><div class="ttdeci">@ Bottom</div><div class="ttdoc">滚动视图底部</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga43457efdb1b25b9a17d42e9fb0b684c2aa4ffdcf0dc1f31b9acaf295d75b51d00"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga43457efdb1b25b9a17d42e9fb0b684c2aa4ffdcf0dc1f31b9acaf295d75b51d00">HScrollPos::Top</a></div><div class="ttdeci">@ Top</div><div class="ttdoc">滚动视图顶部</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga9611c8ec37ba9a84fb6cbd1227a08a4da06ce2a25e5d12c166a36f654dbea6012"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4da06ce2a25e5d12c166a36f654dbea6012">ScrollType::Vertical</a></div><div class="ttdeci">@ Vertical</div><div class="ttdoc">垂直滚动条</div></div>
+<div class="ttc" id="agroup___xE6_x9E_x9A_xE4_xB8_xBE_html_gga9611c8ec37ba9a84fb6cbd1227a08a4dac1b5fa03ecdb95d4a45dd1c40b02527f"><div class="ttname"><a href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gga9611c8ec37ba9a84fb6cbd1227a08a4dac1b5fa03ecdb95d4a45dd1c40b02527f">ScrollType::Horizontal</a></div><div class="ttdeci">@ Horizontal</div><div class="ttdoc">水平滚动条</div></div>
+<div class="ttc" id="astruct_scroll_bar_1_1_style_sheet_html"><div class="ttname"><a href="struct_scroll_bar_1_1_style_sheet.html">ScrollBar::StyleSheet</a></div><div class="ttdoc">样式表</div><div class="ttdef"><b>Definition</b> ScrollView.h:58</div></div>
+<div class="ttc" id="astruct_scroll_bar_1_1_style_sheet_html_ab836a7ad3234264c55f177707f368085"><div class="ttname"><a href="struct_scroll_bar_1_1_style_sheet.html#ab836a7ad3234264c55f177707f368085">ScrollBar::StyleSheet::barColor</a></div><div class="ttdeci">Color barColor</div><div class="ttdoc">滚动条颜色</div><div class="ttdef"><b>Definition</b> ScrollView.h:60</div></div>
+<div class="ttc" id="astruct_scroll_view_1_1_style_sheet_html"><div class="ttname"><a href="struct_scroll_view_1_1_style_sheet.html">ScrollView::StyleSheet</a></div><div class="ttdoc">样式表</div><div class="ttdef"><b>Definition</b> ScrollView.h:111</div></div>
+<div class="ttc" id="astruct_scroll_view_1_1_style_sheet_html_a176ab93e67b4feae52b0d82d80f4a21b"><div class="ttname"><a href="struct_scroll_view_1_1_style_sheet.html#a176ab93e67b4feae52b0d82d80f4a21b">ScrollView::StyleSheet::scrollBarWidth</a></div><div class="ttdeci">int scrollBarWidth</div><div class="ttdoc">滚动条宽度</div><div class="ttdef"><b>Definition</b> ScrollView.h:119</div></div>
+<div class="ttc" id="astruct_scroll_view_1_1_style_sheet_html_a88075a382c615808340798386adc3bc1"><div class="ttname"><a href="struct_scroll_view_1_1_style_sheet.html#a88075a382c615808340798386adc3bc1">ScrollView::StyleSheet::backgroundColor</a></div><div class="ttdeci">Color backgroundColor</div><div class="ttdoc">背景颜色</div><div class="ttdef"><b>Definition</b> ScrollView.h:113</div></div>
+<div class="ttc" id="astruct_scroll_view_1_1_style_sheet_html_aa9320f378a323b88a3c399ffb215d36f"><div class="ttname"><a href="struct_scroll_view_1_1_style_sheet.html#aa9320f378a323b88a3c399ffb215d36f">ScrollView::StyleSheet::scrollBarColor</a></div><div class="ttdeci">Color scrollBarColor</div><div class="ttdoc">滚动条颜色</div><div class="ttdef"><b>Definition</b> ScrollView.h:115</div></div>
+<div class="ttc" id="astruct_scroll_view_1_1_style_sheet_html_afd59bd9068bdce0c1e626cc1e11a013e"><div class="ttname"><a href="struct_scroll_view_1_1_style_sheet.html#afd59bd9068bdce0c1e626cc1e11a013e">ScrollView::StyleSheet::scrollLineColor</a></div><div class="ttdeci">Color scrollLineColor</div><div class="ttdoc">滚动条边界线条颜色</div><div class="ttdef"><b>Definition</b> ScrollView.h:117</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d03cbfd2f64df20252359f4b8046046f.html">view</a></li><li class="navelem"><b>ScrollView.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

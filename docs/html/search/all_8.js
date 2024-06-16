@@ -17,5 +17,7 @@ var searchData=
   ['isselected_14',['isSelected',['../class_radio_box.html#ac33f1fe7b8b09466d899ac766e33c9da',1,'RadioBox']]],
   ['isshowplaintext_15',['isShowPlainText',['../class_line_edit.html#ae8facaf16f5870d01ac7ddfbfebd3d5b',1,'LineEdit']]],
   ['isvisible_16',['isVisible',['../class_menu_box.html#a150179068601631af14410391ab74a93',1,'MenuBox']]],
-  ['italic_17',['italic',['../struct_label_1_1_style_sheet.html#acf27ef7ceb2635965178c75a0e986a7a',1,'Label::StyleSheet']]]
+  ['isxenabled_17',['isXEnabled',['../class_drag.html#ab6656987c97380cfdecd71b60287079d',1,'Drag']]],
+  ['isyenabled_18',['isYEnabled',['../class_drag.html#a8b9ffc160738c30c7543328a472c7fbd',1,'Drag']]],
+  ['italic_19',['italic',['../struct_label_1_1_style_sheet.html#acf27ef7ceb2635965178c75a0e986a7a',1,'Label::StyleSheet']]]
 ];

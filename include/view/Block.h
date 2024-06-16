@@ -311,6 +311,11 @@ enum class CursorType {
 /** @} */
 
 /**
+ * @addtogroup 块基类
+ * @{
+ */
+
+/**
  * @brief Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能
  * @brief 用户可以通过继承Block类来实现自己的UI对象，通过重写paint()函数来实现自己的绘制逻辑，通过重写update()函数来实现自己的更新逻辑，同时应注意在事件处理函数中不应执行耗时操作，用户可以在事件处理函数中手动调用父类的事件处理函数而灵活的应用Block所提供的默认行为
  */
@@ -532,4 +537,5 @@ public:
     void setZindex(long long zindex);
 };
 
+/** @} */
 /** @} */

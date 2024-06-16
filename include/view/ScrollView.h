@@ -6,7 +6,7 @@
 #include "Color.h"
 
 /**
- * @addtogroup 滚动视图
+ * @addtogroup 视图
  * @{
  */
 
@@ -40,6 +40,11 @@ enum class ScrollType
     Vertical,
 };
 /** @} */
+
+/**
+ * @addtogroup 滚动视图
+ * @{
+ */
 
 /**
  * @brief 滚动条
@@ -224,4 +229,5 @@ public:
     ScrollType firstScrollType() const;
 };
 
+/** @} */
 /** @} */
