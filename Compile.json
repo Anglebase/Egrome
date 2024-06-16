@@ -420,11 +420,47 @@
             "oleaut32",
             "winmm"
         ],
-        "compile": true,
-        "start": true,
+        // "compile": true,
+        // "start": true,
         "target": "./bin/drag.exe",
         "option": [
             "-O4"
+        ],
+        "define": [
+            "UNICODE",
+            "_UNICODE"
+        ]
+    },
+    "srcoll-test": {
+        "compiler": "g++",
+        "src": [
+            "./src/view/*.cpp",
+            "./src/class/*.cpp",
+            "./src/core/*.cpp",
+            "./test/srcoll.cpp"
+        ],
+        "include": [
+            "./include/view/",
+            "./include/class/",
+            "./include/core/",
+            "./include/"
+        ],
+        "link": [
+            "graphics64",
+            "gdiplus",
+            "uuid",
+            "msimg32",
+            "gdi32",
+            "imm32",
+            "ole32",
+            "oleaut32",
+            "winmm"
+        ],
+        "compile": true,
+        "start": true,
+        "target": "./bin/srcoll.exe",
+        "option": [
+            "-g"
         ],
         "define": [
             "UNICODE",
