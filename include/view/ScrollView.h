@@ -5,25 +5,41 @@
 #include "Drag.h"
 #include "Color.h"
 
-class ScrollView;
+/**
+ * @addtogroup 滚动视图
+ * @{
+ */
 
+class ScrollView;
+/**
+ * @addtogroup 枚举
+ * @{
+ */
+/// @brief 水平滚动条位置
 enum class HScrollPos
 {
+    /// 滚动视图顶部
     Top,
+    /// 滚动视图底部
     Bottom,
 };
-
+/// @brief 垂直滚动条位置
 enum class VScrollPos
 {
+    /// 滚动视图左侧
     Left,
+    /// 滚动视图右侧
     Right,
 };
-
+/// 滚动条类型
 enum class ScrollType
 {
+    /// 水平滚动条
     Horizontal,
+    /// 垂直滚动条
     Vertical,
 };
+/** @} */
 
 /**
  * @brief 滚动条
@@ -97,15 +113,23 @@ public:
         /// 滚动条宽度
         int scrollBarWidth{20};
     } style;
-
+    /**
+     * @addtogroup 枚举
+     * @{
+     */
+    /// @brief 滚动视图类型
     enum Type
     {
+        /// 无滚动条
         None,
+        /// 具有水平滚动条
         Horizontal,
+        /// 具有垂直滚动条
         Vertical,
+        /// 具有水平和垂直滚动条
         Both
     };
-
+    /** @} */
 protected:
     /**
      * @brief 重写此方法，用于滚动视图的绘制
@@ -118,13 +142,6 @@ protected:
      * @note 子类可以重写此方法，用于绘制页面内容，它采用的是页面自己的坐标系，页面的左上角为坐标原点
      */
     virtual void pagePaintEvent(const Painter &painter);
-    /**
-     * @brief 此方法用于渲染滚动视图
-     * @param painter 绘制器
-     * @param type 渲染的滚动视图类型
-     * @note 子类可以重写此方法，通过条件筛选可以具体指定重写哪个滚动视图的绘制
-     */
-    virtual void paintEvent(const Painter &painter, ScrollView::Type type);
     /**
      * @brief 重写此方法，用于滚动视图的鼠标事件
      * @param pos 鼠标位置
@@ -206,3 +223,5 @@ public:
      */
     ScrollType firstScrollType() const;
 };
+
+/** @} */

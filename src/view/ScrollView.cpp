@@ -17,26 +17,279 @@ void ScrollView::paintEvent(const PaintEvent &event)
         if (this->view_->getSize().width() <= painter.rect().width() &&
             this->view_->getSize().height() <= painter.rect().height())
         {
-            this->paintEvent(painter, ScrollView::Type::None);
+            painter.drawPixelMap(Point{0, 0}, *this->view_);
         }
         // 页面内容垂直方向超出可视区域
         else if (this->view_->getSize().width() <=
                      painter.rect().width() - this->style.scrollBarWidth &&
                  this->view_->getSize().height() > painter.rect().height())
         {
-            this->paintEvent(painter, ScrollView::Type::Vertical);
+            switch (this->verPos_)
+            {
+            case VScrollPos::Left:
+                // 绘制视图内容
+                painter.setPenColor(this->style.scrollLineColor);
+                painter.drawLine(
+                    {
+                        this->style.scrollBarWidth,
+                        0,
+                    },
+                    {
+                        this->style.scrollBarWidth,
+                        this->rect().height(),
+                    });
+                painter.drawPixelMap(
+                    Point{
+                        this->style.scrollBarWidth,
+                        0,
+                    },
+                    this->view_->clip({
+                        this->clipPos_.x(),
+                        this->clipPos_.y(),
+                        this->view_->getSize().width(),
+                        painter.rect().height(),
+                    }));
+                break;
+            case VScrollPos::Right:
+                painter.setPenColor(this->style.scrollLineColor);
+                painter.drawLine(
+                    {
+                        this->rect().width() - this->style.scrollBarWidth,
+                        0,
+                    },
+                    {
+                        this->rect().width() - this->style.scrollBarWidth,
+                        this->rect().height(),
+                    });
+                painter.drawPixelMap(
+                    Point{0, 0},
+                    this->view_->clip({
+                        this->clipPos_.x(),
+                        this->clipPos_.y(),
+                        this->view_->getSize().width(),
+                        painter.rect().height(),
+                    }));
+                break;
+            }
         }
         // 页面内容水平方向超出可视区域
         else if (this->view_->getSize().width() > painter.rect().width() &&
                  this->view_->getSize().height() <=
                      painter.rect().height() - this->style.scrollBarWidth)
         {
-            this->paintEvent(painter, ScrollView::Type::Horizontal);
+            switch (this->horPos_)
+            {
+            case HScrollPos::Top:
+                painter.setPenColor(this->style.scrollLineColor);
+                painter.drawLine(
+                    {
+                        0,
+                        this->style.scrollBarWidth,
+                    },
+                    {
+                        this->rect().width(),
+                        this->style.scrollBarWidth,
+                    });
+                painter.drawPixelMap(
+                    Point{
+                        0,
+                        this->style.scrollBarWidth,
+                    },
+                    this->view_->clip({
+                        this->clipPos_.x(),
+                        this->clipPos_.y(),
+                        painter.rect().width(),
+                        this->view_->getSize().height(),
+                    }));
+                break;
+            case HScrollPos::Bottom:
+                painter.setPenColor(this->style.scrollLineColor);
+                painter.drawLine(
+                    {
+                        0,
+                        this->rect().height() - this->style.scrollBarWidth,
+                    },
+                    {
+                        this->rect().width(),
+                        this->rect().height() - this->style.scrollBarWidth,
+                    });
+                painter.drawPixelMap(
+                    Point{
+                        0,
+                        0,
+                    },
+                    this->view_->clip({
+                        this->clipPos_.x(),
+                        this->clipPos_.y(),
+                        painter.rect().width(),
+                        this->view_->getSize().height(),
+                    }));
+                break;
+            }
         }
         // 页面内容全部超出可视区域
         else
         {
-            this->paintEvent(painter, ScrollView::Type::Both);
+            painter.setPenColor(this->style.scrollLineColor);
+            switch (this->firstScrollType_)
+            {
+            // 优先渲染水平方向滚动条
+            case ScrollType::Horizontal:
+            {
+                // 绘制水平滚动条区域
+                switch (this->horPos_)
+                {
+                // 顶部滚动条
+                case HScrollPos::Top:
+                {
+                    painter.drawLine(
+                        {
+                            0,
+                            this->style.scrollBarWidth,
+                        },
+                        {
+                            this->rect().width(),
+                            this->style.scrollBarWidth,
+                        });
+                }
+                break;
+                // 底部滚动条
+                case HScrollPos::Bottom:
+                {
+                    painter.drawLine(
+                        {
+                            0,
+                            this->rect().height() - this->style.scrollBarWidth,
+                        },
+                        {
+                            this->rect().width(),
+                            this->rect().height() - this->style.scrollBarWidth,
+                        });
+                }
+                break;
+                }
+                // 绘制垂直滚动条区域
+                switch (this->verPos_)
+                {
+                // 左侧滚动条
+                case VScrollPos::Left:
+                {
+                    painter.drawLine(
+                        {
+                            this->style.scrollBarWidth,
+                            this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
+                        },
+                        {
+                            this->style.scrollBarWidth,
+                            this->rect().height() - (this->horPos_ == HScrollPos::Bottom ? this->style.scrollBarWidth : 0),
+                        });
+                }
+                break;
+                // 右侧滚动条
+                case VScrollPos::Right:
+                {
+                    painter.drawLine(
+                        {
+                            this->rect().width() - this->style.scrollBarWidth,
+                            this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
+                        },
+                        {
+                            this->rect().width() - this->style.scrollBarWidth,
+                            this->rect().height() - (this->horPos_ == HScrollPos::Bottom ? this->style.scrollBarWidth : 0),
+                        });
+                }
+                break;
+                }
+            }
+            break;
+            // 优先渲染垂直方向滚动条
+            case ScrollType::Vertical:
+            {
+                // 绘制垂直滚动条区域
+                switch (this->verPos_)
+                {
+                // 左侧滚动条
+                case VScrollPos::Left:
+                {
+                    painter.drawLine(
+                        {
+                            this->style.scrollBarWidth,
+                            0,
+                        },
+                        {
+                            this->style.scrollBarWidth,
+                            this->rect().height(),
+                        });
+                }
+                break;
+                // 右侧滚动条
+                case VScrollPos::Right:
+                {
+                    painter.drawLine(
+                        {
+                            this->rect().width() - this->style.scrollBarWidth,
+                            0,
+                        },
+                        {
+                            this->rect().width() - this->style.scrollBarWidth,
+                            this->rect().height(),
+                        });
+                }
+                break;
+                }
+                // 绘制水平滚动条区域
+                switch (this->horPos_)
+                {
+                // 顶部滚动条
+                case HScrollPos::Top:
+                {
+                    painter.drawLine(
+                        {
+                            this->verPos_ == VScrollPos::Left
+                                ? this->style.scrollBarWidth
+                                : 0,
+                            this->style.scrollBarWidth,
+                        },
+                        {
+                            this->rect().width() - (this->verPos_ == VScrollPos::Right
+                                                        ? this->style.scrollBarWidth
+                                                        : 0),
+                            this->style.scrollBarWidth,
+                        });
+                }
+                break;
+                // 底部滚动条
+                case HScrollPos::Bottom:
+                {
+                    painter.drawLine(
+                        {
+                            this->verPos_ == VScrollPos::Left
+                                ? this->style.scrollBarWidth
+                                : 0,
+                            this->rect().height() - this->style.scrollBarWidth,
+                        },
+                        {
+                            this->rect().width() - (this->verPos_ == VScrollPos::Right
+                                                        ? this->style.scrollBarWidth
+                                                        : 0),
+                            this->rect().height() - this->style.scrollBarWidth,
+                        });
+                }
+                break;
+                }
+            }
+            break;
+            }
+            painter.drawPixelMap(
+                Point{
+                    this->verPos_ == VScrollPos::Left ? this->style.scrollBarWidth : 0,
+                    this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
+                },
+                this->view_->clip({this->clipPos_,
+                                   {
+                                       painter.rect().width() - this->style.scrollBarWidth,
+                                       painter.rect().height() - this->style.scrollBarWidth,
+                                   }}));
         }
     }
     event.endPaint();
@@ -50,288 +303,6 @@ void ScrollView::pagePaintEvent(const Painter &painter)
 {
     painter.setPenColor(Color::Green);
     painter.drawRect(painter.rect().adjusted(0, 0, -1, -1));
-}
-
-void ScrollView::paintEvent(const Painter &painter, ScrollView::Type type)
-{
-    switch (type)
-    {
-    case ScrollView::Type::None:
-    {
-        painter.drawPixelMap(Point{0, 0}, *this->view_);
-    }
-    break;
-    case ScrollView::Type::Horizontal:
-    {
-
-        switch (this->verPos_)
-        {
-        case VScrollPos::Left:
-            // 绘制视图内容
-            painter.setPenColor(this->style.scrollLineColor);
-            painter.drawLine(
-                {
-                    this->style.scrollBarWidth,
-                    0,
-                },
-                {
-                    this->style.scrollBarWidth,
-                    this->rect().height(),
-                });
-            painter.drawPixelMap(
-                Point{
-                    this->style.scrollBarWidth,
-                    0,
-                },
-                this->view_->clip({
-                    this->clipPos_.x(),
-                    this->clipPos_.y(),
-                    this->view_->getSize().width(),
-                    painter.rect().height(),
-                }));
-            break;
-        case VScrollPos::Right:
-            painter.setPenColor(this->style.scrollLineColor);
-            painter.drawLine(
-                {
-                    this->rect().width() - this->style.scrollBarWidth,
-                    0,
-                },
-                {
-                    this->rect().width() - this->style.scrollBarWidth,
-                    this->rect().height(),
-                });
-            painter.drawPixelMap(
-                Point{0, 0},
-                this->view_->clip({
-                    this->clipPos_.x(),
-                    this->clipPos_.y(),
-                    this->view_->getSize().width(),
-                    painter.rect().height(),
-                }));
-            break;
-        }
-    }
-    break;
-    case ScrollView::Type::Vertical:
-    {
-
-        switch (this->horPos_)
-        {
-        case HScrollPos::Top:
-            painter.setPenColor(this->style.scrollLineColor);
-            painter.drawLine(
-                {
-                    0,
-                    this->style.scrollBarWidth,
-                },
-                {
-                    this->rect().width(),
-                    this->style.scrollBarWidth,
-                });
-            painter.drawPixelMap(
-                Point{
-                    0,
-                    this->style.scrollBarWidth,
-                },
-                this->view_->clip({
-                    this->clipPos_.x(),
-                    this->clipPos_.y(),
-                    painter.rect().width(),
-                    this->view_->getSize().height(),
-                }));
-            break;
-        case HScrollPos::Bottom:
-            painter.setPenColor(this->style.scrollLineColor);
-            painter.drawLine(
-                {
-                    0,
-                    this->rect().height() - this->style.scrollBarWidth,
-                },
-                {
-                    this->rect().width(),
-                    this->rect().height() - this->style.scrollBarWidth,
-                });
-            painter.drawPixelMap(
-                Point{
-                    0,
-                    0,
-                },
-                this->view_->clip({
-                    this->clipPos_.x(),
-                    this->clipPos_.y(),
-                    painter.rect().width(),
-                    this->view_->getSize().height(),
-                }));
-            break;
-        }
-    }
-    break;
-    case ScrollView::Type::Both:
-    {
-        painter.setPenColor(this->style.scrollLineColor);
-        switch (this->firstScrollType_)
-        {
-        // 优先渲染水平方向滚动条
-        case ScrollType::Horizontal:
-        {
-            // 绘制水平滚动条区域
-            switch (this->horPos_)
-            {
-            // 顶部滚动条
-            case HScrollPos::Top:
-            {
-                painter.drawLine(
-                    {
-                        0,
-                        this->style.scrollBarWidth,
-                    },
-                    {
-                        this->rect().width(),
-                        this->style.scrollBarWidth,
-                    });
-            }
-            break;
-            // 底部滚动条
-            case HScrollPos::Bottom:
-            {
-                painter.drawLine(
-                    {
-                        0,
-                        this->rect().height() - this->style.scrollBarWidth,
-                    },
-                    {
-                        this->rect().width(),
-                        this->rect().height() - this->style.scrollBarWidth,
-                    });
-            }
-            break;
-            }
-            // 绘制垂直滚动条区域
-            switch (this->verPos_)
-            {
-            // 左侧滚动条
-            case VScrollPos::Left:
-            {
-                painter.drawLine(
-                    {
-                        this->style.scrollBarWidth,
-                        this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
-                    },
-                    {
-                        this->style.scrollBarWidth,
-                        this->rect().height() - (this->horPos_ == HScrollPos::Bottom ? this->style.scrollBarWidth : 0),
-                    });
-            }
-            break;
-            // 右侧滚动条
-            case VScrollPos::Right:
-            {
-                painter.drawLine(
-                    {
-                        this->rect().width() - this->style.scrollBarWidth,
-                        this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
-                    },
-                    {
-                        this->rect().width() - this->style.scrollBarWidth,
-                        this->rect().height() - (this->horPos_ == HScrollPos::Bottom ? this->style.scrollBarWidth : 0),
-                    });
-            }
-            break;
-            }
-        }
-        break;
-        // 优先渲染垂直方向滚动条
-        case ScrollType::Vertical:
-        {
-            // 绘制垂直滚动条区域
-            switch (this->verPos_)
-            {
-            // 左侧滚动条
-            case VScrollPos::Left:
-            {
-                painter.drawLine(
-                    {
-                        this->style.scrollBarWidth,
-                        0,
-                    },
-                    {
-                        this->style.scrollBarWidth,
-                        this->rect().height(),
-                    });
-            }
-            break;
-            // 右侧滚动条
-            case VScrollPos::Right:
-            {
-                painter.drawLine(
-                    {
-                        this->rect().width() - this->style.scrollBarWidth,
-                        0,
-                    },
-                    {
-                        this->rect().width() - this->style.scrollBarWidth,
-                        this->rect().height(),
-                    });
-            }
-            break;
-            }
-            // 绘制水平滚动条区域
-            switch (this->horPos_)
-            {
-            // 顶部滚动条
-            case HScrollPos::Top:
-            {
-                painter.drawLine(
-                    {
-                        this->verPos_ == VScrollPos::Left
-                            ? this->style.scrollBarWidth
-                            : 0,
-                        this->style.scrollBarWidth,
-                    },
-                    {
-                        this->rect().width() - (this->verPos_ == VScrollPos::Right
-                                                    ? this->style.scrollBarWidth
-                                                    : 0),
-                        this->style.scrollBarWidth,
-                    });
-            }
-            break;
-            // 底部滚动条
-            case HScrollPos::Bottom:
-            {
-                painter.drawLine(
-                    {
-                        this->verPos_ == VScrollPos::Left
-                            ? this->style.scrollBarWidth
-                            : 0,
-                        this->rect().height() - this->style.scrollBarWidth,
-                    },
-                    {
-                        this->rect().width() - (this->verPos_ == VScrollPos::Right
-                                                    ? this->style.scrollBarWidth
-                                                    : 0),
-                        this->rect().height() - this->style.scrollBarWidth,
-                    });
-            }
-            break;
-            }
-        }
-        break;
-        }
-        painter.drawPixelMap(
-            Point{
-                this->verPos_ == VScrollPos::Left ? this->style.scrollBarWidth : 0,
-                this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0,
-            },
-            this->view_->clip({this->clipPos_,
-                               {
-                                   painter.rect().width() - this->style.scrollBarWidth,
-                                   painter.rect().height() - this->style.scrollBarWidth,
-                               }}));
-    }
-    break;
-    }
 }
 
 void ScrollView::mouseWheelEvent(const Point &pos, MouseWheel wheel)
