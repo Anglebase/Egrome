@@ -189,5 +189,14 @@ public:
         }
         return valueComputer_(startValue_, endValue_, this->t_);
     }
+
+    /**
+     * @brief 隐式转换为当前动画值
+     * @return 当前值
+     * @note 该函数用于方便使用，等价于 Animation::value()
+     */
+    operator T(){
+        return this->value();
+    }
 };
 /** @} */

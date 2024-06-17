@@ -140,7 +140,7 @@ protected:
      * @brief 重写此方法，用于滚动视图的绘制
      * @param event 绘制事件
      */
-    void paintEvent(const PaintEvent &event) final override;
+    void paintEvent(const PaintEvent &event) override;
     /**
      * @brief 此方法替代paintEvent(const PaintEvent &event)，用于向页面绘制内容
      * @param painter 绘制器
