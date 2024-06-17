@@ -248,25 +248,16 @@ void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
     this->valign = valign;
 }
 
-void Painter::drawPixel(int x, int y, const Color &color) const
-{
-    ege::putpixel(x, y, EGERGBA(color.red, color.green, color.blue, color.alpha));
-}
-
 void Painter::drawPixel(const Point &pos, const Color &color) const
 {
-    this->drawPixel(pos.x_, pos.y_, color);
-}
-
-void Painter::drawLine(int x1, int y1, int x2, int y2) const
-{
     if (this->block)
-        ege::ege_line(this->block->rect_.x_ + x1,
-                      this->block->rect_.y_ + y1,
-                      this->block->rect_.x_ + x2,
-                      this->block->rect_.y_ + y2);
+        ege::putpixel(static_cast<int>(this->block->rect_.x_ + pos.x_),
+                      static_cast<int>(this->block->rect_.y_ + pos.y_),
+                      EGERGBA(color.red, color.green, color.blue, color.alpha));
     if (this->pixelMap)
-        ege::ege_line(x1, y1, x2, y2, (ege::IMAGE *)this->pixelMap->image_);
+        ege::putpixel(static_cast<int>(pos.x_),
+                      static_cast<int>(pos.y_),
+                      EGERGBA(color.red, color.green, color.blue, color.alpha));
 }
 
 void Painter::drawLine(const Point &p1, const Point &p2) const
@@ -281,18 +272,6 @@ void Painter::drawLine(const Point &p1, const Point &p2) const
                       (ege::IMAGE *)this->pixelMap->image_);
 }
 
-void Painter::drawRect(int x, int y, int w, int h) const
-{
-    if (this->block)
-        ege::ege_rectangle(this->block->rect_.x_ + x,
-                           this->block->rect_.y_ + y,
-                           w,
-                           h);
-    if (this->pixelMap)
-        ege::ege_rectangle(x, y, w, h,
-                           (ege::IMAGE *)this->pixelMap->image_);
-}
-
 void Painter::drawRect(const Rect &rect) const
 {
     if (this->block)
@@ -305,31 +284,15 @@ void Painter::drawRect(const Rect &rect) const
                            (ege::IMAGE *)this->pixelMap->image_);
 }
 
-void Painter::drawFillRect(int x, int y, int w, int h) const
-{
-    if (this->block)
-        ege::ege_fillrect(this->block->rect_.x_ + x,
-                          this->block->rect_.y_ + y,
-                          w, h);
-    if (this->pixelMap)
-        ege::ege_fillrect(x, y, w, h,
-                          (ege::IMAGE *)this->pixelMap->image_);
-}
-
 void Painter::drawFillRect(const Rect &rect) const
 {
-    this->drawFillRect(rect.x_, rect.y_, rect.width_, rect.height_);
-}
-
-void Painter::drawEllipse(int x, int y, int w, int h) const
-{
     if (this->block)
-        ege::ege_ellipse(this->block->rect_.x_ + x,
-                         this->block->rect_.y_ + y,
-                         w, h);
+        ege::ege_fillrect(this->block->rect_.x_ + rect.x_,
+                          this->block->rect_.y_ + rect.y_,
+                          rect.width_, rect.height_);
     if (this->pixelMap)
-        ege::ege_ellipse(x, y, w, h,
-                         (ege::IMAGE *)this->pixelMap->image_);
+        ege::ege_fillrect(rect.x_, rect.y_, rect.width_, rect.height_,
+                          (ege::IMAGE *)this->pixelMap->image_);
 }
 
 void Painter::drawEllipse(const Rect &rect) const
@@ -341,17 +304,6 @@ void Painter::drawEllipse(const Rect &rect) const
     if (this->pixelMap)
         ege::ege_ellipse(rect.x_, rect.y_, rect.width_, rect.height_,
                          (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawFillEllipse(int x, int y, int w, int h) const
-{
-    if (this->block)
-        ege::ege_fillellipse(this->block->rect_.x_ + x,
-                             this->block->rect_.y_ + y,
-                             w, h);
-    if (this->pixelMap)
-        ege::ege_fillellipse(x, y, w, h,
-                             (ege::IMAGE *)this->pixelMap->image_);
 }
 
 void Painter::drawFillEllipse(const Rect &rect) const
@@ -423,64 +375,40 @@ void Painter::drawPolyline(const std::vector<Point> &points) const
     delete[] points_;
 }
 
-void Painter::drawArc(int x, int y, int w, int h, int startAngle, int angle) const
+void Painter::drawArc(const Rect &rect, float startAngle, float angle) const
 {
     if (this->block)
-        ege::ege_arc(this->block->rect_.x_ + x,
-                     this->block->rect_.y_ + y,
-                     w, h,
+        ege::ege_arc(this->block->rect_.x_ + rect.x_,
+                     this->block->rect_.y_ + rect.y_,
+                     rect.width_, rect.height_,
                      startAngle, angle);
     if (this->pixelMap)
-        ege::ege_arc(x, y, w, h, startAngle, angle,
+        ege::ege_arc(rect.x_, rect.y_, rect.width_, rect.height_,
+                     startAngle, angle,
                      (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawArc(const Rect &rect, int startAngle, int angle) const
-{
-    this->drawArc(rect.x_, rect.y_, rect.width_, rect.height_, startAngle, angle);
-}
-
-void Painter::drawText(int x, int y, const std::string &text) const
-{
-    if (this->block)
-        ege::outtextxy(this->block->rect_.x_ + x,
-                       this->block->rect_.y_ + y,
-                       text.c_str());
-    if (this->pixelMap)
-        ege::outtextxy(x, y, text.c_str(),
-                       (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawText(int x, int y, const std::wstring &text) const
-{
-    if (this->block)
-        ege::outtextxy(this->block->rect_.x_ + x,
-                       this->block->rect_.y_ + y,
-                       text.c_str());
-    if (this->pixelMap)
-        ege::outtextxy(x, y, text.c_str(),
-                       (ege::IMAGE *)this->pixelMap->image_);
 }
 
 void Painter::drawText(const Point &pos, const std::string &text) const
 {
     if (this->block)
-        ege::outtextxy(this->block->rect_.x_ + pos.x_,
-                       this->block->rect_.y_ + pos.y_,
+        ege::outtextxy(static_cast<int>(this->block->rect_.x_ + pos.x_),
+                       static_cast<int>(this->block->rect_.y_ + pos.y_),
                        text.c_str());
     if (this->pixelMap)
-        ege::outtextxy(pos.x_, pos.y_, text.c_str(),
+        ege::outtextxy(static_cast<int>(pos.x_), static_cast<int>(pos.y_),
+                       text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
 }
 
 void Painter::drawText(const Point &pos, const std::wstring &text) const
 {
     if (this->block)
-        ege::outtextxy(this->block->rect_.x_ + pos.x_,
-                       this->block->rect_.y_ + pos.y_,
+        ege::outtextxy(static_cast<int>(this->block->rect_.x_ + pos.x_),
+                       static_cast<int>(this->block->rect_.y_ + pos.y_),
                        text.c_str());
     if (this->pixelMap)
-        ege::outtextxy(pos.x_, pos.y_, text.c_str(),
+        ege::outtextxy(static_cast<int>(pos.x_), static_cast<int>(pos.y_),
+                       text.c_str(),
                        (ege::IMAGE *)this->pixelMap->image_);
 }
 
@@ -1065,22 +993,6 @@ DWORD translateOperationCode(BlendMode blendMode)
     }
 }
 
-void Painter::drawPixelMap(int x, int y, const PixelMap &pixelmap,
-                           BlendMode blendMode) const
-{
-    auto operationCode = translateOperationCode(blendMode);
-    if (this->block)
-        ege::putimage(this->block->rect_.x_ + x,
-                      this->block->rect_.y_ + y,
-                      (ege::IMAGE *)pixelmap.image_,
-                      operationCode);
-    if (this->pixelMap)
-        ege::putimage((ege::IMAGE *)this->pixelMap->image_,
-                      x, y,
-                      (ege::IMAGE *)pixelmap.image_,
-                      operationCode);
-}
-
 void Painter::drawPixelMap(const Point &pos, const PixelMap &pixelmap, BlendMode blendMode) const
 {
     auto operationCode = translateOperationCode(blendMode);
@@ -1144,45 +1056,40 @@ void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
     }
 }
 
-void Painter::drawCircle(int x, int y, int r) const
+void Painter::drawCircle(const Point &pos, float r) const
 {
-    this->drawEllipse(x - r, y - r, 2 * r, 2 * r);
+    this->drawEllipse({pos.x_ - r, pos.y_ - r, 2 * r, 2 * r});
 }
 
-void Painter::drawCircle(const Point &pos, int r) const
+void Painter::drawFillCircle(const Point &pos, float r) const
 {
-    this->drawEllipse(pos.x_ - r, pos.y_ - r, 2 * r, 2 * r);
+    this->drawFillEllipse({pos.x_ - r, pos.y_ - r, 2 * r, 2 * r});
 }
 
-void Painter::drawFillCircle(int x, int y, int r) const
+void Painter::drawRoundRect(const Rect &rect, float rx, float ry) const
 {
-    this->drawFillEllipse(x - r, y - r, 2 * r, 2 * r);
+    float x, y, w, h;
+    x = rect.x_;
+    y = rect.y_;
+    w = rect.width_;
+    h = rect.height_;
+    this->drawLine({x + rx, y}, {x + w - rx, y});
+    this->drawLine({x + w, y + ry}, {x + w, y + h - ry});
+    this->drawLine({x + w - rx, y + h}, {x + rx, y + h});
+    this->drawLine({x, y + h - ry}, {x, y + ry});
+    this->drawArc({x, y, 2 * rx, 2 * ry}, 180, 90);
+    this->drawArc({x + w - 2 * rx, y, 2 * rx, 2 * ry}, 270, 90);
+    this->drawArc({x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry}, 0, 90);
+    this->drawArc({x, y + h - 2 * ry, 2 * rx, 2 * ry}, 90, 90);
 }
 
-void Painter::drawFillCircle(const Point &pos, int r) const
+void Painter::drawFillRoundRect(const Rect &rect, float rx, float ry) const
 {
-    this->drawFillEllipse(pos.x_ - r, pos.y_ - r, 2 * r, 2 * r);
-}
-
-void Painter::drawRoundRect(int x, int y, int w, int h, int rx, int ry) const
-{
-    this->drawLine(x + rx, y, x + w - rx, y);
-    this->drawLine(x + w, y + ry, x + w, y + h - ry);
-    this->drawLine(x + w - rx, y + h, x + rx, y + h);
-    this->drawLine(x, y + h - ry, x, y + ry);
-    this->drawArc(x, y, 2 * rx, 2 * ry, 180, 90);
-    this->drawArc(x + w - 2 * rx, y, 2 * rx, 2 * ry, 270, 90);
-    this->drawArc(x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry, 0, 90);
-    this->drawArc(x, y + h - 2 * ry, 2 * rx, 2 * ry, 90, 90);
-}
-
-void Painter::drawRoundRect(const Rect &rect, int rx, int ry) const
-{
-    this->drawRoundRect(rect.x_, rect.y_, rect.width_, rect.height_, rx, ry);
-}
-
-void Painter::drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const
-{
+    float x, y, w, h;
+    x = rect.x_;
+    y = rect.y_;
+    w = rect.width_;
+    h = rect.height_;
     this->drawFillPie(
         {x, y, 2 * rx, 2 * ry},
         180, 90);
@@ -1195,14 +1102,9 @@ void Painter::drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) cons
     this->drawFillPie(
         {x, y + h - 2 * ry, 2 * rx, 2 * ry},
         90, 90);
-    this->drawFillRect(x + rx, y, w - 2 * rx, ry);
-    this->drawFillRect(x + rx, y + h - ry, w - 2 * rx, ry);
-    this->drawFillRect(x, y + ry, w, h - 2 * ry);
-}
-
-void Painter::drawFillRoundRect(const Rect &rect, int rx, int ry) const
-{
-    this->drawFillRoundRect(rect.x_, rect.y_, rect.width_, rect.height_, rx, ry);
+    this->drawFillRect({x + rx, y, w - 2 * rx, ry});
+    this->drawFillRect({x + rx, y + h - ry, w - 2 * rx, ry});
+    this->drawFillRect({x, y + ry, w, h - 2 * ry});
 }
 
 long Painter::getTextWidth(const std::string &text) const
@@ -1278,20 +1180,20 @@ void Painter::drawBezier(const Point &point1, const Point &point2,
     {
         ege::ege_point p[4] = {
             {
-                static_cast<float>(this->block->rect_.x_ + point1.x_),
-                static_cast<float>(this->block->rect_.y_ + point1.y_),
+                this->block->rect_.x_ + point1.x_,
+                this->block->rect_.y_ + point1.y_,
             },
             {
-                static_cast<float>(this->block->rect_.x_ + control1.x_),
-                static_cast<float>(this->block->rect_.y_ + control1.y_),
+                this->block->rect_.x_ + control1.x_,
+                this->block->rect_.y_ + control1.y_,
             },
             {
-                static_cast<float>(this->block->rect_.x_ + control2.x_),
-                static_cast<float>(this->block->rect_.y_ + control2.y_),
+                this->block->rect_.x_ + control2.x_,
+                this->block->rect_.y_ + control2.y_,
             },
             {
-                static_cast<float>(this->block->rect_.x_ + point2.x_),
-                static_cast<float>(this->block->rect_.y_ + point2.y_),
+                this->block->rect_.x_ + point2.x_,
+                this->block->rect_.y_ + point2.y_,
             },
         };
         ege::ege_bezier(4, p);
@@ -1299,10 +1201,10 @@ void Painter::drawBezier(const Point &point1, const Point &point2,
     if (this->pixelMap)
     {
         ege::ege_point p[4] = {
-            {static_cast<float>(point1.x_), static_cast<float>(point1.y_)},
-            {static_cast<float>(control1.x_), static_cast<float>(control1.y_)},
-            {static_cast<float>(control2.x_), static_cast<float>(control2.y_)},
-            {static_cast<float>(point2.x_), static_cast<float>(point2.y_)},
+            {point1.x_, point1.y_},
+            {control1.x_, control1.y_},
+            {control2.x_, control2.y_},
+            {point2.x_, point2.y_},
         };
         ege::ege_bezier(4, p, (ege::IMAGE *)this->pixelMap->image_);
     }
@@ -1315,13 +1217,13 @@ void Painter::drawFitCurve(const std::vector<Point> &points) const
     {
         if (this->block)
         {
-            p[i].x = static_cast<float>(this->block->rect_.x_ + points[i].x_);
-            p[i].y = static_cast<float>(this->block->rect_.y_ + points[i].y_);
+            p[i].x = this->block->rect_.x_ + points[i].x_;
+            p[i].y = this->block->rect_.y_ + points[i].y_;
         }
         if (this->pixelMap)
         {
-            p[i].x = static_cast<float>(points[i].x_);
-            p[i].y = static_cast<float>(points[i].y_);
+            p[i].x = points[i].x_;
+            p[i].y = points[i].y_;
         }
     }
     if (this->block)

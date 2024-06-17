@@ -50,7 +50,7 @@ public:
         /// @brief 勾选框边框宽度
         int borderWidth{1};
         /// @brief 勾选框大小
-        int boxSize{8};
+        float boxSize{8};
     } style;
 
 protected:

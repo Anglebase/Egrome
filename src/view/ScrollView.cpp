@@ -454,13 +454,12 @@ ScrollView::ScrollView(const Rect &rect, Block *parent)
                 });
             }
             // 页面裁剪位置
-            auto cilpX = static_cast<long>(
-                (pos.x() - this->rect().left() - offsetLeft) *
-                this->view_->getSize().width() /
-                (this->rect().width() - ((this->hasVerScroll_ &&
-                                          this->firstScrollType_ == ScrollType::Vertical)
-                                             ? this->style.scrollBarWidth
-                                             : 0)));
+            auto cilpX = ((pos.x() - this->rect().left() - offsetLeft) *
+                          this->view_->getSize().width() /
+                          (this->rect().width() - ((this->hasVerScroll_ &&
+                                                    this->firstScrollType_ == ScrollType::Vertical)
+                                                       ? this->style.scrollBarWidth
+                                                       : 0)));
             if (cilpX < 0)
                 cilpX = 0;
             else if (cilpX > this->view_->getSize().width() -
@@ -508,13 +507,12 @@ ScrollView::ScrollView(const Rect &rect, Block *parent)
                 });
             }
             // 页面裁剪位置
-            auto cilpY = static_cast<long>(
-                (pos.y() - this->rect().top() - offsetTop) *
-                this->view_->getSize().height() /
-                (this->rect().height() - ((this->hasHorScroll_ &&
-                                           this->firstScrollType_ == ScrollType::Horizontal)
-                                              ? this->style.scrollBarWidth
-                                              : 0)));
+            auto cilpY = ((pos.y() - this->rect().top() - offsetTop) *
+                          this->view_->getSize().height() /
+                          (this->rect().height() - ((this->hasHorScroll_ &&
+                                                     this->firstScrollType_ == ScrollType::Horizontal)
+                                                        ? this->style.scrollBarWidth
+                                                        : 0)));
             if (cilpY < 0)
                 cilpY = 0;
             else if (cilpY > this->view_->getSize().height() - (this->rect().height() - (this->hasHorScroll_ ? this->style.scrollBarWidth : 0)))
@@ -559,8 +557,8 @@ void ScrollView::updateScroll()
             this->hasHorScroll_ = false;
             this->verScroll_->rect().setSize({
                 this->style.scrollBarWidth,
-                static_cast<long>(this->rect().height() * this->rect().height() * 1. /
-                                  this->view_->getSize().height()),
+                (this->rect().height() * this->rect().height() * 1.f /
+                 this->view_->getSize().height()),
             });
             switch (this->verPos_)
             {
@@ -568,16 +566,16 @@ void ScrollView::updateScroll()
                 this->verScroll_->rect().setTopLeft({
                     this->rect().left(),
                     this->rect().top() +
-                        static_cast<long>(this->rect().height() * this->clipPos_.y() * 1. /
-                                          this->view_->getSize().height()),
+                        (this->rect().height() * this->clipPos_.y() * 1.f /
+                         this->view_->getSize().height()),
                 });
                 break;
             case VScrollPos::Right:
                 this->verScroll_->rect().setTopRight({
                     this->rect().right(),
                     this->rect().top() +
-                        static_cast<long>(this->rect().height() * this->clipPos_.y() * 1. /
-                                          this->view_->getSize().height()),
+                        (this->rect().height() * this->clipPos_.y() * 1.f /
+                         this->view_->getSize().height()),
                 });
                 break;
             }
@@ -590,8 +588,8 @@ void ScrollView::updateScroll()
             this->hasVerScroll_ = false;
             this->hasHorScroll_ = true;
             this->horScroll_->rect().setSize({
-                static_cast<long>(this->rect().width() * this->rect().width() * 1. /
-                                  this->view_->getSize().width()),
+                (this->rect().width() * this->rect().width() * 1.f /
+                 this->view_->getSize().width()),
                 this->style.scrollBarWidth,
             });
             switch (this->horPos_)
@@ -599,16 +597,16 @@ void ScrollView::updateScroll()
             case HScrollPos::Top:
                 this->horScroll_->rect().setTopLeft({
                     this->rect().left() +
-                        static_cast<long>(this->rect().width() * this->clipPos_.x() * 1. /
-                                          this->view_->getSize().width()),
+                        (this->rect().width() * this->clipPos_.x() * 1.f /
+                         this->view_->getSize().width()),
                     this->rect().top(),
                 });
                 break;
             case HScrollPos::Bottom:
                 this->horScroll_->rect().setBottomLeft({
                     this->rect().left() +
-                        static_cast<long>(this->rect().width() * this->clipPos_.x() * 1. /
-                                          this->view_->getSize().width()),
+                        (this->rect().width() * this->clipPos_.x() * 1.f /
+                         this->view_->getSize().width()),
                     this->rect().bottom(),
                 });
                 break;
@@ -627,10 +625,10 @@ void ScrollView::updateScroll()
             {
                 // 水平方向滚动条
                 this->horScroll_->rect().setSize({
-                    static_cast<long>((this->rect().width() - this->style.scrollBarWidth) *
-                                      this->rect().width() *
-                                      1. /
-                                      this->view_->getSize().width()),
+                    ((this->rect().width() - this->style.scrollBarWidth) *
+                     this->rect().width() *
+                     1.f /
+                     this->view_->getSize().width()),
                     this->style.scrollBarWidth,
                 });
                 // 水平滚动条渲染位置
@@ -640,10 +638,10 @@ void ScrollView::updateScroll()
                 case HScrollPos::Top:
                     this->horScroll_->rect().setTopLeft({
                         this->rect().left() +
-                            static_cast<long>(this->rect().width() *
-                                              this->clipPos_.x() *
-                                              1. /
-                                              this->view_->getSize().width()),
+                            (this->rect().width() *
+                             this->clipPos_.x() *
+                             1.f /
+                             this->view_->getSize().width()),
                         this->rect().top(),
                     });
                     break;
@@ -651,10 +649,10 @@ void ScrollView::updateScroll()
                 case HScrollPos::Bottom:
                     this->horScroll_->rect().setBottomLeft({
                         this->rect().left() +
-                            static_cast<long>(this->rect().width() *
-                                              this->clipPos_.x() *
-                                              1. /
-                                              this->view_->getSize().width()),
+                            (this->rect().width() *
+                             this->clipPos_.x() *
+                             1.f /
+                             this->view_->getSize().width()),
                         this->rect().bottom(),
                     });
                     break;
@@ -662,9 +660,9 @@ void ScrollView::updateScroll()
                 // 垂直方向滚动条
                 this->verScroll_->rect().setSize({
                     this->style.scrollBarWidth,
-                    static_cast<long>((this->rect().height() - this->style.scrollBarWidth) *
-                                      (this->rect().height() - this->style.scrollBarWidth) * 1. /
-                                      this->view_->getSize().height()),
+                    ((this->rect().height() - this->style.scrollBarWidth) *
+                     (this->rect().height() - this->style.scrollBarWidth) * 1.f /
+                     this->view_->getSize().height()),
                 });
                 switch (this->verPos_)
                 {
@@ -672,20 +670,20 @@ void ScrollView::updateScroll()
                     this->verScroll_->rect().setTopLeft({
                         this->rect().left(),
                         this->rect().top() + (this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0) +
-                            static_cast<long>((this->rect().height() - this->style.scrollBarWidth) *
-                                              this->clipPos_.y() *
-                                              1. /
-                                              this->view_->getSize().height()),
+                            ((this->rect().height() - this->style.scrollBarWidth) *
+                             this->clipPos_.y() *
+                             1.f /
+                             this->view_->getSize().height()),
                     });
                     break;
                 case VScrollPos::Right:
                     this->verScroll_->rect().setTopRight({
                         this->rect().right(),
                         this->rect().top() + (this->horPos_ == HScrollPos::Top ? this->style.scrollBarWidth : 0) +
-                            static_cast<long>((this->rect().height() - this->style.scrollBarWidth) *
-                                              this->clipPos_.y() *
-                                              1. /
-                                              this->view_->getSize().height()),
+                            ((this->rect().height() - this->style.scrollBarWidth) *
+                             this->clipPos_.y() *
+                             1.f /
+                             this->view_->getSize().height()),
                     });
                     break;
                 }
@@ -697,10 +695,10 @@ void ScrollView::updateScroll()
                 // 垂直方向滚动条
                 this->verScroll_->rect().setSize({
                     this->style.scrollBarWidth,
-                    static_cast<long>((this->rect().height() - this->style.scrollBarWidth) *
-                                      this->rect().height() *
-                                      1. /
-                                      this->view_->getSize().height()),
+                    ((this->rect().height() - this->style.scrollBarWidth) *
+                     this->rect().height() *
+                     1.f /
+                     this->view_->getSize().height()),
                 });
                 switch (this->verPos_)
                 {
@@ -708,29 +706,29 @@ void ScrollView::updateScroll()
                     this->verScroll_->rect().setTopLeft({
                         this->rect().left(),
                         this->rect().top() +
-                            static_cast<long>(this->rect().height() *
-                                              this->clipPos_.y() *
-                                              1. /
-                                              this->view_->getSize().height()),
+                            (this->rect().height() *
+                             this->clipPos_.y() *
+                             1.f /
+                             this->view_->getSize().height()),
                     });
                     break;
                 case VScrollPos::Right:
                     this->verScroll_->rect().setTopRight({
                         this->rect().right(),
                         this->rect().top() +
-                            static_cast<long>(this->rect().height() *
-                                              this->clipPos_.y() *
-                                              1. /
-                                              this->view_->getSize().height()),
+                            (this->rect().height() *
+                             this->clipPos_.y() *
+                             1.f /
+                             this->view_->getSize().height()),
                     });
                     break;
                 }
                 // 水平方向滚动条
                 this->horScroll_->rect().setSize({
-                    static_cast<long>((this->rect().width() - this->style.scrollBarWidth) *
-                                      (this->rect().width() - this->style.scrollBarWidth) *
-                                      1. /
-                                      this->view_->getSize().width()),
+                    (this->rect().width() - this->style.scrollBarWidth) *
+                        (this->rect().width() - this->style.scrollBarWidth) *
+                        1.f /
+                        this->view_->getSize().width(),
                     this->style.scrollBarWidth,
                 });
                 switch (this->horPos_)
@@ -738,20 +736,20 @@ void ScrollView::updateScroll()
                 case HScrollPos::Top:
                     this->horScroll_->rect().setTopLeft({
                         this->rect().left() + (this->verPos_ == VScrollPos::Left ? this->style.scrollBarWidth : 0) +
-                            static_cast<long>((this->rect().width() - this->style.scrollBarWidth) *
-                                              this->clipPos_.x() *
-                                              1. /
-                                              this->view_->getSize().width()),
+                            ((this->rect().width() - this->style.scrollBarWidth) *
+                             this->clipPos_.x() *
+                             1.f /
+                             this->view_->getSize().width()),
                         this->rect().top(),
                     });
                     break;
                 case HScrollPos::Bottom:
                     this->horScroll_->rect().setBottomLeft({
                         this->rect().left() + (this->verPos_ == VScrollPos::Left ? this->style.scrollBarWidth : 0) +
-                            static_cast<long>((this->rect().width() - this->style.scrollBarWidth) *
-                                              this->clipPos_.x() *
-                                              1. /
-                                              this->view_->getSize().width()),
+                            ((this->rect().width() - this->style.scrollBarWidth) *
+                             this->clipPos_.x() *
+                             1.f /
+                             this->view_->getSize().width()),
                         this->rect().bottom(),
                     });
                     break;

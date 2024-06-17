@@ -4,9 +4,7 @@
  * @brief 定义二维坐标点
 */
 #include <iostream>
-class PointF;
 class Rect;
-class RectF;
 
 /**
  * @addtogroup 核心
@@ -21,8 +19,8 @@ class Point
     friend class Painter;
 
 private:
-    long x_;
-    long y_;
+    float x_;
+    float y_;
 
 public:
     /**
@@ -30,12 +28,12 @@ public:
      * @param x x坐标
      * @param y y坐标
      */
-    Point(long x = 0, long y = 0);
+    Point(float x = 0, float y = 0);
 
-    long &x();
-    long &y();
-    const long &x() const;
-    const long &y() const;
+    float &x();
+    float &y();
+    const float &x() const;
+    const float &y() const;
 
     /**
      * @brief 判断点是否在矩形(Rect)内
@@ -44,14 +42,6 @@ public:
      * @note 矩形的边界被视为矩形内
      */
     bool inside(const Rect &rect) const;
-
-    /**
-     * @brief 这是一个重载，判断点是否在浮点矩形(RectF)内
-     * @param rect 矩形
-     * @return 如果点在矩形内返回 \a true ，否则返回 \a false
-     * @note 矩形的边界被视为矩形内
-     */
-    bool inside(const RectF &rect) const;
 
     /**
      * @brief 判断两点是否相同
@@ -106,12 +96,6 @@ public:
      * @return 输出流
      */
     friend std::ostream &operator<<(std::ostream &os, const Point &p);
-
-    /**
-     * @brief 转换为PointF类型
-     * @return 转换后的PointF类型
-     */
-    operator PointF() const;
 };
 
 /**

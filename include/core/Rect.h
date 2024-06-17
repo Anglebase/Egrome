@@ -6,7 +6,6 @@
 #include <iostream>
 class Point;
 class Size;
-class RectF;
 /**
  * @addtogroup 核心
  * @{
@@ -19,10 +18,10 @@ class Rect
     friend class Block;
     friend class Painter;
 private:
-    long x_;
-    long y_;
-    long width_;
-    long height_;
+    float x_;
+    float y_;
+    float width_;
+    float height_;
 
 public:
     /**
@@ -32,7 +31,7 @@ public:
      * @param width 矩形宽度
      * @param height 矩形高度
      */
-    Rect(long x, long y, long width, long height);
+    Rect(float x, float y, float width, float height);
 
     /**
      * @brief 构造函数
@@ -41,14 +40,14 @@ public:
      */
     Rect(const Point &topLeft, const Size &size);
 
-    long &x();
-    long &y();
-    long &width();
-    long &height();
-    const long &x() const;
-    const long &y() const;
-    const long &width() const;
-    const long &height() const;
+    float &x();
+    float &y();
+    float &width();
+    float &height();
+    const float &x() const;
+    const float &y() const;
+    const float &width() const;
+    const float &height() const;
 
     /**
      * @brief 获取矩形左上角坐标
@@ -78,25 +77,25 @@ public:
      * @brief 获取矩形左侧x坐标
      * @return 矩形左侧x坐标
      */
-    long left() const;
+    float left() const;
     
     /**
      * @brief 获取矩形上侧y坐标
      * @return 矩形上侧y坐标
      */
-    long top() const;
+    float top() const;
 
     /**
      * @brief 获取矩形右侧x坐标
      * @return 矩形右侧x坐标
      */
-    long right() const;
+    float right() const;
 
     /**
      * @brief 获取矩形下侧y坐标
      * @return 矩形下侧y坐标
      */
-    long bottom() const;
+    float bottom() const;
 
     /**
      * @brief 设置矩形左上角坐标
@@ -148,7 +147,7 @@ public:
      * @return 如果点在矩形内，返回true，否则返回false
      * @note 边界上的点不算在矩形内
      */
-    bool contains(long x, long y) const;
+    bool contains(float x, float y) const;
 
     /**
      * @brief 判断两个矩形是否相交
@@ -162,7 +161,7 @@ public:
      * @param dx x方向偏移量
      * @param dy y方向偏移量
      */
-    void offset(long dx, long dy);
+    void offset(float dx, float dy);
 
     /**
      * @brief 这是一个函数重载，偏移矩形位置
@@ -175,7 +174,7 @@ public:
      * @param dwidth 矩形宽度增减量
      * @param dheight 矩形高度增减量
      */
-    void inflate(long dwidth, long dheight);
+    void inflate(float dwidth, float dheight);
 
     /**
      * @brief 这是一个函数重载，增减矩形大小
@@ -191,7 +190,7 @@ public:
      * @param dbottom 调整矩形底部坐标
      * @return 调整后的矩形
      */
-    Rect adjusted(long dleft, long dtop, long dright, long dbottom) const;
+    Rect adjusted(float dleft, float dtop, float dright, float dbottom) const;
 
     /**
      * @brief 计算指定大小的尺寸居中于当前矩形时所具有矩形对象
@@ -227,11 +226,5 @@ public:
      * @return 输出流
      */
     friend std::ostream &operator<<(std::ostream &os, const Rect &rect);
-
-    /**
-     * @brief 转换为RectF类型
-     * @return RectF类型的矩形对象
-     */
-    operator RectF() const;
 };
 /** @} */

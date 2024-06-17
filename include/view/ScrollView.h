@@ -102,7 +102,7 @@ private:
     bool hasHorScroll_{false};
     bool hasVerScroll_{false};
 
-    long step_{20};
+    float step_{20.};
     bool shifting_{false};
 
 public:
@@ -116,7 +116,7 @@ public:
         /// 滚动条边界线条颜色
         Color scrollLineColor{0x88888880_rgba};
         /// 滚动条宽度
-        int scrollBarWidth{20};
+        float scrollBarWidth{20};
     } style;
     /**
      * @addtogroup 枚举

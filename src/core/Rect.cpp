@@ -1,24 +1,23 @@
 #include "Rect.h"
 #include "Point.h"
 #include "Size.h"
-#include "RectF.h"
 #include "Rect.h"
 
-Rect::Rect(long x, long y, long width, long height)
+Rect::Rect(float x, float y, float width, float height)
     : x_(x), y_(y), width_(width), height_(height) {}
 
 Rect::Rect(const Point &topLeft, const Size &size)
     : x_(topLeft.x()), y_(topLeft.y()), width_(size.width()), height_(size.height()) {}
 
-long &Rect::x() { return x_; }
-long &Rect::y() { return y_; }
-long &Rect::width() { return width_; }
-long &Rect::height() { return height_; }
+float &Rect::x() { return x_; }
+float &Rect::y() { return y_; }
+float &Rect::width() { return width_; }
+float &Rect::height() { return height_; }
 
-const long &Rect::x() const { return x_; }
-const long &Rect::y() const { return y_; }
-const long &Rect::width() const { return width_; }
-const long &Rect::height() const { return height_; }
+const float &Rect::x() const { return x_; }
+const float &Rect::y() const { return y_; }
+const float &Rect::width() const { return width_; }
+const float &Rect::height() const { return height_; }
 
 Point Rect::getTopLeft() const
 {
@@ -40,22 +39,22 @@ Point Rect::getBottomRight() const
     return Point(x_ + width_, y_ + height_);
 }
 
-long Rect::left() const
+float Rect::left() const
 {
     return this->x_;
 }
 
-long Rect::top() const
+float Rect::top() const
 {
     return this->y_;
 }
 
-long Rect::right() const
+float Rect::right() const
 {
     return this->x_ + this->width_;
 }
 
-long Rect::bottom() const
+float Rect::bottom() const
 {
     return this->y_ + this->height_;
 }
@@ -102,7 +101,7 @@ bool Rect::contains(const Point &point) const
             point.y() > y_ && point.y() < y_ + height_);
 }
 
-bool Rect::contains(long x, long y) const
+bool Rect::contains(float x, float y) const
 {
     return (x > this->x_ && x < this->x_ + this->width_ &&
             y > this->y_ && y < this->y_ + this->height_);
@@ -114,7 +113,7 @@ bool Rect::intersects(const Rect &other) const
             y_ < other.y_ + other.height_ && y_ + height_ > other.y_);
 }
 
-void Rect::offset(long dx, long dy)
+void Rect::offset(float dx, float dy)
 {
     x_ += dx;
     y_ += dy;
@@ -126,7 +125,7 @@ void Rect::offset(const Point &dpoint)
     y_ += dpoint.y();
 }
 
-void Rect::inflate(long dx, long dy)
+void Rect::inflate(float dx, float dy)
 {
     width_ += dx;
     height_ += dy;
@@ -149,19 +148,13 @@ bool Rect::operator!=(const Rect &other) const
     return !(*this == other);
 }
 
-Rect::operator RectF() const
-{
-    return RectF(static_cast<double>(x_), static_cast<double>(y_),
-                 static_cast<double>(width_), static_cast<double>(height_));
-}
-
 std::ostream &operator<<(std::ostream &os, const Rect &rect)
 {
     return os << "{" << Point(rect.x_, rect.y_) << ", "
               << Size(rect.width_, rect.height_) << "}";
 }
 
-Rect Rect::adjusted(long dleft, long dtop, long dright, long dbottom) const
+Rect Rect::adjusted(float dleft, float dtop, float dright, float dbottom) const
 {
     return Rect{
         x_ + dleft,

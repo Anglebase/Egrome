@@ -1,25 +1,23 @@
 #include "Size.h"
-#include "SizeF.h"
-#include "Size.h"
 
-Size::Size(long w, long h) : width_(w), height_(h) {}
+Size::Size(float w, float h) : width_(w), height_(h) {}
 
-long &Size::width()
+float &Size::width()
 {
     return this->width_;
 }
 
-long &Size::height()
+float &Size::height()
 {
     return this->height_;
 }
 
-const long &Size::width() const
+const float &Size::width() const
 {
     return this->width_;
 }
 
-const long &Size::height() const
+const float &Size::height() const
 {
     return this->height_;
 }
@@ -56,12 +54,12 @@ Size &Size::operator-=(const Size &other)
 
 Size Size::operator*(double factor) const
 {
-    return Size(static_cast<long>(this->width_ * factor), static_cast<long>(this->height_ * factor));
+    return Size(static_cast<float>(this->width_ * factor), static_cast<float>(this->height_ * factor));
 }
 
 Size Size::operator/(double factor) const
 {
-    return Size(static_cast<long>(this->width_ / factor), static_cast<long>(this->height_ / factor));
+    return Size(static_cast<float>(this->width_ / factor), static_cast<float>(this->height_ / factor));
 }
 
 Size &Size::operator*=(double factor)
@@ -72,11 +70,6 @@ Size &Size::operator*=(double factor)
 Size &Size::operator/=(double factor)
 {
     return *this = *this / factor;
-}
-
-Size::operator SizeF() const
-{
-    return SizeF(static_cast<double>(this->width_), static_cast<double>(this->height_));
 }
 
 std::ostream &operator<<(std::ostream &os, const Size &size)

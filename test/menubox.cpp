@@ -14,7 +14,7 @@ protected:
     void paintEvent(const PaintEvent &event) override
     {
         auto &painter = event.beginPaint(this);
-        painter.drawText(0, 0, std::to_wstring(App::getFps()));
+        painter.drawText({0, 0}, std::to_wstring(App::getFps()));
         event.endPaint();
         return Block::paintEvent(event);
     }

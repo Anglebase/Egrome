@@ -149,6 +149,13 @@ public:
     static void setCilpboardText(const std::wstring &text);
 
     /**
+     * @brief 设置输入法窗口位置
+     * @param pos 输入法窗口位置
+     * @note 输入法窗口位置是相对于屏幕左上角的坐标，如果没有输入法窗口，则忽略此设置
+     */
+    static void setInputMethodWindowPos(const Point &pos);
+
+    /**
      * @brief 获取当前实际帧率
      * @return 实际帧率
      */

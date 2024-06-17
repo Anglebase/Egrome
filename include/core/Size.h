@@ -5,7 +5,6 @@
 */
 #include <iostream>
 
-class SizeF;
 /**
  * @addtogroup 核心
  * @{
@@ -16,19 +15,19 @@ class SizeF;
 class Size
 {
 private:
-    long width_;
-    long height_;
+    float width_;
+    float height_;
 
 public:
     /**
      * @brief 构造函数
      */
-    Size(long w = 0, long h = 0);
+    Size(float w = 0, float h = 0);
 
-    long &width();
-    long &height();
-    const long &width() const;
-    const long &height() const;
+    float &width();
+    float &height();
+    const float &width() const;
+    const float &height() const;
 
     /**
      * @brief 判断两个Size是否相同
@@ -115,12 +114,6 @@ public:
      * @return  输出流
      */
     friend std::ostream &operator<<(std::ostream &os, const Size &size);
-
-    /**
-     * @brief 转换为SizeF类型
-     * @return SizeF对象
-     */
-    operator SizeF() const;
 };
 /**
  * @}

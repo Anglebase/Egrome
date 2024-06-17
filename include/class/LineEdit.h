@@ -35,11 +35,11 @@ private:
     bool finisedSelect_{false};
     int selectPos_{0};
 
-    int offsetX_{5};
-    int offsetY_{5};
-    int clipOffsetX_{0};
-    int clipWidth_;
-    std::vector<int> widths_;
+    float offsetX_{5};
+    float offsetY_{5};
+    float clipOffsetX_{0};
+    float clipWidth_;
+    std::vector<long> widths_;
     bool viewChangedFlag_{false};
     bool showPlainText_{true};
 signals:

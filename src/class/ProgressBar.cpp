@@ -14,7 +14,7 @@ void ProgressBar::paintEvent(const PaintEvent &event)
     painter.drawFillRect(Rect{
         painter.rect().x(),
         painter.rect().y(),
-        static_cast<int>(static_cast<double>(painter.rect().width()) * this->progress),
+        painter.rect().width() * static_cast<float>(this->progress),
         painter.rect().height()
     });
 

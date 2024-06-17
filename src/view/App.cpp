@@ -17,14 +17,15 @@ App *App::instance_ = nullptr;
 Size App::getScreenSize()
 {
     return Size{
-        ::GetSystemMetrics(SM_CXSCREEN),
-        ::GetSystemMetrics(SM_CYSCREEN),
+        static_cast<float>(::GetSystemMetrics(SM_CXSCREEN)),
+        static_cast<float>(::GetSystemMetrics(SM_CYSCREEN)),
     };
 }
 
 Size App::getWindowSize()
 {
-    return Size(ege::getwidth(), ege::getheight());
+    return Size{static_cast<float>(ege::getwidth()),
+                static_cast<float>(ege::getheight())};
 }
 
 void App::setWindowSize(int width, int height)
@@ -34,14 +35,16 @@ void App::setWindowSize(int width, int height)
 
 void App::setWindowSize(const Size &size)
 {
-    ege::resizewindow(size.width(), size.height());
+    ege::resizewindow(static_cast<int>(size.width()),
+                      static_cast<int>(size.height()));
 }
 
 Point App::getWindowPos()
 {
     RECT rect;
     ::GetWindowRect(ege::getHWnd(), &rect);
-    return Point(rect.left, rect.top);
+    return Point{static_cast<float>(rect.left),
+                 static_cast<float>(rect.top)};
 }
 
 void App::setWindowPos(int x, int y)
@@ -51,7 +54,7 @@ void App::setWindowPos(int x, int y)
 
 void App::setWindowPos(const Point &pos)
 {
-    ege::movewindow(pos.x(), pos.y());
+    ege::movewindow(static_cast<int>(pos.x()), static_cast<int>(pos.y()));
 }
 void App::setTitle(const std::string &title)
 {
@@ -67,7 +70,8 @@ Point App::getMousePos()
 {
     POINT point;
     ::GetCursorPos(&point);
-    return Point(point.x, point.y);
+    return Point{static_cast<float>(point.x),
+                 static_cast<float>(point.y)};
 }
 
 void App::setMousePos(int x, int y)
@@ -77,7 +81,8 @@ void App::setMousePos(int x, int y)
 
 void App::setMousePos(const Point &pos)
 {
-    ::SetCursorPos(pos.x(), pos.y());
+    ::SetCursorPos(static_cast<int>(pos.x()),
+                   static_cast<int>(pos.y()));
 }
 
 std::wstring App::getCilpboardText()
@@ -111,6 +116,25 @@ void App::setCilpboardText(const std::wstring &text)
     ::EmptyClipboard();
     ::SetClipboardData(CF_UNICODETEXT, hGlobalMemory);
     ::CloseClipboard();
+}
+
+void App::setInputMethodWindowPos(const Point &pos)
+{
+    HIMC hIMC = ::ImmGetContext(ege::getHWnd());
+    if (hIMC)
+    {
+        POINT point = {static_cast<int>(pos.x()), static_cast<int>(pos.y())};
+        COMPOSITIONFORM cf;
+        cf.dwStyle = CFS_POINT;
+        cf.ptCurrentPos = point;
+        ::ImmSetCompositionWindow(hIMC, &cf);
+        ::ImmReleaseContext(ege::getHWnd(), hIMC);
+        std::cout << "SetInputMethodWindowPos: " << std::endl;
+    }
+    else
+    {
+        std::cout << "SetInputMethodWindowPos: ImmGetContext failed." << std::endl;
+    }
 }
 
 float App::getFps()

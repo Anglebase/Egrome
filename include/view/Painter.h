@@ -470,25 +470,9 @@ public:
 
     /**
      * @brief 绘制像素点
-     * @param x x坐标
-     * @param y y坐标
-     */
-    void drawPixel(int x, int y, const Color &color) const;
-
-    /**
-     * @brief 绘制像素点
      * @param pos 像素点坐标
      */
     void drawPixel(const Point &pos, const Color &color) const;
-
-    /**
-     * @brief 绘制线
-     * @param x1 第一点的x坐标
-     * @param y1 第一点的y坐标
-     * @param x2 第二点的x坐标
-     * @param y2 第二点的y坐标
-     */
-    void drawLine(int x1, int y1, int x2, int y2) const;
 
     /**
      * @brief 绘制线
@@ -499,27 +483,9 @@ public:
 
     /**
      * @brief 绘制矩形
-     * @param x 矩形左上角的x坐标
-     * @param y 矩形左上角的y坐标
-     * @param w 矩形的宽度
-     * @param h 矩形的高度
-     */
-    void drawRect(int x, int y, int w, int h) const;
-
-    /**
-     * @brief 绘制矩形
      * @param rect 矩形
      */
     void drawRect(const Rect &rect) const;
-
-    /**
-     * @brief 绘制填充矩形
-     * @param x 矩形左上角的x坐标
-     * @param y 矩形左上角的y坐标
-     * @param w 矩形的宽度
-     * @param h 矩形的高度
-     */
-    void drawFillRect(int x, int y, int w, int h) const;
 
     /**
      * @brief 绘制填充矩形
@@ -528,34 +494,10 @@ public:
     void drawFillRect(const Rect &rect) const;
 
     /**
-     * @brief 绘制圆角矩形
-     * @param rect 矩形
-     * @param r 矩形的圆角半径
-     */
-
-    /**
-     * @brief 绘制椭圆
-     * @param x 椭圆外接矩形左上角的x坐标
-     * @param y 椭圆外接矩形左上角的y坐标
-     * @param w 椭圆外接矩形的宽度
-     * @param h 椭圆外接矩形的高度
-     */
-    void drawEllipse(int x, int y, int w, int h) const;
-
-    /**
      * @brief 绘制椭圆
      * @param rect 椭圆外接矩形
      */
     void drawEllipse(const Rect &rect) const;
-
-    /**
-     * @brief 绘制填充椭圆
-     * @param x 椭圆外接矩形左上角的x坐标
-     * @param y 椭圆外接矩形左上角的y坐标
-     * @param w 椭圆外接矩形的宽度
-     * @param h 椭圆外接矩形的高度
-     */
-    void drawFillEllipse(int x, int y, int w, int h) const;
 
     /**
      * @brief 绘制填充椭圆
@@ -577,40 +519,12 @@ public:
 
     /**
      * @brief 绘制弧线
-     * @param x 弧线所在椭圆的外接矩形的左上角的x坐标
-     * @param y 弧线所在椭圆的外接矩形的左上角的y坐标
-     * @param w 弧线所在椭圆的外接矩形的宽度
-     * @param h 弧线所在椭圆的外接矩形的高度
-     * @param startAngle 弧线的起始角度
-     * @param angle 弧线扫过的角度
-     * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
-     */
-    void drawArc(int x, int y, int rx, int ry, int startAngle, int angle) const;
-
-    /**
-     * @brief 绘制弧线
      * @param rect 弧线所在椭圆的外接矩形
      * @param startAngle 弧线的起始角度
      * @param angle 弧线扫过的角度
      * @note 起始角度和终止角度的单位是度，顺时针方向为正，0度为3点钟方向
      */
-    void drawArc(const Rect &rect, int startAngle, int angle) const;
-
-    /**
-     * @brief 绘制文本
-     * @param x 文本所在的x坐标
-     * @param y 文本所在的y坐标
-     * @param text 文本内容
-     */
-    void drawText(int x, int y, const std::string &text) const;
-
-    /**
-     * @brief 绘制文本
-     * @param x 文本所在的x坐标
-     * @param y 文本所在的y坐标
-     * @param text 文本内容
-     */
-    void drawText(int x, int y, const std::wstring &text) const;
+    void drawArc(const Rect &rect, float startAngle, float angle) const;
 
     /**
      * @brief 绘制文本
@@ -639,20 +553,6 @@ public:
      * @param text 文本内容
      */
     void drawText(const Rect &rect, const std::wstring &text) const;
-
-    /**
-     * @brief 绘制像素图
-     * @param x 像素图左上角的x坐标
-     * @param y 像素图左上角的y坐标
-     * @param pixelmap 像素图
-     * @param blendMode 像素图混合模式，默认值为"S"，即源像素
-     * @note blendMode参数是用逆波兰表示法来表示的，具体如下：
-     * @note "S" : 源像素颜色
-     * @note "D" : 目标像素颜色
-     * @note "P" : 当前画刷颜色
-     */
-    void drawPixelMap(int x, int y, const PixelMap &pixelmap,
-                      BlendMode blendMode = BlendMode::S) const;
 
     /**
      * @brief 绘制像素图
@@ -693,18 +593,6 @@ public:
 
     /**
      * @brief 绘制圆
-     * @param x 圆心的x坐标
-     * @param y 圆心的y坐标
-     * @param r 圆的半径
-     * @note 该函数等价于
-     * @code
-     * drawEllipse(x-r, y-r, 2*r, 2*r)
-     * @endcode
-     */
-    void drawCircle(int x, int y, int r) const;
-
-    /**
-     * @brief 绘制圆
      * @param pos 圆心的位置
      * @param r 圆的半径
      * @note 该函数等价于
@@ -712,16 +600,7 @@ public:
      * drawEllipse({pos.x()-r, pos.y()-r}, 2*r, 2*r)
      * @endcode
      */
-    void drawCircle(const Point &pos, int r) const;
-
-    /**
-     * @brief 绘制填充圆
-     * @param x 圆心的x坐标
-     * @param y 圆心的y坐标
-     * @param r 圆的半径
-     * @note 该函数等价于drawFillEllipse(x-r, y-r, 2*r, 2*r)
-     */
-    void drawFillCircle(int x, int y, int r) const;
+    void drawCircle(const Point &pos, float r) const;
 
     /**
      * @brief 绘制填充圆
@@ -729,18 +608,7 @@ public:
      * @param r 圆的半径
      * @note 该函数等价于drawFillEllipse(pos.x()-r, pos.y()-r, 2*r, 2*r)
      */
-    void drawFillCircle(const Point &pos, int r) const;
-
-    /**
-     * @brief 绘制圆角矩形
-     * @param x 矩形左上角的x坐标
-     * @param y 矩形左上角的y坐标
-     * @param w 矩形的宽度
-     * @param h 矩形的高度
-     * @param rx 矩形的圆角x方向半径
-     * @param ry 矩形的圆角y方向半径
-     */
-    void drawRoundRect(int x, int y, int w, int h, int rx, int ry) const;
+    void drawFillCircle(const Point &pos, float r) const;
 
     /**
      * @brief 绘制圆角矩形
@@ -748,18 +616,7 @@ public:
      * @param rx 矩形的圆角x方向半径
      * @param ry 矩形的圆角y方向半径
      */
-    void drawRoundRect(const Rect &rect, int rx, int ry) const;
-
-    /**
-     * @brief 绘制填充圆角矩形
-     * @param x 矩形左上角的x坐标
-     * @param y 矩形左上角的y坐标
-     * @param w 矩形的宽度
-     * @param h 矩形的高度
-     * @param rx 矩形的圆角x方向半径
-     * @param ry 矩形的圆角y方向半径
-     */
-    void drawFillRoundRect(int x, int y, int w, int h, int rx, int ry) const;
+    void drawRoundRect(const Rect &rect, float rx, float ry) const;
 
     /**
      * @brief 绘制填充圆角矩形
@@ -767,7 +624,7 @@ public:
      * @param rx 矩形的圆角x方向半径
      * @param ry 矩形的圆角y方向半径
      */
-    void drawFillRoundRect(const Rect &rect, int rx, int ry) const;
+    void drawFillRoundRect(const Rect &rect, float rx, float ry) const;
 
     /**
      * @brief 获取当前绘图环境下所绘制的文本宽度，单位为像素

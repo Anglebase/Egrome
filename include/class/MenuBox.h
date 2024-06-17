@@ -260,7 +260,7 @@ public:
      * @brief 获取菜单项实际高度
      * @return 菜单项实际高度
      */
-    int getHeight() const;
+    float getHeight() const;
 
     /**
      * @brief 获取菜单框是否可见

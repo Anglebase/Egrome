@@ -77,12 +77,6 @@ public:
     PixelMap() = default;
     /**
      * @brief 构造函数
-     * @param width 像素图宽度
-     * @param height 像素图高度
-     */
-    PixelMap(long width, long height);
-    /**
-     * @brief 构造函数
      * @param size 像素图大小
      */
     PixelMap(const Size &size);
@@ -120,12 +114,6 @@ public:
      * @return 像素图大小
      */
     Size getSize() const;
-    /**
-     * @brief 设置像素图大小
-     * @param width 像素图宽度
-     * @param height 像素图高度
-     */
-    void setSize(int width, int height);
     /**
      * @brief 设置像素图大小
      * @param size 像素图大小

@@ -10,7 +10,7 @@
 // 明文显示
 void LineEdit::paintText(const PaintEvent &event)
 {
-    PixelMap pm(1, 1);
+    PixelMap pm({1, 1});
     auto &painter = pm.beginPaint();
     painter.setFont(this->style.fontName, this->style.fontSize);
     // 计算以及更新所有光标位置
@@ -20,7 +20,7 @@ void LineEdit::paintText(const PaintEvent &event)
         std::wstring text{L""};
         this->widths_.clear();
         this->widths_.push_back(-this->clipOffsetX_);
-        for (int i = 0; i < this->text_.size(); i++)
+        for (int i = 0; i < static_cast<float>(this->text_.size()); i++)
         {
             text += this->text_[i];
             this->widths_.push_back(painter.getTextWidth(text) - this->clipOffsetX_);
@@ -42,20 +42,22 @@ void LineEdit::paintText(const PaintEvent &event)
         text.clear();
         this->widths_.clear();
         this->widths_.push_back(-this->clipOffsetX_);
-        for (int i = 0; i < this->text_.size(); i++)
+        for (int i = 0; i < static_cast<float>(this->text_.size()); i++)
         {
             text += this->text_[i];
             this->widths_.push_back(painter.getTextWidth(text) - this->clipOffsetX_);
         }
     }
     // 绘制内容
-    pm.setSize(painter.getTextWidth(this->text_),
-               painter.getTextHeight(L"_"));
+    pm.setSize({
+        static_cast<float>(painter.getTextWidth(this->text_)),
+        static_cast<float>(painter.getTextHeight(L"_")),
+    });
     // painter.setBrushColor(this->style.backgroundColor);
     // painter.drawFillRect(painter.rect());
     painter.clear(this->style.backgroundColor);
     painter.setPenColor(this->style.textColor);
-    painter.drawText(0, 0, this->text_);
+    painter.drawText(Point{0, 0}, this->text_);
 
     auto now = std::chrono::system_clock::now();
     auto now_ms = std::chrono::time_point_cast<std::chrono::milliseconds>(now);
@@ -79,7 +81,7 @@ void LineEdit::paintText(const PaintEvent &event)
     this->offsetY_ = (this->rect().height() - pm.getSize().height()) / 2;
     if (this->clipWidth_ > pm.getSize().width())
     {
-        paint.drawPixelMap(offsetX_, offsetY_, pm);
+        paint.drawPixelMap(Point{offsetX_, offsetY_}, pm);
     }
     else
     {
@@ -89,7 +91,7 @@ void LineEdit::paintText(const PaintEvent &event)
             this->clipWidth_,
             pm.getSize().height(),
         });
-        paint.drawPixelMap(offsetX_, offsetY_, viewPart);
+        paint.drawPixelMap(Point{offsetX_, offsetY_}, viewPart);
     }
     // 绘制光标
     static bool state{false};
@@ -105,17 +107,15 @@ void LineEdit::paintText(const PaintEvent &event)
         }
         if (this->cursorPos_ == 0)
             paint.drawLine(
-                offsetX_,
-                offsetY_,
-                offsetX_,
-                offsetY_ + painter.getTextHeight(L"_"));
+                {offsetX_, offsetY_},
+                {offsetX_, offsetY_ + painter.getTextHeight(L"_")});
         else
         {
             paint.drawLine(
-                this->widths_[this->cursorPos_] + offsetX_,
-                offsetY_,
-                this->widths_[this->cursorPos_] + offsetX_,
-                offsetY_ + painter.getTextHeight(L"_"));
+                {this->widths_[this->cursorPos_] + offsetX_,
+                 offsetY_},
+                {this->widths_[this->cursorPos_] + offsetX_,
+                 offsetY_ + painter.getTextHeight(L"_")});
         }
     }
     event.endPaint();
@@ -125,18 +125,18 @@ void LineEdit::paintText(const PaintEvent &event)
 // 密文显示
 void LineEdit::paintPassword(const PaintEvent &event)
 {
-    PixelMap pm(1, 1);
+    PixelMap pm({1, 1});
     auto &painter = pm.beginPaint();
     painter.setFont(this->style.fontName, this->style.fontSize);
 
-    auto circleWidth = this->style.fontSize / 2;
+    auto circleWidth = static_cast<float>(this->style.fontSize) / 2;
     // 计算以及更新所有光标位置
     if (this->viewChangedFlag_)
     {
         this->viewChangedFlag_ = false;
         this->widths_.clear();
         this->widths_.push_back(-this->clipOffsetX_);
-        for (int i = 1; i <= this->text_.size(); i++)
+        for (int i = 1; i <= static_cast<float>(this->text_.size()); i++)
         {
             this->widths_.push_back(i * circleWidth - this->clipOffsetX_);
         }
@@ -149,29 +149,30 @@ void LineEdit::paintPassword(const PaintEvent &event)
         {
             this->clipOffsetX_ += pixelpos;
         }
-        if (circleWidth * this->text_.size() > this->clipWidth_ &&
-            circleWidth * this->text_.size() - this->widths_[this->cursorPos_] - this->clipOffsetX_ < this->clipWidth_)
+        if (circleWidth * static_cast<float>(this->text_.size()) > this->clipWidth_ &&
+            circleWidth * static_cast<float>(this->text_.size()) - this->widths_[this->cursorPos_] - this->clipOffsetX_ < this->clipWidth_)
         {
-            this->clipOffsetX_ = circleWidth * this->text_.size() - this->clipWidth_;
+            this->clipOffsetX_ = circleWidth * static_cast<float>(this->text_.size()) - this->clipWidth_;
         }
         this->widths_.clear();
         this->widths_.push_back(-this->clipOffsetX_);
-        for (int i = 1; i <= this->text_.size(); i++)
+        for (int i = 1; i <= static_cast<float>(this->text_.size()); i++)
         {
             this->widths_.push_back(circleWidth * i - this->clipOffsetX_);
         }
     }
     // 绘制内容
-    pm.setSize(circleWidth * this->text_.size(),
-               painter.getTextHeight(L"_"));
+    pm.setSize({circleWidth * static_cast<float>(this->text_.size()),
+                static_cast<float>(painter.getTextHeight(L"_"))});
     // painter.setBrushColor(this->style.backgroundColor);
     // painter.drawFillRect(painter.rect());
     painter.clear(this->style.backgroundColor);
     painter.setBrushColor(this->style.textColor);
-    for (int i = 0; i < this->text_.size(); i++)
+    for (int i = 0; i < static_cast<float>(this->text_.size()); i++)
     {
-        painter.drawFillCircle(circleWidth * i + circleWidth / 2,
-                               pm.getSize().height() / 2, circleWidth * 2 / 5);
+        painter.drawFillCircle({circleWidth * i + circleWidth / 2,
+                                pm.getSize().height() / 2},
+                               circleWidth * 2 / 5);
     }
 
     auto now = std::chrono::system_clock::now();
@@ -196,7 +197,7 @@ void LineEdit::paintPassword(const PaintEvent &event)
     this->offsetY_ = (this->rect().height() - pm.getSize().height()) / 2;
     if (this->clipWidth_ > pm.getSize().width())
     {
-        paint.drawPixelMap(offsetX_, offsetY_, pm);
+        paint.drawPixelMap(Point{offsetX_, offsetY_}, pm);
     }
     else
     {
@@ -206,7 +207,7 @@ void LineEdit::paintPassword(const PaintEvent &event)
             this->clipWidth_,
             pm.getSize().height(),
         });
-        paint.drawPixelMap(offsetX_, offsetY_, viewPart);
+        paint.drawPixelMap(Point{offsetX_, offsetY_}, viewPart);
     }
     // 绘制光标
     static bool state{false};
@@ -222,17 +223,15 @@ void LineEdit::paintPassword(const PaintEvent &event)
         }
         if (this->cursorPos_ == 0)
             paint.drawLine(
-                offsetX_,
-                offsetY_,
-                offsetX_,
-                offsetY_ + painter.getTextHeight(L"_"));
+                {offsetX_, offsetY_},
+                {offsetX_, offsetY_ + painter.getTextHeight(L"_")});
         else
         {
             paint.drawLine(
-                this->widths_[this->cursorPos_] + offsetX_,
-                offsetY_,
-                this->widths_[this->cursorPos_] + offsetX_,
-                offsetY_ + painter.getTextHeight(L"_"));
+                {this->widths_[this->cursorPos_] + offsetX_,
+                 offsetY_},
+                {this->widths_[this->cursorPos_] + offsetX_,
+                 offsetY_ + painter.getTextHeight(L"_")});
         }
     }
     event.endPaint();
@@ -245,6 +244,7 @@ void LineEdit::paintEvent(const PaintEvent &event)
         this->paintText(event);
     else
         this->paintPassword(event);
+    App::setInputMethodWindowPos(this->rect().getTopLeft());
 }
 
 void LineEdit::mousePressEvent(const Point &pos, MouseButton button)
@@ -282,7 +282,7 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
     case Key::V: // Ctrl + V 粘贴
         if (flag == KeyFlag::Ctrl)
         {
-            if (this->cursorPos_ < this->text_.size())
+            if (this->cursorPos_ < static_cast<float>(this->text_.size()))
             {
                 this->text_.insert(this->cursorPos_, App::getCilpboardText());
                 this->cursorPos_ += App::getCilpboardText().size();
@@ -290,7 +290,7 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
             else
             {
                 this->text_ += App::getCilpboardText();
-                this->cursorPos_ = this->text_.size();
+                this->cursorPos_ = static_cast<float>(this->text_.size());
             }
             this->textChanged.emit(this->text_);
         }
@@ -312,14 +312,14 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
             this->cursorPos_--;
         break;
     case Key::Right:
-        if (this->cursorPos_ < this->text_.size())
+        if (this->cursorPos_ < static_cast<float>(this->text_.size()))
             this->cursorPos_++;
         break;
     case Key::Home:
         this->cursorPos_ = 0;
         break;
     case Key::End:
-        this->cursorPos_ = this->text_.size();
+        this->cursorPos_ = static_cast<float>(this->text_.size());
         break;
     case Key::BackSpace:
         if (this->cursorPos_ > 0)
@@ -330,7 +330,7 @@ void LineEdit::keyPressEvent(Key key, KeyFlag flag)
         }
         break;
     case Key::Delete:
-        if (this->cursorPos_ < this->text_.size())
+        if (this->cursorPos_ < static_cast<float>(this->text_.size()))
         {
             this->text_.erase(this->cursorPos_, 1);
             this->textChanged.emit(this->text_);
@@ -350,20 +350,16 @@ void LineEdit::InputTextEvent(wchar_t inputChar)
     case L'\b':
     case L'\r':
     case L'\n':
-        break;
     case L'\t':
-        this->text_ += L"    ";
-        this->cursorPos_ += 4;
-        this->textChanged.emit(this->text_);
         break;
     default:
-        if (this->cursorPos_ < this->text_.size())
+        if (this->cursorPos_ < static_cast<float>(this->text_.size()))
         {
             this->text_.insert(this->cursorPos_, 1, inputChar);
             this->cursorPos_++;
             this->textChanged.emit(this->text_);
         }
-        else if (this->cursorPos_ == this->text_.size())
+        else if (this->cursorPos_ == static_cast<float>(this->text_.size()))
         {
             this->text_ += inputChar;
             this->cursorPos_++;

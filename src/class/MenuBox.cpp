@@ -302,9 +302,9 @@ int MenuBox::getItemCount() const
     return this->items_.size();
 }
 
-int MenuBox::getHeight() const
+float MenuBox::getHeight() const
 {
-    int height = 0;
+    float height = 0;
     for (auto item : this->items_)
     {
         if (item)

@@ -6,7 +6,7 @@
 
 PixelMap PixelMap::FormScreen(const Rect &rect)
 {
-    PixelMap result(rect.width(), rect.height());
+    PixelMap result({rect.width(), rect.height()});
     ege::getimage((ege::IMAGE *)result.image_,
                   rect.x(), rect.y(),
                   rect.width(), rect.height());
@@ -33,12 +33,6 @@ PixelMap PixelMap::FromFile(const std::wstring &filename)
     result.width_ = ege::getwidth((ege::IMAGE *)result.image_);
     result.height_ = ege::getheight((ege::IMAGE *)result.image_);
     return result;
-}
-
-PixelMap::PixelMap(long width, long height)
-    : width_(width), height_(height)
-{
-    this->image_ = ege::newimage(width, height);
 }
 
 PixelMap::PixelMap(const Size &size)
@@ -109,16 +103,13 @@ Size PixelMap::getSize() const
     return Size(this->width_, this->height_);
 }
 
-void PixelMap::setSize(int width, int height)
-{
-    this->width_ = width;
-    this->height_ = height;
-    ege::resize((ege::IMAGE *)this->image_, width, height);
-}
-
 void PixelMap::setSize(const Size &size)
 {
-    this->setSize(size.width(), size.height());
+    ege::resize((ege::IMAGE *)this->image_,
+                static_cast<int>(size.width()),
+                static_cast<int>(size.height()));
+    this->width_ = size.width();
+    this->height_ = size.height();
 }
 
 const Painter &PixelMap::beginPaint() const
@@ -139,7 +130,7 @@ void PixelMap::endPaint() const
 
 PixelMap PixelMap::clip(const Rect &rect) const
 {
-    PixelMap result(rect.width(), rect.height());
+    PixelMap result({rect.width(), rect.height()});
     ege::putimage((ege::IMAGE *)result.image_,
                   0, 0, rect.width(), rect.height(),
                   (ege::IMAGE *)this->image_,

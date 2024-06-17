@@ -9,7 +9,7 @@ class Window : public Block
     Label *label;
 
 protected:
-    void keyPressEvent(Key key, KeyFlag flag)
+    void keyPressEvent(Key key, KeyFlag flag) override
     {
         if (key == Key::Tab)
         {
@@ -18,7 +18,9 @@ protected:
                 this->TabPressed.emit();
                 return;
             }
+            std::cout << "Tab pressed" << std::endl;
         }
+        std::cout << "key pressed: " << (int)key << std::endl;
         return Block::keyPressEvent(key, flag);
     }
 signals:
@@ -54,9 +56,8 @@ public:
         label->style.fontSize = 36;
         label->setText(L"按Enter显示到此...");
 
-        this->TabPressed.connect([this](){
-            this->lineEdit->setShowPlainText(!this->lineEdit->isShowPlainText());
-        });
+        this->TabPressed.connect([this]()
+                                 { this->lineEdit->setShowPlainText(!this->lineEdit->isShowPlainText()); });
     }
     ~Window()
     {
