@@ -1,8 +1,10 @@
-import os,shutil
+import os, shutil
 
 ## 编译代码
 
 VERSION = "v0.1.0"
+COMPILER = R"g++"
+LINKER = R"ar"
 
 print(VERSION)
 input("按Enter键继续...")
@@ -10,7 +12,7 @@ input("按Enter键继续...")
 os.system("md out")
 print("正在编译代码...")
 ret = os.system(
-    "cd out && g++ -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
+    f"cd out && {COMPILER} -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
         "/", "\\"
     )
 )
@@ -22,7 +24,7 @@ print("编译完成！")
 ## 链接代码
 
 print("正在链接代码...")
-ret = os.system("cd out && ar -rc libegrome.a .\\*.o")
+ret = os.system(f"cd out && {LINKER} -rc libegrome.a .\\*.o")
 if ret != 0:
     print("链接失败！")
     exit(1)
@@ -51,7 +53,7 @@ print("复制完成！")
 ## 生成C++风格的头文件
 print("正在生成C++风格的头文件...")
 # 指定文件夹的路径
-folder_path = fr".\release\egrome-{VERSION}\include\egrome"
+folder_path = rf".\release\egrome-{VERSION}\include\egrome"
 
 
 def get_filename_without_extension(file_path):
@@ -71,7 +73,11 @@ def traverse_folder(folder_path):
                 encoding="utf-8",
             ) as f:
                 f.write("#pragma once\n")
-                f.write(f'#include "./{file_path[len(folder_path) + 1 :]}"'.replace("\\", "/"))
+                f.write(
+                    f'#include "./{file_path[len(folder_path) + 1 :]}"'.replace(
+                        "\\", "/"
+                    )
+                )
 
 
 traverse_folder(folder_path)
