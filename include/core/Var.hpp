@@ -1,5 +1,6 @@
 #pragma once
 
+#include "./Object.h"
 #include "./SignalSlots.hpp"
 
 /**
@@ -13,7 +14,7 @@
  * @note 此类提供变量的基础封装，包括变量值的读取和修改，该基类提供了对变量值的监听，当变量值发生变化时，会触发信号，子类也可以通过重写getter和setter方法来实现变量值的自定义获取和修改。
  */
 template <typename T>
-class Var
+class Var : public Object
 {
 private:
     T value_;

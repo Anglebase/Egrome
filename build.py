@@ -2,7 +2,7 @@ import os, shutil
 
 ## 编译代码
 
-VERSION = "v0.1.0"
+VERSION = "v1.0.0"
 COMPILER = R"g++"
 LINKER = R"ar"
 

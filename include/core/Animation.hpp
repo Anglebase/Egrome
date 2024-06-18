@@ -7,6 +7,7 @@
 
 #include <chrono>
 #include <functional>
+#include "./Object.h"
 #include "./SignalSlots.hpp"
 
 /**
@@ -21,7 +22,7 @@
  * @note 对于未重载+、-以及*运算符的类型，必须提供自定义的插值计算函数，否则会导致编译错误
  */
 template <typename T>
-class Animation
+class Animation : public Object
 {
 public:
     struct Args
@@ -195,7 +196,8 @@ public:
      * @return 当前值
      * @note 该函数用于方便使用，等价于 Animation::value()
      */
-    operator T(){
+    operator T()
+    {
         return this->value();
     }
 };

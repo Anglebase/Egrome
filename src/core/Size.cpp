@@ -1,78 +1,78 @@
 #include "Size.h"
+#include <cmath>
 
-Size::Size(float w, float h) : width_(w), height_(h) {}
+Size::Size(float x, float y) : width_(x), height_(y) {}
+Size::~Size() {}
 
-float &Size::width()
+float &Size::x() { return width_; }
+float &Size::y() { return height_; }
+const float &Size::x() const { return width_; }
+const float &Size::y() const { return height_; }
+
+Size &Size::operator=(const Size &other)
 {
-    return this->width_;
+    width_ = other.width_;
+    height_ = other.height_;
+    return *this;
 }
-
-float &Size::height()
+Size Size::operator+(const Size &other) const
 {
-    return this->height_;
+    Size result;
+    result.width_ = width_ + other.width_;
+    result.height_ = height_ + other.height_;
+    return result;
 }
-
-const float &Size::width() const
+Size Size::operator-(const Size &other) const
 {
-    return this->width_;
+    Size result;
+    result.width_ = width_ - other.width_;
+    result.height_ = height_ - other.height_;
+    return result;
 }
-
-const float &Size::height() const
+Size Size::operator*(const float &scale) const
 {
-    return this->height_;
+    Size result;
+    result.width_ = width_ * scale;
+    result.height_ = height_ * scale;
+    return result;
+}
+Size Size::operator/(const float &scale) const
+{
+    Size result;
+    result.width_ = width_ / scale;
+    result.height_ = height_ / scale;
+    return result;
+}
+Size &Size::operator+=(const Size &other)
+{
+    width_ += other.width_;
+    height_ += other.height_;
+    return *this;
+}
+Size &Size::operator-=(const Size &other)
+{
+    width_ -= other.width_;
+    height_ -= other.height_;
+    return *this;
+}
+Size &Size::operator*=(const float &scale)
+{
+    width_ *= scale;
+    height_ *= scale;
+    return *this;
+}
+Size &Size::operator/=(const float &scale)
+{
+    width_ /= scale;
+    height_ /= scale;
+    return *this;
 }
 
 bool Size::operator==(const Size &other) const
 {
-    return this->width_ == other.width_ && this->height_ == other.height_;
+    return (width_ == other.width_) && (height_ == other.height_);
 }
-
 bool Size::operator!=(const Size &other) const
 {
-    return !(*this == other);
-}
-
-Size Size::operator+(const Size &other) const
-{
-    return Size(this->width_ + other.width_, this->height_ + other.height_);
-}
-
-Size Size::operator-(const Size &other) const
-{
-    return Size(this->width_ - other.width_, this->height_ - other.height_);
-}
-
-Size &Size::operator+=(const Size &other)
-{
-    return *this = *this + other;
-}
-
-Size &Size::operator-=(const Size &other)
-{
-    return *this = *this - other;
-}
-
-Size Size::operator*(double factor) const
-{
-    return Size(static_cast<float>(this->width_ * factor), static_cast<float>(this->height_ * factor));
-}
-
-Size Size::operator/(double factor) const
-{
-    return Size(static_cast<float>(this->width_ / factor), static_cast<float>(this->height_ / factor));
-}
-
-Size &Size::operator*=(double factor)
-{
-    return *this = *this * factor;
-}
-
-Size &Size::operator/=(double factor)
-{
-    return *this = *this / factor;
-}
-
-std::ostream &operator<<(std::ostream &os, const Size &size)
-{
-    return os << "[" << size.width_ << ", " << size.height_ << "]";
+    return (width_ != other.width_) || (height_ != other.height_);
 }

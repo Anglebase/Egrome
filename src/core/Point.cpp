@@ -1,56 +1,85 @@
 #include "Point.h"
-#include "Rect.h"
+#include <cmath>
 
 Point::Point(float x, float y) : x_(x), y_(y) {}
+Point::~Point() {}
 
 float &Point::x() { return x_; }
 float &Point::y() { return y_; }
 const float &Point::x() const { return x_; }
 const float &Point::y() const { return y_; }
 
-bool Point::inside(const Rect &rect) const
+Point &Point::operator=(const Point &other)
 {
-    // std::cout << "Rect:" << rect << " |Point:" << *this << std::endl;
-    return (rect.left() <= this->x_ && this->x_ < rect.right() &&
-            rect.top() <= this->y_ && this->y_ < rect.bottom());
+    x_ = other.x_;
+    y_ = other.y_;
+    return *this;
+}
+Point Point::operator+(const Point &other) const
+{
+    Point result;
+    result.x_ = x_ + other.x_;
+    result.y_ = y_ + other.y_;
+    return result;
+}
+Point Point::operator-(const Point &other) const
+{
+    Point result;
+    result.x_ = x_ - other.x_;
+    result.y_ = y_ - other.y_;
+    return result;
+}
+Point Point::operator*(const float &scale) const
+{
+    Point result;
+    result.x_ = x_ * scale;
+    result.y_ = y_ * scale;
+    return result;
+}
+Point Point::operator/(const float &scale) const
+{
+    Point result;
+    result.x_ = x_ / scale;
+    result.y_ = y_ / scale;
+    return result;
+}
+Point &Point::operator+=(const Point &other)
+{
+    x_ += other.x_;
+    y_ += other.y_;
+    return *this;
+}
+Point &Point::operator-=(const Point &other)
+{
+    x_ -= other.x_;
+    y_ -= other.y_;
+    return *this;
+}
+Point &Point::operator*=(const float &scale)
+{
+    x_ *= scale;
+    y_ *= scale;
+    return *this;
+}
+Point &Point::operator/=(const float &scale)
+{
+    x_ /= scale;
+    y_ /= scale;
+    return *this;
 }
 
 bool Point::operator==(const Point &other) const
 {
-    return this->x_ == other.x_ && this->y_ == other.y_;
+    return (x_ == other.x_) && (y_ == other.y_);
 }
-
 bool Point::operator!=(const Point &other) const
 {
-    return !(*this == other);
+    return (x_ != other.x_) || (y_ != other.y_);
 }
 
-Point Point::operator+(const Point &other) const
+float Point::distance(const Point &other) const
 {
-    return Point(this->x_ + other.x_, this->y_ + other.y_);
-}
-
-Point Point::operator-(const Point &other) const
-{
-    return Point(this->x_ - other.x_, this->y_ - other.y_);
-}
-
-Point &Point::operator+=(const Point &other)
-{
-    this->x_ += other.x_;
-    this->y_ += other.y_;
-    return *this;
-}
-
-Point &Point::operator-=(const Point &other)
-{
-    this->x_ -= other.x_;
-    this->y_ -= other.y_;
-    return *this;
-}
-
-std::ostream &operator<<(std::ostream &os, const Point &p)
-{
-    os << "(" << p.x_ << ", " << p.y_ << ")";
-    return os;
+    float dx = x_ - other.x_;
+    float dy = y_ - other.y_;
+    return std::sqrt(dx * dx + dy * dy);
 }
