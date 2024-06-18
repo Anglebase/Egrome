@@ -69,3 +69,13 @@ g++ [源文件] -o [输出文件] -legrome -lgraphics64 -lgdiplus -luuid -lmsimg
 
 ## 开发者
 - [Weiyi Anglebase (Github)](https://github.com/Anglebase)
+
+## 其它
+
+Egrome 版本号序列约定：
+vX.Y\[.Z\[.B\[.C\]\]]
+- X：主版本号，当库发生不兼容旧版的变化时递增此序号
+- Y：次版本号，当有新特性或功能时递增此序号
+- Z：修订号，当有bug修复或优化时递增此序号
+- B：预览类别组，它是alpha、beta、rc之一
+- C：预览类别号，它是预览版本号，一般在B类别下递增此序号
