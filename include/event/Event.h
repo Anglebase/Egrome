@@ -1,14 +1,14 @@
 #pragma once
 
 class Event {
-    bool accepted_;
+    mutable bool accepted_;
 
 public:
     Event();
     virtual ~Event();
 
-    void accept();
-    void reset();
+    void accept() const;
+    void reset() const;
 
-    bool isAccepted();
+    bool isAccepted() const;
 };

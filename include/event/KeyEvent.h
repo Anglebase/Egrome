@@ -255,11 +255,11 @@ public:
     KeyEvent(Key key, KeyState state, bool shift, bool ctrl);
     virtual ~KeyEvent();
 
-    Key key()const;
+    Key key() const;
 
-    bool hasShift()const;
-    bool hasCtrl()const;
-    // bool hasAlt()const;
+    bool hasShift() const;
+    bool hasCtrl() const;
+    // bool hasAlt() const;
 
-    KeyState state()const;
+    KeyState state() const;
 };
