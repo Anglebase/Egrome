@@ -4,10 +4,10 @@
 Size::Size(float x, float y) : width_(x), height_(y) {}
 Size::~Size() {}
 
-float &Size::x() { return width_; }
-float &Size::y() { return height_; }
-const float &Size::x() const { return width_; }
-const float &Size::y() const { return height_; }
+float &Size::width() { return this->width_; }
+float &Size::height() { return this->height_; }
+const float &Size::width() const { return this->width_; }
+const float &Size::height() const { return this->height_; }
 
 Size &Size::operator=(const Size &other)
 {
