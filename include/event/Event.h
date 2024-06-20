@@ -1,6 +1,8 @@
 #pragma once
 
-class Event {
+#include "../core/Object.h"
+
+class Event : public Object {
     mutable bool accepted_;
 
 public:
