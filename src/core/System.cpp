@@ -4,7 +4,7 @@
 
 #include "./Size.h"
 
-String system::getCilpBoardText() {
+String Sys::getCilpBoardText() {
     HWND hWnd = ege::getHWnd();
     ::OpenClipboard(hWnd);
     HANDLE hClipMemory = ::GetClipboardData(CF_UNICODETEXT);
@@ -16,7 +16,7 @@ String system::getCilpBoardText() {
     return String(text);
 }
 
-void system::setCilpBoardText(String text_) {
+void Sys::setCilpBoardText(String text_) {
     auto text = (std::wstring)text_;
     DWORD dwLength = text.size() + 1;
     HANDLE hGlobalMemory = ::GlobalAlloc(GHND, dwLength * 2 + 2);
@@ -35,7 +35,7 @@ void system::setCilpBoardText(String text_) {
     ::CloseClipboard();
 }
 
-Size system::getScreenSize() {
+Size Sys::getScreenSize() {
     return Size{
         static_cast<float>(GetSystemMetrics(SM_CXSCREEN)),
         static_cast<float>(GetSystemMetrics(SM_CYSCREEN)),

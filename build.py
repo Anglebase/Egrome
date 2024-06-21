@@ -3,8 +3,8 @@ import os, shutil
 ## 编译代码
 
 VERSION = "v1.0.0"
-COMPILER = R"g++"
-LINKER = R"ar"
+COMPILER = "C:\\\"Program Files\"\\RedPanda-Cpp\\mingw64\\bin\\g++.exe"
+LINKER = "C:\\\"Program Files\"\\RedPanda-Cpp\\mingw64\\bin\\ar.exe"
 
 print(VERSION)
 input("按Enter键继续...")
@@ -12,7 +12,7 @@ input("按Enter键继续...")
 os.system("md out")
 print("正在编译代码...")
 ret = os.system(
-    f"cd out && {COMPILER} -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
+    f"cd out && {COMPILER} -c ../src/event/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/event/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
         "/", "\\"
     )
 )
@@ -38,7 +38,7 @@ if os.path.exists(f"release/egrome-{VERSION}"):
     shutil.rmtree(f"release/egrome-{VERSION}")
 
 print("正在复制头文件...")
-shutil.copytree("./include", f"release/egrome-{VERSION}/include/egrome")
+shutil.copytree("./include", f"release/egrome-{VERSION}/include/egrome/includes")
 print("复制完成！")
 
 ## 复制库文件

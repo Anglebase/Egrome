@@ -2,8 +2,9 @@
 
 #include "../core/Object.h"
 #include "./Block.h"
+class String;
 
-class App final: public Object {
+class App final : public Object {
 public:
     static void quit(int code);
 private:

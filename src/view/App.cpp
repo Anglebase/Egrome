@@ -52,6 +52,7 @@ void App::run() {
     if (this->root_ == nullptr) return;
     ege::initgraph(this->root_->rect_.width(), this->root_->rect_.height());
     ege::setbkmode(TRANSPARENT);
+    App::setTitle(L"Egrome");
 
     for (auto now = std::chrono::steady_clock::now();
         ege::is_run();

@@ -3,7 +3,7 @@
 #include "./XString.h"
 class Size;
 
-namespace system{
+namespace Sys{
     String getCilpBoardText();
     void setCilpBoardText(String text);
     Size getScreenSize();
