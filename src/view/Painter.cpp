@@ -1,13 +1,15 @@
 #include "PixelMap.h"
 #include "Painter.h"
-#include <ege.h>
-#include "Exception.h"
+#include "XString.h"
 #include "Block.h"
+
+#include <ege.h>
 
 void* getTarget(Painter* painter) {
     if (painter->block_)return nullptr;
     if (painter->pixelMap_)
         return (void*)painter->pixelMap_->image_;
+    return nullptr;
 }
 
 Point transfrom(Painter* painter, const Point& pos) {
@@ -17,6 +19,7 @@ Point transfrom(Painter* painter, const Point& pos) {
     if (painter->pixelMap_) {
         return pos;
     }
+    return Point();
 }
 
 TextAligns::TextAligns(int aligns) noexcept : aligns(aligns) {}
@@ -763,8 +766,6 @@ void Painter::drawText(const Rect& rect, const String& text, TextAligns aligns) 
     else if (aligns & TextAlign::Bottom) {
         p.y() = rect_.height() - ege::textheight(((std::wstring)text).c_str(), Get);
     }
-    auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
     rect_.pos() = (Point)rect_.pos() + (Point)p;
     ege::outtextxy(rect_.x(), rect_.y(), ((std::wstring)text).c_str(), Get);
 }

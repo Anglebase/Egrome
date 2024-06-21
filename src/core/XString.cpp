@@ -1,6 +1,5 @@
-#include "../../include/core/String.h"
+#include "XString.h"
 #include "Exception.h"
-#include "String.h"
 
 #include <algorithm>
 

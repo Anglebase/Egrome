@@ -2,3 +2,5 @@
 out/
 bin/
 release/
+build/
+test/*.exe

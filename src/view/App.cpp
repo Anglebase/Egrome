@@ -1,7 +1,8 @@
 #include "App.h"
 #include <ege.h>
-#include <cstdlib>
 #include <chrono>
+#include <cstdlib>
+#include <cwctype>
 
 #include "PaintEvent.h"
 #include "KeyPressEvent.h"
@@ -16,7 +17,7 @@
 template<typename T>
 void foreach(Block* root, void(Block::* func)(const T&), const T& arg) {
     if (root == nullptr) return;
-    (child->*func)(arg);
+    (root->*func)(arg);
     if (root->children().empty())return;
 
     for (auto child : root->children()) {
@@ -59,8 +60,8 @@ void App::run() {
                 {
                     KeyPressEvent keypress_event = {
                         (Key)keymsg.key,
-                        keymsg.flags & ege::key_flag_shift,
-                        keymsg.flags & ege::key_flag_ctrl,
+                        static_cast<bool>(keymsg.flags & ege::key_flag_shift),
+                        static_cast<bool>(keymsg.flags & ege::key_flag_ctrl),
                     };
                     foreach(this->root_, &Block::keyPressEvent, keypress_event);
                 }
@@ -69,8 +70,8 @@ void App::run() {
                 {
                     KeyReleaseEvent keyrelease_event = {
                         (Key)keymsg.key,
-                        keymsg.flags & ege::key_flag_shift,
-                        keymsg.flags & ege::key_flag_ctrl,
+                        static_cast<bool>(keymsg.flags & ege::key_flag_shift),
+                        static_cast<bool>(keymsg.flags & ege::key_flag_ctrl),
                     };
                     foreach(this->root_, &Block::keyReleaseEvent, keyrelease_event);
                 }
@@ -89,7 +90,7 @@ void App::run() {
                 if (ege::kbhit()) // 文本输入(ASCII字符)
                 {
                     auto ch = ege::getch();
-                    if (std::isprint(ch)) {
+                    if (std::iswprint(ch)) {
                         InputEvent input_event = {
                             (wchar_t)ch,
                         };

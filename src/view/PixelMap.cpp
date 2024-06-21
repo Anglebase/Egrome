@@ -4,16 +4,20 @@
 
 #include <ege.h>
 
+PixelMap::SizeData::SizeData(PixelMap* map) noexcept
+    :map_(map) {}
+
 Size PixelMap::SizeData::operator=(const Size& size) noexcept {
     if (!this->map_->image_)return Size();
-    ege::resize((ege::PIMAGE)this->map_->image_, size.width(), size.height());
+    ege::resize((ege::PIMAGE)this->map_->image_,
+        static_cast<int>(size.width()), static_cast<int>(size.height()));
     return size;
 }
 PixelMap::SizeData::operator Size() const noexcept {
     if (!this->map_->image_)return Size();
     return Size{
-        ege::getwidth((ege::PIMAGE)this->map_->image_),
-        ege::getheight((ege::PIMAGE)this->map_->image_),
+        static_cast<float>(ege::getwidth((ege::PIMAGE)this->map_->image_)),
+        static_cast<float>(ege::getheight((ege::PIMAGE)this->map_->image_)),
     };
 }
 
@@ -24,8 +28,8 @@ PixelMap::SizeData PixelMap::size() noexcept {
 Size PixelMap::size() const noexcept {
     if (!this->image_)return Size();
     return Size{
-        ege::getwidth((ege::PIMAGE)this->image_),
-        ege::getheight((ege::PIMAGE)this->image_),
+        static_cast<float>(ege::getwidth((ege::PIMAGE)this->image_)),
+        static_cast<float>(ege::getheight((ege::PIMAGE)this->image_)),
     };
 }
 

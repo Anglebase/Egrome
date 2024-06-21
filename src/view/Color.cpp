@@ -3,7 +3,7 @@
 #include <ege.h>
 
 Color Color::lerp(const Color& a, const Color& b, double t) noexcept {
-    auto line_lerp = [](int a, int b, double t) { return a + (b - a) * t; };
+    auto line_lerp = [](int a, int b, double t)->int { return static_cast<int>(a + (b - a) * t); };
     return Color{
         line_lerp(a.red_, b.red_, t),
         line_lerp(a.green_, b.green_, t),

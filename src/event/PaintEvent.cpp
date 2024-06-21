@@ -8,7 +8,7 @@ public:
         :Exception(message) {}
 };
 
-PaintEvent::PaintEvent()
+PaintEvent::PaintEvent() noexcept
     :painter_(nullptr) {}
 
 PaintEvent::~PaintEvent() noexcept = default;
@@ -18,6 +18,7 @@ const Painter& PaintEvent::beginPaint(Block* block) const {
         throw InvalidBlock(L"Invalid block");
     }
     this->painter_ = new Painter(block);
+    return *this->painter_;
 }
 
 void PaintEvent::endPaint() const noexcept {

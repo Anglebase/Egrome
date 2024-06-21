@@ -9,7 +9,7 @@ void Block::keyPressEvent(const KeyPressEvent& event) {}
 void Block::keyReleaseEvent(const KeyReleaseEvent& event) {}
 void Block::inputEvent(const InputEvent& event) {}
 
-Block::Block(const Rect& rect, Block* parent = nullptr)
+Block::Block(const Rect& rect, Block* parent)
     :rect_(rect), parent_(parent), foreach_(true) {
     if (this->parent_) {
         this->parent_->addChild(this);

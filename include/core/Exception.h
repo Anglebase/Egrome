@@ -1,7 +1,7 @@
 #pragma once
 
 #include "./Object.h"
-#include "./String.h"
+#include "./XString.h"
 
 class Exception : public Object {
 protected:
