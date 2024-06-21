@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../core/Object.h"
-
+#include "../core/Exception.h"
 class Size;
 class Painter;
 
@@ -21,6 +21,11 @@ private:
         Size operator=(const Size& size) noexcept;
         operator Size() const noexcept;
     };
+
+    class WrongPainter: public Exception {
+    public:
+        WrongPainter(const String& message) noexcept;
+    };
 public:
     PixelMap() noexcept;
     PixelMap(int width, int height) noexcept;
@@ -31,8 +36,8 @@ public:
     PixelMap& operator=(const PixelMap& other) noexcept;
     PixelMap& operator=(PixelMap&& other) noexcept;
 
-    const Painter& beginPaint() noexcept;
-    void endPaint() noexcept;
+    Painter& beginPaint() noexcept;
+    void endPaint(const Painter& painter);
 
     SizeData size() noexcept;
     Size size() const noexcept;

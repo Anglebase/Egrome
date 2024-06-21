@@ -1,6 +1,6 @@
 #include "Block.h"
 
-void Block::paintEvent(const PaintEvent& event) {}
+void Block::paintEvent(PaintEvent& event) {}
 void Block::mousePressEvent(const MousePressEvent& event) {}
 void Block::mouseMoveEvent(const MouseMoveEvent& event) {}
 void Block::mouseWheelEvent(const MouseWheelEvent& event) {}

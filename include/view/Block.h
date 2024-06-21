@@ -23,7 +23,7 @@ private:
     std::set<Block*> children_;
 
 protected:
-    virtual void paintEvent(const PaintEvent& event);
+    virtual void paintEvent(PaintEvent& event);
     virtual void mousePressEvent(const MousePressEvent& event);
     virtual void mouseReleaseEvent(const MouseReleaseEvent& event);
     virtual void mouseMoveEvent(const MouseMoveEvent& event);

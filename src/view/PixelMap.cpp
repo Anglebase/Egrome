@@ -4,6 +4,9 @@
 
 #include <ege.h>
 
+PixelMap::WrongPainter::WrongPainter(const String& message) noexcept
+    : Exception(message) {}
+
 PixelMap::SizeData::SizeData(PixelMap* map) noexcept
     :map_(map) {}
 
@@ -84,13 +87,15 @@ PixelMap& PixelMap::operator=(PixelMap&& other) noexcept {
     return *this;
 }
 
-const Painter& PixelMap::beginPaint() noexcept {
+Painter& PixelMap::beginPaint() noexcept {
     if (this->painter_)return *this->painter_;
     this->painter_ = new Painter(this);
     return *this->painter_;
 }
 
-void PixelMap::endPaint() noexcept {
+void PixelMap::endPaint(const Painter& painter) {
+    if (this->painter_ != &painter)
+        throw WrongPainter(L"Wrong painter");
     if (this->painter_) {
         delete this->painter_;
         this->painter_ = nullptr;
