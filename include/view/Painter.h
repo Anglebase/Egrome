@@ -301,7 +301,7 @@ bool operator&(TextAligns a, TextAlign b);
 bool operator&(TextAlign a, TextAligns b);
 
 
-class Painter {
+class Painter final : public Object {
     friend class PaintEvent;
     friend class PixelMap;
 

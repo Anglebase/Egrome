@@ -1,9 +1,11 @@
 #pragma once
 
+#include "../core/Object.h"
+
 class Size;
 class Painter;
 
-class PixelMap {
+class PixelMap final : public Object {
     friend class Painter;
     friend void* getTarget(Painter*);
 private:

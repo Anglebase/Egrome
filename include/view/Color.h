@@ -1,7 +1,8 @@
 #pragma once
 
+#include "../core/Object.h"
 
-class Color {
+class Color final : public Object {
 private:
     int red_;
     int green_;

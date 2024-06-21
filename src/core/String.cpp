@@ -116,7 +116,3 @@ String String::join(const std::vector<String>& strs) const noexcept {
     }
     return result;
 }
-
-String operator""_string(const wchar_t* str, size_t len) noexcept {
-    return String(std::wstring(str, len));
-}

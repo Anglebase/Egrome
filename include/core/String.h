@@ -43,5 +43,3 @@ public:
     // void replace(const String& oldStr, const String& newStr) noexcept;
     // void remove(const String& str) noexcept;
 };
-
-String operator""_string(const wchar_t* str, size_t len) noexcept;

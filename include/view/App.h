@@ -1,8 +1,9 @@
 #pragma once
 
+#include "../core/Object.h"
 #include "./Block.h"
 
-class App final {
+class App final: public Object {
 public:
     static void quit(int code);
 private:
