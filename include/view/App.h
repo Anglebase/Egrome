@@ -17,7 +17,7 @@ public:
     static int getSetFps();
     static void setTitle(const String& title);
 public:
-    App(Block* root);
+    App(Block& root);
     ~App();
     void run();
 };

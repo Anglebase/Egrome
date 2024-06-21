@@ -43,7 +43,7 @@ void App::setTitle(const String& title) {
     ege::setcaption(wtitle.c_str());
 }
 
-App::App(Block* root) :root_(root) {}
+App::App(Block& root) :root_(&root) {}
 App::~App() = default;
 
 void App::run() {

@@ -1,25 +1,9 @@
 #pragma once
 
-/**
- * @file Animation.hpp
- * @brief 动画支持类
- */
-
 #include <chrono>
 #include <functional>
 #include "./SignalSlots.hpp"
 
-/**
- * @addtogroup 核心
- * @{
- */
-
-/**
- * @brief 动画支持类
- * @tparam T 要进行动画插值计算的类型
- * @note 该类支持对任意类型进行动画插值计算，只需要设置起始值、终止值、动画时间，以及插值计算函数即可
- * @note 对于未重载+、-以及*运算符的类型，必须提供自定义的插值计算函数，否则会导致编译错误
- */
 template <typename T>
 class Animation
 {
