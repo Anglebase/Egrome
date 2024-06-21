@@ -65,7 +65,7 @@ g++ [源文件] -o [输出文件] -legrome -lgraphics64(或-lgraphics) -lgdiplus
 + [Egrome API文档(由Doxygen自动生成)](https://anglebase.github.io/Egrome/html/index.html)
 
 ## Egrome 官方示例
-- [仿QQ登录界面(QQLogin)](https://github.com/Anglebase/QQLogin.git)
+- [仿QQ登录界面(QQLogin|v1.0之前，不含v1.0)](https://github.com/Anglebase/QQLogin.git)
 
 ## 开发者
 - [Weiyi Anglebase (Github)](https://github.com/Anglebase)

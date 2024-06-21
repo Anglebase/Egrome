@@ -1,11 +1,10 @@
-/**
- * @file Size.h
- * @author Anglebase[GitHub]
- * @brief 定义点类
- */
 
 #pragma once
 #include "./Object.h"
+
+/**
+ * @brief 尺寸类
+ */
 class Size : public Object
 {
 private:

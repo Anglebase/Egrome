@@ -35,6 +35,9 @@ void Sys::setCilpBoardText(String text_) {
     ::CloseClipboard();
 }
 
+/**
+ * @details 以像素为单位
+ */
 Size Sys::getScreenSize() {
     return Size{
         static_cast<float>(GetSystemMetrics(SM_CXSCREEN)),

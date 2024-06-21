@@ -8,6 +8,9 @@
 #include "./Point.h"
 #include "./Size.h"
 
+/**
+ * @brief 矩形类
+ */
 class Rect : public Object {
 private:
     float x_;

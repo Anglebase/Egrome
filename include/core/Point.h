@@ -6,6 +6,10 @@
 
 #pragma once
 #include "./Object.h"
+
+/**
+ * @brief 点类
+ */
 class Point : public Object
 {
 private:
@@ -34,5 +38,10 @@ public:
     bool operator==(const Point &other) const noexcept;
     bool operator!=(const Point &other) const noexcept;
 
+    /**
+     * @brief 计算两点之间的距离
+     * @param other 另一个点
+     * @return 两点之间的距离
+     */
     float distance(const Point &other) const noexcept;
 };
