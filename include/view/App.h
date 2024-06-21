@@ -14,6 +14,7 @@ public:
     static float getFps();
     static void setFps(int fps);
     static int getSetFps();
+    static void setTitle(const String& title);
 public:
     App(Block* root);
     ~App();

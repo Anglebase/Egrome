@@ -13,6 +13,8 @@
 #include "MouseWheelEvent.h"
 #include "InputEvent.h"
 
+#include "XString.h"
+
 // 以树结构遍历所有Block
 template<typename T>
 void foreach(Block* root, void(Block::* func)(T), T arg) {
@@ -36,10 +38,17 @@ float App::getFps() { return ege::getfps(); }
 void App::setFps(int fps) { App::fps_ = fps; }
 int App::getSetFps() { return App::fps_; }
 
+void App::setTitle(const String& title) {
+    std::wstring wtitle = (std::wstring)title;
+    ege::setcaption(wtitle.c_str());
+}
+
 App::App(Block* root) :root_(root) {}
 App::~App() = default;
 
 void App::run() {
+    ::SetProcessDPIAware();
+
     if (this->root_ == nullptr) return;
     ege::initgraph(this->root_->rect_.width(), this->root_->rect_.height());
     ege::setbkmode(TRANSPARENT);
