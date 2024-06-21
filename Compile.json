@@ -1,11 +1,12 @@
 {
     "test": {
-        "compiler": "C:/\"Program Files\"/RedPanda-Cpp/mingw64/bin/g++.exe",
+        // "compiler": "C:/\"Program Files\"/RedPanda-Cpp/mingw64/bin/g++.exe",
+        "compiler": "g++",
         "src": [
             "./src/view/*.cpp",
             "./src/core/*.cpp",
             "./src/event/*.cpp",
-            "./test/basetest.cpp"
+            "./test/test.cpp"
         ],
         "include": [
             "./include/view/",
@@ -14,7 +15,8 @@
             "./include/"
         ],
         "link": [
-            "graphics",
+            // "graphics",
+            "graphics64",
             "gdiplus",
             "uuid",
             "msimg32",
@@ -26,7 +28,7 @@
         ],
         "compile": true,
         "start": true,
-        "target": "./bin/basetest.exe",
+        "target": "./bin/test.exe",
         "option": [
             "-g"
         ],

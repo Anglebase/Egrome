@@ -323,6 +323,11 @@ public:
     Painter& operator=(Painter&& other) = delete;
     ~Painter() noexcept;
 
+    /**
+     * @brief 是否启用抗锯齿，默认启用
+     * @param enable true启用，false禁用
+     */
+    void enabbleAntiAliasing(bool enable) noexcept;
     void setPenColor(const Color& color) noexcept;
     void setPenWidth(int width) noexcept;
     // void setPenStyle(int style) noexcept;
@@ -349,16 +354,18 @@ public:
 
     void drawArc(const Rect& rect, float startAngle, float range) noexcept;
     void drawEllipse(const Rect& rect) noexcept;
+    void drawCircle(const Point& o, float radius) noexcept;
     void drawPie(const Rect& rect, float startAngle, float range) noexcept;
     void drawBezier(
         const Point& p1, const Point& c1,
         const Point& p2, const Point& c2
     ) noexcept;
 
-    void fillRect(const Rect& rect) noexcept;
-    void fillPolygon(const std::vector<Point>& points) noexcept;
-    void fillEllipse(const Rect& rect) noexcept;
-    void fillPie(const Rect& rect, float startAngle, float range) noexcept;
+    void drawFillRect(const Rect& rect) noexcept;
+    void drawFillPolygon(const std::vector<Point>& points) noexcept;
+    void drawFillEllipse(const Rect& rect) noexcept;
+    void drawFillCircle(const Point& o, float radius) noexcept;
+    void drawFillPie(const Rect& rect, float startAngle, float range) noexcept;
 
     void drawText(const Point& pos, const String& text) noexcept;
     void drawText(
@@ -375,3 +382,6 @@ public:
         BlendMode mode = BlendMode::S
     ) noexcept;
 };
+
+int operator"" _em(long double value);
+int operator"" _em(unsigned long long value);

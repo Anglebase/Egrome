@@ -4,6 +4,7 @@
 #include "Block.h"
 
 #include <ege.h>
+#include <cwchar>
 
 void* getTarget(Painter* painter) {
     if (painter->block_)return nullptr;
@@ -20,6 +21,24 @@ Point transfrom(Painter* painter, const Point& pos) {
         return pos;
     }
     return Point();
+}
+
+int operator""_em(long double value) {
+    static float dpi = (
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSY) +
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
+        ) / 2.0f;
+    float axis = (float)value * dpi / 96.0f;
+    return static_cast<int>(axis * 24);
+}
+
+int operator""_em(unsigned long long value) {
+    static float dpi = (
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSY) +
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
+        ) / 2.0f;
+    float axis = (float)value * dpi / 96.0f;
+    return static_cast<int>(axis * 24);
 }
 
 TextAligns::TextAligns(int aligns) noexcept : aligns(aligns) {}
@@ -553,13 +572,21 @@ DWORD translateOperationCode(BlendMode blendMode) {
 
 Painter::Painter(Block* block) noexcept
     : block_(block), pixelMap_(nullptr),
-    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {}
+    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {
+    ege::ege_enable_aa(true);
+}
 
 Painter::Painter(PixelMap* pixelMap) noexcept
     : block_(nullptr), pixelMap_(pixelMap),
-    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {}
+    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {
+    ege::ege_enable_aa(true, (ege::PIMAGE)pixelMap->image_);
+}
 
 Painter::~Painter() noexcept = default;
+
+void Painter::enabbleAntiAliasing(bool enable) noexcept {
+    ege::ege_enable_aa(enable, Get);
+}
 
 void Painter::setPenColor(const Color& color) noexcept {
     this->penColor_ = color;
@@ -579,7 +606,7 @@ void Painter::setFontFamily(const String& fontName) noexcept {
     LOGFONTW logfont;
     ege::getfont(&logfont, Get);
     std::wstring font = (std::wstring)fontName;
-    std::copy(font.begin(), font.end(), logfont.lfFaceName);
+    std::wcsncpy(logfont.lfFaceName, font.c_str(), LF_FACESIZE - 1);
     ege::setfont(&logfont, Get);
 }
 
@@ -690,6 +717,10 @@ void Painter::drawEllipse(const Rect& rect) noexcept {
     ege::ege_ellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
+void Painter::drawCircle(const Point& o, float radius) noexcept {
+    this->drawEllipse(Rect(o.x() - radius, o.y() - radius, radius * 2, radius * 2));
+}
+
 void Painter::drawPie(const Rect& rect, float startAngle, float range) noexcept {
     auto rect_ = rect;
     rect_.pos() = transfrom(this, rect_.pos());
@@ -710,13 +741,13 @@ void Painter::drawBezier(const Point& p1_, const Point& c1_, const Point& p2_, c
     ege::ege_bezier(4, egePoints, Get);
 }
 
-void Painter::fillRect(const Rect& rect) noexcept {
+void Painter::drawFillRect(const Rect& rect) noexcept {
     auto rect_ = rect;
     rect_.pos() = transfrom(this, rect_.pos());
     ege::ege_fillrect(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
-void Painter::fillPolygon(const std::vector<Point>& points) noexcept {
+void Painter::drawFillPolygon(const std::vector<Point>& points) noexcept {
     std::vector<ege::ege_point> egePoints(points.size());
     for (size_t i = 0; i < points.size(); ++i) {
         egePoints[i].x = transfrom(this, points[i]).x();
@@ -726,13 +757,17 @@ void Painter::fillPolygon(const std::vector<Point>& points) noexcept {
     ege::ege_fillpoly(egePoints.size(), egePoints.data(), Get);
 }
 
-void Painter::fillEllipse(const Rect& rect) noexcept {
+void Painter::drawFillEllipse(const Rect& rect) noexcept {
     auto rect_ = rect;
     rect_.pos() = transfrom(this, rect_.pos());
     ege::ege_fillellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
-void Painter::fillPie(const Rect& rect, float startAngle, float range) noexcept {
+void Painter::drawFillCircle(const Point& o, float radius) noexcept {
+    this->drawFillEllipse(Rect(o.x() - radius, o.y() - radius, radius * 2, radius * 2));
+}
+
+void Painter::drawFillPie(const Rect& rect, float startAngle, float range) noexcept {
     auto rect_ = rect;
     rect_.pos() = transfrom(this, rect_.pos());
     ege::ege_fillpie(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
@@ -741,33 +776,34 @@ void Painter::fillPie(const Rect& rect, float startAngle, float range) noexcept 
 
 void Painter::drawText(const Point& pos_, const String& text) noexcept {
     auto pos = transfrom(this, pos_);
-    ege::outtextxy(pos.x(), pos.y(), ((std::wstring)text).c_str(), Get);
+    // ege::outtextxy(pos.x(), pos.y(), ((std::wstring)text).c_str(), Get);
+
+    ege::settarget((ege::PIMAGE)Get);
+    ege::ege_drawtext(((std::wstring)text).c_str(), pos.x(), pos.y());
+    ege::settarget(nullptr);
 }
 
 void Painter::drawText(const Rect& rect, const String& text, TextAligns aligns) noexcept {
-    auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
     Point p;
     if (aligns & TextAlign::Left) {
         p.x() = 0;
     }
     else if (aligns & TextAlign::Center) {
-        p.x() = rect_.width() / 2 - ege::textwidth(((std::wstring)text).c_str(), Get) / 2;
+        p.x() = rect.width() / 2 - ege::textwidth(((std::wstring)text).c_str(), Get) / 2;
     }
     else if (aligns & TextAlign::Right) {
-        p.x() = rect_.width() - ege::textwidth(((std::wstring)text).c_str(), Get);
+        p.x() = rect.width() - ege::textwidth(((std::wstring)text).c_str(), Get);
     }
     if (aligns & TextAlign::Top) {
         p.y() = 0;
     }
     else if (aligns & TextAlign::Middle) {
-        p.y() = rect_.height() / 2 - ege::textheight(((std::wstring)text).c_str(), Get) / 2;
+        p.y() = rect.height() / 2 - ege::textheight(((std::wstring)text).c_str(), Get) / 2;
     }
     else if (aligns & TextAlign::Bottom) {
-        p.y() = rect_.height() - ege::textheight(((std::wstring)text).c_str(), Get);
+        p.y() = rect.height() - ege::textheight(((std::wstring)text).c_str(), Get);
     }
-    rect_.pos() = (Point)rect_.pos() + (Point)p;
-    ege::outtextxy(rect_.x(), rect_.y(), ((std::wstring)text).c_str(), Get);
+    this->drawText(rect.pos() + p, text);
 }
 
 void Painter::drawPixmap(const Point& pos, const PixelMap& pixmap, BlendMode mode) noexcept {

@@ -30,6 +30,7 @@ void foreach(Block* root, void(Block::* func)(T), T arg) {
 }
 
 void App::quit(int code) {
+    ege::closegraph();
     std::exit(code);
 }
 
@@ -43,7 +44,9 @@ void App::setTitle(const String& title) {
     ege::setcaption(wtitle.c_str());
 }
 
-App::App(Block& root) :root_(&root) {}
+App::App(Block* root, int flags) :root_(root) {
+    ege::setinitmode(flags | ege::INIT_UNICODE | ege::INIT_ANIMATION);
+}
 App::~App() = default;
 
 void App::run() {
@@ -154,4 +157,6 @@ void App::run() {
         } while (std::chrono::duration_cast<std::chrono::milliseconds>
             (std::chrono::steady_clock::now() - now).count() * App::fps_ < 900);
     }
+
+    ege::closegraph();
 }
