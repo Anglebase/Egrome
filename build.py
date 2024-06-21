@@ -3,8 +3,11 @@ import os, shutil
 ## 编译代码
 
 VERSION = "v1.0.0"
-COMPILER = "C:\\\"Program Files\"\\RedPanda-Cpp\\mingw64\\bin\\g++.exe"
-LINKER = "C:\\\"Program Files\"\\RedPanda-Cpp\\mingw64\\bin\\ar.exe"
+
+# 编译器和链接器所在路径，它们通常在同一目录下
+# 若不指定具体路径(如下所示)，则指示为环境变量所指定的编译器和链接器(与命令行中使用的相同)
+COMPILER = "g++"
+LINKER = "ar"
 
 print(VERSION)
 input("按Enter键继续...")
