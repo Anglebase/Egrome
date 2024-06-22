@@ -9,9 +9,13 @@ var hierarchy =
     [ "Object", "class_object.html", [
       [ "App", "class_app.html", null ],
       [ "Block", "class_block.html", [
-        [ "Click", "class_click.html", null ],
+        [ "Click", "class_click.html", [
+          [ "Button", "class_button.html", null ]
+        ] ],
         [ "Drag", "class_drag.html", null ],
-        [ "Hover", "class_hover.html", null ]
+        [ "Hover", "class_hover.html", [
+          [ "Button", "class_button.html", null ]
+        ] ]
       ] ],
       [ "Color", "class_color.html", null ],
       [ "Event", "class_event.html", [

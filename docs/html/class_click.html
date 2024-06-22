@@ -101,6 +101,7 @@ $(function(){initNavTree('class_click.html',''); initResizable(); });
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="class_click-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">Click类 参考</div></div>
 </div><!--header-->
@@ -118,6 +119,7 @@ $(function(){initNavTree('class_click.html',''); initResizable(); });
   <map id="Click_map" name="Click_map">
 <area href="class_block.html" title="它是所有UI对象的基类" alt="Block" shape="rect" coords="0,56,49,80"/>
 <area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="0,0,49,24"/>
+<area href="class_button.html" title="按钮控件" alt="Button" shape="rect" coords="0,168,49,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -145,9 +147,9 @@ const <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="m
 <tr class="memitem:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block" id="r_a641b58a29c6ba9592c61a22fdd2542e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a> ()</td></tr>
 <tr class="memdesc:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取父对象指针  <br /></td></tr>
 <tr class="separator:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block" id="r_a5d40307d78ffd5ad52666c0d51932211"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5d40307d78ffd5ad52666c0d51932211">children</a> ()</td></tr>
-<tr class="memdesc:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取子对象指针集合  <br /></td></tr>
-<tr class="separator:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd46389e0e1860a87c9684baa085196e inherit pub_methods_class_block" id="r_acd46389e0e1860a87c9684baa085196e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#acd46389e0e1860a87c9684baa085196e">children</a> ()</td></tr>
+<tr class="memdesc:acd46389e0e1860a87c9684baa085196e inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取子对象指针集合  <br /></td></tr>
+<tr class="separator:acd46389e0e1860a87c9684baa085196e inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block" id="r_adaf0e3c59b27a5378e543e346270e852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#adaf0e3c59b27a5378e543e346270e852">setParent</a> (<a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>)</td></tr>
 <tr class="memdesc:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置父对象  <br /></td></tr>
 <tr class="separator:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,17 +159,21 @@ const <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="m
 <tr class="memitem:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block" id="r_a1b061bf727cdf09308ae7e4b1137a4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3">removeChild</a> (<a class="el" href="class_block.html">Block</a> *child)</td></tr>
 <tr class="memdesc:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">移除子对象  <br /></td></tr>
 <tr class="separator:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block" id="r_a30a4e7b78d8fa21a7eb6bc0404dffc8f"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>stopForeach</b> ()</td></tr>
-<tr class="memdesc:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">终止此对象子树事件循环的遍历 <br /></td></tr>
+<tr class="memitem:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block" id="r_a30a4e7b78d8fa21a7eb6bc0404dffc8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a30a4e7b78d8fa21a7eb6bc0404dffc8f">stopForeach</a> ()</td></tr>
+<tr class="memdesc:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">终止此对象子树事件循环的遍历  <br /></td></tr>
 <tr class="separator:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block" id="r_a7b2cfa412c9f06ff9946e1e9b95a3112"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetForeach</b> ()</td></tr>
-<tr class="memdesc:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">重新启用此对象子树事件循环的遍历 <br /></td></tr>
+<tr class="memitem:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block" id="r_a7b2cfa412c9f06ff9946e1e9b95a3112"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a7b2cfa412c9f06ff9946e1e9b95a3112">resetForeach</a> ()</td></tr>
+<tr class="memdesc:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">重新启用此对象子树事件循环的遍历  <br /></td></tr>
 <tr class="separator:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block" id="r_a5d315be0f1ec1ee5dd134cc995295096"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5d315be0f1ec1ee5dd134cc995295096">isForeach</a> () const</td></tr>
 <tr class="memdesc:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">此对象子树是否处于事件循环可遍历状态  <br /></td></tr>
 <tr class="separator:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602280dc1d4b960b6fb466fe489e2012 inherit pub_methods_class_block" id="r_a602280dc1d4b960b6fb466fe489e2012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a602280dc1d4b960b6fb466fe489e2012">setZIndex</a> (long long zindex)</td></tr>
+<tr class="memdesc:a602280dc1d4b960b6fb466fe489e2012 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置Z轴顺序  <br /></td></tr>
+<tr class="separator:a602280dc1d4b960b6fb466fe489e2012 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b6f468331fc8ddf378daf55f5731dc inherit pub_methods_class_block" id="r_ab5b6f468331fc8ddf378daf55f5731dc"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ab5b6f468331fc8ddf378daf55f5731dc">zIndex</a> () const</td></tr>
+<tr class="memdesc:ab5b6f468331fc8ddf378daf55f5731dc inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Z轴顺序  <br /></td></tr>
+<tr class="separator:ab5b6f468331fc8ddf378daf55f5731dc inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> () noexcept</td></tr>
@@ -217,6 +223,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>mouseClickEve
 <tr class="memitem:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block" id="r_a8ca74bf3f16b9f157a61db50bcede7a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a8ca74bf3f16b9f157a61db50bcede7a8">inputEvent</a> (<a class="el" href="class_input_event.html">InputEvent</a> *event)</td></tr>
 <tr class="memdesc:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">输入事件处理函数  <br /></td></tr>
 <tr class="separator:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:acea6512d2fbbd037b33339b15d8f0253" id="r_acea6512d2fbbd037b33339b15d8f0253"><td class="memItemLeft" align="right" valign="top"><a id="acea6512d2fbbd037b33339b15d8f0253" name="acea6512d2fbbd037b33339b15d8f0253"></a>
+MouseButton&#160;</td><td class="memItemRight" valign="bottom"><b>button_</b></td></tr>
+<tr class="separator:acea6512d2fbbd037b33339b15d8f0253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9eb6a1c4b58a9eb88c950d6433566f" id="r_a4e9eb6a1c4b58a9eb88c950d6433566f"><td class="memItemLeft" align="right" valign="top"><a id="a4e9eb6a1c4b58a9eb88c950d6433566f" name="a4e9eb6a1c4b58a9eb88c950d6433566f"></a>
+ButtonState&#160;</td><td class="memItemRight" valign="bottom"><b>state_</b></td></tr>
+<tr class="separator:a4e9eb6a1c4b58a9eb88c950d6433566f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>点击行为基类，通过继承此类可以使得Block具有处理点击事件的能力 </p>

@@ -2,7 +2,7 @@ var class_block =
 [
     [ "Block", "class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1", null ],
     [ "addChild", "class_block.html#a5ff4d4b4b17fac44a652874b4f5540b5", null ],
-    [ "children", "class_block.html#a5d40307d78ffd5ad52666c0d51932211", null ],
+    [ "children", "class_block.html#acd46389e0e1860a87c9684baa085196e", null ],
     [ "inputEvent", "class_block.html#a8ca74bf3f16b9f157a61db50bcede7a8", null ],
     [ "isForeach", "class_block.html#a5d315be0f1ec1ee5dd134cc995295096", null ],
     [ "keyPressEvent", "class_block.html#a6b9afa9b4e5064e3fd08322215e744e3", null ],
@@ -16,5 +16,7 @@ var class_block =
     [ "removeChild", "class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3", null ],
     [ "resetForeach", "class_block.html#a7b2cfa412c9f06ff9946e1e9b95a3112", null ],
     [ "setParent", "class_block.html#adaf0e3c59b27a5378e543e346270e852", null ],
-    [ "stopForeach", "class_block.html#a30a4e7b78d8fa21a7eb6bc0404dffc8f", null ]
+    [ "setZIndex", "class_block.html#a602280dc1d4b960b6fb466fe489e2012", null ],
+    [ "stopForeach", "class_block.html#a30a4e7b78d8fa21a7eb6bc0404dffc8f", null ],
+    [ "zIndex", "class_block.html#ab5b6f468331fc8ddf378daf55f5731dc", null ]
 ];

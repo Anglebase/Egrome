@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/class/Button.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_button_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Button.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../core/XString.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../view/Click.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../view/Hover.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_button.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_button.html">Button</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_click.html">Click</a>, <span class="keyword">public</span> <a class="code hl_class" href="class_hover.html">Hover</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_string.html">String</a> text_;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">bool</span> isPressed_;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">bool</span> isHovered_;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#aeed806c4cd8246f65b8e9fd831732664">paintEvent</a>(<a class="code hl_class" href="class_paint_event.html">PaintEvent</a>* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a2f9c46e28bfb54f7954da1b2c9b78ca0">mousePressEvent</a>(<a class="code hl_class" href="class_mouse_press_event.html">MousePressEvent</a>* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a0643e6d2971d81661ff2fd13d6eb232e">mouseReleaseEvent</a>(<a class="code hl_class" href="class_mouse_release_event.html">MouseReleaseEvent</a>* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a242a7fe50f8f299df5016a9228f4677b">mouseMoveEvent</a>(<a class="code hl_class" href="class_mouse_move_event.html">MouseMoveEvent</a>* event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_button.html">Button</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_rect.html">Rect</a>&amp; rect, <a class="code hl_class" href="class_block.html">Block</a>* <a class="code hl_function" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a> = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_button.html">~Button</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a77657bd459f70e046a1ece6491060e64">setText</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp; text);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+</div>
+<div class="ttc" id="aclass_block_html"><div class="ttname"><a href="class_block.html">Block</a></div><div class="ttdoc">它是所有UI对象的基类</div><div class="ttdef"><b>Definition</b> Block.h:19</div></div>
+<div class="ttc" id="aclass_block_html_a641b58a29c6ba9592c61a22fdd2542e4"><div class="ttname"><a href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">Block::parent</a></div><div class="ttdeci">Block * parent()</div><div class="ttdoc">获取父对象指针</div><div class="ttdef"><b>Definition</b> Block.cpp:34</div></div>
+<div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdoc">按钮控件</div><div class="ttdef"><b>Definition</b> Button.h:10</div></div>
+<div class="ttc" id="aclass_button_html_a0643e6d2971d81661ff2fd13d6eb232e"><div class="ttname"><a href="class_button.html#a0643e6d2971d81661ff2fd13d6eb232e">Button::mouseReleaseEvent</a></div><div class="ttdeci">void mouseReleaseEvent(MouseReleaseEvent *event) override</div><div class="ttdoc">鼠标按键释放事件处理函数</div><div class="ttdef"><b>Definition</b> Button.cpp:36</div></div>
+<div class="ttc" id="aclass_button_html_a242a7fe50f8f299df5016a9228f4677b"><div class="ttname"><a href="class_button.html#a242a7fe50f8f299df5016a9228f4677b">Button::mouseMoveEvent</a></div><div class="ttdeci">void mouseMoveEvent(MouseMoveEvent *event) override</div><div class="ttdoc">鼠标移动事件处理函数</div><div class="ttdef"><b>Definition</b> Button.cpp:43</div></div>
+<div class="ttc" id="aclass_button_html_a2f9c46e28bfb54f7954da1b2c9b78ca0"><div class="ttname"><a href="class_button.html#a2f9c46e28bfb54f7954da1b2c9b78ca0">Button::mousePressEvent</a></div><div class="ttdeci">void mousePressEvent(MousePressEvent *event) override</div><div class="ttdoc">鼠标按键按下事件处理函数</div><div class="ttdef"><b>Definition</b> Button.cpp:27</div></div>
+<div class="ttc" id="aclass_button_html_a77657bd459f70e046a1ece6491060e64"><div class="ttname"><a href="class_button.html#a77657bd459f70e046a1ece6491060e64">Button::setText</a></div><div class="ttdeci">void setText(const String &amp;text)</div><div class="ttdoc">设置按钮的文本内容</div><div class="ttdef"><b>Definition</b> Button.cpp:59</div></div>
+<div class="ttc" id="aclass_button_html_aeed806c4cd8246f65b8e9fd831732664"><div class="ttname"><a href="class_button.html#aeed806c4cd8246f65b8e9fd831732664">Button::paintEvent</a></div><div class="ttdeci">void paintEvent(PaintEvent *event) override</div><div class="ttdoc">视图绘制事件处理函数</div><div class="ttdef"><b>Definition</b> Button.cpp:8</div></div>
+<div class="ttc" id="aclass_click_html"><div class="ttname"><a href="class_click.html">Click</a></div><div class="ttdoc">点击行为基类，通过继承此类可以使得Block具有处理点击事件的能力</div><div class="ttdef"><b>Definition</b> Click.h:10</div></div>
+<div class="ttc" id="aclass_hover_html"><div class="ttname"><a href="class_hover.html">Hover</a></div><div class="ttdoc">悬浮行为基类，通过继承此类可以实现Block悬浮响应</div><div class="ttdef"><b>Definition</b> Hover.h:9</div></div>
+<div class="ttc" id="aclass_mouse_move_event_html"><div class="ttname"><a href="class_mouse_move_event.html">MouseMoveEvent</a></div><div class="ttdoc">鼠标移动事件类</div><div class="ttdef"><b>Definition</b> MouseMoveEvent.h:8</div></div>
+<div class="ttc" id="aclass_mouse_press_event_html"><div class="ttname"><a href="class_mouse_press_event.html">MousePressEvent</a></div><div class="ttdoc">鼠标按下事件</div><div class="ttdef"><b>Definition</b> MousePressEvent.h:8</div></div>
+<div class="ttc" id="aclass_mouse_release_event_html"><div class="ttname"><a href="class_mouse_release_event.html">MouseReleaseEvent</a></div><div class="ttdoc">鼠标按钮弹起事件</div><div class="ttdef"><b>Definition</b> MouseReleaseEvent.h:8</div></div>
+<div class="ttc" id="aclass_paint_event_html"><div class="ttname"><a href="class_paint_event.html">PaintEvent</a></div><div class="ttdoc">视图绘制事件</div><div class="ttdef"><b>Definition</b> PaintEvent.h:12</div></div>
+<div class="ttc" id="aclass_rect_html"><div class="ttname"><a href="class_rect.html">Rect</a></div><div class="ttdoc">矩形类</div><div class="ttdef"><b>Definition</b> Rect.h:14</div></div>
+<div class="ttc" id="aclass_string_html"><div class="ttname"><a href="class_string.html">String</a></div><div class="ttdef"><b>Definition</b> XString.h:9</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e476b43ffada8fe94e322482066afde7.html">class</a></li><li class="navelem"><b>Button.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

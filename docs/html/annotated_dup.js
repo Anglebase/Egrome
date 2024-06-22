@@ -3,6 +3,7 @@ var annotated_dup =
     [ "Animation", "class_animation.html", "class_animation" ],
     [ "App", "class_app.html", "class_app" ],
     [ "Block", "class_block.html", "class_block" ],
+    [ "Button", "class_button.html", "class_button" ],
     [ "Click", "class_click.html", "class_click" ],
     [ "Color", "class_color.html", "class_color" ],
     [ "Drag", "class_drag.html", "class_drag" ],

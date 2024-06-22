@@ -2,7 +2,7 @@ var searchData=
 [
   ['painter_0',['Painter',['../class_painter.html',1,'']]],
   ['paintevent_1',['PaintEvent',['../class_paint_event.html',1,'']]],
-  ['paintevent_2',['paintEvent',['../class_block.html#a7fcd0f6c53e884ec6f0c50b9f38ee3e4',1,'Block']]],
+  ['paintevent_2',['paintEvent',['../class_button.html#aeed806c4cd8246f65b8e9fd831732664',1,'Button::paintEvent()'],['../class_block.html#a7fcd0f6c53e884ec6f0c50b9f38ee3e4',1,'Block::paintEvent(PaintEvent *event)']]],
   ['parent_3',['parent',['../class_block.html#a641b58a29c6ba9592c61a22fdd2542e4',1,'Block']]],
   ['pixelmap_4',['PixelMap',['../class_pixel_map.html',1,'']]],
   ['point_5',['Point',['../class_point.html',1,'']]],

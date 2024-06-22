@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['children_0',['children',['../class_block.html#a5d40307d78ffd5ad52666c0d51932211',1,'Block']]],
+  ['children_0',['children',['../class_block.html#acd46389e0e1860a87c9684baa085196e',1,'Block']]],
   ['clear_1',['clear',['../class_string.html#a8270e74db4c76725871abda0316d1bec',1,'String::clear()'],['../class_painter.html#a5bae15d833b2cdb22f8466bfa826dc69',1,'Painter::clear()']]],
   ['click_2',['Click',['../class_click.html',1,'']]],
   ['color_3',['Color',['../class_color.html',1,'']]],
