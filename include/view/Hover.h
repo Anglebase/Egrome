@@ -3,6 +3,9 @@
 #include "./Block.h"
 #include "../core/SignalSlots.hpp"
 
+/**
+ * @brief 悬浮行为基类，通过继承此类可以实现Block悬浮响应
+ */
 class Hover : public Block {
 private:
     Point lastPos;
