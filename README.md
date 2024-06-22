@@ -22,8 +22,8 @@ Egrome 是一个基于开源图形引擎 EGE(Easy Graphics Engine) 和原生C++�
 #include <egrome/Block>
 
 int main() {
-    Block window{Rect{0, 0, 800, 600}};
-    App app{&window};
+    Block window{ Rect{0, 0, 800, 600} };
+    App app{ &window };
     app.run();
     return 0;
 }
@@ -36,11 +36,11 @@ Egrome 使用 MIT 许可证，允许个人和商业使用。你可以在遵守 M
 ## 获取 Egrome
 
 你可以通过以下方式获取 Egrome：
-+ 通过源代码获取
++ 通过源代码获取(推荐)
     - 下载此仓库的源码
     - 在源码目录下运行 build.py 脚本
     - 结果将生成在 release 目录下
-+ 通过安装包获取(推荐)
++ 通过安装包获取
     - 在Github仓库页面的'发行版'栏下下载最新版本的文件压缩包
     - 解压压缩包
 
@@ -60,8 +60,7 @@ g++ [源文件] -o [输出文件] -legrome -lgraphics64(或-lgraphics) -lgdiplus
 ## 学习 Egrome
 
 *此项目提供了API文档，你可以通过阅读文档来学习 Egrome 的使用方法。*
-+ [Egrome 说明书(尚不完善)](./docs/instructions/mainpage.md)
-+ [Egrome教程(尚不完善)](https://anglebase.github.io/Egrome/learn/learn.html)
++ [Egrome 说明书](./docs/mainpage.md)
 + [Egrome API文档(由Doxygen自动生成)](https://anglebase.github.io/Egrome/html/index.html)
 
 ## Egrome 官方示例
