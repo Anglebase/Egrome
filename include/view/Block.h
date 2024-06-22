@@ -23,14 +23,14 @@ private:
     std::set<Block*> children_;
 
 protected:
-    virtual void paintEvent(PaintEvent& event);
-    virtual void mousePressEvent(const MousePressEvent& event);
-    virtual void mouseReleaseEvent(const MouseReleaseEvent& event);
-    virtual void mouseMoveEvent(const MouseMoveEvent& event);
-    virtual void mouseWheelEvent(const MouseWheelEvent& event);
-    virtual void keyPressEvent(const KeyPressEvent& event);
-    virtual void keyReleaseEvent(const KeyReleaseEvent& event);
-    virtual void inputEvent(const InputEvent& event);
+    virtual void paintEvent(PaintEvent* event);
+    virtual void mousePressEvent(MousePressEvent* event);
+    virtual void mouseReleaseEvent(MouseReleaseEvent* event);
+    virtual void mouseMoveEvent(MouseMoveEvent* event);
+    virtual void mouseWheelEvent(MouseWheelEvent* event);
+    virtual void keyPressEvent(KeyPressEvent* event);
+    virtual void keyReleaseEvent(KeyReleaseEvent* event);
+    virtual void inputEvent(InputEvent* event);
 
 public:
     Block(const Rect& rect, Block* parent = nullptr);

@@ -4,8 +4,8 @@
 
 class Window :public Block {
 protected:
-    void paintEvent(PaintEvent& event) override {
-        auto& painter = event.beginPaint(this);
+    void paintEvent(PaintEvent* event) override {
+        auto& painter = event->beginPaint(this);
         painter.setBrushColor(0x12345678_rgba);
         painter.setPenColor(0x87654371_rgba);
         painter.setFontFamily(L"思源黑体");
@@ -41,7 +41,7 @@ protected:
         painter.drawFillCircle(points[3], 5);
 
 
-        event.endPaint(painter);
+        event->endPaint(painter);
     }
 public:
     Window(const Rect& rect, Block* parent = nullptr) :Block(rect, parent) {

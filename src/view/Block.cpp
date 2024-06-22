@@ -1,13 +1,13 @@
 #include "Block.h"
 
-void Block::paintEvent(PaintEvent& event) {}
-void Block::mousePressEvent(const MousePressEvent& event) {}
-void Block::mouseMoveEvent(const MouseMoveEvent& event) {}
-void Block::mouseWheelEvent(const MouseWheelEvent& event) {}
-void Block::mouseReleaseEvent(const MouseReleaseEvent& event) {}
-void Block::keyPressEvent(const KeyPressEvent& event) {}
-void Block::keyReleaseEvent(const KeyReleaseEvent& event) {}
-void Block::inputEvent(const InputEvent& event) {}
+void Block::paintEvent(PaintEvent* event) {}
+void Block::mousePressEvent(MousePressEvent* event) {}
+void Block::mouseMoveEvent(MouseMoveEvent* event) {}
+void Block::mouseWheelEvent(MouseWheelEvent* event) {}
+void Block::mouseReleaseEvent(MouseReleaseEvent* event) {}
+void Block::keyPressEvent(KeyPressEvent* event) {}
+void Block::keyReleaseEvent(KeyReleaseEvent* event) {}
+void Block::inputEvent(InputEvent* event) {}
 
 Block::Block(const Rect& rect, Block* parent)
     :rect_(rect), parent_(parent), foreach_(true) {
