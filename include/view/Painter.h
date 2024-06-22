@@ -343,6 +343,7 @@ public:
     void setFontStrikeOut(bool strikeOut) noexcept;
 
     void clear(const Color& color) noexcept;
+    Rect rect() const noexcept;
 
 
     void drawPixel(const Point& pos) noexcept;

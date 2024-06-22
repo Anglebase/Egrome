@@ -119,8 +119,10 @@ private:
     };
 #pragma endregion 其余修改器
 #pragma endregion 修改器
+
 public:
     Rect(float x, float y, float width, float height) noexcept;
+    Rect(const Point& pos, const Size& size) noexcept;
     ~Rect() noexcept;
 #pragma region 属性访问器
     float& x() noexcept;
@@ -145,7 +147,7 @@ public:
     BottomLeftCorner bottomLeft() noexcept;
     BottomRightCorner bottomRight() noexcept;
 
-    PosData pos() noexcept;
+    PosData position() noexcept;
     SizeData size() noexcept;
 
     float left() const noexcept;
@@ -159,7 +161,7 @@ public:
     Point bottomLeft() const noexcept;
     Point bottomRight() const noexcept;
 
-    Point pos() const noexcept;
+    Point position() const noexcept;
     Size size() const noexcept;
 #pragma endregion 隐属性访问器
     /**

@@ -162,6 +162,9 @@ Rect::SizeData::operator Size() const {
 Rect::Rect(float x, float y, float width, float height) noexcept
     : x_(x), y_(y), width_(width), height_(height) {}
 
+Rect::Rect(const Point& pos, const Size& size) noexcept 
+    : x_(pos.x()), y_(pos.y()), width_(size.width()), height_(size.height()) {}
+
 Rect::~Rect() noexcept = default;
 
 float& Rect::x() noexcept { return this->x_; }
@@ -201,7 +204,7 @@ Rect::BottomLeftCorner Rect::bottomLeft() noexcept {
 Rect::BottomRightCorner Rect::bottomRight() noexcept {
     return BottomRightCorner(this);
 }
-Rect::PosData Rect::pos() noexcept {
+Rect::PosData Rect::position() noexcept {
     return PosData(this);
 }
 Rect::SizeData Rect::size() noexcept {
@@ -236,7 +239,7 @@ Point Rect::bottomRight() const noexcept {
     return Point(this->x_ + this->width_, this->y_ + this->height_);
 }
 
-Point Rect::pos() const noexcept {
+Point Rect::position() const noexcept {
     return Point(this->x_, this->y_);
 }
 Size Rect::size() const noexcept {

@@ -15,7 +15,7 @@ void* getTarget(Painter* painter) {
 
 Point transfrom(Painter* painter, const Point& pos) {
     if (painter->block_) {
-        return pos + painter->block_->rect().pos();
+        return pos + painter->block_->rect().position();
     }
     if (painter->pixelMap_) {
         return pos;
@@ -666,6 +666,14 @@ void Painter::clear(const Color& color) noexcept {
     }
 }
 
+Rect Painter::rect() const noexcept {
+    if (this->block_)
+        return Rect{ {0,0}, this->block_->rect().size() };
+    if (this->pixelMap_)
+        return Rect{ {0,0}, this->pixelMap_->size() };
+    return Rect{ 0,0,0,0 };
+}
+
 void Painter::drawPixel(const Point& pos_) noexcept {
     auto pos = transfrom(this, pos_);
     ege::putpixel(static_cast<int>(pos.x()), static_cast<int>(pos.y()),
@@ -681,7 +689,7 @@ void Painter::drawLine(const Point& p1_, const Point& p2_) noexcept {
 
 void Painter::drawRect(const Rect& rect_) noexcept {
     auto rect = rect_;
-    rect.pos() = transfrom(this, rect.pos());
+    rect.position() = transfrom(this, rect.position());
     ege::ege_rectangle(rect.x(), rect.y(), rect.width(), rect.height(), Get);
 }
 
@@ -706,14 +714,14 @@ void Painter::drawPolyline(const std::vector<Point>& points) noexcept {
 
 void Painter::drawArc(const Rect& rect, float startAngle, float range) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_arc(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
         startAngle, range, Get);
 }
 
 void Painter::drawEllipse(const Rect& rect) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_ellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
@@ -723,7 +731,7 @@ void Painter::drawCircle(const Point& o, float radius) noexcept {
 
 void Painter::drawPie(const Rect& rect, float startAngle, float range) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_pie(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
         startAngle, range, Get);
 }
@@ -743,7 +751,7 @@ void Painter::drawBezier(const Point& p1_, const Point& c1_, const Point& p2_, c
 
 void Painter::drawFillRect(const Rect& rect) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_fillrect(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
@@ -759,7 +767,7 @@ void Painter::drawFillPolygon(const std::vector<Point>& points) noexcept {
 
 void Painter::drawFillEllipse(const Rect& rect) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_fillellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
 }
 
@@ -769,7 +777,7 @@ void Painter::drawFillCircle(const Point& o, float radius) noexcept {
 
 void Painter::drawFillPie(const Rect& rect, float startAngle, float range) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     ege::ege_fillpie(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
         startAngle, range, Get);
 }
@@ -803,7 +811,7 @@ void Painter::drawText(const Rect& rect, const String& text, TextAligns aligns) 
     else if (aligns & TextAlign::Bottom) {
         p.y() = rect.height() - ege::textheight(((std::wstring)text).c_str(), Get);
     }
-    this->drawText(rect.pos() + p, text);
+    this->drawText(rect.position() + p, text);
 }
 
 void Painter::drawPixmap(const Point& pos, const PixelMap& pixmap, BlendMode mode) noexcept {
@@ -822,7 +830,7 @@ void Painter::drawPixmap(const Point& pos, const PixelMap& pixmap, BlendMode mod
 
 void Painter::drawPixmap(const Rect& rect, const PixelMap& pixmap, BlendMode mode) noexcept {
     auto rect_ = rect;
-    rect_.pos() = transfrom(this, rect_.pos());
+    rect_.position() = transfrom(this, rect_.position());
     if (this->block_) {
         ege::putimage(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
             (ege::PIMAGE)pixmap.image_,

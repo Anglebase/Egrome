@@ -6,7 +6,7 @@
             "./src/view/*.cpp",
             "./src/core/*.cpp",
             "./src/event/*.cpp",
-            "./test/test.cpp"
+            "./test/active.cpp"
         ],
         "include": [
             "./include/view/",
@@ -28,7 +28,7 @@
         ],
         "compile": true,
         "start": true,
-        "target": "./bin/test.exe",
+        "target": "./bin/active.exe",
         "option": [
             "-g"
         ],

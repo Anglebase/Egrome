@@ -17,13 +17,13 @@
 
 // 以树结构遍历所有Block
 template<typename T>
-void foreach(Block* root, void(Block::* func)(T*), T& arg) {
+void foreach(Block* root, void(Block::* func)(T*), T* arg) {
     if (root == nullptr) return;
-    (root->*func)(&arg);
+    (root->*func)(arg);
     if (root->children().empty())return;
 
     for (auto child : root->children()) {
-        foreach<T>(child, func, &arg);
+        foreach<T>(child, func, arg);
         // 若遍历指示器为false，则退出此子树的遍历
         if (!root->isForeach())break;
     }
@@ -62,7 +62,7 @@ void App::run() {
         ege::delay_fps(App::fps_), now = std::chrono::steady_clock::now()) {
         // 绘制事件，每帧只执行一次
         PaintEvent paint_event;
-        foreach(this->root_, &Block::paintEvent, paint_event);
+        foreach(this->root_, &Block::paintEvent, &paint_event);
         // 键鼠事件，每帧尽可能多地执行
         do {
             // 捕获键盘输入
@@ -76,7 +76,7 @@ void App::run() {
                         static_cast<bool>(keymsg.flags & ege::key_flag_shift),
                         static_cast<bool>(keymsg.flags & ege::key_flag_ctrl),
                     };
-                    foreach(this->root_, &Block::keyPressEvent, keypress_event);
+                    foreach(this->root_, &Block::keyPressEvent, &keypress_event);
                 }
                 break;
                 case ege::key_msg_up:
@@ -86,7 +86,7 @@ void App::run() {
                         static_cast<bool>(keymsg.flags & ege::key_flag_shift),
                         static_cast<bool>(keymsg.flags & ege::key_flag_ctrl),
                     };
-                    foreach(this->root_, &Block::keyReleaseEvent, keyrelease_event);
+                    foreach(this->root_, &Block::keyReleaseEvent, &keyrelease_event);
                 }
                 break;
                 case ege::key_msg_char: // 文本输入(输入法输入)
@@ -94,7 +94,7 @@ void App::run() {
                     InputEvent input_event = {
                         (wchar_t)keymsg.key,
                     };
-                    foreach(this->root_, &Block::inputEvent, input_event);
+                    foreach(this->root_, &Block::inputEvent, &input_event);
                 }
                 break;
                 default:
@@ -107,7 +107,7 @@ void App::run() {
                         InputEvent input_event = {
                             (wchar_t)ch,
                         };
-                        foreach(this->root_, &Block::inputEvent, input_event);
+                        foreach(this->root_, &Block::inputEvent, &input_event);
                     }
                 }
             }
@@ -127,20 +127,20 @@ void App::run() {
                         Point(msg.x, msg.y),
                         button,
                     };
-                    foreach(this->root_, &Block::mousePressEvent, mousepress_event);
+                    foreach(this->root_, &Block::mousePressEvent, &mousepress_event);
                 }
                 if (msg.is_up()) {
                     MouseReleaseEvent mouserelease_event = {
                         Point(msg.x, msg.y),
                         button,
                     };
-                    foreach(this->root_, &Block::mouseReleaseEvent, mouserelease_event);
+                    foreach(this->root_, &Block::mouseReleaseEvent, &mouserelease_event);
                 }
                 if (msg.is_move()) {
                     MouseMoveEvent mousemove_event = {
                         Point(msg.x, msg.y),
                     };
-                    foreach(this->root_, &Block::mouseMoveEvent, mousemove_event);
+                    foreach(this->root_, &Block::mouseMoveEvent, &mousemove_event);
                 }
                 if (msg.is_wheel()) {
                     MouseWheelEvent mousewheel_event = {
@@ -151,7 +151,7 @@ void App::run() {
                                 ? MouseWheel::Down
                                 : MouseWheel::None)),
                     };
-                    foreach(this->root_, &Block::mouseWheelEvent, mousewheel_event);
+                    foreach(this->root_, &Block::mouseWheelEvent, &mousewheel_event);
                 }
             }
         } while (std::chrono::duration_cast<std::chrono::milliseconds>
