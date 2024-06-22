@@ -13,6 +13,9 @@ private:
     Point relativePos;
 
     MouseButton button_;
+
+    bool xDraggable_;
+    bool yDraggable_;
     
 protected:
     void mousePressEvent(MousePressEvent* event) override;
@@ -40,6 +43,9 @@ public:
      * @param button 鼠标按键
      */
     void setTriggerButton(MouseButton button);
+
+    void setXDraggable(bool draggable);
+    void setYDraggable(bool draggable);
 
 public:
     Signal<void(const Point&)> dragged;

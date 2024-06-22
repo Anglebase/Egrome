@@ -15,7 +15,19 @@ void Drag::mousePressEvent(MousePressEvent* event) {
 
 void Drag::mouseMoveEvent(MouseMoveEvent* event) {
     if (this->isDragging_) {
-        this->rect().position() = event->position() - this->relativePos;
+        if (this->xDraggable_) {
+            this->rect().position() = {
+                event->position().x() - this->relativePos.x(),
+                ((Point)this->rect().position()).y()
+            };
+        }
+        if (this->yDraggable_) {
+            this->rect().position() = {
+                ((Point)this->rect().position()).x(),
+                event->position().y() - this->relativePos.y()
+            };
+        }
+        this->dragged.emit(this->rect().position());
     }
 }
 
@@ -32,7 +44,7 @@ bool Drag::isContains(Point point) const {
 
 Drag::Drag(const Rect& rect, Block* parent)
     : Block(rect, parent), isDragging_(false),
-     button_(MouseButton::Left) {}
+    button_(MouseButton::Left), xDraggable_(true), yDraggable_(true) {}
 
 Drag::~Drag() = default;
 
@@ -42,4 +54,12 @@ bool Drag::isDragging() const {
 
 void Drag::setTriggerButton(MouseButton button) {
     this->button_ = button;
+}
+
+void Drag::setXDraggable(bool draggable) {
+    this->xDraggable_ = draggable;
+}
+
+void Drag::setYDraggable(bool draggable) {
+    this->yDraggable_ = draggable;
 }
