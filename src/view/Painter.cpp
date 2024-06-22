@@ -49,7 +49,7 @@ TextAligns operator|(TextAligns a, TextAligns b) { return TextAligns(a.aligns | 
 bool operator&(TextAligns a, TextAlign b) { return (a.aligns & b) != 0; }
 bool operator&(TextAlign a, TextAligns b) { return (a & b.aligns) != 0; }
 
-DWORD translateOperationCode(BlendMode blendMode) {
+static DWORD translateOperationCode(BlendMode blendMode) {
     switch (blendMode) {
     case BlendMode::Mode_0:
         return 0x00000042;
