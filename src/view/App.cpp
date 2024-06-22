@@ -16,6 +16,9 @@
 #include "XString.h"
 
 int App::fps_ = 60;
+Signal<void()> App::windowClose;
+Signal<void()> App::windowCreated;
+
 // 以树结构遍历所有Block
 template<typename T>
 void foreach(Block* root, void(Block::* func)(T*), T* arg) {

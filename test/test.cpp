@@ -60,7 +60,7 @@ protected:
         painter.setFontStrikeOut(true);
         painter.setPenWidth(10);
         painter.clear(0xffffffff_rgba);
-        painter.drawText(Point{ 10,10 }, std::to_wstring(App::getFps()));
+        painter.drawText(Point{ 10,10 }, str(L"当前FPS：", App::getFps()));
         painter.drawRect(Rect{ 10,10,100,50 });
         painter.drawFillRect(Rect{ 20,20,100,50 });
         painter.drawLine({ 50,60 }, { 150,60 });

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
 #include "./Object.h"
 #include "./Exception.h"
 
@@ -83,3 +84,10 @@ public:
     // void replace(const String& oldStr, const String& newStr) noexcept;
     // void remove(const String& str) noexcept;
 };
+
+template<typename... Args>
+String str(Args... args){
+    std::wostringstream oss;
+    ((oss << args),...);
+    return String(oss.str());
+}
