@@ -243,6 +243,9 @@ enum class KeyState {
     Released,
 };
 
+/**
+ * @brief 按键事件类
+ */
 class KeyEvent : public Event {
 private:
     Key key_;
@@ -255,11 +258,27 @@ public:
     KeyEvent(Key key, KeyState state, bool shift, bool ctrl);
     virtual ~KeyEvent();
 
+    /**
+     * @brief 获取按键
+     * @return 按键
+     */
     Key key() const;
 
+    /**
+     * @brief Shift键是否被同时按下
+     * @return true表示Shift键被同时按下，false表示Shift键未被同时按下
+     */
     bool hasShift() const;
+    /**
+     * @brief Ctrl键是否被同时按下
+     * @return true表示Ctrl键被同时按下，false表示Ctrl键未被同时按下
+     */
     bool hasCtrl() const;
     // bool hasAlt() const;
 
+    /**
+     * @brief 获取按键状态
+     * @return 按键状态
+     */
     KeyState state() const;
 };

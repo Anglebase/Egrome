@@ -83,6 +83,7 @@ public:
 
 /**
  * @brief 信号类模板无参特化
+ * @see Signal<void(Args...)>
  */
 template <>
 class Signal<void()> {

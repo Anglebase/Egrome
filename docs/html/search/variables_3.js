@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['startvalue_0',['startValue',['../struct_animation_1_1_args.html#a6466a49f283b428bda8e121e66def56a',1,'Animation::Args']]]
+  ['lightness_0',['lightness',['../struct_color_1_1_h_s_l.html#abc099796ed00f03ab1500a7d5dde7f94',1,'Color::HSL']]]
 ];

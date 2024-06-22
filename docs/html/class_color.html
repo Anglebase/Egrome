@@ -106,6 +106,11 @@ $(function(){initNavTree('class_color.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Color类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>颜色类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_color_8h_source.html">Color.h</a>&gt;</code></p>
 <div class="dynheader">
 类 Color 继承关系图:</div>
 <div class="dyncontent">
@@ -119,6 +124,7 @@ $(function(){initNavTree('class_color.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_color_1_1_h_s_l.html">HSL</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HSV颜色修改器  <a href="struct_color_1_1_h_s_l.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_color_1_1_h_s_v.html">HSV</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,11 +158,11 @@ const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>blue</b> (
 <tr class="memitem:aa8af69608b9ebadf7acfaad9a100d47b" id="r_aa8af69608b9ebadf7acfaad9a100d47b"><td class="memItemLeft" align="right" valign="top"><a id="aa8af69608b9ebadf7acfaad9a100d47b" name="aa8af69608b9ebadf7acfaad9a100d47b"></a>
 const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b> () const noexcept</td></tr>
 <tr class="separator:aa8af69608b9ebadf7acfaad9a100d47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eefbe1ef906ce03b70e40be6cd67f1f" id="r_a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="memItemLeft" align="right" valign="top"><a id="a7eefbe1ef906ce03b70e40be6cd67f1f" name="a7eefbe1ef906ce03b70e40be6cd67f1f"></a>
-<a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>withoutAlpha</b> () const noexcept</td></tr>
+<tr class="memitem:a7eefbe1ef906ce03b70e40be6cd67f1f" id="r_a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7eefbe1ef906ce03b70e40be6cd67f1f">withoutAlpha</a> () const noexcept</td></tr>
+<tr class="memdesc:a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取移除了alpha通道的颜色  <br /></td></tr>
 <tr class="separator:a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8de8745f8231fd8ad7e10b721cb21ad9" id="r_a8de8745f8231fd8ad7e10b721cb21ad9"><td class="memItemLeft" align="right" valign="top"><a id="a8de8745f8231fd8ad7e10b721cb21ad9" name="a8de8745f8231fd8ad7e10b721cb21ad9"></a>
-<a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gray</b> () const noexcept</td></tr>
+<tr class="memitem:a8de8745f8231fd8ad7e10b721cb21ad9" id="r_a8de8745f8231fd8ad7e10b721cb21ad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8de8745f8231fd8ad7e10b721cb21ad9">gray</a> () const noexcept</td></tr>
+<tr class="memdesc:a8de8745f8231fd8ad7e10b721cb21ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取灰度颜色  <br /></td></tr>
 <tr class="separator:a8de8745f8231fd8ad7e10b721cb21ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62f62f039aad245d61c108305f97f1b2" id="r_a62f62f039aad245d61c108305f97f1b2"><td class="memItemLeft" align="right" valign="top"><a id="a62f62f039aad245d61c108305f97f1b2" name="a62f62f039aad245d61c108305f97f1b2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_color.html">Color</a> &amp;other) const noexcept</td></tr>
@@ -176,8 +182,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noe
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a6193e284b0b5f4e0fb0be76310f59b22" id="r_a6193e284b0b5f4e0fb0be76310f59b22"><td class="memItemLeft" align="right" valign="top"><a id="a6193e284b0b5f4e0fb0be76310f59b22" name="a6193e284b0b5f4e0fb0be76310f59b22"></a>
-static <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lerp</b> (const <a class="el" href="class_color.html">Color</a> &amp;a, const <a class="el" href="class_color.html">Color</a> &amp;b, double t) noexcept</td></tr>
+<tr class="memitem:a6193e284b0b5f4e0fb0be76310f59b22" id="r_a6193e284b0b5f4e0fb0be76310f59b22"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6193e284b0b5f4e0fb0be76310f59b22">lerp</a> (const <a class="el" href="class_color.html">Color</a> &amp;a, const <a class="el" href="class_color.html">Color</a> &amp;b, double t) noexcept</td></tr>
+<tr class="memdesc:a6193e284b0b5f4e0fb0be76310f59b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">HSL颜色修改器  <br /></td></tr>
 <tr class="separator:a6193e284b0b5f4e0fb0be76310f59b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -189,6 +195,102 @@ struct <a class="el" href="struct_color_1_1_h_s_v.html">Color::HSV</a>&#160;</td
 struct <a class="el" href="struct_color_1_1_h_s_l.html">Color::HSL</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hsl</b></td></tr>
 <tr class="separator:a55070bf210348401bffdfdca296725e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>颜色类 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a8de8745f8231fd8ad7e10b721cb21ad9" name="a8de8745f8231fd8ad7e10b721cb21ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de8745f8231fd8ad7e10b721cb21ad9">&#9670;&#160;</a></span>gray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> Color::gray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取灰度颜色 </p>
+<dl class="section return"><dt>返回</dt><dd>灰度颜色 </dd></dl>
+
+</div>
+</div>
+<a id="a6193e284b0b5f4e0fb0be76310f59b22" name="a6193e284b0b5f4e0fb0be76310f59b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6193e284b0b5f4e0fb0be76310f59b22">&#9670;&#160;</a></span>lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> Color::lerp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>b</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>HSL颜色修改器 </p>
+<p>对于颜色的线性插值函数 </p>
+
+</div>
+</div>
+<a id="a7eefbe1ef906ce03b70e40be6cd67f1f" name="a7eefbe1ef906ce03b70e40be6cd67f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eefbe1ef906ce03b70e40be6cd67f1f">&#9670;&#160;</a></span>withoutAlpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> Color::withoutAlpha </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取移除了alpha通道的颜色 </p>
+<dl class="section return"><dt>返回</dt><dd>移除了alpha通道的颜色 </dd></dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>include/view/<a class="el" href="_color_8h_source.html">Color.h</a></li>
 <li>src/view/<b>Color.cpp</b></li>

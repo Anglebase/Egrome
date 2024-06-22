@@ -15,6 +15,9 @@ enum class ButtonState {
     Released,
 };
 
+/**
+ * @brief 鼠标按键事件
+ */
 class MouseKeyEvent : public MouseEvent {
 private:
     MouseButton button_;

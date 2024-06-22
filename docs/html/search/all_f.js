@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['setcilpboardtext_0',['setCilpBoardText',['../namespace_sys.html#aec566963415886c7bcd6b55d3e4a2105',1,'Sys']]],
-  ['signal_1',['Signal',['../class_signal.html',1,'']]],
-  ['signal_3c_20void_28_29_3e_2',['Signal&lt; void()&gt;',['../class_signal_3_01void_07_08_4.html',1,'']]],
-  ['signal_3c_20void_28args_2e_2e_2e_29_3e_3',['Signal&lt; void(Args...)&gt;',['../class_signal_3_01void_07_args_8_8_8_08_4.html',1,'']]],
-  ['signalslots_2ehpp_4',['SignalSlots.hpp',['../_signal_slots_8hpp.html',1,'']]],
-  ['size_5',['Size',['../class_size.html',1,'']]],
-  ['split_6',['split',['../class_string.html#a4443faa73578e9297d76c1b918b1168e',1,'String']]],
-  ['startvalue_7',['startValue',['../struct_animation_1_1_args.html#a6466a49f283b428bda8e121e66def56a',1,'Animation::Args']]],
-  ['string_8',['String',['../class_string.html',1,'']]],
-  ['strip_9',['strip',['../class_string.html#a2f93de29fedadff6b1d25b9eff049aff',1,'String']]],
-  ['sys_10',['Sys',['../namespace_sys.html',1,'']]]
+  ['rect_0',['Rect',['../class_rect.html',1,'']]],
+  ['rect_1',['rect',['../class_painter.html#a292a2a4b234fdbdfbbf7ee32112be770',1,'Painter']]],
+  ['rect_2eh_2',['Rect.h',['../_rect_8h.html',1,'']]],
+  ['removechild_3',['removeChild',['../class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3',1,'Block']]],
+  ['reset_4',['reset',['../class_event.html#af4bd37b8e130d3eb0bd258bdcd99d0b2',1,'Event']]],
+  ['resetforeach_5',['resetForeach',['../class_block.html#a7b2cfa412c9f06ff9946e1e9b95a3112',1,'Block']]],
+  ['run_6',['run',['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App']]]
 ];

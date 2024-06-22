@@ -19,12 +19,26 @@ protected:
     void mouseMoveEvent(MouseMoveEvent* event) override;
     void mouseReleaseEvent(MouseReleaseEvent* event) override;
 
+    /**
+     * @brief 判断点是否在此区域内
+     * @param point 点
+     * @return true 点在区域内，false 点不在区域内
+     * @note 子类可以重载此函数实现自定义可点击区域
+     */
     virtual bool isContains(Point point) const;
 public:
     Drag(const Rect& rect, Block* parent = nullptr);
     ~Drag() override;
 
+    /**
+     * @brief 是否正在被拖动
+     * @return true 正在被拖动，false 未被拖动
+     */
     bool isDragging() const;
+    /**
+     * @brief 设置触发拖动的鼠标按键
+     * @param button 鼠标按键
+     */
     void setTriggerButton(MouseButton button);
 
 public:

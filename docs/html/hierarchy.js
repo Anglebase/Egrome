@@ -8,7 +8,11 @@ var hierarchy =
     [ "Color::HSV", "struct_color_1_1_h_s_v.html", null ],
     [ "Object", "class_object.html", [
       [ "App", "class_app.html", null ],
-      [ "Block", "class_block.html", null ],
+      [ "Block", "class_block.html", [
+        [ "Click", "class_click.html", null ],
+        [ "Drag", "class_drag.html", null ],
+        [ "Hover", "class_hover.html", null ]
+      ] ],
       [ "Color", "class_color.html", null ],
       [ "Event", "class_event.html", [
         [ "InputEvent", "class_input_event.html", null ],

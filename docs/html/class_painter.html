@@ -104,6 +104,11 @@ $(function(){initNavTree('class_painter.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Painter类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>它用于视图绘制  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_painter_8h_source.html">Painter.h</a>&gt;</code></p>
 <div class="dynheader">
 类 Painter 继承关系图:</div>
 <div class="dyncontent">
@@ -128,6 +133,9 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:ad7f1b16e5a0f52a8dd57349aeeb9c947" id="r_ad7f1b16e5a0f52a8dd57349aeeb9c947"><td class="memItemLeft" align="right" valign="top"><a id="ad7f1b16e5a0f52a8dd57349aeeb9c947" name="ad7f1b16e5a0f52a8dd57349aeeb9c947"></a>
 <a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_painter.html">Painter</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:ad7f1b16e5a0f52a8dd57349aeeb9c947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25c38d8693180cba0e462d5ca67ccde" id="r_ae25c38d8693180cba0e462d5ca67ccde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae25c38d8693180cba0e462d5ca67ccde">enabbleAntiAliasing</a> (bool enable) noexcept</td></tr>
+<tr class="memdesc:ae25c38d8693180cba0e462d5ca67ccde"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否启用抗锯齿，默认启用  <br /></td></tr>
+<tr class="separator:ae25c38d8693180cba0e462d5ca67ccde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34bef255d267239bc58dda475a95d4cd" id="r_a34bef255d267239bc58dda475a95d4cd"><td class="memItemLeft" align="right" valign="top"><a id="a34bef255d267239bc58dda475a95d4cd" name="a34bef255d267239bc58dda475a95d4cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPenColor</b> (const <a class="el" href="class_color.html">Color</a> &amp;color) noexcept</td></tr>
 <tr class="separator:a34bef255d267239bc58dda475a95d4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,9 +163,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setFontUnderline</b> 
 <tr class="memitem:a06c397f4254e40cfbc45d4639c3b07d3" id="r_a06c397f4254e40cfbc45d4639c3b07d3"><td class="memItemLeft" align="right" valign="top"><a id="a06c397f4254e40cfbc45d4639c3b07d3" name="a06c397f4254e40cfbc45d4639c3b07d3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setFontStrikeOut</b> (bool strikeOut) noexcept</td></tr>
 <tr class="separator:a06c397f4254e40cfbc45d4639c3b07d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bae15d833b2cdb22f8466bfa826dc69" id="r_a5bae15d833b2cdb22f8466bfa826dc69"><td class="memItemLeft" align="right" valign="top"><a id="a5bae15d833b2cdb22f8466bfa826dc69" name="a5bae15d833b2cdb22f8466bfa826dc69"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> (const <a class="el" href="class_color.html">Color</a> &amp;color) noexcept</td></tr>
+<tr class="memitem:a5bae15d833b2cdb22f8466bfa826dc69" id="r_a5bae15d833b2cdb22f8466bfa826dc69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bae15d833b2cdb22f8466bfa826dc69">clear</a> (const <a class="el" href="class_color.html">Color</a> &amp;color) noexcept</td></tr>
+<tr class="memdesc:a5bae15d833b2cdb22f8466bfa826dc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用指定颜色清楚当前绘制器所指示的区域  <br /></td></tr>
 <tr class="separator:a5bae15d833b2cdb22f8466bfa826dc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292a2a4b234fdbdfbbf7ee32112be770" id="r_a292a2a4b234fdbdfbbf7ee32112be770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rect.html">Rect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a> () const noexcept</td></tr>
+<tr class="memdesc:a292a2a4b234fdbdfbbf7ee32112be770"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前绘制器所指示的区域  <br /></td></tr>
+<tr class="separator:a292a2a4b234fdbdfbbf7ee32112be770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade3332194b5fb2693d526a66a2f8bd1f" id="r_ade3332194b5fb2693d526a66a2f8bd1f"><td class="memItemLeft" align="right" valign="top"><a id="ade3332194b5fb2693d526a66a2f8bd1f" name="ade3332194b5fb2693d526a66a2f8bd1f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixel</b> (const <a class="el" href="class_point.html">Point</a> &amp;pos) noexcept</td></tr>
 <tr class="separator:ade3332194b5fb2693d526a66a2f8bd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +176,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixel</b> (const 
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (const <a class="el" href="class_point.html">Point</a> &amp;p1, const <a class="el" href="class_point.html">Point</a> &amp;p2) noexcept</td></tr>
 <tr class="separator:a0b7319ef6ef9852a90c527ddff66574b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a180d706d663c38b4edf573cac2644fe8" id="r_a180d706d663c38b4edf573cac2644fe8"><td class="memItemLeft" align="right" valign="top"><a id="a180d706d663c38b4edf573cac2644fe8" name="a180d706d663c38b4edf573cac2644fe8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRect</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRect</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>) noexcept</td></tr>
 <tr class="separator:a180d706d663c38b4edf573cac2644fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b870d3531ed84c2624957a5036e0501" id="r_a8b870d3531ed84c2624957a5036e0501"><td class="memItemLeft" align="right" valign="top"><a id="a8b870d3531ed84c2624957a5036e0501" name="a8b870d3531ed84c2624957a5036e0501"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPolygon</b> (const std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt; &amp;points) noexcept</td></tr>
@@ -174,40 +185,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPolygon</b> (cons
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPolyline</b> (const std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt; &amp;points) noexcept</td></tr>
 <tr class="separator:a70a6c24179c264cf6bd4047d2ee84327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3014c741dab5c736ae895a45eee86c2b" id="r_a3014c741dab5c736ae895a45eee86c2b"><td class="memItemLeft" align="right" valign="top"><a id="a3014c741dab5c736ae895a45eee86c2b" name="a3014c741dab5c736ae895a45eee86c2b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawArc</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, float startAngle, float range) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawArc</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>, float startAngle, float range) noexcept</td></tr>
 <tr class="separator:a3014c741dab5c736ae895a45eee86c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20e942f253aedd8186ef4b9f6918502a" id="r_a20e942f253aedd8186ef4b9f6918502a"><td class="memItemLeft" align="right" valign="top"><a id="a20e942f253aedd8186ef4b9f6918502a" name="a20e942f253aedd8186ef4b9f6918502a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawEllipse</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawEllipse</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>) noexcept</td></tr>
 <tr class="separator:a20e942f253aedd8186ef4b9f6918502a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa13eca0b0c533c557e99f994ace4c7cc" id="r_aa13eca0b0c533c557e99f994ace4c7cc"><td class="memItemLeft" align="right" valign="top"><a id="aa13eca0b0c533c557e99f994ace4c7cc" name="aa13eca0b0c533c557e99f994ace4c7cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCircle</b> (const <a class="el" href="class_point.html">Point</a> &amp;o, float radius) noexcept</td></tr>
+<tr class="separator:aa13eca0b0c533c557e99f994ace4c7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cc8e711616473b62baaeac4358020bb" id="r_a4cc8e711616473b62baaeac4358020bb"><td class="memItemLeft" align="right" valign="top"><a id="a4cc8e711616473b62baaeac4358020bb" name="a4cc8e711616473b62baaeac4358020bb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPie</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, float startAngle, float range) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPie</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>, float startAngle, float range) noexcept</td></tr>
 <tr class="separator:a4cc8e711616473b62baaeac4358020bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7f926307fbdd77f3264bb19f195038d" id="r_ac7f926307fbdd77f3264bb19f195038d"><td class="memItemLeft" align="right" valign="top"><a id="ac7f926307fbdd77f3264bb19f195038d" name="ac7f926307fbdd77f3264bb19f195038d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBezier</b> (const <a class="el" href="class_point.html">Point</a> &amp;p1, const <a class="el" href="class_point.html">Point</a> &amp;c1, const <a class="el" href="class_point.html">Point</a> &amp;p2, const <a class="el" href="class_point.html">Point</a> &amp;c2) noexcept</td></tr>
 <tr class="separator:ac7f926307fbdd77f3264bb19f195038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac81ca5e051e9829172d004a804f8eef" id="r_aac81ca5e051e9829172d004a804f8eef"><td class="memItemLeft" align="right" valign="top"><a id="aac81ca5e051e9829172d004a804f8eef" name="aac81ca5e051e9829172d004a804f8eef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillRect</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect) noexcept</td></tr>
-<tr class="separator:aac81ca5e051e9829172d004a804f8eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfc2330520ef0a68afe5ae2ffd5915dc" id="r_acfc2330520ef0a68afe5ae2ffd5915dc"><td class="memItemLeft" align="right" valign="top"><a id="acfc2330520ef0a68afe5ae2ffd5915dc" name="acfc2330520ef0a68afe5ae2ffd5915dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillPolygon</b> (const std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt; &amp;points) noexcept</td></tr>
-<tr class="separator:acfc2330520ef0a68afe5ae2ffd5915dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb10088a98892463ef4c8eadc1c4c96a" id="r_adb10088a98892463ef4c8eadc1c4c96a"><td class="memItemLeft" align="right" valign="top"><a id="adb10088a98892463ef4c8eadc1c4c96a" name="adb10088a98892463ef4c8eadc1c4c96a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillEllipse</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect) noexcept</td></tr>
-<tr class="separator:adb10088a98892463ef4c8eadc1c4c96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a014e078d4ee13e452a8263415822cad2" id="r_a014e078d4ee13e452a8263415822cad2"><td class="memItemLeft" align="right" valign="top"><a id="a014e078d4ee13e452a8263415822cad2" name="a014e078d4ee13e452a8263415822cad2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillPie</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, float startAngle, float range) noexcept</td></tr>
-<tr class="separator:a014e078d4ee13e452a8263415822cad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5744160a231dd915ea48234b76d76128" id="r_a5744160a231dd915ea48234b76d76128"><td class="memItemLeft" align="right" valign="top"><a id="a5744160a231dd915ea48234b76d76128" name="a5744160a231dd915ea48234b76d76128"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFillRect</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>) noexcept</td></tr>
+<tr class="separator:a5744160a231dd915ea48234b76d76128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18c8f71ea6322ebabbc3039a66a62b0" id="r_ab18c8f71ea6322ebabbc3039a66a62b0"><td class="memItemLeft" align="right" valign="top"><a id="ab18c8f71ea6322ebabbc3039a66a62b0" name="ab18c8f71ea6322ebabbc3039a66a62b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFillPolygon</b> (const std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt; &amp;points) noexcept</td></tr>
+<tr class="separator:ab18c8f71ea6322ebabbc3039a66a62b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0925c3f582736d3dcfc8edcb0c0566df" id="r_a0925c3f582736d3dcfc8edcb0c0566df"><td class="memItemLeft" align="right" valign="top"><a id="a0925c3f582736d3dcfc8edcb0c0566df" name="a0925c3f582736d3dcfc8edcb0c0566df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFillEllipse</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>) noexcept</td></tr>
+<tr class="separator:a0925c3f582736d3dcfc8edcb0c0566df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f3bdf7a5106652ead2a51521c918d55" id="r_a5f3bdf7a5106652ead2a51521c918d55"><td class="memItemLeft" align="right" valign="top"><a id="a5f3bdf7a5106652ead2a51521c918d55" name="a5f3bdf7a5106652ead2a51521c918d55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFillCircle</b> (const <a class="el" href="class_point.html">Point</a> &amp;o, float radius) noexcept</td></tr>
+<tr class="separator:a5f3bdf7a5106652ead2a51521c918d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9446e1d65f7f0841e21e57ce711c20e" id="r_aa9446e1d65f7f0841e21e57ce711c20e"><td class="memItemLeft" align="right" valign="top"><a id="aa9446e1d65f7f0841e21e57ce711c20e" name="aa9446e1d65f7f0841e21e57ce711c20e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFillPie</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>, float startAngle, float range) noexcept</td></tr>
+<tr class="separator:aa9446e1d65f7f0841e21e57ce711c20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7d4b677da6413100fedf796be3cd7d" id="r_add7d4b677da6413100fedf796be3cd7d"><td class="memItemLeft" align="right" valign="top"><a id="add7d4b677da6413100fedf796be3cd7d" name="add7d4b677da6413100fedf796be3cd7d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawText</b> (const <a class="el" href="class_point.html">Point</a> &amp;pos, const <a class="el" href="class_string.html">String</a> &amp;text) noexcept</td></tr>
 <tr class="separator:add7d4b677da6413100fedf796be3cd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe2e7f3fb012381c454799237ac8cbda" id="r_abe2e7f3fb012381c454799237ac8cbda"><td class="memItemLeft" align="right" valign="top"><a id="abe2e7f3fb012381c454799237ac8cbda" name="abe2e7f3fb012381c454799237ac8cbda"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawText</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, const <a class="el" href="class_string.html">String</a> &amp;text, <a class="el" href="class_text_aligns.html">TextAligns</a> aligns=TextAlign::Left|TextAlign::Top) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawText</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>, const <a class="el" href="class_string.html">String</a> &amp;text, <a class="el" href="class_text_aligns.html">TextAligns</a> aligns=TextAlign::Left|TextAlign::Top) noexcept</td></tr>
 <tr class="separator:abe2e7f3fb012381c454799237ac8cbda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc5cd454ac83580664bb6824ff7779e" id="r_a6dc5cd454ac83580664bb6824ff7779e"><td class="memItemLeft" align="right" valign="top"><a id="a6dc5cd454ac83580664bb6824ff7779e" name="a6dc5cd454ac83580664bb6824ff7779e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixmap</b> (const <a class="el" href="class_point.html">Point</a> &amp;pos, const <a class="el" href="class_pixel_map.html">PixelMap</a> &amp;pixmap, BlendMode mode=BlendMode::S) noexcept</td></tr>
 <tr class="separator:a6dc5cd454ac83580664bb6824ff7779e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52368c078b729b7dc65769e60901f9dc" id="r_a52368c078b729b7dc65769e60901f9dc"><td class="memItemLeft" align="right" valign="top"><a id="a52368c078b729b7dc65769e60901f9dc" name="a52368c078b729b7dc65769e60901f9dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixmap</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, const <a class="el" href="class_pixel_map.html">PixelMap</a> &amp;pixmap, BlendMode mode=BlendMode::S) noexcept</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixmap</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="#a292a2a4b234fdbdfbbf7ee32112be770">rect</a>, const <a class="el" href="class_pixel_map.html">PixelMap</a> &amp;pixmap, BlendMode mode=BlendMode::S) noexcept</td></tr>
 <tr class="separator:a52368c078b729b7dc65769e60901f9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
@@ -234,6 +251,104 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getTarget</b> (<a c
 <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transfrom</b> (<a class="el" href="class_painter.html">Painter</a> *painter, const <a class="el" href="class_point.html">Point</a> &amp;pos)</td></tr>
 <tr class="separator:aa854b9a8251ca3eed3f059522c6f4a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>它用于视图绘制 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a5bae15d833b2cdb22f8466bfa826dc69" name="a5bae15d833b2cdb22f8466bfa826dc69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bae15d833b2cdb22f8466bfa826dc69">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Painter::clear </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>使用指定颜色清楚当前绘制器所指示的区域 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>指定颜色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae25c38d8693180cba0e462d5ca67ccde" name="ae25c38d8693180cba0e462d5ca67ccde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25c38d8693180cba0e462d5ca67ccde">&#9670;&#160;</a></span>enabbleAntiAliasing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Painter::enabbleAntiAliasing </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enable</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>是否启用抗锯齿，默认启用 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>true启用，false禁用 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a292a2a4b234fdbdfbbf7ee32112be770" name="a292a2a4b234fdbdfbbf7ee32112be770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292a2a4b234fdbdfbbf7ee32112be770">&#9670;&#160;</a></span>rect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rect.html">Rect</a> Painter::rect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>当前绘制器所指示的区域 </p>
+<dl class="section return"><dt>返回</dt><dd>区域</dd></dl>
+<p>它处于当前指示器的绘制坐标下，左上角为(0, 0)，右下角为(width - 1, height - 1) </p>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>include/view/<a class="el" href="_painter_8h_source.html">Painter.h</a></li>
 <li>src/view/<b>Painter.cpp</b></li>

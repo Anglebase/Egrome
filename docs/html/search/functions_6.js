@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['setcilpboardtext_0',['setCilpBoardText',['../namespace_sys.html#aec566963415886c7bcd6b55d3e4a2105',1,'Sys']]],
-  ['split_1',['split',['../class_string.html#a4443faa73578e9297d76c1b918b1168e',1,'String']]],
-  ['strip_2',['strip',['../class_string.html#a2f93de29fedadff6b1d25b9eff049aff',1,'String']]]
+  ['hasctrl_0',['hasCtrl',['../class_key_event.html#ab2f7a68daedd4100f85ed0eae092c760',1,'KeyEvent']]],
+  ['hasshift_1',['hasShift',['../class_key_event.html#ac0b7c68155abe57caa1b3a8b06fef2d8',1,'KeyEvent']]]
 ];

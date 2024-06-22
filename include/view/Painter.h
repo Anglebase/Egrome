@@ -300,7 +300,9 @@ TextAligns operator|(TextAligns a, TextAligns b);
 bool operator&(TextAligns a, TextAlign b);
 bool operator&(TextAlign a, TextAligns b);
 
-
+/**
+ * @brief 它用于视图绘制
+ */
 class Painter final : public Object {
     friend class PaintEvent;
     friend class PixelMap;
@@ -342,7 +344,16 @@ public:
     void setFontUnderline(bool underline) noexcept;
     void setFontStrikeOut(bool strikeOut) noexcept;
 
+    /**
+     * @brief 使用指定颜色清楚当前绘制器所指示的区域
+     * @param color 指定颜色
+     */
     void clear(const Color& color) noexcept;
+    /**
+     * @brief 当前绘制器所指示的区域
+     * @return 区域
+     * @details 它处于当前指示器的绘制坐标下，左上角为(0, 0)，右下角为(width - 1, height - 1)
+     */
     Rect rect() const noexcept;
 
 
@@ -384,5 +395,15 @@ public:
     ) noexcept;
 };
 
+/**
+ * @brief 设备无关字体大小单位
+ * @param value em字体大小
+ * @return 字体像素大小
+ */
 int operator"" _em(long double value);
+/**
+ * @brief 设备无关字体大小单位
+ * @param value em字体大小
+ * @return 字体像素大小
+ */
 int operator"" _em(unsigned long long value);

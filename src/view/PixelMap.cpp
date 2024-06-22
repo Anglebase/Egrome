@@ -93,6 +93,11 @@ Painter& PixelMap::beginPaint() noexcept {
     return *this->painter_;
 }
 
+/**
+ * @brief 结束绘制
+ * @param painter 
+ * @throw WrongPainter
+ */
 void PixelMap::endPaint(const Painter& painter) {
     if (this->painter_ != &painter)
         throw WrongPainter(L"Wrong painter");

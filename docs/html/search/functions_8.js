@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eobject_0',['~Object',['../class_object.html#a9252cc36e32dda1ac9b8927e2e334570',1,'Object']]]
+  ['join_0',['join',['../class_string.html#ac62e30169b4fa27e4bf8da9256686ec3',1,'String']]]
 ];

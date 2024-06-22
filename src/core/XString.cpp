@@ -1,13 +1,6 @@
 #include "XString.h"
-#include "Exception.h"
 
 #include <algorithm>
-
-class String::OutOfRange : public Exception {
-public:
-    OutOfRange(const wchar_t* message) : Exception(message) {}
-};
-
 
 String::String() noexcept {}
 String::String(const wchar_t* str) noexcept : string_(str) {}
@@ -93,7 +86,13 @@ void String::toUpper() noexcept {
         this->string_.begin(), ::toupper);
 }
 
+/**
+ * @note 如给定分隔符为空，则不会对字符串进行分割操作，直接返回原字符串
+ */
 std::vector<String> String::split(const String& delimiter) const noexcept {
+    if(((std::wstring)delimiter).empty()){
+        return { *this };
+    }
     std::vector<String> result;
     std::wstring::size_type pos = 0;
     while (true) {
@@ -115,3 +114,6 @@ String String::join(const std::vector<String>& strs) const noexcept {
     }
     return result;
 }
+
+String::OutOfRange::OutOfRange(const wchar_t* message) 
+    : Exception(message) {}

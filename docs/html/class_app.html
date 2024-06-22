@@ -104,6 +104,11 @@ $(function(){initNavTree('class_app.html',''); initResizable(); });
   <div class="headertitle"><div class="title">App类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>应用程序类  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_app_8h_source.html">App.h</a>&gt;</code></p>
 <div class="dynheader">
 类 App 继承关系图:</div>
 <div class="dyncontent">
@@ -116,11 +121,12 @@ $(function(){initNavTree('class_app.html',''); initResizable(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a06a7c57906f9020327ff89bda07f1af9" id="r_a06a7c57906f9020327ff89bda07f1af9"><td class="memItemLeft" align="right" valign="top"><a id="a06a7c57906f9020327ff89bda07f1af9" name="a06a7c57906f9020327ff89bda07f1af9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>App</b> (<a class="el" href="class_block.html">Block</a> &amp;root)</td></tr>
-<tr class="separator:a06a7c57906f9020327ff89bda07f1af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af8939267de5938fc1f1c8b2c1a0797" id="r_a0af8939267de5938fc1f1c8b2c1a0797"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0af8939267de5938fc1f1c8b2c1a0797">App</a> (<a class="el" href="class_block.html">Block</a> *root, int flags=Default)</td></tr>
+<tr class="memdesc:a0af8939267de5938fc1f1c8b2c1a0797"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="separator:a0af8939267de5938fc1f1c8b2c1a0797"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09dc71078b64c56c673b1ad1d25b5d1" id="r_ae09dc71078b64c56c673b1ad1d25b5d1"><td class="memItemLeft" align="right" valign="top"><a id="ae09dc71078b64c56c673b1ad1d25b5d1" name="ae09dc71078b64c56c673b1ad1d25b5d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+<tr class="memdesc:ae09dc71078b64c56c673b1ad1d25b5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">事件循环 <br /></td></tr>
 <tr class="separator:ae09dc71078b64c56c673b1ad1d25b5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
@@ -137,19 +143,175 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noe
 <tr class="memitem:a6766acba9020b1f1794320fdfe7d5a20" id="r_a6766acba9020b1f1794320fdfe7d5a20"><td class="memItemLeft" align="right" valign="top"><a id="a6766acba9020b1f1794320fdfe7d5a20" name="a6766acba9020b1f1794320fdfe7d5a20"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b> (int code)</td></tr>
 <tr class="separator:a6766acba9020b1f1794320fdfe7d5a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8481a4ce3bc24bad1f4eec4bda76cc9" id="r_ae8481a4ce3bc24bad1f4eec4bda76cc9"><td class="memItemLeft" align="right" valign="top"><a id="ae8481a4ce3bc24bad1f4eec4bda76cc9" name="ae8481a4ce3bc24bad1f4eec4bda76cc9"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>getFps</b> ()</td></tr>
+<tr class="memitem:ae8481a4ce3bc24bad1f4eec4bda76cc9" id="r_ae8481a4ce3bc24bad1f4eec4bda76cc9"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8481a4ce3bc24bad1f4eec4bda76cc9">getFps</a> ()</td></tr>
+<tr class="memdesc:ae8481a4ce3bc24bad1f4eec4bda76cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前实际帧率  <br /></td></tr>
 <tr class="separator:ae8481a4ce3bc24bad1f4eec4bda76cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd44384df2bec4d382f2f8c8444a06f7" id="r_afd44384df2bec4d382f2f8c8444a06f7"><td class="memItemLeft" align="right" valign="top"><a id="afd44384df2bec4d382f2f8c8444a06f7" name="afd44384df2bec4d382f2f8c8444a06f7"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setFps</b> (int fps)</td></tr>
+<tr class="memitem:afd44384df2bec4d382f2f8c8444a06f7" id="r_afd44384df2bec4d382f2f8c8444a06f7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd44384df2bec4d382f2f8c8444a06f7">setFps</a> (int fps)</td></tr>
+<tr class="memdesc:afd44384df2bec4d382f2f8c8444a06f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置目标帧率  <br /></td></tr>
 <tr class="separator:afd44384df2bec4d382f2f8c8444a06f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4f95c3b217dcda93389c90ee08b53c6" id="r_ab4f95c3b217dcda93389c90ee08b53c6"><td class="memItemLeft" align="right" valign="top"><a id="ab4f95c3b217dcda93389c90ee08b53c6" name="ab4f95c3b217dcda93389c90ee08b53c6"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>getSetFps</b> ()</td></tr>
+<tr class="memitem:ab4f95c3b217dcda93389c90ee08b53c6" id="r_ab4f95c3b217dcda93389c90ee08b53c6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4f95c3b217dcda93389c90ee08b53c6">getSetFps</a> ()</td></tr>
+<tr class="memdesc:ab4f95c3b217dcda93389c90ee08b53c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取设置的目标帧率  <br /></td></tr>
 <tr class="separator:ab4f95c3b217dcda93389c90ee08b53c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95002b3eeeca6abb938caf216670be69" id="r_a95002b3eeeca6abb938caf216670be69"><td class="memItemLeft" align="right" valign="top"><a id="a95002b3eeeca6abb938caf216670be69" name="a95002b3eeeca6abb938caf216670be69"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setTitle</b> (const <a class="el" href="class_string.html">String</a> &amp;title)</td></tr>
+<tr class="memitem:a95002b3eeeca6abb938caf216670be69" id="r_a95002b3eeeca6abb938caf216670be69"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95002b3eeeca6abb938caf216670be69">setTitle</a> (const <a class="el" href="class_string.html">String</a> &amp;title)</td></tr>
+<tr class="memdesc:a95002b3eeeca6abb938caf216670be69"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置窗口标题  <br /></td></tr>
 <tr class="separator:a95002b3eeeca6abb938caf216670be69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>应用程序类 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a0af8939267de5938fc1f1c8b2c1a0797" name="a0af8939267de5938fc1f1c8b2c1a0797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af8939267de5938fc1f1c8b2c1a0797">&#9670;&#160;</a></span>App()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">App::App </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_block.html">Block</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">Default</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Block对象树的根节点 </td></tr>
+    <tr><td class="paramname">flags</td><td>程序初始化标志 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ae8481a4ce3bc24bad1f4eec4bda76cc9" name="ae8481a4ce3bc24bad1f4eec4bda76cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8481a4ce3bc24bad1f4eec4bda76cc9">&#9670;&#160;</a></span>getFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float App::getFps </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前实际帧率 </p>
+<dl class="section return"><dt>返回</dt><dd>实际帧率 </dd></dl>
+
+</div>
+</div>
+<a id="ab4f95c3b217dcda93389c90ee08b53c6" name="ab4f95c3b217dcda93389c90ee08b53c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f95c3b217dcda93389c90ee08b53c6">&#9670;&#160;</a></span>getSetFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int App::getSetFps </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取设置的目标帧率 </p>
+<dl class="section return"><dt>返回</dt><dd>目标帧率 </dd></dl>
+
+</div>
+</div>
+<a id="afd44384df2bec4d382f2f8c8444a06f7" name="afd44384df2bec4d382f2f8c8444a06f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd44384df2bec4d382f2f8c8444a06f7">&#9670;&#160;</a></span>setFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App::setFps </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fps</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置目标帧率 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fps</td><td>目标帧率 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a95002b3eeeca6abb938caf216670be69" name="a95002b3eeeca6abb938caf216670be69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95002b3eeeca6abb938caf216670be69">&#9670;&#160;</a></span>setTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App::setTitle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_string.html">String</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>title</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置窗口标题 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>窗口标题 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li>include/view/<a class="el" href="_app_8h_source.html">App.h</a></li>
 <li>src/view/<b>App.cpp</b></li>

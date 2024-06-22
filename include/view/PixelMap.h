@@ -5,6 +5,9 @@
 class Size;
 class Painter;
 
+/**
+ * @brief 位图类
+ */
 class PixelMap final : public Object {
     friend class Painter;
     friend void* getTarget(Painter*);
@@ -36,7 +39,15 @@ public:
     PixelMap& operator=(const PixelMap& other) noexcept;
     PixelMap& operator=(PixelMap&& other) noexcept;
 
+    /**
+     * @brief 开始绘制
+     * @return 针对于此位图的绘制器
+     */
     Painter& beginPaint() noexcept;
+    /**
+     * @brief 结束绘制
+     * @param painter 通过beginPaint获得的绘制器
+     */
     void endPaint(const Painter& painter);
 
     SizeData size() noexcept;
