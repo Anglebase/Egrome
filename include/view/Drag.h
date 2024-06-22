@@ -12,11 +12,11 @@ private:
     bool isDragging_;
     Point relativePos;
 
-    MouseButton button_;
-
+private:
     bool xDraggable_;
     bool yDraggable_;
-    
+    MouseButton button_;
+
 protected:
     void mousePressEvent(MousePressEvent* event) override;
     void mouseMoveEvent(MouseMoveEvent* event) override;

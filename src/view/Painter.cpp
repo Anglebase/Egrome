@@ -29,7 +29,7 @@ int operator""_em(long double value) {
         ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
         ) / 2.0f;
     float axis = (float)value * dpi / 96.0f;
-    return static_cast<int>(axis * 24);
+    return static_cast<int>(axis * 16);
 }
 
 int operator""_em(unsigned long long value) {
@@ -38,16 +38,17 @@ int operator""_em(unsigned long long value) {
         ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
         ) / 2.0f;
     float axis = (float)value * dpi / 96.0f;
-    return static_cast<int>(axis * 24);
+    return static_cast<int>(axis * 16);
 }
 
-TextAligns::TextAligns(int aligns) noexcept : aligns(aligns) {}
-TextAligns operator|(TextAlign a, TextAlign b) { return TextAligns(a | b); }
-TextAligns operator|(TextAligns a, TextAlign b) { return TextAligns(a.aligns | b); }
-TextAligns operator|(TextAlign a, TextAligns b) { return TextAligns(a | b.aligns); }
+TextAligns::TextAligns(int aligns) noexcept
+    : aligns(aligns) {}
+TextAligns operator|(TextAlign a, TextAlign b) { return TextAligns((int)a | (int)b); }
+TextAligns operator|(TextAligns a, TextAlign b) { return TextAligns(a.aligns | (int)b); }
+TextAligns operator|(TextAlign a, TextAligns b) { return TextAligns((int)a | b.aligns); }
 TextAligns operator|(TextAligns a, TextAligns b) { return TextAligns(a.aligns | b.aligns); }
-bool operator&(TextAligns a, TextAlign b) { return (a.aligns & b) != 0; }
-bool operator&(TextAlign a, TextAligns b) { return (a & b.aligns) != 0; }
+bool operator&(TextAligns a, TextAlign b) { return (a.aligns & (int)b) != 0; }
+bool operator&(TextAlign a, TextAligns b) { return ((int)a & b.aligns) != 0; }
 
 static DWORD translateOperationCode(BlendMode blendMode) {
     switch (blendMode) {
