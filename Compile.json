@@ -6,7 +6,7 @@
             "./src/view/*.cpp",
             "./src/core/*.cpp",
             "./src/event/*.cpp",
-            "./test/active.cpp"
+            "./test/test.cpp"
         ],
         "include": [
             "./include/view/",
@@ -28,9 +28,9 @@
         ],
         "compile": true,
         "start": true,
-        "target": "./bin/active.exe",
+        "target": "./bin/test.exe",
         "option": [
-            "-g"
+            "-O4"
         ],
         "define": [
             "UNICODE",

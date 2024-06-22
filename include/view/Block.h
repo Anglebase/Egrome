@@ -1,6 +1,6 @@
 #pragma once
 
-#include <set>
+#include <vector>
 #include "../core/Object.h"
 #include "../core/Rect.h"
 
@@ -23,7 +23,8 @@ private:
     bool foreach_;
 
     Block* parent_;
-    std::set<Block*> children_;
+    std::vector<Block*> children_;
+    long long zindex_;
 
 protected:
     /**
@@ -88,7 +89,7 @@ public:
      * @brief 获取子对象指针集合
      * @return 子对象指针集合
      */
-    std::set<Block*>& children();
+    std::vector<Block*>& children();
 
     /**
      * @brief 设置父对象
@@ -108,10 +109,14 @@ public:
 
     /**
      * @brief 终止此对象子树事件循环的遍历
+     * @note 此函数用于解决当Block对象较多时会造成的性能问题
+     * @see resetForeach
      */
     void stopForeach();
     /**
      * @brief 重新启用此对象子树事件循环的遍历
+     * @note 此函数用于解决当Block对象较多时会造成的性能问题
+     * @see stopForeach
      */
     void resetForeach();
     /**
@@ -119,4 +124,16 @@ public:
      * @return 事件循环可遍历状态
      */
     bool isForeach() const;
+
+    /**
+     * @brief 设置Z轴顺序
+     * @note 值越大，Z轴越靠前
+     * @param zindex Z轴顺序
+     */
+    void setZIndex(long long zindex);
+    /**
+     * @brief 获取Z轴顺序
+     * @return Z轴顺序
+     */
+    long long zIndex() const;
 };

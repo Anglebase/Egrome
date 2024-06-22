@@ -15,6 +15,7 @@
 
 #include "XString.h"
 
+int App::fps_ = 60;
 // 以树结构遍历所有Block
 template<typename T>
 void foreach(Block* root, void(Block::* func)(T*), T* arg) {
@@ -34,7 +35,6 @@ void App::quit(int code) {
     std::exit(code);
 }
 
-int App::fps_ = 60;
 float App::getFps() { return ege::getfps(); }
 void App::setFps(int fps) { App::fps_ = fps; }
 int App::getSetFps() { return App::fps_; }

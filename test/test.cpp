@@ -1,6 +1,50 @@
 #include "App.h"
 #include "Painter.h"
 #include "PaintEvent.h"
+#include "XString.h"
+#include "Drag.h"
+
+#include <vector>
+
+class Child :public Block {
+    void paintEvent(PaintEvent* event) override {
+        auto& painter = event->beginPaint(this);
+        painter.setBrushColor(0x12345678_rgba);
+        painter.setPenColor(0x87654371_rgba);
+
+        painter.drawRect(painter.rect());
+        event->endPaint(painter);
+    }
+private:
+    std::vector<Block*> blocks;
+public:
+    Child(const Rect& rect, Block* parent = nullptr) :Block(rect, parent) {
+        for (int i = 0; i < 100; i++) {
+            this->blocks.push_back(
+                new Block(Rect{ 10.f + i * 10.f, 10.f + i * 10.f, 50.f, 50.f }, this)
+            );
+        }
+    }
+    ~Child() {
+        for (auto block : blocks) {
+            delete block;
+        }
+    }
+};
+
+class Draggable :public Drag {
+protected:
+    void paintEvent(PaintEvent* event) override {
+        auto& painter = event->beginPaint(this);
+        painter.setBrushColor(0x12345678_rgba);
+        painter.setPenColor(0x87654371_rgba);
+        painter.drawFillRect(painter.rect());
+        event->endPaint(painter);
+    }
+public:
+    Draggable(const Rect& rect, Block* parent = nullptr)
+        :Drag(rect, parent) {}
+};
 
 class Window :public Block {
 protected:
@@ -43,14 +87,29 @@ protected:
 
         event->endPaint(painter);
     }
+private:
+    std::vector<Child*> m_blocks;
+    Draggable* m_drag = nullptr;
 public:
     Window(const Rect& rect, Block* parent = nullptr) :Block(rect, parent) {
-
+        for (int i = 0; i < 125; i++) {
+            this->m_blocks.push_back(
+                new Child(Rect{ 10.f + i, 10.f + i, 500.f, 500.f }, this)
+            );
+        }
+        this->m_drag = new Draggable(Rect{ 100, 100, 100, 100 }, this);
+        this->m_drag->setZIndex(-10);
+    }
+    ~Window() {
+        for (auto block : m_blocks) {
+            delete block;
+        }
+        delete m_drag;
     }
 };
 
 int main() {
-    Window window{ Rect{0, 0, 1000, 800} };
+    Window window{ Rect{0, 0, 1600, 900} };
     App app{ &window };
     app.run();
     return 0;
