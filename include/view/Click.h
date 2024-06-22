@@ -7,7 +7,7 @@
 /**
  * @brief 点击行为基类，通过继承此类可以使得Block具有处理点击事件的能力
  */
-class Click : public Block {
+class Click : virtual public Block {
 private:
     MouseButton button_;
     ButtonState state_;

@@ -7,7 +7,7 @@
 /**
  * @brief 拖动行为基类，通过继承此类可以使得Block具有拖动行为
  */
-class Drag : public Block {
+class Drag : virtual public Block {
 private:
     bool isDragging_;
     Point relativePos;
