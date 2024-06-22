@@ -7,6 +7,7 @@
 #pragma once
 #include "./Object.h"
 
+class Rect;
 /**
  * @brief 点类
  */
@@ -44,4 +45,10 @@ public:
      * @return 两点之间的距离
      */
     float distance(const Point &other) const noexcept;
+    /**
+     * @brief 判断点是否在矩形内，不包含边界
+     * @param rect 矩形
+     * @return 点是否在矩形内
+     */
+    bool inside(const Rect &rect) const noexcept;
 };

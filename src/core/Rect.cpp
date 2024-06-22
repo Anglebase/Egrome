@@ -242,3 +242,8 @@ Point Rect::pos() const noexcept {
 Size Rect::size() const noexcept {
     return Size(this->width_, this->height_);
 }
+
+bool Rect::contains(const Point& point) const noexcept {
+    return point.x() >= this->x_ && point.x() <= this->x_ + this->width_ &&
+           point.y() >= this->y_ && point.y() <= this->y_ + this->height_;
+}

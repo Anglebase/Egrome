@@ -162,4 +162,10 @@ public:
     Point pos() const noexcept;
     Size size() const noexcept;
 #pragma endregion 隐属性访问器
+    /**
+     * @brief 判断点是否在矩形内，包含边界
+     * @param point 点
+     * @return true 点在矩形内，包含边界；false 点不在矩形内
+     */
+    bool contains(const Point& point) const noexcept;
 };
