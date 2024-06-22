@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wheel_0',['wheel',['../class_mouse_wheel_event.html#a9caf7d1b44c9cc4b6c80edf341e01ae2',1,'MouseWheelEvent']]],
-  ['withoutalpha_1',['withoutAlpha',['../class_color.html#a7eefbe1ef906ce03b70e40be6cd67f1f',1,'Color']]]
+  ['value_0',['value',['../class_animation.html#ad60734ce9a229954fb6b16f049a9827c',1,'Animation']]]
 ];
