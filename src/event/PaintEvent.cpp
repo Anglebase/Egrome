@@ -25,8 +25,8 @@ void PaintEvent::endPaint(const Painter& painter) {
     }
 }
 
-PaintEvent::InvalidBlock::InvalidBlock(const String& message) noexcept
+PaintEvent::InvalidBlock::InvalidBlock(const wchar_t* message) noexcept
     :Exception(message) {}
 
-PaintEvent::WrongPainter::WrongPainter(const String& message) noexcept
+PaintEvent::WrongPainter::WrongPainter(const wchar_t* message) noexcept
     :Exception(message) {}

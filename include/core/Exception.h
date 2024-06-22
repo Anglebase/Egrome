@@ -1,14 +1,13 @@
 #pragma once
 
 #include "./Object.h"
-#include "./XString.h"
 
 class Exception : public Object {
 protected:
-    String message_;
+    wchar_t* message_;
 public:
-    Exception(const String& message);
+    Exception(const wchar_t* message);
     virtual ~Exception();
 
-    virtual const String& getMessage() const;
+    virtual const wchar_t* getMessage() const;
 };

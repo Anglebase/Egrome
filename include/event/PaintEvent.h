@@ -15,11 +15,11 @@ private:
 
     class InvalidBlock : public Exception {
     public:
-        InvalidBlock(const String& message) noexcept;
+        InvalidBlock(const wchar_t* message) noexcept;
     };
     class WrongPainter : public Exception {
     public:
-        WrongPainter(const String& message) noexcept;
+        WrongPainter(const wchar_t* message) noexcept;
     };
 public:
     PaintEvent() noexcept;

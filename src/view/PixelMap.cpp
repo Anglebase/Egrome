@@ -1,11 +1,10 @@
 #include "PixelMap.h"
 #include "Size.h"
 #include "Painter.h"
-
 #include <ege.h>
 
-PixelMap::WrongPainter::WrongPainter(const String& message) noexcept
-    : Exception(message) {}
+PixelMap::WrongPainter::WrongPainter(const wchar_t* message) noexcept
+    :Exception(message) {}
 
 PixelMap::SizeData::SizeData(PixelMap* map) noexcept
     :map_(map) {}
@@ -95,7 +94,7 @@ Painter& PixelMap::beginPaint() noexcept {
 
 /**
  * @brief 结束绘制
- * @param painter 
+ * @param painter
  * @throw WrongPainter
  */
 void PixelMap::endPaint(const Painter& painter) {
@@ -106,3 +105,4 @@ void PixelMap::endPaint(const Painter& painter) {
         this->painter_ = nullptr;
     }
 }
+

@@ -27,7 +27,7 @@ private:
 
     class WrongPainter: public Exception {
     public:
-        WrongPainter(const String& message) noexcept;
+        WrongPainter(const wchar_t* message) noexcept;
     };
 public:
     PixelMap() noexcept;

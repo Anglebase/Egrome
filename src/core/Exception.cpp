@@ -1,8 +1,14 @@
 #include "Exception.h"
+#include <cwchar>
 
-Exception::Exception(const String& message) : message_(message) {}
-Exception::~Exception() = default;
+Exception::Exception(const wchar_t* message) {
+    this->message_ = new wchar_t[std::wcslen(message) + 1];
+    std::wcscpy(this->message_, message);
+}
+Exception::~Exception(){
+    delete[] this->message_;
+}
 
-const String& Exception::getMessage() const {
+const wchar_t* Exception::getMessage() const {
     return this->message_;
 }

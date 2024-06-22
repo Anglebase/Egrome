@@ -90,7 +90,7 @@ void String::toUpper() noexcept {
  * @note 如给定分隔符为空，则不会对字符串进行分割操作，直接返回原字符串
  */
 std::vector<String> String::split(const String& delimiter) const noexcept {
-    if(((std::wstring)delimiter).empty()){
+    if (((std::wstring)delimiter).empty()) {
         return { *this };
     }
     std::vector<String> result;
@@ -115,5 +115,5 @@ String String::join(const std::vector<String>& strs) const noexcept {
     return result;
 }
 
-String::OutOfRange::OutOfRange(const wchar_t* message) 
+String::OutOfRange::OutOfRange(const wchar_t* message)
     : Exception(message) {}
