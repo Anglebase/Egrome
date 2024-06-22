@@ -31,6 +31,7 @@ void foreach(Block* root, void(Block::* func)(T*), T* arg) {
 }
 
 void App::quit(int code) {
+    App::windowClose.emit();
     ege::closegraph();
     std::exit(code);
 }
@@ -56,12 +57,13 @@ void App::run() {
     ege::initgraph(this->root_->rect_.width(), this->root_->rect_.height());
     ege::setbkmode(TRANSPARENT);
     App::setTitle(L"Egrome");
+    App::windowCreated.emit();
 
+    PaintEvent paint_event;
     for (auto now = std::chrono::steady_clock::now();
         ege::is_run();
         ege::delay_fps(App::fps_), now = std::chrono::steady_clock::now()) {
         // 绘制事件，每帧只执行一次
-        PaintEvent paint_event;
         foreach(this->root_, &Block::paintEvent, &paint_event);
         // 键鼠事件，每帧尽可能多地执行
         do {
@@ -158,5 +160,6 @@ void App::run() {
             (std::chrono::steady_clock::now() - now).count() * App::fps_ < 900);
     }
 
+    App::windowClose.emit();
     ege::closegraph();
 }

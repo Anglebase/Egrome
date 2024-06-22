@@ -2,6 +2,7 @@
 
 #include "../core/Object.h"
 #include "./Block.h"
+#include "../core/SignalSlots.hpp"
 class String;
 
 enum InitFlag {
@@ -53,4 +54,7 @@ public:
      * @brief 事件循环
      */
     void run();
+public:
+    static Signal<void()> windowCreated;
+    static Signal<void()> windowClose;
 };
