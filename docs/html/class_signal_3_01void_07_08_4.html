@@ -99,182 +99,39 @@ $(function(){initNavTree('class_signal_3_01void_07_08_4.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#friends">友元</a> &#124;
 <a href="class_signal_3_01void_07_08_4-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">Signal&lt; void()&gt;类 参考<div class="ingroups"><a class="el" href="group___xE6_xA0_xB8_xE5_xBF_x83.html">核心</a></div></div></div>
+  <div class="headertitle"><div class="title">Signal&lt; void()&gt;类 参考</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>信号类的无参特化  
+<p>信号类模板无参特化  
  <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_signal_slots_8hpp_source.html">SignalSlots.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a6c78dbab55eb469a0513c6a9d6f4a1ee" id="r_a6c78dbab55eb469a0513c6a9d6f4a1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c78dbab55eb469a0513c6a9d6f4a1ee">connect</a> (<a class="el" href="class_var.html">const</a> std::function&lt; <a class="el" href="class_var.html">void</a>()&gt; &amp;<a class="el" href="class_var.html">slot</a>)</td></tr>
-<tr class="memdesc:a6c78dbab55eb469a0513c6a9d6f4a1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 <em>slot</em> 添加到槽函数列表  <br /></td></tr>
-<tr class="separator:a6c78dbab55eb469a0513c6a9d6f4a1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac768903c2e336d286e45d4b396691528" id="r_ac768903c2e336d286e45d4b396691528"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="class_var.html">typename</a> <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </td></tr>
-<tr class="memitem:ac768903c2e336d286e45d4b396691528"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac768903c2e336d286e45d4b396691528">connect</a> (<a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> *<a class="el" href="class_var.html">obj</a>, <a class="el" href="class_var.html">void</a>(T::*<a class="el" href="class_var.html">func</a>)())</td></tr>
-<tr class="memdesc:ac768903c2e336d286e45d4b396691528"><td class="mdescLeft">&#160;</td><td class="mdescRight">connect函数的重载，将成员函数作为槽函数  <br /></td></tr>
-<tr class="separator:ac768903c2e336d286e45d4b396691528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9c6d5851f9d9bcdac93a61532238495" id="r_ac9c6d5851f9d9bcdac93a61532238495"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9c6d5851f9d9bcdac93a61532238495">disconnect</a> (<a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a> slotId)</td></tr>
-<tr class="memdesc:ac9c6d5851f9d9bcdac93a61532238495"><td class="mdescLeft">&#160;</td><td class="mdescRight">移除槽函数  <br /></td></tr>
-<tr class="separator:ac9c6d5851f9d9bcdac93a61532238495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6c0d6a5e4e73fd7b662d96cbd2606e" id="r_a2f6c0d6a5e4e73fd7b662d96cbd2606e"><td class="memItemLeft" align="right" valign="top"><a id="a2f6c0d6a5e4e73fd7b662d96cbd2606e" name="a2f6c0d6a5e4e73fd7b662d96cbd2606e"></a>
+<a class="el" href="class_signal.html">Signal</a>&lt; void()&gt;::Connection&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> (std::function&lt; void()&gt; slot)</td></tr>
+<tr class="separator:a2f6c0d6a5e4e73fd7b662d96cbd2606e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c83c00e73f1992d9c5c44980c7d0b1" id="r_a85c83c00e73f1992d9c5c44980c7d0b1"><td class="memItemLeft" align="right" valign="top"><a id="a85c83c00e73f1992d9c5c44980c7d0b1" name="a85c83c00e73f1992d9c5c44980c7d0b1"></a>
+<a class="el" href="class_signal.html">Signal</a>&lt; void()&gt;::Connection&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> (<a class="el" href="class_object.html">Object</a> *obj, void(Object::*method)())</td></tr>
+<tr class="separator:a85c83c00e73f1992d9c5c44980c7d0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c1791b803c0c623b5ea2f4834a1fc7" id="r_a16c1791b803c0c623b5ea2f4834a1fc7"><td class="memItemLeft" align="right" valign="top"><a id="a16c1791b803c0c623b5ea2f4834a1fc7" name="a16c1791b803c0c623b5ea2f4834a1fc7"></a>
-<a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><b>emit</b> ()</td></tr>
-<tr class="memdesc:a16c1791b803c0c623b5ea2f4834a1fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送信号，调用所有槽函数 <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>emit</b> ()</td></tr>
 <tr class="separator:a16c1791b803c0c623b5ea2f4834a1fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a485f822a460fab05732c4cfff5dc9dc5" id="r_a485f822a460fab05732c4cfff5dc9dc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a485f822a460fab05732c4cfff5dc9dc5">operator()</a> ()</td></tr>
-<tr class="memdesc:a485f822a460fab05732c4cfff5dc9dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送信号，调用所有槽函数  <br /></td></tr>
-<tr class="separator:a485f822a460fab05732c4cfff5dc9dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a54a11fdc71e1679a42fa0c0e3856673d" id="r_a54a11fdc71e1679a42fa0c0e3856673d"><td class="memItemLeft" align="right" valign="top"><a id="a54a11fdc71e1679a42fa0c0e3856673d" name="a54a11fdc71e1679a42fa0c0e3856673d"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Connection</b></td></tr>
+<tr class="separator:a54a11fdc71e1679a42fa0c0e3856673d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>信号类的无参特化 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
-<a id="a6c78dbab55eb469a0513c6a9d6f4a1ee" name="a6c78dbab55eb469a0513c6a9d6f4a1ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c78dbab55eb469a0513c6a9d6f4a1ee">&#9670;&#160;</a></span>connect() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;::connect </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> std::function&lt; <a class="el" href="class_var.html">void</a>()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>将 <em>slot</em> 添加到槽函数列表 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">slot</td><td>槽函数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>此槽函数的 ID </dd></dl>
-
-</div>
-</div>
-<a id="ac768903c2e336d286e45d4b396691528" name="ac768903c2e336d286e45d4b396691528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac768903c2e336d286e45d4b396691528">&#9670;&#160;</a></span>connect() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="class_var.html">typename</a> <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;::connect </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ggab3c7af4820830f9166ede9e5623c4e73ab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">void</a>(T::*)()</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>connect函数的重载，将成员函数作为槽函数 </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obj</td><td>对象指针 </td></tr>
-    <tr><td class="paramname">func</td><td>成员函数指针 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>此槽函数的 ID </dd></dl>
-
-</div>
-</div>
-<a id="ac9c6d5851f9d9bcdac93a61532238495" name="ac9c6d5851f9d9bcdac93a61532238495"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9c6d5851f9d9bcdac93a61532238495">&#9670;&#160;</a></span>disconnect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> <a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;::disconnect </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">unsigned</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a></td>          <td class="paramname"><span class="paramname"><em>slotId</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>移除槽函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">slotId</td><td>要移除的槽函数 ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a485f822a460fab05732c4cfff5dc9dc5" name="a485f822a460fab05732c4cfff5dc9dc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a485f822a460fab05732c4cfff5dc9dc5">&#9670;&#160;</a></span>operator()()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> <a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;<a class="el" href="class_var.html">::operator</a>() </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>发送信号，调用所有槽函数 </p>
-<dl class="section note"><dt>注解</dt><dd>重载了 () 操作符，方便调用，效果等同于 emit 函数 </dd></dl>
-
-</div>
-</div>
-<hr/>该类的文档由以下文件生成:<ul>
+<div class="textblock"><p>信号类模板无参特化 </p>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_signal_3_01void_07_args_8_8_8_08_4.html" title="信号类">Signal&lt;void(Args...)&gt;</a> </dd></dl>
+</div><hr/>该类的文档由以下文件生成:<ul>
 <li>include/core/<a class="el" href="_signal_slots_8hpp_source.html">SignalSlots.hpp</a></li>
 </ul>
 </div><!-- contents -->

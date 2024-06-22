@@ -1,144 +1,108 @@
 #include "PixelMap.h"
 #include "Size.h"
 #include "Painter.h"
-#include "Rect.h"
+
 #include <ege.h>
 
-PixelMap PixelMap::FormScreen(const Rect &rect)
-{
-    PixelMap result({rect.width(), rect.height()});
-    ege::getimage((ege::IMAGE *)result.image_,
-                  rect.x(), rect.y(),
-                  rect.width(), rect.height());
-    return result;
+PixelMap::WrongPainter::WrongPainter(const String& message) noexcept
+    : Exception(message) {}
+
+PixelMap::SizeData::SizeData(PixelMap* map) noexcept
+    :map_(map) {}
+
+Size PixelMap::SizeData::operator=(const Size& size) noexcept {
+    if (!this->map_->image_)return Size();
+    ege::resize((ege::PIMAGE)this->map_->image_,
+        static_cast<int>(size.width()), static_cast<int>(size.height()));
+    return size;
+}
+PixelMap::SizeData::operator Size() const noexcept {
+    if (!this->map_->image_)return Size();
+    return Size{
+        static_cast<float>(ege::getwidth((ege::PIMAGE)this->map_->image_)),
+        static_cast<float>(ege::getheight((ege::PIMAGE)this->map_->image_)),
+    };
 }
 
-PixelMap PixelMap::FromFile(const std::string &filename)
-{
-    PixelMap result;
-    ege::IMAGE *image = ege::newimage(1, 1);
-    ege::getimage((ege::IMAGE *)image, filename.c_str());
-    result.image_ = image;
-    result.width_ = ege::getwidth((ege::IMAGE *)result.image_);
-    result.height_ = ege::getheight((ege::IMAGE *)result.image_);
-    return result;
+PixelMap::SizeData PixelMap::size() noexcept {
+    return SizeData(this);
 }
 
-PixelMap PixelMap::FromFile(const std::wstring &filename)
-{
-    PixelMap result;
-    ege::IMAGE *image = ege::newimage(1, 1);
-    ege::getimage((ege::IMAGE *)image, filename.c_str());
-    result.image_ = image;
-    result.width_ = ege::getwidth((ege::IMAGE *)result.image_);
-    result.height_ = ege::getheight((ege::IMAGE *)result.image_);
-    return result;
+Size PixelMap::size() const noexcept {
+    if (!this->image_)return Size();
+    return Size{
+        static_cast<float>(ege::getwidth((ege::PIMAGE)this->image_)),
+        static_cast<float>(ege::getheight((ege::PIMAGE)this->image_)),
+    };
 }
 
-PixelMap::PixelMap(const Size &size)
-    : width_(size.width()), height_(size.height())
-{
-    this->image_ = ege::newimage(width_, height_);
+PixelMap::PixelMap() noexcept
+    : image_(nullptr), painter_(nullptr) {}
+
+PixelMap::PixelMap(int width, int height) noexcept
+    :painter_(nullptr) {
+    this->image_ = ege::newimage(width, height);
 }
 
-PixelMap::PixelMap(const PixelMap &other)
-{
-    this->width_ = other.width_;
-    this->height_ = other.height_;
-    this->image_ = ege::newimage(width_, height_);
-    ege::putimage((ege::IMAGE *)this->image_,
-                  0, 0, (ege::IMAGE *)other.image_,
-                  SRCCOPY);
+PixelMap::PixelMap(const PixelMap& other) noexcept
+    : painter_(nullptr) {
+    this->image_ = ege::newimage(other.size().width(), other.size().height());
+    ege::putimage((ege::PIMAGE)this->image_, 0, 0,
+        (ege::PIMAGE)other.image_);
 }
 
-PixelMap::PixelMap(PixelMap &&other)
-{
-    this->width_ = other.width_;
-    this->height_ = other.height_;
+PixelMap::PixelMap(PixelMap&& other) noexcept
+    :painter_(nullptr) {
     this->image_ = other.image_;
     other.image_ = nullptr;
 }
 
-PixelMap &PixelMap::operator=(const PixelMap &other)
-{
-    if (this != &other)
-    {
-        if (this->image_)
-            ege::delimage((ege::IMAGE *)this->image_);
-        this->width_ = other.width_;
-        this->height_ = other.height_;
-        ege::delimage((ege::IMAGE *)this->image_);
-        this->image_ = ege::newimage(width_, height_);
-        ege::putimage((ege::IMAGE *)this->image_,
-                      0, 0, (ege::IMAGE *)other.image_,
-                      SRCCOPY);
+PixelMap::~PixelMap() noexcept {
+    if (this->image_) {
+        ege::delimage((ege::PIMAGE)this->image_);
+        this->image_ = nullptr;
     }
+}
+
+PixelMap& PixelMap::operator=(const PixelMap& other) noexcept {
+    if (this == &other)return *this;
+    if (this->image_) {
+        ege::delimage((ege::PIMAGE)this->image_);
+        this->image_ = nullptr;
+    }
+    this->image_ = ege::newimage(other.size().width(), other.size().height());
+    ege::putimage((ege::PIMAGE)this->image_, 0, 0,
+        (ege::PIMAGE)other.image_);
     return *this;
 }
 
-PixelMap &PixelMap::operator=(PixelMap &&other)
-{
-    if (this != &other)
-    {
-        if (this->image_)
-            ege::delimage((ege::IMAGE *)this->image_);
-        this->width_ = other.width_;
-        this->height_ = other.height_;
-        this->image_ = other.image_;
-        other.image_ = nullptr;
+PixelMap& PixelMap::operator=(PixelMap&& other) noexcept {
+    if (this == &other)return *this;
+    if (this->image_) {
+        ege::delimage((ege::PIMAGE)this->image_);
+        this->image_ = nullptr;
     }
+    this->image_ = other.image_;
+    other.image_ = nullptr;
     return *this;
 }
 
-PixelMap::~PixelMap()
-{
-    if (this->image_)
-        ege::delimage((ege::IMAGE *)this->image_);
-    this->image_ = nullptr;
-    this->endPaint();
-}
-
-Size PixelMap::getSize() const
-{
-    return Size(this->width_, this->height_);
-}
-
-void PixelMap::setSize(const Size &size)
-{
-    ege::resize((ege::IMAGE *)this->image_,
-                static_cast<int>(size.width()),
-                static_cast<int>(size.height()));
-    this->width_ = size.width();
-    this->height_ = size.height();
-}
-
-const Painter &PixelMap::beginPaint() const
-{
-    if (this->painter_ == nullptr)
-        this->painter_ = new Painter(this);
+Painter& PixelMap::beginPaint() noexcept {
+    if (this->painter_)return *this->painter_;
+    this->painter_ = new Painter(this);
     return *this->painter_;
 }
 
-void PixelMap::endPaint() const
-{
-    if (this->painter_ != nullptr)
-    {
+/**
+ * @brief 结束绘制
+ * @param painter 
+ * @throw WrongPainter
+ */
+void PixelMap::endPaint(const Painter& painter) {
+    if (this->painter_ != &painter)
+        throw WrongPainter(L"Wrong painter");
+    if (this->painter_) {
         delete this->painter_;
         this->painter_ = nullptr;
     }
-}
-
-PixelMap PixelMap::clip(const Rect &rect) const
-{
-    PixelMap result({rect.width(), rect.height()});
-    ege::putimage((ege::IMAGE *)result.image_,
-                  0, 0, rect.width(), rect.height(),
-                  (ege::IMAGE *)this->image_,
-                  rect.x(), rect.y(), SRCCOPY);
-    return result;
-}
-
-bool PixelMap::isNull() const
-{
-    return this->image_ == nullptr;
 }

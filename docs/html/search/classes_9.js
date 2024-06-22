@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['number_0',['Number',['../class_number.html',1,'']]],
-  ['number_3c_20int_20_3e_1',['Number&lt; int &gt;',['../class_number.html',1,'']]]
+  ['object_0',['Object',['../class_object.html',1,'']]],
+  ['outofrange_1',['OutOfRange',['../class_string_1_1_out_of_range.html',1,'String']]]
 ];

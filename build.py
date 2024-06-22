@@ -2,9 +2,12 @@ import os, shutil
 
 ## 编译代码
 
-VERSION = "v0.1.0"
-COMPILER = R"g++"
-LINKER = R"ar"
+VERSION = "v1.0.0"
+
+# 编译器和链接器所在路径，它们通常在同一目录下
+# 若不指定具体路径(如下所示)，则指示为环境变量所指定的编译器和链接器(与命令行中使用的相同)
+COMPILER = "g++"
+LINKER = "ar"
 
 print(VERSION)
 input("按Enter键继续...")
@@ -12,7 +15,7 @@ input("按Enter键继续...")
 os.system("md out")
 print("正在编译代码...")
 ret = os.system(
-    f"cd out && {COMPILER} -c ../src/class/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/class/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
+    f"cd out && {COMPILER} -c ../src/event/*.cpp ../src/core/*.cpp ../src/view/*.cpp -I ../include/event/ -I ../include/core/ -I ../include/view/ -std=c++17 -DUNICODE -D_UNICODE -O4".replace(
         "/", "\\"
     )
 )
@@ -38,7 +41,7 @@ if os.path.exists(f"release/egrome-{VERSION}"):
     shutil.rmtree(f"release/egrome-{VERSION}")
 
 print("正在复制头文件...")
-shutil.copytree("./include", f"release/egrome-{VERSION}/include/egrome")
+shutil.copytree("./include", f"release/egrome-{VERSION}/include/egrome/includes")
 print("复制完成！")
 
 ## 复制库文件

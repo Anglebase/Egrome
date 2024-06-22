@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['keypressevent_0',['keyPressEvent',['../class_line_edit.html#ab510c9ff4f502bc336e696d7e921d2f5',1,'LineEdit::keyPressEvent()'],['../class_block.html#a757c4552853538a17fc0f927ed4b27d3',1,'Block::keyPressEvent()'],['../class_scroll_view.html#a396b5073f3c5c41dac88ec942535e227',1,'ScrollView::keyPressEvent()']]],
-  ['keyreleaseevent_1',['keyReleaseEvent',['../class_block.html#abb78322e3b4f03d83df97bb938eb4889',1,'Block::keyReleaseEvent()'],['../class_scroll_view.html#a1bee18dbd02ee2f2334c039c08cb9ea1',1,'ScrollView::keyReleaseEvent()']]]
+  ['key_0',['key',['../class_key_event.html#a02eeabfb5ec14131d10a857438dbfeb4',1,'KeyEvent']]],
+  ['keypressevent_1',['keyPressEvent',['../class_block.html#a6b9afa9b4e5064e3fd08322215e744e3',1,'Block']]],
+  ['keyreleaseevent_2',['keyReleaseEvent',['../class_block.html#aff8ee13f22ef6b4e7a548dc3b48137c4',1,'Block']]]
 ];

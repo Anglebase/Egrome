@@ -1,73 +1,47 @@
 #pragma once
 
-#include <optional>
-#include "Block.h"
-#include "Point.h"
-
-enum class Ref{
-    Global,
-    Window
-};
+#include "../core/SignalSlots.hpp"
+#include "./Block.h"
+#include "../event/MouseKeyEvent.h"
 
 /**
- * @brief 可拖动的块
- * @note 继承自 Block，它是所有可拖动对象的基类，它通过监视鼠标的全局(窗口)坐标来判断鼠标所拖动的相对位置，因此也可以用于窗口拖动移动
+ * @brief 拖动行为基类，通过继承此类可以使得Block具有拖动行为
  */
-class Drag : public Block
-{
+class Drag : public Block {
 private:
-    Ref ref_ = Ref::Window;
-    std::optional<Point> beginPos_{std::nullopt};
-    std::optional<Point> thisPos_{std::nullopt};
-    bool xEnabled_ = true;
-    bool yEnabled_ = true;
+    bool isDragging_;
+    Point relativePos;
 
+    MouseButton button_;
+    
 protected:
-    void mousePressEvent(const Point &pos, MouseButton button) override;
-    void mouseMoveEvent(const Point &pos) override;
-    void mouseReleaseEvent(const Point &pos, MouseButton button) override;
+    void mousePressEvent(MousePressEvent* event) override;
+    void mouseMoveEvent(MouseMoveEvent* event) override;
+    void mouseReleaseEvent(MouseReleaseEvent* event) override;
 
-signals:
     /**
-     * @brief 当此对象被拖动时发出信号
-     * @param pos 此时被拖动对象的位置
+     * @brief 判断点是否在此区域内
+     * @param point 点
+     * @return true 点在区域内，false 点不在区域内
+     * @note 子类可以重载此函数实现自定义可点击区域
      */
-    Signal<void(const Point &pos)> dragged;
+    virtual bool isContains(Point point) const;
+public:
+    Drag(const Rect& rect, Block* parent = nullptr);
+    ~Drag() override;
+
     /**
-     * @brief 当此对象被释放时发出信号
+     * @brief 是否正在被拖动
+     * @return true 正在被拖动，false 未被拖动
      */
-    Signal<void()> released;
+    bool isDragging() const;
+    /**
+     * @brief 设置触发拖动的鼠标按键
+     * @param button 鼠标按键
+     */
+    void setTriggerButton(MouseButton button);
 
 public:
-    /**
-     * @brief 构造函数
-     * @param rect 块的矩形区域，它指示块的大小和初始位置
-     * @param parent 父块
-     */
-    Drag(const Rect &rect, Block *parent = nullptr);
-    /**
-     * @brief 析构函数
-     */
-    ~Drag() override;
-    /**
-     * @brief 设置块的可移动方向
-     * @param x 是否可水平移动
-     * @param y 是否可垂直移动
-     */
-    void setEnabled(bool x, bool y);
-    /**
-     * @brief 获取块在水平方向上的可移动状态
-     * @return 是否可水平移动
-     */
-    bool isXEnabled() const;
-    /**
-     * @brief 获取块在垂直方向上的可移动状态
-     * @return 是否可垂直移动
-     */
-    bool isYEnabled() const;
-    /**
-     * @brief 设置参考系
-     * @param ref 参考系，可以是全局坐标系(Ref::Global)或窗口坐标系(Ref::Window)，默认为窗口坐标系 
-     */
-    void setReference(Ref ref);
+    Signal<void(const Point&)> dragged;
+    Signal<void(const Point&)> released;
 };

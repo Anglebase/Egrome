@@ -1,481 +1,56 @@
-#include <ege.h>
-#include "Painter.h"
-#include "Exception.h"
 #include "PixelMap.h"
-#include "Color.h"
-#include "Block.h"
-#include "Point.h"
-#include "Rect.h"
-#include "Size.h"
 #include "Painter.h"
+#include "XString.h"
+#include "Block.h"
 
-PaintEvent::~PaintEvent()
-{
+#include <ege.h>
+#include <cwchar>
+
+void* getTarget(Painter* painter) {
+    if (painter->block_)return nullptr;
+    if (painter->pixelMap_)
+        return (void*)painter->pixelMap_->image_;
+    return nullptr;
 }
 
-const Painter &PaintEvent::beginPaint(const Block *block) const
-{
-    if (block == nullptr)
-        throw Exception("'block' can not be 'nullptr' in beginPaint()");
-    if (this->painter == nullptr)
-        this->painter = new Painter(block);
-    return *this->painter;
-}
-
-void PaintEvent::endPaint() const
-{
-    if (this->painter)
-    {
-        delete this->painter;
-        this->painter = nullptr;
+Point transfrom(Painter* painter, const Point& pos) {
+    if (painter->block_) {
+        return pos + painter->block_->rect().position();
     }
-}
-
-Painter::Painter(const Block *block)
-    : block(block), pixelMap(nullptr), brushColor(nullptr)
-{
-    this->brushColor = new Color(255, 255, 255);
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfQuality = PROOF_QUALITY;
-    ege::setfont(&font);
-    ege::ege_enable_aa(true);
-}
-
-Painter::Painter(const PixelMap *pixelMap)
-    : block(nullptr), pixelMap(pixelMap), brushColor(nullptr)
-{
-    this->brushColor = new Color(255, 255, 255);
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfQuality = PROOF_QUALITY;
-    ege::setfont(&font);
-    ege::ege_enable_aa(true, (ege::IMAGE *)pixelMap->image_);
-}
-
-Painter::~Painter()
-{
-    if (this->brushColor)
-    {
-        delete this->brushColor;
-        this->brushColor = nullptr;
+    if (painter->pixelMap_) {
+        return pos;
     }
+    return Point();
 }
 
-Rect Painter::rect() const
-{
-    if (this->block)
-        return Rect(0, 0, this->block->rect_.width_, this->block->rect_.height_);
-    if (this->pixelMap)
-        return Rect(0, 0, this->pixelMap->width_, this->pixelMap->height_);
-    return Rect(0, 0, 0, 0);
+int operator""_em(long double value) {
+    static float dpi = (
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSY) +
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
+        ) / 2.0f;
+    float axis = (float)value * dpi / 96.0f;
+    return static_cast<int>(axis * 24);
 }
 
-void Painter::setPenColor(const Color &color) const
-{
-    if (this->block)
-        ege::setcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
-    if (this->pixelMap)
-        ege::setcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
-                      (ege::IMAGE *)this->pixelMap->image_);
+int operator""_em(unsigned long long value) {
+    static float dpi = (
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSY) +
+        ::GetDeviceCaps(ege::getHDC(), LOGPIXELSX)
+        ) / 2.0f;
+    float axis = (float)value * dpi / 96.0f;
+    return static_cast<int>(axis * 24);
 }
 
-void Painter::setPenWidth(int width) const
-{
-    if (this->block)
-        ege::setlinewidth(width);
-    if (this->pixelMap)
-        ege::setlinewidth(width, (ege::IMAGE *)this->pixelMap->image_);
-}
+TextAligns::TextAligns(int aligns) noexcept : aligns(aligns) {}
+TextAligns operator|(TextAlign a, TextAlign b) { return TextAligns(a | b); }
+TextAligns operator|(TextAligns a, TextAlign b) { return TextAligns(a.aligns | b); }
+TextAligns operator|(TextAlign a, TextAligns b) { return TextAligns(a | b.aligns); }
+TextAligns operator|(TextAligns a, TextAligns b) { return TextAligns(a.aligns | b.aligns); }
+bool operator&(TextAligns a, TextAlign b) { return (a.aligns & b) != 0; }
+bool operator&(TextAlign a, TextAligns b) { return (a & b.aligns) != 0; }
 
-void Painter::setPenStyle(PenStyle style) const
-{
-    int linestyle;
-    int linewidth;
-    if (this->block)
-        ege::getlinestyle(&linestyle,
-                          NULL,
-                          &linewidth,
-                          NULL);
-    if (this->pixelMap)
-        ege::getlinestyle(&linestyle,
-                          nullptr,
-                          &linewidth,
-                          (ege::IMAGE *)this->pixelMap->image_);
-    switch (style)
-    {
-    case PenStyle::Solid:
-        linestyle = ege::SOLID_LINE;
-        break;
-    case PenStyle::Dash:
-        linestyle = ege::CENTER_LINE;
-        break;
-    case PenStyle::Dot:
-        linestyle = ege::DOTTED_LINE;
-        break;
-    case PenStyle::DashDot:
-        linestyle = ege::DASHED_LINE;
-        break;
-    case PenStyle::Null:
-        linestyle = ege::NULL_LINE;
-        break;
-    default:
-        throw Exception("Invalid pen style");
-    }
-    if (this->block)
-        ege::setlinestyle(linestyle, 0, linewidth);
-    if (this->pixelMap)
-        ege::setlinestyle(linestyle, 0, linewidth,
-                          (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::clear(const Color &color) const
-{
-    if (this->block)
-    {
-        ege::setbkcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
-        ege::cleardevice();
-    }
-    if (this->pixelMap)
-    {
-        ege::setbkcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
-                        (ege::IMAGE *)this->pixelMap->image_);
-        ege::cleardevice((ege::IMAGE *)this->pixelMap->image_);
-    }
-}
-
-void Painter::setBrushColor(const Color &color) const
-{
-    *this->brushColor = color;
-    if (this->block)
-        ege::setfillcolor(EGERGBA(color.red, color.green, color.blue, color.alpha));
-    if (this->pixelMap)
-        ege::setfillcolor(EGERGBA(color.red, color.green, color.blue, color.alpha),
-                          (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::setLinerGradient(const Point &start, const Color &startColor,
-                               const Point &end, const Color &endColor) const
-{
-    if (this->block)
-    {
-        ege::ege_setpattern_lineargradient(
-            this->block->rect_.x_ + start.x_,
-            this->block->rect_.y_ + start.y_,
-            EGERGBA(startColor.red, startColor.green,
-                    startColor.blue, startColor.alpha),
-            this->block->rect_.x_ + end.x_,
-            this->block->rect_.y_ + end.y_,
-            EGERGBA(endColor.red, endColor.green,
-                    endColor.blue, endColor.alpha));
-    }
-    if (this->pixelMap)
-    {
-        ege::ege_setpattern_lineargradient(
-            this->block->rect_.x_ + start.x_,
-            this->block->rect_.y_ + start.y_,
-            EGERGBA(startColor.red, startColor.green,
-                    startColor.blue, startColor.alpha),
-            this->block->rect_.x_ + end.x_,
-            this->block->rect_.y_ + end.y_,
-            EGERGBA(endColor.red, endColor.green,
-                    endColor.blue, endColor.alpha),
-            (ege::IMAGE *)this->pixelMap->image_);
-    }
-}
-
-void Painter::setFont(const std::string &fontName, int size) const
-{
-    if (this->block)
-        ege::setfont(size, 0, fontName.c_str());
-    if (this->pixelMap)
-        ege::setfont(size, 0, fontName.c_str(),
-                     (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::setFont(const std::wstring &fontName, int size) const
-{
-    if (this->block)
-        ege::setfont(size, 0, fontName.c_str());
-    if (this->pixelMap)
-        ege::setfont(size, 0, fontName.c_str(),
-                     (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::setFontSize(int size) const
-{
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfHeight = size;
-    ege::setfont(&font);
-}
-
-void Painter::setFontWeight(int weight) const
-{
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfWeight = weight;
-    ege::setfont(&font);
-}
-
-void Painter::setFontItalic(bool italic) const
-{
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfItalic = italic;
-    ege::setfont(&font);
-}
-
-void Painter::setFontUnderline(bool underline) const
-{
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfUnderline = underline;
-    ege::setfont(&font);
-}
-
-void Painter::setFontStrikeOut(bool strikeOut) const
-{
-    LOGFONT font;
-    ege::getfont(&font);
-    font.lfStrikeOut = strikeOut;
-    ege::setfont(&font);
-}
-
-void Painter::setTextAlign(TextHAlign halign, TextVAlign valign) const
-{
-    this->halign = halign;
-    this->valign = valign;
-}
-
-void Painter::drawPixel(const Point &pos, const Color &color) const
-{
-    if (this->block)
-        ege::putpixel(static_cast<int>(this->block->rect_.x_ + pos.x_),
-                      static_cast<int>(this->block->rect_.y_ + pos.y_),
-                      EGERGBA(color.red, color.green, color.blue, color.alpha));
-    if (this->pixelMap)
-        ege::putpixel(static_cast<int>(pos.x_),
-                      static_cast<int>(pos.y_),
-                      EGERGBA(color.red, color.green, color.blue, color.alpha));
-}
-
-void Painter::drawLine(const Point &p1, const Point &p2) const
-{
-    if (this->block)
-        ege::ege_line(this->block->rect_.x_ + p1.x_,
-                      this->block->rect_.y_ + p1.y_,
-                      this->block->rect_.x_ + p2.x_,
-                      this->block->rect_.y_ + p2.y_);
-    if (this->pixelMap)
-        ege::ege_line(p1.x_, p1.y_, p2.x_, p2.y_,
-                      (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawRect(const Rect &rect) const
-{
-    if (this->block)
-        ege::ege_rectangle(this->block->rect_.x_ + rect.x_,
-                           this->block->rect_.y_ + rect.y_,
-                           rect.width_,
-                           rect.height_);
-    if (this->pixelMap)
-        ege::ege_rectangle(rect.x_, rect.y_, rect.width_, rect.height_,
-                           (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawFillRect(const Rect &rect) const
-{
-    if (this->block)
-        ege::ege_fillrect(this->block->rect_.x_ + rect.x_,
-                          this->block->rect_.y_ + rect.y_,
-                          rect.width_, rect.height_);
-    if (this->pixelMap)
-        ege::ege_fillrect(rect.x_, rect.y_, rect.width_, rect.height_,
-                          (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawEllipse(const Rect &rect) const
-{
-    if (this->block)
-        ege::ege_ellipse(this->block->rect_.x_ + rect.x_,
-                         this->block->rect_.y_ + rect.y_,
-                         rect.width_, rect.height_);
-    if (this->pixelMap)
-        ege::ege_ellipse(rect.x_, rect.y_, rect.width_, rect.height_,
-                         (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawFillEllipse(const Rect &rect) const
-{
-    if (this->block)
-        ege::ege_fillellipse(this->block->rect_.x_ + rect.x_,
-                             this->block->rect_.y_ + rect.y_,
-                             rect.width_, rect.height_);
-    if (this->pixelMap)
-        ege::ege_fillellipse(rect.x_, rect.y_, rect.width_, rect.height_,
-                             (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawPolygon(const std::vector<Point> &points) const
-{
-    auto points_ = new ege::ege_point[points.size() + 1];
-    for (int i = 0; i < points.size(); i++)
-    {
-        if (this->block)
-        {
-            points_[i].x = points[i].x_ + this->block->rect_.x_;
-            points_[i].y = points[i].y_ + this->block->rect_.y_;
-        }
-        if (this->pixelMap)
-        {
-            points_[i].x = points[i].x_;
-            points_[i].y = points[i].y_;
-        }
-    }
-    if (this->block)
-    {
-        points_[points.size()].x = points[0].x_ + this->block->rect_.x_;
-        points_[points.size()].y = points[0].y_ + this->block->rect_.y_;
-    }
-    if (this->pixelMap)
-    {
-        points_[points.size()].x = points[0].x_;
-        points_[points.size()].y = points[0].y_;
-    }
-    if (this->block)
-        ege::ege_drawpoly(points.size() + 1, points_);
-    if (this->pixelMap)
-        ege::ege_drawpoly(points.size() + 1, points_,
-                          (ege::IMAGE *)this->pixelMap->image_);
-    delete[] points_;
-}
-
-void Painter::drawPolyline(const std::vector<Point> &points) const
-{
-    auto points_ = new ege::ege_point[points.size()];
-    for (int i = 0; i < points.size(); i++)
-    {
-        if (this->block)
-        {
-            points_[i].x = points[i].x_ + this->block->rect_.x_;
-            points_[i].y = points[i].y_ + this->block->rect_.y_;
-        }
-        if (this->pixelMap)
-        {
-            points_[i].x = points[i].x_;
-            points_[i].y = points[i].y_;
-        }
-    }
-    if (this->block)
-        ege::ege_drawpoly(points.size(), points_);
-    if (this->pixelMap)
-        ege::ege_drawpoly(points.size(), points_,
-                          (ege::IMAGE *)this->pixelMap->image_);
-    delete[] points_;
-}
-
-void Painter::drawArc(const Rect &rect, float startAngle, float angle) const
-{
-    if (this->block)
-        ege::ege_arc(this->block->rect_.x_ + rect.x_,
-                     this->block->rect_.y_ + rect.y_,
-                     rect.width_, rect.height_,
-                     startAngle, angle);
-    if (this->pixelMap)
-        ege::ege_arc(rect.x_, rect.y_, rect.width_, rect.height_,
-                     startAngle, angle,
-                     (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawText(const Point &pos, const std::string &text) const
-{
-    if (this->block)
-        ege::outtextxy(static_cast<int>(this->block->rect_.x_ + pos.x_),
-                       static_cast<int>(this->block->rect_.y_ + pos.y_),
-                       text.c_str());
-    if (this->pixelMap)
-        ege::outtextxy(static_cast<int>(pos.x_), static_cast<int>(pos.y_),
-                       text.c_str(),
-                       (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawText(const Point &pos, const std::wstring &text) const
-{
-    if (this->block)
-        ege::outtextxy(static_cast<int>(this->block->rect_.x_ + pos.x_),
-                       static_cast<int>(this->block->rect_.y_ + pos.y_),
-                       text.c_str());
-    if (this->pixelMap)
-        ege::outtextxy(static_cast<int>(pos.x_), static_cast<int>(pos.y_),
-                       text.c_str(),
-                       (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawText(const Rect &rect, const std::string &text) const
-{
-    Point p;
-    switch (this->halign)
-    {
-    case TextHAlign::Left:
-        p.x_ = 0;
-        break;
-    case TextHAlign::Center:
-        p.x_ = (rect.width_ - ege::textwidth(text.c_str())) / 2;
-        break;
-    case TextHAlign::Right:
-        p.x_ = rect.width_ - ege::textwidth(text.c_str());
-        break;
-    }
-    switch (this->valign)
-    {
-    case TextVAlign::Top:
-        p.y_ = 0;
-        break;
-    case TextVAlign::Middle:
-        p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
-        break;
-    case TextVAlign::Bottom:
-        p.y_ = rect.height_ - ege::textheight(text.c_str());
-        break;
-    }
-    this->drawText(p + Point(rect.left(), rect.top()), text);
-}
-
-void Painter::drawText(const Rect &rect, const std::wstring &text) const
-{
-    Point p;
-    switch (this->halign)
-    {
-    case TextHAlign::Left:
-        p.x_ = 0;
-        break;
-    case TextHAlign::Center:
-        p.x_ = (rect.width_ - ege::textwidth(text.c_str())) / 2;
-        break;
-    case TextHAlign::Right:
-        p.x_ = rect.width_ - ege::textwidth(text.c_str());
-        break;
-    }
-    switch (this->valign)
-    {
-    case TextVAlign::Top:
-        p.y_ = 0;
-        break;
-    case TextVAlign::Middle:
-        p.y_ = (rect.height_ - ege::textheight(text.c_str())) / 2;
-        break;
-    case TextVAlign::Bottom:
-        p.y_ = rect.height_ - ege::textheight(text.c_str());
-        break;
-    }
-    this->drawText(p + Point(rect.left(), rect.top()), text);
-}
-
-DWORD translateOperationCode(BlendMode blendMode)
-{
-    switch (blendMode)
-    {
+static DWORD translateOperationCode(BlendMode blendMode) {
+    switch (blendMode) {
     case BlendMode::Mode_0:
         return 0x00000042;
     case BlendMode::DPSoon:
@@ -993,243 +568,282 @@ DWORD translateOperationCode(BlendMode blendMode)
     }
 }
 
-void Painter::drawPixelMap(const Point &pos, const PixelMap &pixelmap, BlendMode blendMode) const
-{
-    auto operationCode = translateOperationCode(blendMode);
-    if (this->block)
-        ege::putimage(this->block->rect_.x_ + pos.x_,
-                      this->block->rect_.y_ + pos.y_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      operationCode);
-    if (this->pixelMap)
-        ege::putimage((ege::IMAGE *)this->pixelMap->image_,
-                      pos.x_, pos.y_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      operationCode);
+#define Get ((ege::IMAGE*)getTarget(this))
+
+Painter::Painter(Block* block) noexcept
+    : block_(block), pixelMap_(nullptr),
+    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {
+    ege::ege_enable_aa(true);
 }
 
-void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
-                           const Point &pixelmapSrcPos,
-                           BlendMode blendMode) const
-{
-    auto operationCode = translateOperationCode(blendMode);
-    if (this->block)
-        ege::putimage(this->block->rect_.x_ + rect.x_,
-                      this->block->rect_.y_ + rect.y_,
-                      rect.width_, rect.height_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      pixelmapSrcPos.x_, pixelmapSrcPos.y_,
-                      operationCode);
-    if (this->pixelMap)
-        ege::putimage((ege::IMAGE *)this->pixelMap->image_,
-                      rect.x_, rect.y_,
-                      rect.width_, rect.height_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      pixelmapSrcPos.x_, pixelmapSrcPos.y_,
-                      operationCode);
+Painter::Painter(PixelMap* pixelMap) noexcept
+    : block_(nullptr), pixelMap_(pixelMap),
+    penColor_(0xffffff_rgb), brushColor_(0x000000_rgb) {
+    ege::ege_enable_aa(true, (ege::PIMAGE)pixelMap->image_);
 }
 
-void Painter::drawPixelMap(const Rect &rect, const PixelMap &pixelmap,
-                           BlendMode blendMode) const
-{
-    if (this->block)
-    {
-        ege::putimage(this->block->rect_.x_ + rect.x_,
-                      this->block->rect_.y_ + rect.y_,
-                      rect.width_, rect.height_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      0, 0,
-                      pixelmap.width_,
-                      pixelmap.height_,
-                      translateOperationCode(blendMode));
+Painter::~Painter() noexcept = default;
+
+void Painter::enabbleAntiAliasing(bool enable) noexcept {
+    ege::ege_enable_aa(enable, Get);
+}
+
+void Painter::setPenColor(const Color& color) noexcept {
+    this->penColor_ = color;
+    ege::setcolor(EGEARGB(color.alpha(), color.red(), color.green(), color.blue()), Get);
+}
+
+void Painter::setPenWidth(int width) noexcept {
+    ege::setlinewidth(width);
+}
+
+void Painter::setBrushColor(const Color& color) noexcept {
+    this->brushColor_ = color;
+    ege::setfillcolor(EGEARGB(color.alpha(), color.red(), color.green(), color.blue()), Get);
+}
+
+void Painter::setFontFamily(const String& fontName) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    std::wstring font = (std::wstring)fontName;
+    std::wcsncpy(logfont.lfFaceName, font.c_str(), LF_FACESIZE - 1);
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::setFontSize(int size) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    logfont.lfHeight = size;
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::setFontWeight(int weight) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    logfont.lfWeight = weight;
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::setFontItalic(bool italic) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    logfont.lfItalic = italic;
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::setFontUnderline(bool underline) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    logfont.lfUnderline = underline;
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::setFontStrikeOut(bool strikeOut) noexcept {
+    LOGFONTW logfont;
+    ege::getfont(&logfont, Get);
+    logfont.lfStrikeOut = strikeOut;
+    ege::setfont(&logfont, Get);
+}
+
+void Painter::clear(const Color& color) noexcept {
+    if (this->block_) {
+        ege::setfillcolor(EGEARGB(color.alpha(), color.red(), color.green(), color.blue()));
+        ege::ege_fillrect(
+            this->block_->rect().x(), this->block_->rect().y(),
+            this->block_->rect().width(), this->block_->rect().height()
+        );
+        ege::setfillcolor(
+            EGEARGB(
+                this->brushColor_.alpha(), this->brushColor_.red(),
+                this->brushColor_.green(), this->brushColor_.blue()
+            )
+        );
     }
-    if (this->pixelMap)
-    {
-        ege::putimage((ege::IMAGE *)this->pixelMap->image_,
-                      rect.x_, rect.y_,
-                      rect.width_, rect.height_,
-                      (ege::IMAGE *)pixelmap.image_,
-                      0, 0,
-                      pixelmap.width_,
-                      pixelmap.height_,
-                      translateOperationCode(blendMode));
-    }
-}
-
-void Painter::drawCircle(const Point &pos, float r) const
-{
-    this->drawEllipse({pos.x_ - r, pos.y_ - r, 2 * r, 2 * r});
-}
-
-void Painter::drawFillCircle(const Point &pos, float r) const
-{
-    this->drawFillEllipse({pos.x_ - r, pos.y_ - r, 2 * r, 2 * r});
-}
-
-void Painter::drawRoundRect(const Rect &rect, float rx, float ry) const
-{
-    float x, y, w, h;
-    x = rect.x_;
-    y = rect.y_;
-    w = rect.width_;
-    h = rect.height_;
-    this->drawLine({x + rx, y}, {x + w - rx, y});
-    this->drawLine({x + w, y + ry}, {x + w, y + h - ry});
-    this->drawLine({x + w - rx, y + h}, {x + rx, y + h});
-    this->drawLine({x, y + h - ry}, {x, y + ry});
-    this->drawArc({x, y, 2 * rx, 2 * ry}, 180, 90);
-    this->drawArc({x + w - 2 * rx, y, 2 * rx, 2 * ry}, 270, 90);
-    this->drawArc({x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry}, 0, 90);
-    this->drawArc({x, y + h - 2 * ry, 2 * rx, 2 * ry}, 90, 90);
-}
-
-void Painter::drawFillRoundRect(const Rect &rect, float rx, float ry) const
-{
-    float x, y, w, h;
-    x = rect.x_;
-    y = rect.y_;
-    w = rect.width_;
-    h = rect.height_;
-    this->drawFillPie(
-        {x, y, 2 * rx, 2 * ry},
-        180, 90);
-    this->drawFillPie(
-        {x + w - 2 * rx, y, 2 * rx, 2 * ry},
-        0, -90);
-    this->drawFillPie(
-        {x + w - 2 * rx, y + h - 2 * ry, 2 * rx, 2 * ry},
-        0, 90);
-    this->drawFillPie(
-        {x, y + h - 2 * ry, 2 * rx, 2 * ry},
-        90, 90);
-    this->drawFillRect({x + rx, y, w - 2 * rx, ry});
-    this->drawFillRect({x + rx, y + h - ry, w - 2 * rx, ry});
-    this->drawFillRect({x, y + ry, w, h - 2 * ry});
-}
-
-long Painter::getTextWidth(const std::string &text) const
-{
-    if (this->block)
-        return ege::textwidth(text.c_str());
-    if (this->pixelMap)
-        return ege::textwidth(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
-    return -1;
-}
-
-long Painter::getTextWidth(const std::wstring &text) const
-{
-    if (this->block)
-        return ege::textwidth(text.c_str());
-    if (this->pixelMap)
-        return ege::textwidth(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
-    return -1;
-}
-
-long Painter::getTextHeight(const std::string &text) const
-{
-    if (this->block)
-        return ege::textheight(text.c_str());
-    if (this->pixelMap)
-        return ege::textheight(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
-    return -1;
-}
-
-long Painter::getTextHeight(const std::wstring &text) const
-{
-    if (this->block)
-        return ege::textheight(text.c_str());
-    if (this->pixelMap)
-        return ege::textheight(text.c_str(), (ege::IMAGE *)this->pixelMap->image_);
-    return -1;
-}
-
-void Painter::drawPie(const Rect &rect, int startAngle, int angle) const
-{
-    if (this->block)
-        ege::ege_pie(
-            this->block->rect_.x_ + rect.x_,
-            this->block->rect_.y_ + rect.y_,
-            rect.width_, rect.height_,
-            startAngle, angle);
-    if (this->pixelMap)
-        ege::ege_pie(
-            rect.x_, rect.y_, rect.width_, rect.height_,
-            startAngle, angle,
-            (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawFillPie(const Rect &rect, int startAngle, int angle) const
-{
-    if (this->block)
-        ege::ege_fillpie(
-            this->block->rect_.x_ + rect.x_,
-            this->block->rect_.y_ + rect.y_,
-            rect.width_, rect.height_,
-            startAngle, angle);
-    if (this->pixelMap)
-        ege::ege_fillpie(
-            rect.x_, rect.y_, rect.width_, rect.height_,
-            startAngle, angle,
-            (ege::IMAGE *)this->pixelMap->image_);
-}
-
-void Painter::drawBezier(const Point &point1, const Point &point2,
-                         const Point &control1, const Point &control2) const
-{
-    if (this->block)
-    {
-        ege::ege_point p[4] = {
-            {
-                this->block->rect_.x_ + point1.x_,
-                this->block->rect_.y_ + point1.y_,
-            },
-            {
-                this->block->rect_.x_ + control1.x_,
-                this->block->rect_.y_ + control1.y_,
-            },
-            {
-                this->block->rect_.x_ + control2.x_,
-                this->block->rect_.y_ + control2.y_,
-            },
-            {
-                this->block->rect_.x_ + point2.x_,
-                this->block->rect_.y_ + point2.y_,
-            },
-        };
-        ege::ege_bezier(4, p);
-    }
-    if (this->pixelMap)
-    {
-        ege::ege_point p[4] = {
-            {point1.x_, point1.y_},
-            {control1.x_, control1.y_},
-            {control2.x_, control2.y_},
-            {point2.x_, point2.y_},
-        };
-        ege::ege_bezier(4, p, (ege::IMAGE *)this->pixelMap->image_);
+    if (this->pixelMap_) {
+        ege::setbkcolor(EGEARGB(color.alpha(), color.red(), color.green(), color.blue()),
+            (ege::PIMAGE)this->pixelMap_->image_);
+        ege::cleardevice((ege::PIMAGE)this->pixelMap_->image_);
     }
 }
 
-void Painter::drawFitCurve(const std::vector<Point> &points) const
-{
-    ege::ege_point *p = new ege::ege_point[points.size()];
-    for (size_t i = 0; i < points.size(); ++i)
-    {
-        if (this->block)
-        {
-            p[i].x = this->block->rect_.x_ + points[i].x_;
-            p[i].y = this->block->rect_.y_ + points[i].y_;
-        }
-        if (this->pixelMap)
-        {
-            p[i].x = points[i].x_;
-            p[i].y = points[i].y_;
-        }
-    }
-    if (this->block)
-        ege::ege_drawcurve(points.size(), p);
-    if (this->pixelMap)
-        ege::ege_drawcurve(points.size(), p,
-                           (ege::IMAGE *)this->pixelMap->image_);
-    delete[] p;
+Rect Painter::rect() const noexcept {
+    if (this->block_)
+        return Rect{ {0,0}, this->block_->rect().size() };
+    if (this->pixelMap_)
+        return Rect{ {0,0}, this->pixelMap_->size() };
+    return Rect{ 0,0,0,0 };
 }
+
+void Painter::drawPixel(const Point& pos_) noexcept {
+    auto pos = transfrom(this, pos_);
+    ege::putpixel(static_cast<int>(pos.x()), static_cast<int>(pos.y()),
+        EGEARGB(this->penColor_.alpha(), this->penColor_.red(),
+            this->penColor_.green(), this->penColor_.blue()), Get);
+}
+
+void Painter::drawLine(const Point& p1_, const Point& p2_) noexcept {
+    auto p1 = transfrom(this, p1_);
+    auto p2 = transfrom(this, p2_);
+    ege::line_f(p1.x(), p1.y(), p2.x(), p2.y(), Get);
+}
+
+void Painter::drawRect(const Rect& rect_) noexcept {
+    auto rect = rect_;
+    rect.position() = transfrom(this, rect.position());
+    ege::ege_rectangle(rect.x(), rect.y(), rect.width(), rect.height(), Get);
+}
+
+void Painter::drawPolygon(const std::vector<Point>& points) noexcept {
+    std::vector<ege::ege_point> egePoints(points.size());
+    for (size_t i = 0; i < points.size(); ++i) {
+        egePoints[i].x = transfrom(this, points[i]).x();
+        egePoints[i].y = transfrom(this, points[i]).y();
+    }
+    egePoints.push_back(egePoints.front());
+    ege::ege_drawpoly(egePoints.size(), egePoints.data(), Get);
+}
+
+void Painter::drawPolyline(const std::vector<Point>& points) noexcept {
+    std::vector<ege::ege_point> egePoints(points.size());
+    for (size_t i = 0; i < points.size(); ++i) {
+        egePoints[i].x = transfrom(this, points[i]).x();
+        egePoints[i].y = transfrom(this, points[i]).y();
+    }
+    ege::ege_drawpoly(egePoints.size(), egePoints.data(), Get);
+}
+
+void Painter::drawArc(const Rect& rect, float startAngle, float range) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_arc(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
+        startAngle, range, Get);
+}
+
+void Painter::drawEllipse(const Rect& rect) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_ellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
+}
+
+void Painter::drawCircle(const Point& o, float radius) noexcept {
+    this->drawEllipse(Rect(o.x() - radius, o.y() - radius, radius * 2, radius * 2));
+}
+
+void Painter::drawPie(const Rect& rect, float startAngle, float range) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_pie(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
+        startAngle, range, Get);
+}
+void Painter::drawBezier(const Point& p1_, const Point& c1_, const Point& p2_, const Point& c2_) noexcept {
+    auto p1 = transfrom(this, p1_);
+    auto c1 = transfrom(this, c1_);
+    auto p2 = transfrom(this, p2_);
+    auto c2 = transfrom(this, c2_);
+    ege::ege_point egePoints[4] = {
+        {p1.x(), p1.y()},
+        {c1.x(), c1.y()},
+        {c2.x(), c2.y()},
+        {p2.x(), p2.y()}
+    };
+    ege::ege_bezier(4, egePoints, Get);
+}
+
+void Painter::drawFillRect(const Rect& rect) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_fillrect(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
+}
+
+void Painter::drawFillPolygon(const std::vector<Point>& points) noexcept {
+    std::vector<ege::ege_point> egePoints(points.size());
+    for (size_t i = 0; i < points.size(); ++i) {
+        egePoints[i].x = transfrom(this, points[i]).x();
+        egePoints[i].y = transfrom(this, points[i]).y();
+    }
+    egePoints.push_back(egePoints.front());
+    ege::ege_fillpoly(egePoints.size(), egePoints.data(), Get);
+}
+
+void Painter::drawFillEllipse(const Rect& rect) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_fillellipse(rect_.x(), rect_.y(), rect_.width(), rect_.height(), Get);
+}
+
+void Painter::drawFillCircle(const Point& o, float radius) noexcept {
+    this->drawFillEllipse(Rect(o.x() - radius, o.y() - radius, radius * 2, radius * 2));
+}
+
+void Painter::drawFillPie(const Rect& rect, float startAngle, float range) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    ege::ege_fillpie(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
+        startAngle, range, Get);
+}
+
+void Painter::drawText(const Point& pos_, const String& text) noexcept {
+    auto pos = transfrom(this, pos_);
+    // ege::outtextxy(pos.x(), pos.y(), ((std::wstring)text).c_str(), Get);
+
+    ege::settarget((ege::PIMAGE)Get);
+    ege::ege_drawtext(((std::wstring)text).c_str(), pos.x(), pos.y());
+    ege::settarget(nullptr);
+}
+
+void Painter::drawText(const Rect& rect, const String& text, TextAligns aligns) noexcept {
+    Point p;
+    if (aligns & TextAlign::Left) {
+        p.x() = 0;
+    }
+    else if (aligns & TextAlign::Center) {
+        p.x() = rect.width() / 2 - ege::textwidth(((std::wstring)text).c_str(), Get) / 2;
+    }
+    else if (aligns & TextAlign::Right) {
+        p.x() = rect.width() - ege::textwidth(((std::wstring)text).c_str(), Get);
+    }
+    if (aligns & TextAlign::Top) {
+        p.y() = 0;
+    }
+    else if (aligns & TextAlign::Middle) {
+        p.y() = rect.height() / 2 - ege::textheight(((std::wstring)text).c_str(), Get) / 2;
+    }
+    else if (aligns & TextAlign::Bottom) {
+        p.y() = rect.height() - ege::textheight(((std::wstring)text).c_str(), Get);
+    }
+    this->drawText(rect.position() + p, text);
+}
+
+void Painter::drawPixmap(const Point& pos, const PixelMap& pixmap, BlendMode mode) noexcept {
+    auto pos_ = transfrom(this, pos);
+    if (this->block_) {
+        ege::putimage(pos_.x(), pos_.y(),
+            (ege::PIMAGE)pixmap.image_,
+            translateOperationCode(mode));
+    }
+    if (this->pixelMap_) {
+        ege::putimage((ege::PIMAGE)this->pixelMap_->image_,
+            pos_.x(), pos_.y(), (ege::PIMAGE)pixmap.image_,
+            translateOperationCode(mode));
+    }
+}
+
+void Painter::drawPixmap(const Rect& rect, const PixelMap& pixmap, BlendMode mode) noexcept {
+    auto rect_ = rect;
+    rect_.position() = transfrom(this, rect_.position());
+    if (this->block_) {
+        ege::putimage(rect_.x(), rect_.y(), rect_.width(), rect_.height(),
+            (ege::PIMAGE)pixmap.image_,
+            0, 0, pixmap.size().width(), pixmap.size().height(),
+            translateOperationCode(mode));
+    }
+    if (this->pixelMap_) {
+        ege::putimage((ege::PIMAGE)this->pixelMap_->image_,
+            rect_.x(), rect_.y(), rect_.width(), rect_.height(),
+            (ege::PIMAGE)pixmap.image_,
+            0, 0, pixmap.size().width(), pixmap.size().height(),
+            translateOperationCode(mode));
+    }
+}
+
+

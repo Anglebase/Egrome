@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['radiobox_0',['RadioBox',['../class_radio_box.html#aa50d7c26d4cedf5c90aa1163fa51b093',1,'RadioBox']]],
-  ['radioboxgroup_1',['RadioBoxGroup',['../class_radio_box_group.html#aab6a5c043b2f663771a4290b09f5a7c7',1,'RadioBoxGroup']]],
-  ['rect_2',['rect',['../class_block.html#ab64786a3db2831fc78756b78fd11d8f4',1,'Block::rect()'],['../class_block.html#a2e7363fe8ca8da5b722406572d26b68f',1,'Block::rect() const']]],
-  ['rect_3',['Rect',['../class_rect.html#a66ec4a9c49c20889d2a41edd94030c44',1,'Rect::Rect(long x, long y, long width, long height)'],['../class_rect.html#a97bb88b8531bd72cd5b42b791267b928',1,'Rect::Rect(const Point &amp;topLeft, const Size &amp;size)']]],
-  ['rectf_4',['RectF',['../class_rect_f.html#a1fa4c4a7b4da39716b7e212eb4c2296f',1,'RectF::RectF(double x, double y, double width, double height)'],['../class_rect_f.html#a87fa7808f5888b589d39c2ca92cfd421',1,'RectF::RectF(const PointF &amp;topLeft, const SizeF &amp;sizeF)']]],
-  ['removeitem_5',['removeItem',['../class_menu_box.html#afc09f2a710273a1246cf8df0ac726d29',1,'MenuBox']]],
-  ['reset_6',['reset',['../class_animation.html#ae377f18a76bb33774ca3318a25ad4c37',1,'Animation']]],
-  ['right_7',['right',['../class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29',1,'Rect::right()'],['../class_rect_f.html#a9f59840563aef393ef5eaeff9497991c',1,'RectF::right()']]],
-  ['rightpadding_8',['rightPadding',['../class_label.html#a877622d3b4205876123ca14e47aba811',1,'Label::rightPadding()'],['../class_label.html#a98d76dea0405065677bd13df5b261017',1,'Label::rightPadding() const']]],
-  ['run_9',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
+  ['set_0',['set',['../class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de',1,'Animation::set(T startValue, T endValue, std::chrono::milliseconds time)'],['../class_animation.html#a8a49d6a110b84a70703932bd73e775e5',1,'Animation::set(std::function&lt; T(T, T, double)&gt; valueComputer)']]],
+  ['setcilpboardtext_1',['setCilpBoardText',['../namespace_sys.html#aec566963415886c7bcd6b55d3e4a2105',1,'Sys']]],
+  ['setfps_2',['setFps',['../class_app.html#afd44384df2bec4d382f2f8c8444a06f7',1,'App']]],
+  ['setparent_3',['setParent',['../class_block.html#adaf0e3c59b27a5378e543e346270e852',1,'Block']]],
+  ['settitle_4',['setTitle',['../class_app.html#a95002b3eeeca6abb938caf216670be69',1,'App']]],
+  ['settriggerbutton_5',['setTriggerButton',['../class_click.html#ac4e64e77215818d7d5a1186997f37829',1,'Click::setTriggerButton()'],['../class_drag.html#ae0ac0ce46433826a3150aceda8eccfd5',1,'Drag::setTriggerButton()']]],
+  ['settriggerstate_6',['setTriggerState',['../class_click.html#a522e23b5aaf968846d70961cec333011',1,'Click']]],
+  ['split_7',['split',['../class_string.html#a4443faa73578e9297d76c1b918b1168e',1,'String']]],
+  ['start_8',['start',['../class_animation.html#a93d864e0a9faafef077ecefd976a8b8b',1,'Animation']]],
+  ['state_9',['state',['../class_key_event.html#a8c2aafb3cedeb1e009c568e0e35cdad9',1,'KeyEvent']]],
+  ['stop_10',['stop',['../class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd',1,'Animation']]],
+  ['stopforeach_11',['stopForeach',['../class_block.html#a30a4e7b78d8fa21a7eb6bc0404dffc8f',1,'Block']]],
+  ['strip_12',['strip',['../class_string.html#a2f93de29fedadff6b1d25b9eff049aff',1,'String']]]
 ];

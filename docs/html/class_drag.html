@@ -106,7 +106,7 @@ $(function(){initNavTree('class_drag.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>可拖动的块  
+<p>拖动行为基类，通过继承此类可以使得Block具有拖动行为  
  <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_drag_8h_source.html">Drag.h</a>&gt;</code></p>
@@ -116,176 +116,154 @@ $(function(){initNavTree('class_drag.html',''); initResizable(); });
  <div class="center">
   <img src="class_drag.png" usemap="#Drag_map" alt=""/>
   <map id="Drag_map" name="Drag_map">
-<area href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能" alt="Block" shape="rect" coords="0,0,65,24"/>
-<area href="class_scroll_bar.html" title="滚动条" alt="ScrollBar" shape="rect" coords="0,112,65,136"/>
+<area href="class_block.html" title="它是所有UI对象的基类" alt="Block" shape="rect" coords="0,56,49,80"/>
+<area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="0,0,49,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:aadb1e72ba339ab9c14b09f79a064bf51" id="r_aadb1e72ba339ab9c14b09f79a064bf51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadb1e72ba339ab9c14b09f79a064bf51">Drag</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">rect</a>, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">parent</a>=<a class="el" href="class_var.html">nullptr</a>)</td></tr>
-<tr class="memdesc:aadb1e72ba339ab9c14b09f79a064bf51"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
+<tr class="memitem:aadb1e72ba339ab9c14b09f79a064bf51" id="r_aadb1e72ba339ab9c14b09f79a064bf51"><td class="memItemLeft" align="right" valign="top"><a id="aadb1e72ba339ab9c14b09f79a064bf51" name="aadb1e72ba339ab9c14b09f79a064bf51"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Drag</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>=nullptr)</td></tr>
 <tr class="separator:aadb1e72ba339ab9c14b09f79a064bf51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a553d32b6a8d59d4c5e11025a037da7f4" id="r_a553d32b6a8d59d4c5e11025a037da7f4"><td class="memItemLeft" align="right" valign="top"><a id="a553d32b6a8d59d4c5e11025a037da7f4" name="a553d32b6a8d59d4c5e11025a037da7f4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~Drag</b> () <a class="el" href="class_var.html">override</a></td></tr>
-<tr class="memdesc:a553d32b6a8d59d4c5e11025a037da7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
-<tr class="separator:a553d32b6a8d59d4c5e11025a037da7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13342bf83d055bfc064beaa2c41cea8" id="r_ae13342bf83d055bfc064beaa2c41cea8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae13342bf83d055bfc064beaa2c41cea8">setEnabled</a> (<a class="el" href="class_var.html">bool</a> x, <a class="el" href="class_var.html">bool</a> y)</td></tr>
-<tr class="memdesc:ae13342bf83d055bfc064beaa2c41cea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置块的可移动方向  <br /></td></tr>
-<tr class="separator:ae13342bf83d055bfc064beaa2c41cea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6656987c97380cfdecd71b60287079d" id="r_ab6656987c97380cfdecd71b60287079d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6656987c97380cfdecd71b60287079d">isXEnabled</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:ab6656987c97380cfdecd71b60287079d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取块在水平方向上的可移动状态  <br /></td></tr>
-<tr class="separator:ab6656987c97380cfdecd71b60287079d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b9ffc160738c30c7543328a472c7fbd" id="r_a8b9ffc160738c30c7543328a472c7fbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b9ffc160738c30c7543328a472c7fbd">isYEnabled</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a8b9ffc160738c30c7543328a472c7fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取块在垂直方向上的可移动状态  <br /></td></tr>
-<tr class="separator:a8b9ffc160738c30c7543328a472c7fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a250e0076aaab1579a4a6e709fb4a56cd" id="r_a250e0076aaab1579a4a6e709fb4a56cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a250e0076aaab1579a4a6e709fb4a56cd">setReference</a> (Ref <a class="el" href="class_var.html">ref</a>)</td></tr>
-<tr class="memdesc:a250e0076aaab1579a4a6e709fb4a56cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置参考系  <br /></td></tr>
-<tr class="separator:a250e0076aaab1579a4a6e709fb4a56cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa42b4a4a8a6b3c0593290c27ea8e7b02" id="r_aa42b4a4a8a6b3c0593290c27ea8e7b02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa42b4a4a8a6b3c0593290c27ea8e7b02">isDragging</a> () const</td></tr>
+<tr class="memdesc:aa42b4a4a8a6b3c0593290c27ea8e7b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否正在被拖动  <br /></td></tr>
+<tr class="separator:aa42b4a4a8a6b3c0593290c27ea8e7b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ac0ce46433826a3150aceda8eccfd5" id="r_ae0ac0ce46433826a3150aceda8eccfd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0ac0ce46433826a3150aceda8eccfd5">setTriggerButton</a> (MouseButton button)</td></tr>
+<tr class="memdesc:ae0ac0ce46433826a3150aceda8eccfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置触发拖动的鼠标按键  <br /></td></tr>
+<tr class="separator:ae0ac0ce46433826a3150aceda8eccfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
-<tr class="memitem:a7c98f8c53e968eb90fc282800b9265fa inherit pub_methods_class_block" id="r_a7c98f8c53e968eb90fc282800b9265fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a7c98f8c53e968eb90fc282800b9265fa">setCursorType</a> (<a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gabbe637356c8cb749a9726f13658031fa">CursorType</a> <a class="el" href="class_var.html">cursorType</a>)</td></tr>
-<tr class="memdesc:a7c98f8c53e968eb90fc282800b9265fa inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置当鼠标悬浮于此Block上时的光标类型  <br /></td></tr>
-<tr class="separator:a7c98f8c53e968eb90fc282800b9265fa inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block" id="r_a09fc96783c1ffbeaa5887a8e1aaf30c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1">Block</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">rect</a>, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">parent</a>=<a class="el" href="class_var.html">nullptr</a>)</td></tr>
+<tr class="memitem:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block" id="r_a09fc96783c1ffbeaa5887a8e1aaf30c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1">Block</a> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>=nullptr)</td></tr>
 <tr class="memdesc:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
 <tr class="separator:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00c956ee81acd407f99e8402a370820e inherit pub_methods_class_block" id="r_a00c956ee81acd407f99e8402a370820e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a00c956ee81acd407f99e8402a370820e">getRect</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a00c956ee81acd407f99e8402a370820e inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Block的矩形区域  <br /></td></tr>
-<tr class="separator:a00c956ee81acd407f99e8402a370820e inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11c84bbe9838102e16b66f7a7c2c0917 inherit pub_methods_class_block" id="r_a11c84bbe9838102e16b66f7a7c2c0917"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a11c84bbe9838102e16b66f7a7c2c0917">setRect</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;<a class="el" href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">rect</a>)</td></tr>
-<tr class="memdesc:a11c84bbe9838102e16b66f7a7c2c0917 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置Block的矩形区域  <br /></td></tr>
-<tr class="separator:a11c84bbe9838102e16b66f7a7c2c0917 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab64786a3db2831fc78756b78fd11d8f4 inherit pub_methods_class_block" id="r_ab64786a3db2831fc78756b78fd11d8f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ab64786a3db2831fc78756b78fd11d8f4">rect</a> ()</td></tr>
-<tr class="memdesc:ab64786a3db2831fc78756b78fd11d8f4 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 的所在矩形区域  <br /></td></tr>
-<tr class="separator:ab64786a3db2831fc78756b78fd11d8f4 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e7363fe8ca8da5b722406572d26b68f inherit pub_methods_class_block" id="r_a2e7363fe8ca8da5b722406572d26b68f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2e7363fe8ca8da5b722406572d26b68f">rect</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a2e7363fe8ca8da5b722406572d26b68f inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 的所在矩形区域  <br /></td></tr>
+<tr class="memitem:a2e7363fe8ca8da5b722406572d26b68f inherit pub_methods_class_block" id="r_a2e7363fe8ca8da5b722406572d26b68f"><td class="memItemLeft" align="right" valign="top">
+const <a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rect</b> () const</td></tr>
 <tr class="separator:a2e7363fe8ca8da5b722406572d26b68f inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d4380b68a9d9e8ff1c4883925bd9186 inherit pub_methods_class_block" id="r_a0d4380b68a9d9e8ff1c4883925bd9186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a0d4380b68a9d9e8ff1c4883925bd9186">parent</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a0d4380b68a9d9e8ff1c4883925bd9186 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 的父 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a>  <br /></td></tr>
-<tr class="separator:a0d4380b68a9d9e8ff1c4883925bd9186 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50623bee8bd4b176278f438e12b015cb inherit pub_methods_class_block" id="r_a50623bee8bd4b176278f438e12b015cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html#aad246a8137f861b486f76e8f26c34f12">std::vector</a>&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a50623bee8bd4b176278f438e12b015cb">childs</a> ()</td></tr>
-<tr class="memdesc:a50623bee8bd4b176278f438e12b015cb inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 的子 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 列表  <br /></td></tr>
-<tr class="separator:a50623bee8bd4b176278f438e12b015cb inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a546bf38cd158b322fe67f60f56f6890e inherit pub_methods_class_block" id="r_a546bf38cd158b322fe67f60f56f6890e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">const</a> <a class="el" href="class_var.html#aad246a8137f861b486f76e8f26c34f12">std::vector</a>&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a546bf38cd158b322fe67f60f56f6890e">childs</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a546bf38cd158b322fe67f60f56f6890e inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 的子 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 列表  <br /></td></tr>
-<tr class="separator:a546bf38cd158b322fe67f60f56f6890e inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2961b8a21011af984f05f2eef32dd4e1 inherit pub_methods_class_block" id="r_a2961b8a21011af984f05f2eef32dd4e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2961b8a21011af984f05f2eef32dd4e1">zindex</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a2961b8a21011af984f05f2eef32dd4e1 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取Block的Z索引顺序  <br /></td></tr>
-<tr class="separator:a2961b8a21011af984f05f2eef32dd4e1 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a793f603073525e79a6bafac2efed1a28 inherit pub_methods_class_block" id="r_a793f603073525e79a6bafac2efed1a28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a793f603073525e79a6bafac2efed1a28">setZindex</a> (<a class="el" href="class_var.html">long</a> <a class="el" href="class_var.html">long</a> <a class="el" href="class_block.html#a2961b8a21011af984f05f2eef32dd4e1">zindex</a>)</td></tr>
-<tr class="memdesc:a793f603073525e79a6bafac2efed1a28 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置Block的Z索引顺序  <br /></td></tr>
-<tr class="separator:a793f603073525e79a6bafac2efed1a28 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64786a3db2831fc78756b78fd11d8f4 inherit pub_methods_class_block" id="r_ab64786a3db2831fc78756b78fd11d8f4"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>rect</b> ()</td></tr>
+<tr class="separator:ab64786a3db2831fc78756b78fd11d8f4 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block" id="r_a641b58a29c6ba9592c61a22fdd2542e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_block.html">Block</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a> ()</td></tr>
+<tr class="memdesc:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取父对象指针  <br /></td></tr>
+<tr class="separator:a641b58a29c6ba9592c61a22fdd2542e4 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block" id="r_a5d40307d78ffd5ad52666c0d51932211"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="class_block.html">Block</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5d40307d78ffd5ad52666c0d51932211">children</a> ()</td></tr>
+<tr class="memdesc:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取子对象指针集合  <br /></td></tr>
+<tr class="separator:a5d40307d78ffd5ad52666c0d51932211 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block" id="r_adaf0e3c59b27a5378e543e346270e852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#adaf0e3c59b27a5378e543e346270e852">setParent</a> (<a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>)</td></tr>
+<tr class="memdesc:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置父对象  <br /></td></tr>
+<tr class="separator:adaf0e3c59b27a5378e543e346270e852 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff4d4b4b17fac44a652874b4f5540b5 inherit pub_methods_class_block" id="r_a5ff4d4b4b17fac44a652874b4f5540b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5ff4d4b4b17fac44a652874b4f5540b5">addChild</a> (<a class="el" href="class_block.html">Block</a> *child)</td></tr>
+<tr class="memdesc:a5ff4d4b4b17fac44a652874b4f5540b5 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加子对象  <br /></td></tr>
+<tr class="separator:a5ff4d4b4b17fac44a652874b4f5540b5 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block" id="r_a1b061bf727cdf09308ae7e4b1137a4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3">removeChild</a> (<a class="el" href="class_block.html">Block</a> *child)</td></tr>
+<tr class="memdesc:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">移除子对象  <br /></td></tr>
+<tr class="separator:a1b061bf727cdf09308ae7e4b1137a4f3 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block" id="r_a30a4e7b78d8fa21a7eb6bc0404dffc8f"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stopForeach</b> ()</td></tr>
+<tr class="memdesc:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">终止此对象子树事件循环的遍历 <br /></td></tr>
+<tr class="separator:a30a4e7b78d8fa21a7eb6bc0404dffc8f inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block" id="r_a7b2cfa412c9f06ff9946e1e9b95a3112"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetForeach</b> ()</td></tr>
+<tr class="memdesc:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">重新启用此对象子树事件循环的遍历 <br /></td></tr>
+<tr class="separator:a7b2cfa412c9f06ff9946e1e9b95a3112 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block" id="r_a5d315be0f1ec1ee5dd134cc995295096"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a5d315be0f1ec1ee5dd134cc995295096">isForeach</a> () const</td></tr>
+<tr class="memdesc:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">此对象子树是否处于事件循环可遍历状态  <br /></td></tr>
+<tr class="separator:a5d315be0f1ec1ee5dd134cc995295096 inherit pub_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
+<tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数 <br /></td></tr>
+<tr class="separator:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object" id="r_a9252cc36e32dda1ac9b8927e2e334570"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
+<tr class="separator:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:a6547335f685334bb65f7f4e6fa2969f6" id="r_a6547335f685334bb65f7f4e6fa2969f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>(<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6547335f685334bb65f7f4e6fa2969f6">dragged</a> )</td></tr>
-<tr class="memdesc:a6547335f685334bb65f7f4e6fa2969f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">当此对象被拖动时发出信号  <br /></td></tr>
-<tr class="separator:a6547335f685334bb65f7f4e6fa2969f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a609721eb75432337d5709b6ba2131760" id="r_a609721eb75432337d5709b6ba2131760"><td class="memItemLeft" align="right" valign="top"><a id="a609721eb75432337d5709b6ba2131760" name="a609721eb75432337d5709b6ba2131760"></a>
-<a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>released</b></td></tr>
-<tr class="memdesc:a609721eb75432337d5709b6ba2131760"><td class="mdescLeft">&#160;</td><td class="mdescRight">当此对象被释放时发出信号 <br /></td></tr>
-<tr class="separator:a609721eb75432337d5709b6ba2131760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_attribs_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_block')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
-<tr class="memitem:a511e62a2e3a18766363bdad6b8c589bb inherit pub_attribs_class_block" id="r_a511e62a2e3a18766363bdad6b8c589bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a511e62a2e3a18766363bdad6b8c589bb">onClicked</a></td></tr>
-<tr class="memdesc:a511e62a2e3a18766363bdad6b8c589bb inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标点击信号  <br /></td></tr>
-<tr class="separator:a511e62a2e3a18766363bdad6b8c589bb inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63d3541bca5e87573e8e5dd218af0e4 inherit pub_attribs_class_block" id="r_ac63d3541bca5e87573e8e5dd218af0e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ac63d3541bca5e87573e8e5dd218af0e4">onMenuClicked</a></td></tr>
-<tr class="memdesc:ac63d3541bca5e87573e8e5dd218af0e4 inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标右键点击信号  <br /></td></tr>
-<tr class="separator:ac63d3541bca5e87573e8e5dd218af0e4 inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b91c1a18e168835e23a0e3c03c87aa5 inherit pub_attribs_class_block" id="r_a4b91c1a18e168835e23a0e3c03c87aa5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>(<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">delta</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a4b91c1a18e168835e23a0e3c03c87aa5">onMoved</a> )</td></tr>
-<tr class="memdesc:a4b91c1a18e168835e23a0e3c03c87aa5 inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标移动信号  <br /></td></tr>
-<tr class="separator:a4b91c1a18e168835e23a0e3c03c87aa5 inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f013952451dbbd68a51a9a904509f4d inherit pub_attribs_class_block" id="r_a4f013952451dbbd68a51a9a904509f4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>(<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">inputChar</a>)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a4f013952451dbbd68a51a9a904509f4d">onInputText</a></td></tr>
-<tr class="memdesc:a4f013952451dbbd68a51a9a904509f4d inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">字符输入信号  <br /></td></tr>
-<tr class="separator:a4f013952451dbbd68a51a9a904509f4d inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4cc9dc22bffbeaaf87628400ec05d58 inherit pub_attribs_class_block" id="r_ac4cc9dc22bffbeaaf87628400ec05d58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ac4cc9dc22bffbeaaf87628400ec05d58">onNext</a></td></tr>
-<tr class="memdesc:ac4cc9dc22bffbeaaf87628400ec05d58 inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">完成信号  <br /></td></tr>
-<tr class="separator:ac4cc9dc22bffbeaaf87628400ec05d58 inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa583a4efcb0e906f18f0e2c29b31bbd2 inherit pub_attribs_class_block" id="r_aa583a4efcb0e906f18f0e2c29b31bbd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#aa583a4efcb0e906f18f0e2c29b31bbd2">onEnter</a></td></tr>
-<tr class="memdesc:aa583a4efcb0e906f18f0e2c29b31bbd2 inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标进入信号  <br /></td></tr>
-<tr class="separator:aa583a4efcb0e906f18f0e2c29b31bbd2 inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9bf32a98e6ff21620487e3aa0461d1d inherit pub_attribs_class_block" id="r_ae9bf32a98e6ff21620487e3aa0461d1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ae9bf32a98e6ff21620487e3aa0461d1d">onLeave</a></td></tr>
-<tr class="memdesc:ae9bf32a98e6ff21620487e3aa0461d1d inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标离开信号  <br /></td></tr>
-<tr class="separator:ae9bf32a98e6ff21620487e3aa0461d1d inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a237db30b794a083b038f441edd04ac8d inherit pub_attribs_class_block" id="r_a237db30b794a083b038f441edd04ac8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>(<a class="el" href="class_block.html">Block</a> *block)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a237db30b794a083b038f441edd04ac8d">onFocused</a> )</td></tr>
-<tr class="memdesc:a237db30b794a083b038f441edd04ac8d inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得焦点信号  <br /></td></tr>
-<tr class="separator:a237db30b794a083b038f441edd04ac8d inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac657de6bf6372ec192193b0aaa762cfd inherit pub_attribs_class_block" id="r_ac657de6bf6372ec192193b0aaa762cfd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_signal.html">Signal</a>&lt; <a class="el" href="class_var.html">void</a>(<a class="el" href="class_block.html">Block</a> *block)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#ac657de6bf6372ec192193b0aaa762cfd">onUnfocused</a> )</td></tr>
-<tr class="memdesc:ac657de6bf6372ec192193b0aaa762cfd inherit pub_attribs_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">失去焦点信号  <br /></td></tr>
-<tr class="separator:ac657de6bf6372ec192193b0aaa762cfd inherit pub_attribs_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a98fac079f05c4f1423bcbc74e79cb6" id="r_a4a98fac079f05c4f1423bcbc74e79cb6"><td class="memItemLeft" align="right" valign="top"><a id="a4a98fac079f05c4f1423bcbc74e79cb6" name="a4a98fac079f05c4f1423bcbc74e79cb6"></a>
+<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;)&#160;</td><td class="memItemRight" valign="bottom"><b>dragged</b> )</td></tr>
+<tr class="separator:a4a98fac079f05c4f1423bcbc74e79cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6c3abe3aa428414be1b804bfebc260" id="r_a8d6c3abe3aa428414be1b804bfebc260"><td class="memItemLeft" align="right" valign="top"><a id="a8d6c3abe3aa428414be1b804bfebc260" name="a8d6c3abe3aa428414be1b804bfebc260"></a>
+<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;)&#160;</td><td class="memItemRight" valign="bottom"><b>released</b> )</td></tr>
+<tr class="separator:a8d6c3abe3aa428414be1b804bfebc260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:aefb89f32dd356cfadd78ec8514defea3" id="r_aefb89f32dd356cfadd78ec8514defea3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefb89f32dd356cfadd78ec8514defea3">mousePressEvent</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>, <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> <a class="el" href="class_var.html">button</a>) <a class="el" href="class_var.html">override</a></td></tr>
-<tr class="memdesc:aefb89f32dd356cfadd78ec8514defea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标按钮按下事件  <br /></td></tr>
-<tr class="separator:aefb89f32dd356cfadd78ec8514defea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2228de763c5b0db59ed5012628f845d9" id="r_a2228de763c5b0db59ed5012628f845d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2228de763c5b0db59ed5012628f845d9">mouseMoveEvent</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>) <a class="el" href="class_var.html">override</a></td></tr>
-<tr class="memdesc:a2228de763c5b0db59ed5012628f845d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标移动事件  <br /></td></tr>
-<tr class="separator:a2228de763c5b0db59ed5012628f845d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdfce6c9018a297acbf0ca611355fe48" id="r_afdfce6c9018a297acbf0ca611355fe48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdfce6c9018a297acbf0ca611355fe48">mouseReleaseEvent</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>, <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a> <a class="el" href="class_var.html">button</a>) <a class="el" href="class_var.html">override</a></td></tr>
-<tr class="memdesc:afdfce6c9018a297acbf0ca611355fe48"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标按钮释放事件  <br /></td></tr>
-<tr class="separator:afdfce6c9018a297acbf0ca611355fe48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f97dd4552ba70b114e619beee22ae83" id="r_a4f97dd4552ba70b114e619beee22ae83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f97dd4552ba70b114e619beee22ae83">mousePressEvent</a> (<a class="el" href="class_mouse_press_event.html">MousePressEvent</a> *event) override</td></tr>
+<tr class="memdesc:a4f97dd4552ba70b114e619beee22ae83"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标按键按下事件处理函数  <br /></td></tr>
+<tr class="separator:a4f97dd4552ba70b114e619beee22ae83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51913b95d82c1215e22a19cc77577541" id="r_a51913b95d82c1215e22a19cc77577541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51913b95d82c1215e22a19cc77577541">mouseMoveEvent</a> (<a class="el" href="class_mouse_move_event.html">MouseMoveEvent</a> *event) override</td></tr>
+<tr class="memdesc:a51913b95d82c1215e22a19cc77577541"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标移动事件处理函数  <br /></td></tr>
+<tr class="separator:a51913b95d82c1215e22a19cc77577541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f17f997c06c108b628d7482850fb9e3" id="r_a2f17f997c06c108b628d7482850fb9e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f17f997c06c108b628d7482850fb9e3">mouseReleaseEvent</a> (<a class="el" href="class_mouse_release_event.html">MouseReleaseEvent</a> *event) override</td></tr>
+<tr class="memdesc:a2f17f997c06c108b628d7482850fb9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标按键释放事件处理函数  <br /></td></tr>
+<tr class="separator:a2f17f997c06c108b628d7482850fb9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040ce328826421eddf501b41733756cc" id="r_a040ce328826421eddf501b41733756cc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a040ce328826421eddf501b41733756cc">isContains</a> (<a class="el" href="class_point.html">Point</a> point) const</td></tr>
+<tr class="memdesc:a040ce328826421eddf501b41733756cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断点是否在此区域内  <br /></td></tr>
+<tr class="separator:a040ce328826421eddf501b41733756cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
-<tr class="memitem:a6e1e953b3e0d545beaf9fc0b453e749e inherit pro_methods_class_block" id="r_a6e1e953b3e0d545beaf9fc0b453e749e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">virtual</a> <a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a6e1e953b3e0d545beaf9fc0b453e749e">paintEvent</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;<a class="el" href="class_var.html">event</a>)</td></tr>
-<tr class="memdesc:a6e1e953b3e0d545beaf9fc0b453e749e inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于绘制 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a>  <br /></td></tr>
-<tr class="separator:a6e1e953b3e0d545beaf9fc0b453e749e inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block" id="r_a2a82987e8d7415c7ac8dd7a3f3ef0eb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">virtual</a> <a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a2a82987e8d7415c7ac8dd7a3f3ef0eb6">mouseWheelEvent</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>, <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga50141e5caf407b67b163b8d85585efa1">MouseWheel</a> <a class="el" href="class_var.html">wheel</a>)</td></tr>
-<tr class="memdesc:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理鼠标滚轮事件  <br /></td></tr>
-<tr class="separator:a2a82987e8d7415c7ac8dd7a3f3ef0eb6 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757c4552853538a17fc0f927ed4b27d3 inherit pro_methods_class_block" id="r_a757c4552853538a17fc0f927ed4b27d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">virtual</a> <a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a757c4552853538a17fc0f927ed4b27d3">keyPressEvent</a> (<a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a> <a class="el" href="class_var.html">key</a>, <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a> <a class="el" href="class_var.html">flag</a>)</td></tr>
-<tr class="memdesc:a757c4552853538a17fc0f927ed4b27d3 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理键盘按下事件  <br /></td></tr>
-<tr class="separator:a757c4552853538a17fc0f927ed4b27d3 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb78322e3b4f03d83df97bb938eb4889 inherit pro_methods_class_block" id="r_abb78322e3b4f03d83df97bb938eb4889"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">virtual</a> <a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#abb78322e3b4f03d83df97bb938eb4889">keyReleaseEvent</a> (<a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gab3c7af4820830f9166ede9e5623c4e73">Key</a> <a class="el" href="class_var.html">key</a>, <a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#ga7b263a18e2e46cc5365376b1eac284fb">KeyFlag</a> <a class="el" href="class_var.html">flag</a>)</td></tr>
-<tr class="memdesc:abb78322e3b4f03d83df97bb938eb4889 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理键盘释放事件  <br /></td></tr>
-<tr class="separator:abb78322e3b4f03d83df97bb938eb4889 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90e0bbaea24817177537b99507041aeb inherit pro_methods_class_block" id="r_a90e0bbaea24817177537b99507041aeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">virtual</a> <a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a90e0bbaea24817177537b99507041aeb">InputTextEvent</a> (<a class="el" href="class_var.html">wchar_t</a> <a class="el" href="class_var.html">inputChar</a>)</td></tr>
-<tr class="memdesc:a90e0bbaea24817177537b99507041aeb inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">虚函数，用于处理输入文本事件  <br /></td></tr>
-<tr class="separator:a90e0bbaea24817177537b99507041aeb inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block" id="r_a7fcd0f6c53e884ec6f0c50b9f38ee3e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a7fcd0f6c53e884ec6f0c50b9f38ee3e4">paintEvent</a> (<a class="el" href="class_paint_event.html">PaintEvent</a> *event)</td></tr>
+<tr class="memdesc:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">视图绘制事件处理函数  <br /></td></tr>
+<tr class="separator:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d820f315da105cfb4694e884a03ed3d inherit pro_methods_class_block" id="r_a3d820f315da105cfb4694e884a03ed3d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a3d820f315da105cfb4694e884a03ed3d">mouseWheelEvent</a> (<a class="el" href="class_mouse_wheel_event.html">MouseWheelEvent</a> *event)</td></tr>
+<tr class="memdesc:a3d820f315da105cfb4694e884a03ed3d inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标滚轮事件处理函数  <br /></td></tr>
+<tr class="separator:a3d820f315da105cfb4694e884a03ed3d inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9afa9b4e5064e3fd08322215e744e3 inherit pro_methods_class_block" id="r_a6b9afa9b4e5064e3fd08322215e744e3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a6b9afa9b4e5064e3fd08322215e744e3">keyPressEvent</a> (<a class="el" href="class_key_press_event.html">KeyPressEvent</a> *event)</td></tr>
+<tr class="memdesc:a6b9afa9b4e5064e3fd08322215e744e3 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">键盘按下事件处理函数  <br /></td></tr>
+<tr class="separator:a6b9afa9b4e5064e3fd08322215e744e3 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8ee13f22ef6b4e7a548dc3b48137c4 inherit pro_methods_class_block" id="r_aff8ee13f22ef6b4e7a548dc3b48137c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#aff8ee13f22ef6b4e7a548dc3b48137c4">keyReleaseEvent</a> (<a class="el" href="class_key_release_event.html">KeyReleaseEvent</a> *event)</td></tr>
+<tr class="memdesc:aff8ee13f22ef6b4e7a548dc3b48137c4 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">键盘释放事件处理函数  <br /></td></tr>
+<tr class="separator:aff8ee13f22ef6b4e7a548dc3b48137c4 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block" id="r_a8ca74bf3f16b9f157a61db50bcede7a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a8ca74bf3f16b9f157a61db50bcede7a8">inputEvent</a> (<a class="el" href="class_input_event.html">InputEvent</a> *event)</td></tr>
+<tr class="memdesc:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">输入事件处理函数  <br /></td></tr>
+<tr class="separator:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>可拖动的块 </p>
-<dl class="section note"><dt>注解</dt><dd>继承自 Block，它是所有可拖动对象的基类，它通过监视鼠标的全局(窗口)坐标来判断鼠标所拖动的相对位置，因此也可以用于窗口拖动移动 </dd></dl>
-</div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="aadb1e72ba339ab9c14b09f79a064bf51" name="aadb1e72ba339ab9c14b09f79a064bf51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadb1e72ba339ab9c14b09f79a064bf51">&#9670;&#160;</a></span>Drag()</h2>
+<div class="textblock"><p>拖动行为基类，通过继承此类可以使得Block具有拖动行为 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a040ce328826421eddf501b41733756cc" name="a040ce328826421eddf501b41733756cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040ce328826421eddf501b41733756cc">&#9670;&#160;</a></span>isContains()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Drag::Drag </td>
+          <td class="memname">bool Drag::isContains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_rect.html">Rect</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_block.html">Block</a> *</td>          <td class="paramname"><span class="paramname"><em>parent</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="class_var.html">nullptr</a></span></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a></td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>构造函数 </p>
+<p>判断点是否在此区域内 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rect</td><td>块的矩形区域，它指示块的大小和初始位置 </td></tr>
-    <tr><td class="paramname">parent</td><td>父块 </td></tr>
+    <tr><td class="paramname">point</td><td>点 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>返回</dt><dd>true 点在区域内，false 点不在区域内 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>子类可以重载此函数实现自定义可点击区域 </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">成员函数说明</h2>
-<a id="ab6656987c97380cfdecd71b60287079d" name="ab6656987c97380cfdecd71b60287079d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6656987c97380cfdecd71b60287079d">&#9670;&#160;</a></span>isXEnabled()</h2>
+<a id="aa42b4a4a8a6b3c0593290c27ea8e7b02" name="aa42b4a4a8a6b3c0593290c27ea8e7b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42b4a4a8a6b3c0593290c27ea8e7b02">&#9670;&#160;</a></span>isDragging()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">bool</a> Drag::isXEnabled </td>
+          <td class="memname">bool Drag::isDragging </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -293,33 +271,13 @@ Protected 成员函数</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>获取块在水平方向上的可移动状态 </p>
-<dl class="section return"><dt>返回</dt><dd>是否可水平移动 </dd></dl>
+<p>是否正在被拖动 </p>
+<dl class="section return"><dt>返回</dt><dd>true 正在被拖动，false 未被拖动 </dd></dl>
 
 </div>
 </div>
-<a id="a8b9ffc160738c30c7543328a472c7fbd" name="a8b9ffc160738c30c7543328a472c7fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b9ffc160738c30c7543328a472c7fbd">&#9670;&#160;</a></span>isYEnabled()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">bool</a> Drag::isYEnabled </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取块在垂直方向上的可移动状态 </p>
-<dl class="section return"><dt>返回</dt><dd>是否可垂直移动 </dd></dl>
-
-</div>
-</div>
-<a id="a2228de763c5b0db59ed5012628f845d9" name="a2228de763c5b0db59ed5012628f845d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2228de763c5b0db59ed5012628f845d9">&#9670;&#160;</a></span>mouseMoveEvent()</h2>
+<a id="a51913b95d82c1215e22a19cc77577541" name="a51913b95d82c1215e22a19cc77577541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51913b95d82c1215e22a19cc77577541">&#9670;&#160;</a></span>mouseMoveEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,9 +286,9 @@ Protected 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Drag::mouseMoveEvent </td>
+          <td class="memname">void Drag::mouseMoveEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_mouse_move_event.html">MouseMoveEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -341,21 +299,20 @@ Protected 成员函数</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>虚函数，用于处理鼠标移动事件 </p>
+<p>鼠标移动事件处理函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>鼠标位置 </td></tr>
+    <tr><td class="paramname">event</td><td>鼠标移动事件指针 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onMoved 信号、onEnter 信号和 onLeave 信号 </dd></dl>
 
-<p>重载 <a class="el" href="class_block.html#a379ce9a26e377c7c1b41d206f23c97f7">Block</a> .</p>
+<p>重载 <a class="el" href="class_block.html#aa8b6e33b33ad0fc815ffbf8cf0923f11">Block</a> .</p>
 
 </div>
 </div>
-<a id="aefb89f32dd356cfadd78ec8514defea3" name="aefb89f32dd356cfadd78ec8514defea3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefb89f32dd356cfadd78ec8514defea3">&#9670;&#160;</a></span>mousePressEvent()</h2>
+<a id="a4f97dd4552ba70b114e619beee22ae83" name="a4f97dd4552ba70b114e619beee22ae83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f97dd4552ba70b114e619beee22ae83">&#9670;&#160;</a></span>mousePressEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,14 +321,10 @@ Protected 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Drag::mousePressEvent </td>
+          <td class="memname">void Drag::mousePressEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_mouse_press_event.html">MousePressEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a></td>          <td class="paramname"><span class="paramname"><em>button</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -381,22 +334,20 @@ Protected 成员函数</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>虚函数，用于处理鼠标按钮按下事件 </p>
+<p>鼠标按键按下事件处理函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>鼠标位置 </td></tr>
-    <tr><td class="paramname">button</td><td>鼠标按钮 </td></tr>
+    <tr><td class="paramname">event</td><td>鼠标按键按下事件指针 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现会触发 onClicked 信号和 onMenuClicked 信号，并触发 onFocused 信号，同时将 <a class="el" href="class_block.html" title="Block是所有UI对象的基类，它提供了视图绘制、事件处理等基本功能">Block</a> 设为当前焦点 </dd></dl>
 
-<p>重载 <a class="el" href="class_block.html#a71e4bfdb94b9f4e281331632319e4a69">Block</a> .</p>
+<p>重载 <a class="el" href="class_block.html#a86928073244ae2afaa19f28b482f4f77">Block</a> .</p>
 
 </div>
 </div>
-<a id="afdfce6c9018a297acbf0ca611355fe48" name="afdfce6c9018a297acbf0ca611355fe48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdfce6c9018a297acbf0ca611355fe48">&#9670;&#160;</a></span>mouseReleaseEvent()</h2>
+<a id="a2f17f997c06c108b628d7482850fb9e3" name="a2f17f997c06c108b628d7482850fb9e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f17f997c06c108b628d7482850fb9e3">&#9670;&#160;</a></span>mouseReleaseEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,14 +356,10 @@ Protected 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Drag::mouseReleaseEvent </td>
+          <td class="memname">void Drag::mouseReleaseEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_mouse_release_event.html">MouseReleaseEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___xE6_x9E_x9A_xE4_xB8_xBE.html#gac1ec3647c005eacad401b06e7e18f711">MouseButton</a></td>          <td class="paramname"><span class="paramname"><em>button</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -422,92 +369,37 @@ Protected 成员函数</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>虚函数，用于处理鼠标按钮释放事件 </p>
+<p>鼠标按键释放事件处理函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>鼠标位置 </td></tr>
-    <tr><td class="paramname">button</td><td>鼠标按钮 </td></tr>
+    <tr><td class="paramname">event</td><td>鼠标按键释放事件指针 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>子类可以重写该函数来实现自己的事件处理逻辑，默认实现为空函数 </dd></dl>
 
-<p>重载 <a class="el" href="class_block.html#ad27dee1ce1692964c7f209af129e3322">Block</a> .</p>
+<p>重载 <a class="el" href="class_block.html#a721e7981a4dfdbf34208402d1ae5ab62">Block</a> .</p>
 
 </div>
 </div>
-<a id="ae13342bf83d055bfc064beaa2c41cea8" name="ae13342bf83d055bfc064beaa2c41cea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae13342bf83d055bfc064beaa2c41cea8">&#9670;&#160;</a></span>setEnabled()</h2>
+<a id="ae0ac0ce46433826a3150aceda8eccfd5" name="ae0ac0ce46433826a3150aceda8eccfd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ac0ce46433826a3150aceda8eccfd5">&#9670;&#160;</a></span>setTriggerButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Drag::setEnabled </td>
+          <td class="memname">void Drag::setTriggerButton </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">bool</a></td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">bool</a></td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置块的可移动方向 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>是否可水平移动 </td></tr>
-    <tr><td class="paramname">y</td><td>是否可垂直移动 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a250e0076aaab1579a4a6e709fb4a56cd" name="a250e0076aaab1579a4a6e709fb4a56cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a250e0076aaab1579a4a6e709fb4a56cd">&#9670;&#160;</a></span>setReference()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Drag::setReference </td>
-          <td>(</td>
-          <td class="paramtype">Ref</td>          <td class="paramname"><span class="paramname"><em>ref</em></span></td><td>)</td>
+          <td class="paramtype">MouseButton</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>设置参考系 </p>
+<p>设置触发拖动的鼠标按键 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ref</td><td>参考系，可以是全局坐标系(Ref::Global)或窗口坐标系(Ref::Window)，默认为窗口坐标系 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">类成员变量说明</h2>
-<a id="a6547335f685334bb65f7f4e6fa2969f6" name="a6547335f685334bb65f7f4e6fa2969f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6547335f685334bb65f7f4e6fa2969f6">&#9670;&#160;</a></span>dragged</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_signal.html">Signal</a>&lt;<a class="el" href="class_var.html">void</a>(<a class="el" href="class_var.html">const</a> <a class="el" href="class_point.html">Point</a> &amp;<a class="el" href="class_var.html">pos</a>) Drag::dragged) </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>当此对象被拖动时发出信号 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>此时被拖动对象的位置 </td></tr>
+    <tr><td class="paramname">button</td><td>鼠标按键 </td></tr>
   </table>
   </dd>
 </dl>

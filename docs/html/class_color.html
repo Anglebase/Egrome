@@ -98,273 +98,108 @@ $(function(){initNavTree('class_color.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">类</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
-<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
-<a href="#friends">友元</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
 <a href="class_color-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">Color类 参考<div class="ingroups"><a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html">视图</a> &raquo; <a class="el" href="group___xE9_xA2_x9C_xE8_x89_xB2_xE7_x9B_xB8_xE5_x85_xB3.html">颜色相关</a></div></div></div>
+  <div class="headertitle"><div class="title">Color类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>此类以 RGB 颜色模型对颜色进行存储  
+<p>颜色类  
  <a href="#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_color_8h_source.html">Color.h</a>&gt;</code></p>
+<div class="dynheader">
+类 Color 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_color.png" usemap="#Color_map" alt=""/>
+  <map id="Color_map" name="Color_map">
+<area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="0,0,49,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_color_1_1_h_s_l.html">HSL</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HSV颜色修改器  <a href="struct_color_1_1_h_s_l.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_color_1_1_h_s_v.html">HSV</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a93cb0fe975ac713deb2b1f3cb438c91d" id="r_a93cb0fe975ac713deb2b1f3cb438c91d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93cb0fe975ac713deb2b1f3cb438c91d">Color</a> (<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">r</a>, <a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">g</a>, <a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">b</a>, <a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">a</a>=0xFF)</td></tr>
-<tr class="memdesc:a93cb0fe975ac713deb2b1f3cb438c91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
-<tr class="separator:a93cb0fe975ac713deb2b1f3cb438c91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac93ca6dcb1c158c0b09ff546daa9ce1c" id="r_ac93ca6dcb1c158c0b09ff546daa9ce1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac93ca6dcb1c158c0b09ff546daa9ce1c">Color</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_v.html">HSV</a> &amp;<a class="el" href="class_var.html">hsv</a>)</td></tr>
-<tr class="memdesc:ac93ca6dcb1c158c0b09ff546daa9ce1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">以 <a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型构造  <br /></td></tr>
-<tr class="separator:ac93ca6dcb1c158c0b09ff546daa9ce1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af08c725a9e0b43cb082dc7c5a97aae1d" id="r_af08c725a9e0b43cb082dc7c5a97aae1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08c725a9e0b43cb082dc7c5a97aae1d">Color</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_l.html">HSL</a> &amp;<a class="el" href="class_var.html">hsl</a>)</td></tr>
-<tr class="memdesc:af08c725a9e0b43cb082dc7c5a97aae1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">以 <a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型构造  <br /></td></tr>
-<tr class="separator:af08c725a9e0b43cb082dc7c5a97aae1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2fc905c43fccce2f80785bdbc4ff4f8" id="r_aa2fc905c43fccce2f80785bdbc4ff4f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2fc905c43fccce2f80785bdbc4ff4f8">Color</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;<a class="el" href="class_var.html">other</a>)=<a class="el" href="class_var.html">default</a></td></tr>
-<tr class="memdesc:aa2fc905c43fccce2f80785bdbc4ff4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝构造函数  <br /></td></tr>
-<tr class="separator:aa2fc905c43fccce2f80785bdbc4ff4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3058cfd0dc7826ea28d7a2c9aedb0ed5" id="r_a3058cfd0dc7826ea28d7a2c9aedb0ed5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3058cfd0dc7826ea28d7a2c9aedb0ed5">Color</a> (<a class="el" href="class_color.html">Color</a> &amp;&amp;value)=<a class="el" href="class_var.html">default</a></td></tr>
-<tr class="memdesc:a3058cfd0dc7826ea28d7a2c9aedb0ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">移动构造函数  <br /></td></tr>
-<tr class="separator:a3058cfd0dc7826ea28d7a2c9aedb0ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6afa5963c514a103014d751e1fa0d467" id="r_a6afa5963c514a103014d751e1fa0d467"><td class="memItemLeft" align="right" valign="top"><a id="a6afa5963c514a103014d751e1fa0d467" name="a6afa5963c514a103014d751e1fa0d467"></a>
-<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;<a class="el" href="class_var.html">other</a>)</td></tr>
-<tr class="separator:a6afa5963c514a103014d751e1fa0d467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73339f4174bfc414eba5a70d58c64efa" id="r_a73339f4174bfc414eba5a70d58c64efa"><td class="memItemLeft" align="right" valign="top"><a id="a73339f4174bfc414eba5a70d58c64efa" name="a73339f4174bfc414eba5a70d58c64efa"></a>
-<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_color.html">Color</a> &amp;&amp;value)</td></tr>
-<tr class="separator:a73339f4174bfc414eba5a70d58c64efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ebe9081f601e368a947d0346198fc9" id="r_af5ebe9081f601e368a947d0346198fc9"><td class="memItemLeft" align="right" valign="top"><a id="af5ebe9081f601e368a947d0346198fc9" name="af5ebe9081f601e368a947d0346198fc9"></a>
-<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_v.html">HSV</a> &amp;<a class="el" href="class_var.html">hsv</a>)</td></tr>
-<tr class="separator:af5ebe9081f601e368a947d0346198fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12ec537cde1c3c0badec3f243aa81224" id="r_a12ec537cde1c3c0badec3f243aa81224"><td class="memItemLeft" align="right" valign="top"><a id="a12ec537cde1c3c0badec3f243aa81224" name="a12ec537cde1c3c0badec3f243aa81224"></a>
-<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_l.html">HSL</a> &amp;<a class="el" href="class_var.html">hsl</a>)</td></tr>
-<tr class="separator:a12ec537cde1c3c0badec3f243aa81224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4b5d5500c2ee028e3f7d92a4d098ee0" id="r_ae4b5d5500c2ee028e3f7d92a4d098ee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4b5d5500c2ee028e3f7d92a4d098ee0">operator==</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;<a class="el" href="class_var.html">other</a>) <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:ae4b5d5500c2ee028e3f7d92a4d098ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">颜色相等比较  <br /></td></tr>
-<tr class="separator:ae4b5d5500c2ee028e3f7d92a4d098ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02121562a10f0bb1fc9593dd33e313fa" id="r_a02121562a10f0bb1fc9593dd33e313fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02121562a10f0bb1fc9593dd33e313fa">operator!=</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;<a class="el" href="class_var.html">other</a>) <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a02121562a10f0bb1fc9593dd33e313fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">颜色不等比较  <br /></td></tr>
-<tr class="separator:a02121562a10f0bb1fc9593dd33e313fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed1e9e09db006f0546c4621ba387efb6" id="r_aed1e9e09db006f0546c4621ba387efb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed1e9e09db006f0546c4621ba387efb6">getRed</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:aed1e9e09db006f0546c4621ba387efb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取颜色的红色分量  <br /></td></tr>
-<tr class="separator:aed1e9e09db006f0546c4621ba387efb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa32e85661f7d2844ea20e4ffe2f1fa62" id="r_aa32e85661f7d2844ea20e4ffe2f1fa62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa32e85661f7d2844ea20e4ffe2f1fa62">getGreen</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:aa32e85661f7d2844ea20e4ffe2f1fa62"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取颜色的绿色分量  <br /></td></tr>
-<tr class="separator:aa32e85661f7d2844ea20e4ffe2f1fa62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7caa1306b0bdd9c5a49ce640da1a8e8" id="r_ab7caa1306b0bdd9c5a49ce640da1a8e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7caa1306b0bdd9c5a49ce640da1a8e8">getBlue</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:ab7caa1306b0bdd9c5a49ce640da1a8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取颜色的蓝色分量  <br /></td></tr>
-<tr class="separator:ab7caa1306b0bdd9c5a49ce640da1a8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b0d577c9edf65e6587e102aeb4c74f9" id="r_a5b0d577c9edf65e6587e102aeb4c74f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0d577c9edf65e6587e102aeb4c74f9">getAlpha</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a5b0d577c9edf65e6587e102aeb4c74f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取颜色的透明度  <br /></td></tr>
-<tr class="separator:a5b0d577c9edf65e6587e102aeb4c74f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4362605630e70563f67c77410abd97c1" id="r_a4362605630e70563f67c77410abd97c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4362605630e70563f67c77410abd97c1">setRed</a> (<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">r</a>)</td></tr>
-<tr class="memdesc:a4362605630e70563f67c77410abd97c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置颜色的红色分量  <br /></td></tr>
-<tr class="separator:a4362605630e70563f67c77410abd97c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af015cb498147d0fe1db0c3c73c7980aa" id="r_af015cb498147d0fe1db0c3c73c7980aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af015cb498147d0fe1db0c3c73c7980aa">setGreen</a> (<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">g</a>)</td></tr>
-<tr class="memdesc:af015cb498147d0fe1db0c3c73c7980aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置颜色的绿色分量  <br /></td></tr>
-<tr class="separator:af015cb498147d0fe1db0c3c73c7980aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1b97cf50c8c110fac18830464247bc1" id="r_ac1b97cf50c8c110fac18830464247bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1b97cf50c8c110fac18830464247bc1">setBlue</a> (<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">b</a>)</td></tr>
-<tr class="memdesc:ac1b97cf50c8c110fac18830464247bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置颜色的蓝色分量  <br /></td></tr>
-<tr class="separator:ac1b97cf50c8c110fac18830464247bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f3ef6470241fda50da5887eca22bb41" id="r_a5f3ef6470241fda50da5887eca22bb41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f3ef6470241fda50da5887eca22bb41">setAlpha</a> (<a class="el" href="class_var.html">int</a> <a class="el" href="class_var.html">a</a>)</td></tr>
-<tr class="memdesc:a5f3ef6470241fda50da5887eca22bb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置颜色的透明度  <br /></td></tr>
-<tr class="separator:a5f3ef6470241fda50da5887eca22bb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ff42da066c9ce77031d5b77a8b6264a" id="r_a9ff42da066c9ce77031d5b77a8b6264a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ff42da066c9ce77031d5b77a8b6264a">operator HSV</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a9ff42da066c9ce77031d5b77a8b6264a"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为 <a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型  <br /></td></tr>
-<tr class="separator:a9ff42da066c9ce77031d5b77a8b6264a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7d80b3eec55709e8d57f7647fe084d3" id="r_ae7d80b3eec55709e8d57f7647fe084d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d80b3eec55709e8d57f7647fe084d3">operator HSL</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:ae7d80b3eec55709e8d57f7647fe084d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换为 <a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型  <br /></td></tr>
-<tr class="separator:ae7d80b3eec55709e8d57f7647fe084d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f98b8c3a163bdcf2206b6da18e5c28" id="r_a46f98b8c3a163bdcf2206b6da18e5c28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46f98b8c3a163bdcf2206b6da18e5c28">withoutAlpha</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a46f98b8c3a163bdcf2206b6da18e5c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">去除aplha通道值  <br /></td></tr>
-<tr class="separator:a46f98b8c3a163bdcf2206b6da18e5c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89dc10fbe34597cdd50e3e3437944099" id="r_a89dc10fbe34597cdd50e3e3437944099"><td class="memItemLeft" align="right" valign="top"><a id="a89dc10fbe34597cdd50e3e3437944099" name="a89dc10fbe34597cdd50e3e3437944099"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Color</b> (int r, int g, int b, int a=255) noexcept</td></tr>
+<tr class="separator:a89dc10fbe34597cdd50e3e3437944099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e3a383c5f4c252dd74cf184c480d84" id="r_aa3e3a383c5f4c252dd74cf184c480d84"><td class="memItemLeft" align="right" valign="top"><a id="aa3e3a383c5f4c252dd74cf184c480d84" name="aa3e3a383c5f4c252dd74cf184c480d84"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>red</b> () noexcept</td></tr>
+<tr class="separator:aa3e3a383c5f4c252dd74cf184c480d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d0b6b7a4badda84c92b8b2026a2ef7" id="r_ad1d0b6b7a4badda84c92b8b2026a2ef7"><td class="memItemLeft" align="right" valign="top"><a id="ad1d0b6b7a4badda84c92b8b2026a2ef7" name="ad1d0b6b7a4badda84c92b8b2026a2ef7"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>green</b> () noexcept</td></tr>
+<tr class="separator:ad1d0b6b7a4badda84c92b8b2026a2ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598f09c6b75aea3b893425c0f1c98b00" id="r_a598f09c6b75aea3b893425c0f1c98b00"><td class="memItemLeft" align="right" valign="top"><a id="a598f09c6b75aea3b893425c0f1c98b00" name="a598f09c6b75aea3b893425c0f1c98b00"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>blue</b> () noexcept</td></tr>
+<tr class="separator:a598f09c6b75aea3b893425c0f1c98b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46ac7920fa6240717777347716ea3a8" id="r_ab46ac7920fa6240717777347716ea3a8"><td class="memItemLeft" align="right" valign="top"><a id="ab46ac7920fa6240717777347716ea3a8" name="ab46ac7920fa6240717777347716ea3a8"></a>
+int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b> () noexcept</td></tr>
+<tr class="separator:ab46ac7920fa6240717777347716ea3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993e46a4ae5b034d124f1561ccf69fd2" id="r_a993e46a4ae5b034d124f1561ccf69fd2"><td class="memItemLeft" align="right" valign="top"><a id="a993e46a4ae5b034d124f1561ccf69fd2" name="a993e46a4ae5b034d124f1561ccf69fd2"></a>
+const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>red</b> () const noexcept</td></tr>
+<tr class="separator:a993e46a4ae5b034d124f1561ccf69fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a06de88c00a6026442ccbaf48e9fca" id="r_a49a06de88c00a6026442ccbaf48e9fca"><td class="memItemLeft" align="right" valign="top"><a id="a49a06de88c00a6026442ccbaf48e9fca" name="a49a06de88c00a6026442ccbaf48e9fca"></a>
+const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>green</b> () const noexcept</td></tr>
+<tr class="separator:a49a06de88c00a6026442ccbaf48e9fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bca58de9c12bf62ee6466af0986f7c8" id="r_a5bca58de9c12bf62ee6466af0986f7c8"><td class="memItemLeft" align="right" valign="top"><a id="a5bca58de9c12bf62ee6466af0986f7c8" name="a5bca58de9c12bf62ee6466af0986f7c8"></a>
+const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>blue</b> () const noexcept</td></tr>
+<tr class="separator:a5bca58de9c12bf62ee6466af0986f7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8af69608b9ebadf7acfaad9a100d47b" id="r_aa8af69608b9ebadf7acfaad9a100d47b"><td class="memItemLeft" align="right" valign="top"><a id="aa8af69608b9ebadf7acfaad9a100d47b" name="aa8af69608b9ebadf7acfaad9a100d47b"></a>
+const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b> () const noexcept</td></tr>
+<tr class="separator:aa8af69608b9ebadf7acfaad9a100d47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eefbe1ef906ce03b70e40be6cd67f1f" id="r_a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7eefbe1ef906ce03b70e40be6cd67f1f">withoutAlpha</a> () const noexcept</td></tr>
+<tr class="memdesc:a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取移除了alpha通道的颜色  <br /></td></tr>
+<tr class="separator:a7eefbe1ef906ce03b70e40be6cd67f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de8745f8231fd8ad7e10b721cb21ad9" id="r_a8de8745f8231fd8ad7e10b721cb21ad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8de8745f8231fd8ad7e10b721cb21ad9">gray</a> () const noexcept</td></tr>
+<tr class="memdesc:a8de8745f8231fd8ad7e10b721cb21ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取灰度颜色  <br /></td></tr>
+<tr class="separator:a8de8745f8231fd8ad7e10b721cb21ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f62f039aad245d61c108305f97f1b2" id="r_a62f62f039aad245d61c108305f97f1b2"><td class="memItemLeft" align="right" valign="top"><a id="a62f62f039aad245d61c108305f97f1b2" name="a62f62f039aad245d61c108305f97f1b2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_color.html">Color</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a62f62f039aad245d61c108305f97f1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a065b70d55b1d6df8243e02f5819dd496" id="r_a065b70d55b1d6df8243e02f5819dd496"><td class="memItemLeft" align="right" valign="top"><a id="a065b70d55b1d6df8243e02f5819dd496" name="a065b70d55b1d6df8243e02f5819dd496"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_color.html">Color</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a065b70d55b1d6df8243e02f5819dd496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
+<tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数 <br /></td></tr>
+<tr class="separator:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object" id="r_a9252cc36e32dda1ac9b8927e2e334570"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
+<tr class="separator:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a99e1651a21e1eb6320b291da6e5120b2" id="r_a99e1651a21e1eb6320b291da6e5120b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">static</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99e1651a21e1eb6320b291da6e5120b2">lerp</a> (<a class="el" href="class_color.html">Color</a> start, <a class="el" href="class_color.html">Color</a> <a class="el" href="class_var.html">end</a>, <a class="el" href="class_var.html">double</a> <a class="el" href="class_var.html">t</a>)</td></tr>
-<tr class="memdesc:a99e1651a21e1eb6320b291da6e5120b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">颜色的线性插值函数  <br /></td></tr>
-<tr class="separator:a99e1651a21e1eb6320b291da6e5120b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6193e284b0b5f4e0fb0be76310f59b22" id="r_a6193e284b0b5f4e0fb0be76310f59b22"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6193e284b0b5f4e0fb0be76310f59b22">lerp</a> (const <a class="el" href="class_color.html">Color</a> &amp;a, const <a class="el" href="class_color.html">Color</a> &amp;b, double t) noexcept</td></tr>
+<tr class="memdesc:a6193e284b0b5f4e0fb0be76310f59b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">HSL颜色修改器  <br /></td></tr>
+<tr class="separator:a6193e284b0b5f4e0fb0be76310f59b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-静态 Public 属性</h2></td></tr>
-<tr class="memitem:gabfda8f6d25cb1b8ddbf029624bf879dd" id="r_gabfda8f6d25cb1b8ddbf029624bf879dd"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Black</b> {0x000000_rgb}</td></tr>
-<tr class="memdesc:gabfda8f6d25cb1b8ddbf029624bf879dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">黑色 <br /></td></tr>
-<tr class="separator:gabfda8f6d25cb1b8ddbf029624bf879dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64abba1de9a93b7b2cf3ddbde14f640b" id="r_ga64abba1de9a93b7b2cf3ddbde14f640b"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>White</b> {0xFFFFFF_rgb}</td></tr>
-<tr class="memdesc:ga64abba1de9a93b7b2cf3ddbde14f640b"><td class="mdescLeft">&#160;</td><td class="mdescRight">白色 <br /></td></tr>
-<tr class="separator:ga64abba1de9a93b7b2cf3ddbde14f640b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gade25ce437fd74a7b08fee1583b329c8e" id="r_gade25ce437fd74a7b08fee1583b329c8e"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Red</b> {0xFF0000_rgb}</td></tr>
-<tr class="memdesc:gade25ce437fd74a7b08fee1583b329c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">红色 <br /></td></tr>
-<tr class="separator:gade25ce437fd74a7b08fee1583b329c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99d190056130b083fe716a721f0e2b74" id="r_ga99d190056130b083fe716a721f0e2b74"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Green</b> {0x00FF00_rgb}</td></tr>
-<tr class="memdesc:ga99d190056130b083fe716a721f0e2b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">绿色 <br /></td></tr>
-<tr class="separator:ga99d190056130b083fe716a721f0e2b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga662b7359238c900518fa4a5595c3b2d5" id="r_ga662b7359238c900518fa4a5595c3b2d5"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Blue</b> {0x0000FF_rgb}</td></tr>
-<tr class="memdesc:ga662b7359238c900518fa4a5595c3b2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">蓝色 <br /></td></tr>
-<tr class="separator:ga662b7359238c900518fa4a5595c3b2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga369553012abed2a1d35d852fad97402d" id="r_ga369553012abed2a1d35d852fad97402d"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Gray</b> {0x808080_rgb}</td></tr>
-<tr class="memdesc:ga369553012abed2a1d35d852fad97402d"><td class="mdescLeft">&#160;</td><td class="mdescRight">灰色 <br /></td></tr>
-<tr class="separator:ga369553012abed2a1d35d852fad97402d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8e6ed0c830f4daa479929b66ed172ffc" id="r_ga8e6ed0c830f4daa479929b66ed172ffc"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightGray</b> {0xC0C0C0_rgb}</td></tr>
-<tr class="memdesc:ga8e6ed0c830f4daa479929b66ed172ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮灰色 <br /></td></tr>
-<tr class="separator:ga8e6ed0c830f4daa479929b66ed172ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad3cac99cc1172e7865a9c8c78f932d1d" id="r_gad3cac99cc1172e7865a9c8c78f932d1d"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DarkGray</b> {0x404040_rgb}</td></tr>
-<tr class="memdesc:gad3cac99cc1172e7865a9c8c78f932d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">深灰色 <br /></td></tr>
-<tr class="separator:gad3cac99cc1172e7865a9c8c78f932d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf00fdc098f0f6be1cab40843f30526c7" id="r_gaf00fdc098f0f6be1cab40843f30526c7"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Purple</b> {0xFF00FF_rgb}</td></tr>
-<tr class="memdesc:gaf00fdc098f0f6be1cab40843f30526c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">紫色 <br /></td></tr>
-<tr class="separator:gaf00fdc098f0f6be1cab40843f30526c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafc6c72f651b3fb77452a86a4fcab7582" id="r_gafc6c72f651b3fb77452a86a4fcab7582"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Yellow</b> {0xFFFF00_rgb}</td></tr>
-<tr class="memdesc:gafc6c72f651b3fb77452a86a4fcab7582"><td class="mdescLeft">&#160;</td><td class="mdescRight">黄色 <br /></td></tr>
-<tr class="separator:gafc6c72f651b3fb77452a86a4fcab7582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba8a75025a243f2186eef9bc5f8b0536" id="r_gaba8a75025a243f2186eef9bc5f8b0536"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Cyan</b> {0x00FEC0_rgb}</td></tr>
-<tr class="memdesc:gaba8a75025a243f2186eef9bc5f8b0536"><td class="mdescLeft">&#160;</td><td class="mdescRight">青色 <br /></td></tr>
-<tr class="separator:gaba8a75025a243f2186eef9bc5f8b0536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14cd43f7e35b7dec04a5742a89affe3f" id="r_ga14cd43f7e35b7dec04a5742a89affe3f"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Pink</b> {0xFFC0CB_rgb}</td></tr>
-<tr class="memdesc:ga14cd43f7e35b7dec04a5742a89affe3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">粉色 <br /></td></tr>
-<tr class="separator:ga14cd43f7e35b7dec04a5742a89affe3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9020b5185c6a5f6698beaf7f5d2c93c" id="r_gad9020b5185c6a5f6698beaf7f5d2c93c"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightRed</b> {0xFFA07A_rgb}</td></tr>
-<tr class="memdesc:gad9020b5185c6a5f6698beaf7f5d2c93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮红色 <br /></td></tr>
-<tr class="separator:gad9020b5185c6a5f6698beaf7f5d2c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4aec31f0c8f05f849426d90b6ea3d45e" id="r_ga4aec31f0c8f05f849426d90b6ea3d45e"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightGreen</b> {0x90EE90_rgb}</td></tr>
-<tr class="memdesc:ga4aec31f0c8f05f849426d90b6ea3d45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮绿色 <br /></td></tr>
-<tr class="separator:ga4aec31f0c8f05f849426d90b6ea3d45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga159be1cbfb5602e75fcb66d735cdec38" id="r_ga159be1cbfb5602e75fcb66d735cdec38"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightBlue</b> {0xADD8E6_rgb}</td></tr>
-<tr class="memdesc:ga159be1cbfb5602e75fcb66d735cdec38"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮蓝色 <br /></td></tr>
-<tr class="separator:ga159be1cbfb5602e75fcb66d735cdec38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad59705c9c76d84ddaa4a6fc5d1203af7" id="r_gad59705c9c76d84ddaa4a6fc5d1203af7"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightYellow</b> {0xFFFFE0_rgb}</td></tr>
-<tr class="memdesc:gad59705c9c76d84ddaa4a6fc5d1203af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮黄色 <br /></td></tr>
-<tr class="separator:gad59705c9c76d84ddaa4a6fc5d1203af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa5bc3f91c8eaff5ff897166e7f288138" id="r_gaa5bc3f91c8eaff5ff897166e7f288138"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightCyan</b> {0x00FFFF_rgb}</td></tr>
-<tr class="memdesc:gaa5bc3f91c8eaff5ff897166e7f288138"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮青色 <br /></td></tr>
-<tr class="separator:gaa5bc3f91c8eaff5ff897166e7f288138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae7fb7dac4c720272c7bd1947c769f7f8" id="r_gae7fb7dac4c720272c7bd1947c769f7f8"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_var.html">static</a> <a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LightPink</b> {0xFFB6C1_rgb}</td></tr>
-<tr class="memdesc:gae7fb7dac4c720272c7bd1947c769f7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">亮粉色 <br /></td></tr>
-<tr class="separator:gae7fb7dac4c720272c7bd1947c769f7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
-友元</h2></td></tr>
-<tr class="memitem:a1f99da50084e20c61c6666e004378dd3" id="r_a1f99da50084e20c61c6666e004378dd3"><td class="memItemLeft" align="right" valign="top"><a id="a1f99da50084e20c61c6666e004378dd3" name="a1f99da50084e20c61c6666e004378dd3"></a>
-<a class="el" href="class_var.html">class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Painter</b></td></tr>
-<tr class="separator:a1f99da50084e20c61c6666e004378dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a79ab34b4e52e8351c6ccce037841d4ee" id="r_a79ab34b4e52e8351c6ccce037841d4ee"><td class="memItemLeft" align="right" valign="top"><a id="a79ab34b4e52e8351c6ccce037841d4ee" name="a79ab34b4e52e8351c6ccce037841d4ee"></a>
+struct <a class="el" href="struct_color_1_1_h_s_v.html">Color::HSV</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hsv</b></td></tr>
+<tr class="separator:a79ab34b4e52e8351c6ccce037841d4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55070bf210348401bffdfdca296725e9" id="r_a55070bf210348401bffdfdca296725e9"><td class="memItemLeft" align="right" valign="top"><a id="a55070bf210348401bffdfdca296725e9" name="a55070bf210348401bffdfdca296725e9"></a>
+struct <a class="el" href="struct_color_1_1_h_s_l.html">Color::HSL</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hsl</b></td></tr>
+<tr class="separator:a55070bf210348401bffdfdca296725e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>此类以 RGB 颜色模型对颜色进行存储 </p>
-<dl class="section note"><dt>注解</dt><dd>该类提供了常用颜色的预定义，以及颜色的线性插值函数 </dd></dl>
-</div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a93cb0fe975ac713deb2b1f3cb438c91d" name="a93cb0fe975ac713deb2b1f3cb438c91d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93cb0fe975ac713deb2b1f3cb438c91d">&#9670;&#160;</a></span>Color() <span class="overload">[1/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::Color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>r</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>g</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>b</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>a</em><span class="paramdefsep"> = </span><span class="paramdefval">0xFF</span></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>构造函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r</td><td>红色分量 </td></tr>
-    <tr><td class="paramname">g</td><td>绿色分量 </td></tr>
-    <tr><td class="paramname">b</td><td>蓝色分量 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac93ca6dcb1c158c0b09ff546daa9ce1c" name="ac93ca6dcb1c158c0b09ff546daa9ce1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93ca6dcb1c158c0b09ff546daa9ce1c">&#9670;&#160;</a></span>Color() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::Color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_v.html">HSV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>hsv</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>以 <a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型构造 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hsv</td><td><a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af08c725a9e0b43cb082dc7c5a97aae1d" name="af08c725a9e0b43cb082dc7c5a97aae1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af08c725a9e0b43cb082dc7c5a97aae1d">&#9670;&#160;</a></span>Color() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::Color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="struct_h_s_l.html">HSL</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>hsl</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>以 <a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型构造 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hsl</td><td><a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa2fc905c43fccce2f80785bdbc4ff4f8" name="aa2fc905c43fccce2f80785bdbc4ff4f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2fc905c43fccce2f80785bdbc4ff4f8">&#9670;&#160;</a></span>Color() <span class="overload">[4/5]</span></h2>
+<div class="textblock"><p>颜色类 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a8de8745f8231fd8ad7e10b721cb21ad9" name="a8de8745f8231fd8ad7e10b721cb21ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de8745f8231fd8ad7e10b721cb21ad9">&#9670;&#160;</a></span>gray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -373,145 +208,26 @@ Public 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Color::Color </td>
+          <td class="memname"><a class="el" href="class_color.html">Color</a> Color::gray </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>拷贝构造函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>要拷贝的颜色对象 </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>获取灰度颜色 </p>
+<dl class="section return"><dt>返回</dt><dd>灰度颜色 </dd></dl>
 
 </div>
 </div>
-<a id="a3058cfd0dc7826ea28d7a2c9aedb0ed5" name="a3058cfd0dc7826ea28d7a2c9aedb0ed5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3058cfd0dc7826ea28d7a2c9aedb0ed5">&#9670;&#160;</a></span>Color() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::Color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_color.html">Color</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>移动构造函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>要移动的颜色对象 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">成员函数说明</h2>
-<a id="a5b0d577c9edf65e6587e102aeb4c74f9" name="a5b0d577c9edf65e6587e102aeb4c74f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b0d577c9edf65e6587e102aeb4c74f9">&#9670;&#160;</a></span>getAlpha()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">int</a> Color::getAlpha </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取颜色的透明度 </p>
-<dl class="section return"><dt>返回</dt><dd>透明度 </dd></dl>
-
-</div>
-</div>
-<a id="ab7caa1306b0bdd9c5a49ce640da1a8e8" name="ab7caa1306b0bdd9c5a49ce640da1a8e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7caa1306b0bdd9c5a49ce640da1a8e8">&#9670;&#160;</a></span>getBlue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">int</a> Color::getBlue </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取颜色的蓝色分量 </p>
-<dl class="section return"><dt>返回</dt><dd>蓝色分量 </dd></dl>
-
-</div>
-</div>
-<a id="aa32e85661f7d2844ea20e4ffe2f1fa62" name="aa32e85661f7d2844ea20e4ffe2f1fa62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa32e85661f7d2844ea20e4ffe2f1fa62">&#9670;&#160;</a></span>getGreen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">int</a> Color::getGreen </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取颜色的绿色分量 </p>
-<dl class="section return"><dt>返回</dt><dd>绿色分量 </dd></dl>
-
-</div>
-</div>
-<a id="aed1e9e09db006f0546c4621ba387efb6" name="aed1e9e09db006f0546c4621ba387efb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed1e9e09db006f0546c4621ba387efb6">&#9670;&#160;</a></span>getRed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">int</a> Color::getRed </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>获取颜色的红色分量 </p>
-<dl class="section return"><dt>返回</dt><dd>红色分量 </dd></dl>
-
-</div>
-</div>
-<a id="a99e1651a21e1eb6320b291da6e5120b2" name="a99e1651a21e1eb6320b291da6e5120b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99e1651a21e1eb6320b291da6e5120b2">&#9670;&#160;</a></span>lerp()</h2>
+<a id="a6193e284b0b5f4e0fb0be76310f59b22" name="a6193e284b0b5f4e0fb0be76310f59b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6193e284b0b5f4e0fb0be76310f59b22">&#9670;&#160;</a></span>lerp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,236 +238,39 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_color.html">Color</a> Color::lerp </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>start</em>, </span></td>
+          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_color.html">Color</a></td>          <td class="paramname"><span class="paramname"><em>end</em>, </span></td>
+          <td class="paramtype">const <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>b</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_var.html">double</a></td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>颜色的线性插值函数 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">start</td><td>起始值 </td></tr>
-    <tr><td class="paramname">end</td><td>终止值 </td></tr>
-    <tr><td class="paramname">t</td><td>插值比例，取值范围为 [0, 1] </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>插值结果 </dd></dl>
+<p>HSL颜色修改器 </p>
+<p>对于颜色的线性插值函数 </p>
 
 </div>
 </div>
-<a id="ae7d80b3eec55709e8d57f7647fe084d3" name="ae7d80b3eec55709e8d57f7647fe084d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d80b3eec55709e8d57f7647fe084d3">&#9670;&#160;</a></span>operator HSL()</h2>
+<a id="a7eefbe1ef906ce03b70e40be6cd67f1f" name="a7eefbe1ef906ce03b70e40be6cd67f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eefbe1ef906ce03b70e40be6cd67f1f">&#9670;&#160;</a></span>withoutAlpha()</h2>
 
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::operator <a class="el" href="struct_h_s_l.html">HSL</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>转换为 <a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型 </p>
-<dl class="section return"><dt>返回</dt><dd><a class="el" href="struct_h_s_l.html" title="HSL (Hue, Saturation, Lightness) 颜色模型">HSL</a> 颜色模型 </dd></dl>
-
-</div>
-</div>
-<a id="a9ff42da066c9ce77031d5b77a8b6264a" name="a9ff42da066c9ce77031d5b77a8b6264a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff42da066c9ce77031d5b77a8b6264a">&#9670;&#160;</a></span>operator HSV()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Color::operator <a class="el" href="struct_h_s_v.html">HSV</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>转换为 <a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型 </p>
-<dl class="section return"><dt>返回</dt><dd><a class="el" href="struct_h_s_v.html" title="HSV (Hue, Saturation, Value) 颜色模型">HSV</a> 颜色模型 </dd></dl>
-
-</div>
-</div>
-<a id="a02121562a10f0bb1fc9593dd33e313fa" name="a02121562a10f0bb1fc9593dd33e313fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02121562a10f0bb1fc9593dd33e313fa">&#9670;&#160;</a></span>operator!=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">bool</a> Color::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>颜色不等比较 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>另一个颜色 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>不等返回 true，否则返回 false </dd></dl>
-
-</div>
-</div>
-<a id="ae4b5d5500c2ee028e3f7d92a4d098ee0" name="ae4b5d5500c2ee028e3f7d92a4d098ee0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4b5d5500c2ee028e3f7d92a4d098ee0">&#9670;&#160;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">bool</a> Color::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_color.html">Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>颜色相等比较 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>另一个颜色 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>相等返回 true，否则返回 false </dd></dl>
-
-</div>
-</div>
-<a id="a5f3ef6470241fda50da5887eca22bb41" name="a5f3ef6470241fda50da5887eca22bb41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f3ef6470241fda50da5887eca22bb41">&#9670;&#160;</a></span>setAlpha()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Color::setAlpha </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置颜色的透明度 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>透明度 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac1b97cf50c8c110fac18830464247bc1" name="ac1b97cf50c8c110fac18830464247bc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1b97cf50c8c110fac18830464247bc1">&#9670;&#160;</a></span>setBlue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Color::setBlue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置颜色的蓝色分量 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">b</td><td>蓝色分量 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af015cb498147d0fe1db0c3c73c7980aa" name="af015cb498147d0fe1db0c3c73c7980aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af015cb498147d0fe1db0c3c73c7980aa">&#9670;&#160;</a></span>setGreen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Color::setGreen </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置颜色的绿色分量 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">g</td><td>绿色分量 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4362605630e70563f67c77410abd97c1" name="a4362605630e70563f67c77410abd97c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4362605630e70563f67c77410abd97c1">&#9670;&#160;</a></span>setRed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> Color::setRed </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">int</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>设置颜色的红色分量 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r</td><td>红色分量 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a46f98b8c3a163bdcf2206b6da18e5c28" name="a46f98b8c3a163bdcf2206b6da18e5c28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46f98b8c3a163bdcf2206b6da18e5c28">&#9670;&#160;</a></span>withoutAlpha()</h2>
-
-<div class="memitem">
-<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_color.html">Color</a> Color::withoutAlpha </td>
@@ -760,10 +279,15 @@ Public 成员函数</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>去除aplha通道值 </p>
-<dl class="section return"><dt>返回</dt><dd>去除aplha通道值的颜色对象 </dd></dl>
+<p>获取移除了alpha通道的颜色 </p>
+<dl class="section return"><dt>返回</dt><dd>移除了alpha通道的颜色 </dd></dl>
 
 </div>
 </div>

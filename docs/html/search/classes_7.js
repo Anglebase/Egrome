@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['label_0',['Label',['../class_label.html',1,'']]],
-  ['lineedit_1',['LineEdit',['../class_line_edit.html',1,'']]]
+  ['keyevent_0',['KeyEvent',['../class_key_event.html',1,'']]],
+  ['keypressevent_1',['KeyPressEvent',['../class_key_press_event.html',1,'']]],
+  ['keyreleaseevent_2',['KeyReleaseEvent',['../class_key_release_event.html',1,'']]]
 ];

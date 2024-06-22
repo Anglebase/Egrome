@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['firstscrolltype_0',['firstScrollType',['../class_scroll_view.html#a0fec3b253aa25f41389530e560b1445c',1,'ScrollView']]],
-  ['formscreen_1',['FormScreen',['../class_pixel_map.html#aa5f575c5b3314507862993ed0b02e2bb',1,'PixelMap']]],
-  ['fromfile_2',['FromFile',['../class_pixel_map.html#a4b9cbcbe10544e337666208b3ff4098b',1,'PixelMap::FromFile(const std::string &amp;filename)'],['../class_pixel_map.html#a583d2a9c44a649b65dc0d8ee86b850c4',1,'PixelMap::FromFile(const std::wstring &amp;filename)']]]
+  ['getcilpboardtext_0',['getCilpBoardText',['../namespace_sys.html#a0e72f57a02185c55db995032454dfb11',1,'Sys']]],
+  ['getfps_1',['getFps',['../class_app.html#ae8481a4ce3bc24bad1f4eec4bda76cc9',1,'App']]],
+  ['getscreensize_2',['getScreenSize',['../namespace_sys.html#a94c56700040bd63b8bef0025effb8c8a',1,'Sys']]],
+  ['getsetfps_3',['getSetFps',['../class_app.html#ab4f95c3b217dcda93389c90ee08b53c6',1,'App']]],
+  ['gray_4',['gray',['../class_color.html#a8de8745f8231fd8ad7e10b721cb21ad9',1,'Color']]]
 ];

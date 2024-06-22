@@ -1,188 +1,252 @@
 #include "Color.h"
+
 #include <ege.h>
 
-/// 黑色
-const Color Color::Black{0x000000_rgb};
-/// 白色
-const Color Color::White{0xFFFFFF_rgb};
-/// 红色
-const Color Color::Red{0xFF0000_rgb};
-/// 绿色
-const Color Color::Green{0x00FF00_rgb};
-/// 蓝色
-const Color Color::Blue{0x0000FF_rgb};
-/// 灰色
-const Color Color::Gray{0x808080_rgb};
-/// 亮灰色
-const Color Color::LightGray{0xC0C0C0_rgb};
-/// 深灰色
-const Color Color::DarkGray{0x404040_rgb};
-/// 紫色
-const Color Color::Purple{0xFF00FF_rgb};
-/// 黄色
-const Color Color::Yellow{0xFFFF00_rgb};
-/// 青色
-const Color Color::Cyan{0x00FEC0_rgb};
-/// 粉色
-const Color Color::Pink{0xFFC0CB_rgb};
-/// 亮红色
-const Color Color::LightRed{0xFFA07A_rgb};
-/// 亮绿色
-const Color Color::LightGreen{0x90EE90_rgb};
-/// 亮蓝色
-const Color Color::LightBlue{0xADD8E6_rgb};
-/// 亮黄色
-const Color Color::LightYellow{0xFFFFE0_rgb};
-/// 亮青色
-const Color Color::LightCyan{0x00FFFF_rgb};
-/// 亮粉色
-const Color Color::LightPink{0xFFB6C1_rgb};
-
-Color Color::lerp(Color start, Color end, double t)
-{
-    auto f = [](int a, int b, double t) -> int
-    { return a + (b - a) * t; };
+Color Color::lerp(const Color& a, const Color& b, double t) noexcept {
+    auto line_lerp = [](int a, int b, double t)->int { return static_cast<int>(a + (b - a) * t); };
     return Color{
-        f(start.getRed(), end.getRed(), t),
-        f(start.getGreen(), end.getGreen(), t),
-        f(start.getBlue(), end.getBlue(), t),
-        f(start.getAlpha(), end.getAlpha(), t),
+        line_lerp(a.red_, b.red_, t),
+        line_lerp(a.green_, b.green_, t),
+        line_lerp(a.blue_, b.blue_, t),
+        line_lerp(a.alpha_, b.alpha_, t),
     };
 }
 
-Color::Color(int r, int g, int b, int a) : red(r), green(g), blue(b), alpha(a) {}
+Color::HSV::HSV(Color* color) noexcept
+    : parent_(color), hue(this), saturation(this), value(this) {}
+Color::HSV::~HSV() noexcept = default;
 
-Color::Color(const HSV &hsv)
-{
-    auto rgb = ege::hsv2rgb(hsv.hue, hsv.saturation, hsv.value);
-    red = EGEGET_R(rgb);
-    green = EGEGET_G(rgb);
-    blue = EGEGET_B(rgb);
+Color::HSL::HSL(Color* color) noexcept
+    : parent_(color), hue(this), saturation(this), lightness(this) {}
+Color::HSL::~HSL() noexcept = default;
+
+Color::Color(int r, int g, int b, int a) noexcept
+    : red_(r), green_(g), blue_(b), alpha_(a), hsv(this), hsl(this) {}
+
+Color::~Color() noexcept = default;
+
+int& Color::red() noexcept { return this->red_; }
+int& Color::green() noexcept { return this->green_; }
+int& Color::blue() noexcept { return this->blue_; }
+int& Color::alpha() noexcept { return this->alpha_; }
+
+const int& Color::red() const noexcept { return this->red_; }
+const int& Color::green() const noexcept { return this->green_; }
+const int& Color::blue() const noexcept { return this->blue_; }
+const int& Color::alpha() const noexcept { return this->alpha_; }
+
+Color Color::withoutAlpha() const noexcept {
+    return Color(this->red_, this->green_, this->blue_, 255);
 }
 
-Color::Color(const HSL &hsl)
-{
-    auto rgb = ege::hsl2rgb(hsl.hue, hsl.saturation, hsl.lightness);
-    this->red = EGEGET_R(rgb);
-    this->green = EGEGET_G(rgb);
-    this->blue = EGEGET_B(rgb);
+Color Color::gray() const noexcept {
+    auto gray = ege::rgb2gray(EGEARGB(this->alpha_, this->red_, this->green_, this->blue_));
+    return Color(EGEGET_R(gray), EGEGET_G(gray), EGEGET_B(gray), EGEGET_A(gray));
 }
 
-const Color &Color::operator=(const Color &other)
-{
-    this->red = other.red;
-    this->green = other.green;
-    this->blue = other.blue;
-    this->alpha = other.alpha;
-    return *this;
+bool Color::operator==(const Color& other) const noexcept {
+    return this->red_ == other.red_ && this->green_ == other.green_ &&
+        this->blue_ == other.blue_ && this->alpha_ == other.alpha_;
 }
 
-const Color &Color::operator=(Color &&other)
-{
-    red = other.red;
-    green = other.green;
-    blue = other.blue;
-    alpha = other.alpha;
-    return *this;
-}
-
-const Color &Color::operator=(const HSV &hsv)
-{
-    auto rgb = ege::hsv2rgb(hsv.hue, hsv.saturation, hsv.value);
-    red = EGEGET_R(rgb);
-    green = EGEGET_G(rgb);
-    blue = EGEGET_B(rgb);
-    alpha = 0xFF;
-    return *this;
-}
-
-const Color &Color::operator=(const HSL &hsl)
-{
-    auto rgb = ege::hsl2rgb(hsl.hue, hsl.saturation, hsl.lightness);
-    red = EGEGET_R(rgb);
-    green = EGEGET_G(rgb);
-    blue = EGEGET_B(rgb);
-    alpha = 0xFF;
-    return *this;
-}
-
-bool Color::operator==(const Color &other) const
-{
-    return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
-}
-
-bool Color::operator!=(const Color &other) const
-{
+bool Color::operator!=(const Color& other) const noexcept {
     return !(*this == other);
 }
 
-int Color::getRed() const
-{
-    return red;
+Color operator""_rgb(unsigned long long int hex) noexcept {
+    return Color{
+        static_cast<int>((hex >> 16) & 0xFF),
+        static_cast<int>((hex >> 8) & 0xFF),
+        static_cast<int>(hex & 0xFF),
+        255
+    };
 }
 
-int Color::getGreen() const
-{
-    return green;
+Color operator""_rgba(unsigned long long int hex) noexcept {
+    return Color{
+        static_cast<int>((hex >> 24) & 0xFF),
+        static_cast<int>((hex >> 16) & 0xFF),
+        static_cast<int>((hex >> 8) & 0xFF),
+        static_cast<int>(hex & 0xFF)
+    };
 }
 
-int Color::getBlue() const
-{
-    return blue;
+Color::HSV::Hue::Hue(HSV* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSV::Hue::operator=(float value) noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    hsv[0] = value;
+    auto rgba = ege::hsv2rgb(hsv[0], hsv[1], hsv[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
 }
 
-int Color::getAlpha() const
-{
-    return this->alpha;
+Color::HSV::Hue::operator float() const noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    return hsv[0];
 }
 
-void Color::setRed(int r)
-{
-    red = r;
+Color::HSV::Saturation::Saturation(HSV* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSV::Saturation::operator=(float value) noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    hsv[1] = value;
+    auto rgba = ege::hsv2rgb(hsv[0], hsv[1], hsv[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
 }
 
-void Color::setGreen(int g)
-{
-    green = g;
+Color::HSV::Saturation::operator float() const noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    return hsv[1];
 }
 
-void Color::setBlue(int b)
-{
-    blue = b;
+Color::HSV::Value::Value(HSV* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSV::Value::operator=(float value) noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    hsv[2] = value;
+    auto rgba = ege::hsv2rgb(hsv[0], hsv[1], hsv[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
 }
 
-void Color::setAlpha(int a)
-{
-    this->alpha = a;
+Color::HSV::Value::operator float() const noexcept {
+    float hsv[3];
+    ege::rgb2hsv(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsv[0], &hsv[1], &hsv[2]);
+    return hsv[2];
 }
 
-Color::operator HSV() const
-{
-    HSV hsv;
-    ege::rgb2hsv(EGERGBA(red, green, blue, alpha),
-                 &hsv.hue, &hsv.saturation, &hsv.value);
-    return hsv;
+Color::HSL::Hue::Hue(HSL* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSL::Hue::operator=(float value) noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    hsl[0] = value;
+    auto rgba = ege::hsl2rgb(hsl[0], hsl[1], hsl[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
 }
 
-Color::operator HSL() const
-{
-    HSL hsl;
-    ege::rgb2hsl(EGERGBA(red, green, blue, alpha),
-                 &hsl.hue, &hsl.saturation, &hsl.lightness);
-    return hsl;
+Color::HSL::Hue::operator float() const noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    return hsl[0];
 }
 
-Color Color::withoutAlpha() const
-{
-    return Color{red, green, blue, 0xFF};
+Color::HSL::Saturation::Saturation(HSL* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSL::Saturation::operator=(float value) noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    hsl[1] = value;
+    auto rgba = ege::hsl2rgb(hsl[0], hsl[1], hsl[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
 }
 
-Color operator""_rgb(unsigned long long hex)
-{
-    return Color((hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF, 0xFF);
+Color::HSL::Saturation::operator float() const noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    return hsl[1];
 }
 
-Color operator""_rgba(unsigned long long hex)
-{
-    return Color((hex >> 24) & 0xFF, (hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF);
+Color::HSL::Lightness::Lightness(HSL* parent) noexcept
+    : parent_(parent) {}
+
+float Color::HSL::Lightness::operator=(float value) noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    hsl[2] = value;
+    auto rgba = ege::hsl2rgb(hsl[0], hsl[1], hsl[2]);
+    this->parent_->parent_->red_ = EGEGET_R(rgba);
+    this->parent_->parent_->green_ = EGEGET_G(rgba);
+    this->parent_->parent_->blue_ = EGEGET_B(rgba);
+    return value;
+}
+
+Color::HSL::Lightness::operator float() const noexcept {
+    float hsl[3];
+    ege::rgb2hsl(
+        EGEARGB(this->parent_->parent_->alpha_,
+            this->parent_->parent_->red_,
+            this->parent_->parent_->green_,
+            this->parent_->parent_->blue_),
+        &hsl[0], &hsl[1], &hsl[2]);
+    return hsl[2];
 }
