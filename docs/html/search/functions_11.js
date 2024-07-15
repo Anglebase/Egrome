@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['value_0',['value',['../class_animation.html#ad60734ce9a229954fb6b16f049a9827c',1,'Animation']]]
+  ['tolower_0',['toLower',['../class_string.html#a3cdb669bd5308f075dcff0718257cf0e',1,'String']]],
+  ['toupper_1',['toUpper',['../class_string.html#a9541a283df8b8cd023b2438c38cfad22',1,'String']]]
 ];

@@ -4,6 +4,7 @@ var annotated_dup =
     [ "App", "class_app.html", "class_app" ],
     [ "Block", "class_block.html", "class_block" ],
     [ "Button", "class_button.html", "class_button" ],
+    [ "CheckBox", "class_check_box.html", "class_check_box" ],
     [ "Click", "class_click.html", "class_click" ],
     [ "Color", "class_color.html", "class_color" ],
     [ "Drag", "class_drag.html", "class_drag" ],
@@ -31,5 +32,7 @@ var annotated_dup =
     [ "Signal< void(Args...)>", "class_signal_3_01void_07_args_8_8_8_08_4.html", "class_signal_3_01void_07_args_8_8_8_08_4" ],
     [ "Size", "class_size.html", null ],
     [ "String", "class_string.html", "class_string" ],
+    [ "Table", "class_table.html", null ],
+    [ "Table< std::tuple< Args... > >", "class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html", "class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4" ],
     [ "TextAligns", "class_text_aligns.html", null ]
 ];

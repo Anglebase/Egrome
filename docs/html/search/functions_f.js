@@ -1,18 +1,11 @@
 var searchData=
 [
-  ['set_0',['set',['../class_animation.html#a14e080800f8fd163d2d1c2d04f9a09de',1,'Animation::set(T startValue, T endValue, std::chrono::milliseconds time)'],['../class_animation.html#a8a49d6a110b84a70703932bd73e775e5',1,'Animation::set(std::function&lt; T(T, T, double)&gt; valueComputer)']]],
-  ['setcilpboardtext_1',['setCilpBoardText',['../namespace_sys.html#aec566963415886c7bcd6b55d3e4a2105',1,'Sys']]],
-  ['setfps_2',['setFps',['../class_app.html#afd44384df2bec4d382f2f8c8444a06f7',1,'App']]],
-  ['setparent_3',['setParent',['../class_block.html#adaf0e3c59b27a5378e543e346270e852',1,'Block']]],
-  ['settext_4',['setText',['../class_button.html#a77657bd459f70e046a1ece6491060e64',1,'Button']]],
-  ['settitle_5',['setTitle',['../class_app.html#a95002b3eeeca6abb938caf216670be69',1,'App']]],
-  ['settriggerbutton_6',['setTriggerButton',['../class_click.html#ac4e64e77215818d7d5a1186997f37829',1,'Click::setTriggerButton()'],['../class_drag.html#ae0ac0ce46433826a3150aceda8eccfd5',1,'Drag::setTriggerButton()']]],
-  ['settriggerstate_7',['setTriggerState',['../class_click.html#a522e23b5aaf968846d70961cec333011',1,'Click']]],
-  ['setzindex_8',['setZIndex',['../class_block.html#a602280dc1d4b960b6fb466fe489e2012',1,'Block']]],
-  ['split_9',['split',['../class_string.html#a4443faa73578e9297d76c1b918b1168e',1,'String']]],
-  ['start_10',['start',['../class_animation.html#a93d864e0a9faafef077ecefd976a8b8b',1,'Animation']]],
-  ['state_11',['state',['../class_key_event.html#a8c2aafb3cedeb1e009c568e0e35cdad9',1,'KeyEvent']]],
-  ['stop_12',['stop',['../class_animation.html#a7e6a1ad1361bc8c44d53797c405255dd',1,'Animation']]],
-  ['stopforeach_13',['stopForeach',['../class_block.html#a30a4e7b78d8fa21a7eb6bc0404dffc8f',1,'Block']]],
-  ['strip_14',['strip',['../class_string.html#a2f93de29fedadff6b1d25b9eff049aff',1,'String']]]
+  ['readline_0',['readLine',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aff2cc2a5a57794c15f782b655f2f5472',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['rect_1',['rect',['../class_painter.html#a292a2a4b234fdbdfbbf7ee32112be770',1,'Painter']]],
+  ['removechild_2',['removeChild',['../class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3',1,'Block']]],
+  ['reset_3',['reset',['../class_animation.html#ae377f18a76bb33774ca3318a25ad4c37',1,'Animation::reset()'],['../class_event.html#af4bd37b8e130d3eb0bd258bdcd99d0b2',1,'Event::reset()']]],
+  ['resetforeach_4',['resetForeach',['../class_block.html#a7b2cfa412c9f06ff9946e1e9b95a3112',1,'Block']]],
+  ['revoke_5',['revoke',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab0b00c650021f4391078478fdeefff5d',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['revoke_5fif_6',['revoke_if',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#af3888aa9346f66684c860eb62cb80f11',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['run_7',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
 ];

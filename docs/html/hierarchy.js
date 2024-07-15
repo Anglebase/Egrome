@@ -14,7 +14,8 @@ var hierarchy =
         ] ],
         [ "Drag", "class_drag.html", null ],
         [ "Hover", "class_hover.html", [
-          [ "Button", "class_button.html", null ]
+          [ "Button", "class_button.html", null ],
+          [ "CheckBox", "class_check_box.html", null ]
         ] ]
       ] ],
       [ "Color", "class_color.html", null ],
@@ -47,5 +48,7 @@ var hierarchy =
     [ "Signal< Args >", "class_signal.html", null ],
     [ "Signal< void()>", "class_signal_3_01void_07_08_4.html", null ],
     [ "Signal< void(Args...)>", "class_signal_3_01void_07_args_8_8_8_08_4.html", null ],
+    [ "Table< T >", "class_table.html", null ],
+    [ "Table< std::tuple< Args... > >", "class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html", null ],
     [ "TextAligns", "class_text_aligns.html", null ]
 ];

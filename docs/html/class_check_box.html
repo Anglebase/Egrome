@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Egrome: Hover类 参考</title>
+<title>Egrome: CheckBox类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('class_hover.html',''); initResizable(); });
+$(function(){initNavTree('class_check_box.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,35 +99,38 @@ $(function(){initNavTree('class_hover.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pub-attribs">Public 属性</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
-<a href="class_hover-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">Hover类 参考</div></div>
+<a href="class_check_box-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">CheckBox类 参考</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>悬浮行为基类，通过继承此类可以实现Block悬浮响应  
- <a href="#details">更多...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_hover_8h_source.html">Hover.h</a>&gt;</code></p>
 <div class="dynheader">
-类 Hover 继承关系图:</div>
+类 CheckBox 继承关系图:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_hover.png" usemap="#Hover_map" alt=""/>
-  <map id="Hover_map" name="Hover_map">
-<area href="class_block.html" title="它是所有UI对象的基类" alt="Block" shape="rect" coords="39,56,108,80"/>
-<area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="39,0,108,24"/>
-<area href="class_button.html" title="按钮控件" alt="Button" shape="rect" coords="0,168,69,192"/>
-<area href="class_check_box.html" alt="CheckBox" shape="rect" coords="79,168,148,192"/>
+  <img src="class_check_box.png" usemap="#CheckBox_map" alt=""/>
+  <map id="CheckBox_map" name="CheckBox_map">
+<area href="class_hover.html" title="悬浮行为基类，通过继承此类可以实现Block悬浮响应" alt="Hover" shape="rect" coords="0,112,69,136"/>
+<area href="class_block.html" title="它是所有UI对象的基类" alt="Block" shape="rect" coords="0,56,69,80"/>
+<area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="0,0,69,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a9959a1783aa852c583fb4c4b7b8c4ac8" id="r_a9959a1783aa852c583fb4c4b7b8c4ac8"><td class="memItemLeft" align="right" valign="top"><a id="a9959a1783aa852c583fb4c4b7b8c4ac8" name="a9959a1783aa852c583fb4c4b7b8c4ac8"></a>
+<tr class="memitem:a8ce98fdf31ea1327a8c3db4375771e6a" id="r_a8ce98fdf31ea1327a8c3db4375771e6a"><td class="memItemLeft" align="right" valign="top"><a id="a8ce98fdf31ea1327a8c3db4375771e6a" name="a8ce98fdf31ea1327a8c3db4375771e6a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CheckBox</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>=nullptr)</td></tr>
+<tr class="separator:a8ce98fdf31ea1327a8c3db4375771e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c0f2607a12dbc2db6772c92f8a3754" id="r_a58c0f2607a12dbc2db6772c92f8a3754"><td class="memItemLeft" align="right" valign="top"><a id="a58c0f2607a12dbc2db6772c92f8a3754" name="a58c0f2607a12dbc2db6772c92f8a3754"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setChecked</b> (bool checked)</td></tr>
+<tr class="separator:a58c0f2607a12dbc2db6772c92f8a3754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4acfbe09257485e4ed5a0874d4722f42" id="r_a4acfbe09257485e4ed5a0874d4722f42"><td class="memItemLeft" align="right" valign="top"><a id="a4acfbe09257485e4ed5a0874d4722f42" name="a4acfbe09257485e4ed5a0874d4722f42"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isChecked</b> ()</td></tr>
+<tr class="separator:a4acfbe09257485e4ed5a0874d4722f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_hover"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_hover')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_hover.html">Hover</a></td></tr>
+<tr class="memitem:a9959a1783aa852c583fb4c4b7b8c4ac8 inherit pub_methods_class_hover" id="r_a9959a1783aa852c583fb4c4b7b8c4ac8"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Hover</b> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>=nullptr)</td></tr>
-<tr class="separator:a9959a1783aa852c583fb4c4b7b8c4ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a9959a1783aa852c583fb4c4b7b8c4ac8 inherit pub_methods_class_hover"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
 <tr class="memitem:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block" id="r_a09fc96783c1ffbeaa5887a8e1aaf30c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a09fc96783c1ffbeaa5887a8e1aaf30c1">Block</a> (const <a class="el" href="class_rect.html">Rect</a> &amp;rect, <a class="el" href="class_block.html">Block</a> *<a class="el" href="class_block.html#a641b58a29c6ba9592c61a22fdd2542e4">parent</a>=nullptr)</td></tr>
 <tr class="memdesc:a09fc96783c1ffbeaa5887a8e1aaf30c1 inherit pub_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数  <br /></td></tr>
@@ -178,27 +181,19 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noe
 <tr class="memdesc:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
 <tr class="separator:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public 属性</h2></td></tr>
-<tr class="memitem:a9c09145f723574be67535a0753b39283" id="r_a9c09145f723574be67535a0753b39283"><td class="memItemLeft" align="right" valign="top"><a id="a9c09145f723574be67535a0753b39283" name="a9c09145f723574be67535a0753b39283"></a>
-<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;pos)&#160;</td><td class="memItemRight" valign="bottom"><b>entered</b> )</td></tr>
-<tr class="separator:a9c09145f723574be67535a0753b39283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2981a7855ee826554160b2d6c3e687af" id="r_a2981a7855ee826554160b2d6c3e687af"><td class="memItemLeft" align="right" valign="top"><a id="a2981a7855ee826554160b2d6c3e687af" name="a2981a7855ee826554160b2d6c3e687af"></a>
-<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;pos)&#160;</td><td class="memItemRight" valign="bottom"><b>leaved</b> )</td></tr>
-<tr class="separator:a2981a7855ee826554160b2d6c3e687af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
-<tr class="memitem:a8bb4bb1534ed869ab2c5bd562a4a124d" id="r_a8bb4bb1534ed869ab2c5bd562a4a124d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bb4bb1534ed869ab2c5bd562a4a124d">mouseMoveEvent</a> (<a class="el" href="class_mouse_move_event.html">MouseMoveEvent</a> *event) override</td></tr>
-<tr class="memdesc:a8bb4bb1534ed869ab2c5bd562a4a124d"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标移动事件处理函数  <br /></td></tr>
-<tr class="separator:a8bb4bb1534ed869ab2c5bd562a4a124d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0acbbc8be1a941ab049b6ed26b94ed98" id="r_a0acbbc8be1a941ab049b6ed26b94ed98"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0acbbc8be1a941ab049b6ed26b94ed98">isContains</a> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
-<tr class="memdesc:a0acbbc8be1a941ab049b6ed26b94ed98"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断点是否在此区域内  <br /></td></tr>
-<tr class="separator:a0acbbc8be1a941ab049b6ed26b94ed98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422efab7f8c6eba3976b436324fae8fc" id="r_a422efab7f8c6eba3976b436324fae8fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a422efab7f8c6eba3976b436324fae8fc">paintEvent</a> (<a class="el" href="class_paint_event.html">PaintEvent</a> *event) override</td></tr>
+<tr class="memdesc:a422efab7f8c6eba3976b436324fae8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">视图绘制事件处理函数  <br /></td></tr>
+<tr class="separator:a422efab7f8c6eba3976b436324fae8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_hover"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_hover')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="class_hover.html">Hover</a></td></tr>
+<tr class="memitem:a8bb4bb1534ed869ab2c5bd562a4a124d inherit pro_methods_class_hover" id="r_a8bb4bb1534ed869ab2c5bd562a4a124d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hover.html#a8bb4bb1534ed869ab2c5bd562a4a124d">mouseMoveEvent</a> (<a class="el" href="class_mouse_move_event.html">MouseMoveEvent</a> *event) override</td></tr>
+<tr class="memdesc:a8bb4bb1534ed869ab2c5bd562a4a124d inherit pro_methods_class_hover"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标移动事件处理函数  <br /></td></tr>
+<tr class="separator:a8bb4bb1534ed869ab2c5bd562a4a124d inherit pro_methods_class_hover"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0acbbc8be1a941ab049b6ed26b94ed98 inherit pro_methods_class_hover" id="r_a0acbbc8be1a941ab049b6ed26b94ed98"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hover.html#a0acbbc8be1a941ab049b6ed26b94ed98">isContains</a> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="memdesc:a0acbbc8be1a941ab049b6ed26b94ed98 inherit pro_methods_class_hover"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断点是否在此区域内  <br /></td></tr>
+<tr class="separator:a0acbbc8be1a941ab049b6ed26b94ed98 inherit pro_methods_class_hover"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_block"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_block')"><img src="closed.png" alt="-"/>&#160;Protected 成员函数 继承自 <a class="el" href="class_block.html">Block</a></td></tr>
-<tr class="memitem:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block" id="r_a7fcd0f6c53e884ec6f0c50b9f38ee3e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a7fcd0f6c53e884ec6f0c50b9f38ee3e4">paintEvent</a> (<a class="el" href="class_paint_event.html">PaintEvent</a> *event)</td></tr>
-<tr class="memdesc:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">视图绘制事件处理函数  <br /></td></tr>
-<tr class="separator:a7fcd0f6c53e884ec6f0c50b9f38ee3e4 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86928073244ae2afaa19f28b482f4f77 inherit pro_methods_class_block" id="r_a86928073244ae2afaa19f28b482f4f77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a86928073244ae2afaa19f28b482f4f77">mousePressEvent</a> (<a class="el" href="class_mouse_press_event.html">MousePressEvent</a> *event)</td></tr>
 <tr class="memdesc:a86928073244ae2afaa19f28b482f4f77 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">鼠标按键按下事件处理函数  <br /></td></tr>
 <tr class="separator:a86928073244ae2afaa19f28b482f4f77 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,12 +212,20 @@ Protected 成员函数</h2></td></tr>
 <tr class="memitem:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block" id="r_a8ca74bf3f16b9f157a61db50bcede7a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_block.html#a8ca74bf3f16b9f157a61db50bcede7a8">inputEvent</a> (<a class="el" href="class_input_event.html">InputEvent</a> *event)</td></tr>
 <tr class="memdesc:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="mdescLeft">&#160;</td><td class="mdescRight">输入事件处理函数  <br /></td></tr>
 <tr class="separator:a8ca74bf3f16b9f157a61db50bcede7a8 inherit pro_methods_class_block"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_hover"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_hover')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="class_hover.html">Hover</a></td></tr>
+<tr class="memitem:a9c09145f723574be67535a0753b39283 inherit pub_attribs_class_hover" id="r_a9c09145f723574be67535a0753b39283"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;pos)&#160;</td><td class="memItemRight" valign="bottom"><b>entered</b> )</td></tr>
+<tr class="separator:a9c09145f723574be67535a0753b39283 inherit pub_attribs_class_hover"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2981a7855ee826554160b2d6c3e687af inherit pub_attribs_class_hover" id="r_a2981a7855ee826554160b2d6c3e687af"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_signal.html">Signal</a>&lt; void(const <a class="el" href="class_point.html">Point</a> &amp;pos)&#160;</td><td class="memItemRight" valign="bottom"><b>leaved</b> )</td></tr>
+<tr class="separator:a2981a7855ee826554160b2d6c3e687af inherit pub_attribs_class_hover"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>悬浮行为基类，通过继承此类可以实现Block悬浮响应 </p>
-</div><h2 class="groupheader">成员函数说明</h2>
-<a id="a0acbbc8be1a941ab049b6ed26b94ed98" name="a0acbbc8be1a941ab049b6ed26b94ed98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0acbbc8be1a941ab049b6ed26b94ed98">&#9670;&#160;</a></span>isContains()</h2>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a422efab7f8c6eba3976b436324fae8fc" name="a422efab7f8c6eba3976b436324fae8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a422efab7f8c6eba3976b436324fae8fc">&#9670;&#160;</a></span>paintEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,44 +234,9 @@ Protected 成员函数</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Hover::isContains </td>
+          <td class="memname">void CheckBox::paintEvent </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>判断点是否在此区域内 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point</td><td>点 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>true 点在区域内，false 点不在区域内 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>子类可以重载此函数实现自定义可点击区域 </dd></dl>
-
-</div>
-</div>
-<a id="a8bb4bb1534ed869ab2c5bd562a4a124d" name="a8bb4bb1534ed869ab2c5bd562a4a124d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bb4bb1534ed869ab2c5bd562a4a124d">&#9670;&#160;</a></span>mouseMoveEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Hover::mouseMoveEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_mouse_move_event.html">MouseMoveEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_paint_event.html">PaintEvent</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -279,28 +247,28 @@ Protected 成员函数</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>鼠标移动事件处理函数 </p>
+<p>视图绘制事件处理函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>鼠标移动事件指针 </td></tr>
+    <tr><td class="paramname">event</td><td>视图绘制事件指针 </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>重载 <a class="el" href="class_block.html#aa8b6e33b33ad0fc815ffbf8cf0923f11">Block</a> .</p>
+<p>重载 <a class="el" href="class_block.html#a7fcd0f6c53e884ec6f0c50b9f38ee3e4">Block</a> .</p>
 
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>include/view/<a class="el" href="_hover_8h_source.html">Hover.h</a></li>
-<li>src/view/<b>Hover.cpp</b></li>
+<li>include/class/<a class="el" href="_check_box_8h_source.html">CheckBox.h</a></li>
+<li>src/class/<b>CheckBox.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_hover.html">Hover</a></li>
+    <li class="navelem"><a class="el" href="class_check_box.html">CheckBox</a></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
