@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "Animation< T >", "class_animation.html", null ],
     [ "Animation< T >::Args", "struct_animation_1_1_args.html", null ],
+    [ "Channel< T >", "class_channel.html", null ],
     [ "Signal< void()>::Connection", "class_signal_3_01void_07_08_4_1_1_connection.html", null ],
     [ "Signal< void(Args...)>::Connection", "class_signal_3_01void_07_args_8_8_8_08_4_1_1_connection.html", null ],
     [ "Color::HSL", "struct_color_1_1_h_s_l.html", null ],

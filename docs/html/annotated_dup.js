@@ -4,6 +4,7 @@ var annotated_dup =
     [ "App", "class_app.html", "class_app" ],
     [ "Block", "class_block.html", "class_block" ],
     [ "Button", "class_button.html", "class_button" ],
+    [ "Channel", "class_channel.html", "class_channel" ],
     [ "CheckBox", "class_check_box.html", "class_check_box" ],
     [ "Click", "class_click.html", "class_click" ],
     [ "Color", "class_color.html", "class_color" ],

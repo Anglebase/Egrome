@@ -5,7 +5,8 @@ var indexSectionsWithContent =
   2: "s",
   3: "oprs",
   4: "abcdefghijklmoprstvwz~",
-  5: "deflsv"
+  5: "deflsv",
+  6: "o"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables"
+  5: "variables",
+  6: "related"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "命名空间",
   3: "文件",
   4: "函数",
-  5: "变量"
+  5: "变量",
+  6: "友元"
 };
 

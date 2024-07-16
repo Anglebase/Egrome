@@ -39,12 +39,14 @@ var NAVTREE =
       [ "类成员", "functions.html", [
         [ "全部", "functions.html", null ],
         [ "函数", "functions_func.html", null ],
-        [ "变量", "functions_vars.html", null ]
+        [ "变量", "functions_vars.html", null ],
+        [ "相关函数", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "文件", "files.html", [
       [ "文件列表", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "示例", "examples.html", "examples" ]
   ] ]
 ];
 
