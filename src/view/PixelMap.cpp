@@ -2,9 +2,7 @@
 #include "Size.h"
 #include "Painter.h"
 #include <ege.h>
-
-PixelMap::WrongPainter::WrongPainter(const wchar_t* message) noexcept
-    :Exception(message) {}
+#include <stdexcept>
 
 PixelMap::SizeData::SizeData(PixelMap* map) noexcept
     :map_(map) {}
@@ -99,7 +97,7 @@ Painter& PixelMap::beginPaint() noexcept {
  */
 void PixelMap::endPaint(const Painter& painter) {
     if (this->painter_ != &painter)
-        throw WrongPainter(L"Wrong painter");
+        throw std::logic_error("Wrong painter");
     if (this->painter_) {
         delete this->painter_;
         this->painter_ = nullptr;

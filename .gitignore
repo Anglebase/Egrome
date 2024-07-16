@@ -4,3 +4,4 @@ bin/
 release/
 build/
 test/*.exe
+example/*.exe

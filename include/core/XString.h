@@ -4,16 +4,11 @@
 #include <vector>
 #include <sstream>
 #include "./Object.h"
-#include "./Exception.h"
 
 class String :public Object {
 private:
     std::wstring string_;
-public:
-    class OutOfRange : public Exception {
-    public:
-        OutOfRange(const wchar_t* message);
-    };
+
 public:
     String() noexcept;
     String(const wchar_t* str) noexcept;

@@ -1,5 +1,5 @@
 #include "XString.h"
-
+#include <stdexcept>
 #include <algorithm>
 
 String::String() noexcept {}
@@ -36,7 +36,7 @@ wchar_t String::operator[](std::size_t index) const noexcept {
 
 wchar_t String::at(std::size_t index) const {
     if (index < 0 || index >= this->string_.size()) {
-        throw String::OutOfRange(L"Index out of range");
+        throw std::out_of_range("Index out of range");
     }
     return this->string_[index];
 }
@@ -47,7 +47,7 @@ wchar_t& String::operator[](std::size_t index) noexcept {
 
 wchar_t& String::at(std::size_t index) {
     if (index < 0 || index >= this->string_.size()) {
-        throw String::OutOfRange(L"Index out of range");
+        throw std::out_of_range("Index out of range");
     }
     return this->string_[index];
 }
@@ -114,6 +114,3 @@ String String::join(const std::vector<String>& strs) const noexcept {
     }
     return result;
 }
-
-String::OutOfRange::OutOfRange(const wchar_t* message)
-    : Exception(message) {}

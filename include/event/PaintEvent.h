@@ -1,7 +1,6 @@
 #pragma once
 
 #include "./Event.h"
-#include "../core/Exception.h"
 
 class Block;
 class Painter;
@@ -12,15 +11,7 @@ class Painter;
 class PaintEvent final : public Event {
 private:
     mutable Painter* painter_;
-
-    class InvalidBlock : public Exception {
-    public:
-        InvalidBlock(const wchar_t* message) noexcept;
-    };
-    class WrongPainter : public Exception {
-    public:
-        WrongPainter(const wchar_t* message) noexcept;
-    };
+    
 public:
     PaintEvent() noexcept;
     ~PaintEvent() noexcept;
