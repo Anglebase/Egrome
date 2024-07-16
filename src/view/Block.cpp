@@ -11,7 +11,7 @@ void Block::keyReleaseEvent(KeyReleaseEvent* event) {}
 void Block::inputEvent(InputEvent* event) {}
 
 Block::Block(const Rect& rect, Block* parent)
-    :rect_(rect), parent_(parent), foreach_(true), zindex_(0) {
+    :rect_(rect), parent_(parent) {
     if (this->parent_) {
         this->parent_->addChild(this);
         // 若存在父对象，则将自身的坐标转换到父对象坐标系下

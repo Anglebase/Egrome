@@ -21,6 +21,6 @@ bool Hover::isContains(const Point& point) {
 }
 
 Hover::Hover(const Rect& rect, Block* parent)
-    : Block(rect, parent), hasPos(false), lastPos(Point()) {}
+    : Block(rect, parent) {}
 
 Hover::~Hover() = default;

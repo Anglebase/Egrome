@@ -28,20 +28,20 @@ public:
     String& operator=(const String& str) noexcept;
     operator const std::wstring& () const noexcept;
 
-    wchar_t operator[](int index) const noexcept;
+    wchar_t operator[](std::size_t index) const noexcept;
     /**
      * @brief 获取指定位置的字符
      * @param index 指定位置
      * @return 指定位置的字符
      * @throw OutOfRange 当索引越界时
      */
-    wchar_t at(int index) const;
-    wchar_t& operator[](int index) noexcept;
+    wchar_t at(std::size_t index) const;
+    wchar_t& operator[](std::size_t index) noexcept;
     /**
      * @brief 这是一个重载
      * @see at(int index) const
      */
-    wchar_t& at(int index);
+    wchar_t& at(std::size_t index);
 
     int length() const noexcept;
 

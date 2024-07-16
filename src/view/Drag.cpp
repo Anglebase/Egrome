@@ -43,8 +43,7 @@ bool Drag::isContains(Point point) const {
 }
 
 Drag::Drag(const Rect& rect, Block* parent)
-    : Block(rect, parent), isDragging_(false),
-    button_(MouseButton::Left), xDraggable_(true), yDraggable_(true) {}
+    : Block(rect, parent) {}
 
 Drag::~Drag() = default;
 

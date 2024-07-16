@@ -9,13 +9,13 @@
  */
 class Drag : virtual public Block {
 private:
-    bool isDragging_;
-    Point relativePos;
+    bool isDragging_ = false;
+    Point relativePos = Point();
 
 private:
-    bool xDraggable_;
-    bool yDraggable_;
-    MouseButton button_;
+    bool xDraggable_ = true;
+    bool yDraggable_ = true;
+    MouseButton button_ = MouseButton::Left;
 
 protected:
     void mousePressEvent(MousePressEvent* event) override;

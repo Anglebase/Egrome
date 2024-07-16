@@ -10,7 +10,7 @@ String Sys::getCilpBoardText() {
     HANDLE hClipMemory = ::GetClipboardData(CF_UNICODETEXT);
     DWORD dwLength = ::GlobalSize(hClipMemory);
     LPBYTE lpClipMemory = (LPBYTE)::GlobalLock(hClipMemory);
-    auto text = std::wstring((wchar_t*)lpClipMemory);
+    auto text = std::wstring((wchar_t*)lpClipMemory, dwLength / 2);
     ::GlobalUnlock(hClipMemory);
     ::CloseClipboard();
     return String(text);
@@ -21,7 +21,7 @@ void Sys::setCilpBoardText(String text_) {
     DWORD dwLength = text.size() + 1;
     HANDLE hGlobalMemory = ::GlobalAlloc(GHND, dwLength * 2 + 2);
     LPBYTE lpGlobalMemory = (LPBYTE)::GlobalLock(hGlobalMemory);
-    for (int i = 0; i < dwLength; i++) {
+    for (unsigned int i = 0; i < dwLength; i++) {
         *lpGlobalMemory++ = (text[i] & 0xff);
         *lpGlobalMemory++ = (text[i] >> 8) & 0xff;
     }

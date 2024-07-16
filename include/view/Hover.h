@@ -8,8 +8,8 @@
  */
 class Hover : virtual public Block {
 private:
-    Point lastPos;
-    bool hasPos;
+    Point lastPos = Point();
+    bool hasPos = false;
 
 protected:
     void mouseMoveEvent(MouseMoveEvent* event) override;

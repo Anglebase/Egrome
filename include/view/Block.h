@@ -20,11 +20,11 @@ class Block : public Object {
     friend class App;
 private:
     Rect rect_;
-    bool foreach_;
+    bool foreach_ = true;
 
     Block* parent_;
     std::vector<Block*> children_;
-    long long zindex_;
+    long long zindex_ = 0;
 
 protected:
     /**

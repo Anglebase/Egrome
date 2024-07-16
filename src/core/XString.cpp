@@ -30,22 +30,22 @@ String::operator const std::wstring& () const noexcept {
     return this->string_;
 }
 
-wchar_t String::operator[](int index) const noexcept {
+wchar_t String::operator[](std::size_t index) const noexcept {
     return this->string_[index];
 }
 
-wchar_t String::at(int index) const {
+wchar_t String::at(std::size_t index) const {
     if (index < 0 || index >= this->string_.size()) {
         throw String::OutOfRange(L"Index out of range");
     }
     return this->string_[index];
 }
 
-wchar_t& String::operator[](int index) noexcept {
+wchar_t& String::operator[](std::size_t index) noexcept {
     return this->string_[index];
 }
 
-wchar_t& String::at(int index) {
+wchar_t& String::at(std::size_t index) {
     if (index < 0 || index >= this->string_.size()) {
         throw String::OutOfRange(L"Index out of range");
     }
@@ -109,7 +109,7 @@ std::vector<String> String::split(const String& delimiter) const noexcept {
 
 String String::join(const std::vector<String>& strs) const noexcept {
     String result = strs[0];
-    for (int i = 1; i < strs.size(); i++) {
+    for (std::size_t i = 1; i < strs.size(); i++) {
         result += *this + strs[i];
     }
     return result;
