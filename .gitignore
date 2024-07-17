@@ -5,3 +5,4 @@ release/
 build/
 test/*.exe
 example/*.exe
+example/Net/*.exe

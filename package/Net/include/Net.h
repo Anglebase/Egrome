@@ -3,6 +3,13 @@
 #include<string>
 #include<tuple>
 
+#ifdef _MSC_VER
+#pragma comment(lib, "ws2_32.lib")
+#endif
+#ifdef __GNUC__
+#pragma message("Please add -lws2_32 to your linker options")
+#endif
+
 using byte = unsigned char;
 enum NetType {
     TCP,
