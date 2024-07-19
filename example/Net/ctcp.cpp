@@ -12,6 +12,7 @@ int main() {
 
     while (true) {
         int n;
+        std::cout << "Please input a number (0 to exit): ";
         std::cin >> n;
         // 向服务器发送数据
         client << "Hello, world!" << n;

@@ -27,13 +27,14 @@ int main() {
         std::string str;
         int k = 1;
         while (k) {
+            // 通过异常机制处理网络错误
             try {
                 // 接收客户端发送的消息
                 client >> str >> k;
                 // 打印接收到的消息
                 std::cout << "Received message: " << str << " and " << k << std::endl;
                 // 返回给客户端一个消息
-                client << message << a++;
+                client << message << ++k;
                 // 关闭与客户端的连接
             }
             catch (std::runtime_error& e) {
