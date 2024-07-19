@@ -4,9 +4,33 @@
  * @file Net.h
  * @author Weiyi Anglebase
  * @date 2024-07-17
- * @brief 网络通信库
+ * @brief 网络通信封装库
  * 
  * 该库提供C++流操作符风格的网络通信接口封装，支持TCP和UDP协议。此库基于Winsock2 API实现，请确保编译时链接了ws2_32库。
+ * 
+ * 
+MIT License
+
+Copyright (c) 2024 Weiyi Anglebase
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
  */
 
 #include<string>
@@ -204,8 +228,9 @@ public:
 };
 
 // C++ IO流操作符重载
-// 使用 >> 接收数据，使用 << 发送数据
+// 使用 >> 接收数据，使用 << 发送数据(箭头指向代表数据流向)
 // 若没有数据可被接收，则会阻塞
+// 开发者也可以通过重载 >> 和 << 实现自定义数据类型读写
 Client<TCP>& operator << (Client<TCP>& client, const Data& data);
 Client<TCP>& operator >> (Client<TCP>& client, Data& data);
 Client<TCP>& operator << (Client<TCP>& client, const std::string& str);
