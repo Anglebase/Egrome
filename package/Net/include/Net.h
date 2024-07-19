@@ -1,5 +1,14 @@
 #pragma once
 
+/**
+ * @file Net.h
+ * @author Weiyi Anglebase
+ * @date 2024-07-17
+ * @brief 网络通信库
+ * 
+ * 该库提供C++流操作符风格的网络通信接口封装，支持TCP和UDP协议。此库基于Winsock2 API实现，请确保编译时链接了ws2_32库。
+ */
+
 #include<string>
 #include<tuple>
 

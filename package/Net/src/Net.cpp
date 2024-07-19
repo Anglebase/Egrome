@@ -257,7 +257,7 @@ bool Server<UDP>::bind(int port, const char* ip) {
     else
         addr.sin_addr.s_addr = INADDR_ANY;
     auto res = ::bind((SOCKET)this->sock, (sockaddr*)&addr, sizeof(sockaddr_in)) == 0;
-    if (res)
+    if (res == SOCKET_ERROR)
         interNetError();
     return !res;
 }
