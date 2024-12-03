@@ -1,16 +1,8 @@
 var class_button =
 [
-    [ "StyleSheet", "struct_button_1_1_style_sheet.html", "struct_button_1_1_style_sheet" ],
-    [ "mousePressEvent", "class_button.html#aa89ff1715671d77bd5a66b380ca3f461", null ],
-    [ "mouseReleaseEvent", "class_button.html#a53d2ab3be60af6b3f5417ff4ff8893b3", null ],
-    [ "paintEvent", "class_button.html#a945190ef087c8af1977e09313aac7cee", null ],
-    [ "setDisabled", "class_button.html#a05d23905c45128e7e24f4c638a1020f6", null ],
-    [ "setText", "class_button.html#ad75fd1f65085ef14e589e48fd4e9fc69", null ],
-    [ "updateAnimations", "class_button.html#a4ea5a2b55787e644fc42bfd383937cd6", null ],
-    [ "clicked", "class_button.html#a17f0ceab8ff7648273dfb71266ce8b68", null ],
-    [ "hoverColorAnim", "class_button.html#ac82e24e2060af34fc27f5dfc920f774e", null ],
-    [ "hovered", "class_button.html#af37d8b3e7785018f5375b5de8526c4a3", null ],
-    [ "pressed", "class_button.html#a75925bca555a62dfd92f332c09719a6b", null ],
-    [ "pressedColorAnim", "class_button.html#acb949b3f08217d5118cceca0506fb0cf", null ],
-    [ "released", "class_button.html#a80d484ba33f8a257435d808c5d84ae6b", null ]
+    [ "mouseMoveEvent", "class_button.html#a242a7fe50f8f299df5016a9228f4677b", null ],
+    [ "mousePressEvent", "class_button.html#a2f9c46e28bfb54f7954da1b2c9b78ca0", null ],
+    [ "mouseReleaseEvent", "class_button.html#a0643e6d2971d81661ff2fd13d6eb232e", null ],
+    [ "paintEvent", "class_button.html#aeed806c4cd8246f65b8e9fd831732664", null ],
+    [ "setText", "class_button.html#a77657bd459f70e046a1ece6491060e64", null ]
 ];

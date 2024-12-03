@@ -1,29 +1,42 @@
 #include "App.h"
 #include "Block.h"
+#include "Button.h"
+#include "PaintEvent.h"
 #include "Painter.h"
-#include "Color.h"
+#include <iostream>
 
-class Window : public Block
-{
+class Window :public Block {
 protected:
-    void paintEvent(const PaintEvent &event) override
-    {
-        auto &painter = event.beginPaint(this);
+    void paintEvent(PaintEvent* event) override {
+        auto& painter = event->beginPaint(this);
 
-        painter.setBrushColor(Color{255, 0, 0});
-        painter.drawFillRoundRect(painter.rect(), 20, 10);
-        event.endPaint();
+        painter.clear(0xffffff_rgb);
+        painter.setFontFamily(L"楷体");
+
+        event->endPaint(painter);
     }
-
+private:
+    Button* button;
 public:
-    Window(Rect rect, Block *parent = nullptr) : Block(rect, parent) {}
+    Window(const Rect& rect, Block* parent = nullptr)
+        :Block(rect, parent) {
+        this->button = new Button(Rect(10, 10, 200, 90), this);
+        this->button->setText(L"Click me!点击");
+        this->button->clicked.connect(
+            [this](const Point&) {
+                std::cout << "Button clicked!" << std::endl;
+            });
+        this->button->setTriggerButton(MouseButton::Right);
+        this->button->setTriggerState(ButtonState::Released);
+    }
+    ~Window() {
+        delete this->button;
+    }
 };
 
-int main()
-{
-    Block block{Rect{0, 0, 1000, 600}};
-    Window window{Rect{100, 100, 300, 200}, &block};
-    App app{&block};
+int main() {
+    Window window(Rect(100, 100, 900, 600));
+    App app{ &window };
     app.run();
     return 0;
 }

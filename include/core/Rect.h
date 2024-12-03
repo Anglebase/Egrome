@@ -1,230 +1,173 @@
-#pragma once
 /**
  * @file Rect.h
- * @brief 矩形类
-*/
-#include <iostream>
-class Point;
-class Size;
-/**
- * @addtogroup 核心
- * @{
+ * @author Anglebase
  */
+#pragma once
+
+#include "./Object.h"
+#include "./Point.h"
+#include "./Size.h"
+
 /**
  * @brief 矩形类
  */
-class Rect
-{
-    friend class Block;
-    friend class Painter;
+class Rect : public Object {
 private:
     float x_;
     float y_;
     float width_;
     float height_;
+private:
+#pragma region 修改器
+    class RectData {
+    protected:
+        Rect* rect_;
+        RectData(Rect* rect);
+    };
+#pragma region 边坐标修改器
+    class LeftSide :public RectData {
+        friend class Rect;
+    private:
+        LeftSide(Rect* rect);
+    public:
+        float operator=(float value);
+        operator float() const;
+    };
+    class RightSide :public RectData {
+        friend class Rect;
+    private:
+        RightSide(Rect* rect);
+    public:
+        float operator=(float value);
+        operator float() const;
+    };
+    class TopSide :public RectData {
+        friend class Rect;
+    private:
+        TopSide(Rect* rect);
+    public:
+        float operator=(float value);
+        operator float() const;
+    };
+    class BottomSide :public RectData {
+        friend class Rect;
+    private:
+        BottomSide(Rect* rect);
+    public:
+        float operator=(float value);
+        operator float() const;
+    };
+#pragma endregion 边坐标修改器
+#pragma region 点坐标修改器
+    class Center :public RectData {
+        friend class Rect;
+    private:
+        Center(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+    class TopLeftCorner :public RectData {
+        friend class Rect;
+    private:
+        TopLeftCorner(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+    class TopRightCorner :public RectData {
+        friend class Rect;
+    private:
+        TopRightCorner(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+    class BottomLeftCorner :public RectData {
+        friend class Rect;
+    private:
+        BottomLeftCorner(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+    class BottomRightCorner :public RectData {
+        friend class Rect;
+    private:
+        BottomRightCorner(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+#pragma endregion 点坐标修改器
+#pragma region 其余修改器
+    class PosData :public RectData {
+        friend class Rect;
+    private:
+        PosData(Rect* rect);
+    public:
+        Point operator=(const Point& value);
+        operator Point() const;
+    };
+    class SizeData :public RectData {
+        friend class Rect;
+    private:
+        SizeData(Rect* rect);
+    public:
+        Size operator=(const Size& value);
+        operator Size() const;
+    };
+#pragma endregion 其余修改器
+#pragma endregion 修改器
 
 public:
-    /**
-     * @brief 构造函数
-     * @param x 矩形左上角x坐标
-     * @param y 矩形左上角y坐标
-     * @param width 矩形宽度
-     * @param height 矩形高度
-     */
-    Rect(float x, float y, float width, float height);
+    Rect(float x, float y, float width, float height) noexcept;
+    Rect(const Point& pos, const Size& size) noexcept;
+    ~Rect() noexcept;
+#pragma region 属性访问器
+    float& x() noexcept;
+    float& y() noexcept;
+    float& width() noexcept;
+    float& height() noexcept;
 
-    /**
-     * @brief 构造函数
-     * @param topLeft 矩形左上角点
-     * @param size 矩形大小
-     */
-    Rect(const Point &topLeft, const Size &size);
+    const float& x() const noexcept;
+    const float& y() const noexcept;
+    const float& width() const noexcept;
+    const float& height() const noexcept;
+#pragma endregion 属性访问器
+#pragma region 隐属性访问器
+    LeftSide left() noexcept;
+    RightSide right() noexcept;
+    TopSide top() noexcept;
+    BottomSide bottom() noexcept;
 
-    float &x();
-    float &y();
-    float &width();
-    float &height();
-    const float &x() const;
-    const float &y() const;
-    const float &width() const;
-    const float &height() const;
+    Center center() noexcept;
+    TopLeftCorner topLeft() noexcept;
+    TopRightCorner topRight() noexcept;
+    BottomLeftCorner bottomLeft() noexcept;
+    BottomRightCorner bottomRight() noexcept;
 
-    /**
-     * @brief 获取矩形左上角坐标
-     * @return 矩形左上角坐标
-     */
-    Point getTopLeft() const;
+    PosData position() noexcept;
+    SizeData size() noexcept;
 
-    /**
-     * @brief 获取矩形右上角坐标
-     * @return 矩形右上角坐标
-     */
-    Point getTopRight() const;
+    float left() const noexcept;
+    float right() const noexcept;
+    float top() const noexcept;
+    float bottom() const noexcept;
 
-    /**
-     * @brief 获取矩形左下角坐标
-     * @return 矩形左下角坐标
-     */
-    Point getBottomLeft() const;
+    Point center() const noexcept;
+    Point topLeft() const noexcept;
+    Point topRight() const noexcept;
+    Point bottomLeft() const noexcept;
+    Point bottomRight() const noexcept;
 
+    Point position() const noexcept;
+    Size size() const noexcept;
+#pragma endregion 隐属性访问器
     /**
-     * @brief 获取矩形右下角坐标
-     * @return 矩形右下角坐标
+     * @brief 判断点是否在矩形内，包含边界
+     * @param point 点
+     * @return true 点在矩形内，包含边界；false 点不在矩形内
      */
-    Point getBottomRight() const;
-
-    /**
-     * @brief 获取矩形左侧x坐标
-     * @return 矩形左侧x坐标
-     */
-    float left() const;
-    
-    /**
-     * @brief 获取矩形上侧y坐标
-     * @return 矩形上侧y坐标
-     */
-    float top() const;
-
-    /**
-     * @brief 获取矩形右侧x坐标
-     * @return 矩形右侧x坐标
-     */
-    float right() const;
-
-    /**
-     * @brief 获取矩形下侧y坐标
-     * @return 矩形下侧y坐标
-     */
-    float bottom() const;
-
-    /**
-     * @brief 设置矩形左上角坐标
-     * @param topLeft 矩形左上角坐标
-     */
-    void setTopLeft(const Point &topLeft);
-    /**
-     * @brief 设置矩形右上角坐标
-     * @param topRight 矩形右上角坐标
-     */
-    void setTopRight(const Point &topRight);
-
-    /**
-     * @brief 设置矩形左下角坐标
-     * @param bottomLeft 矩形左下角坐标
-     */
-    void setBottomLeft(const Point &bottomLeft);
-
-    /**
-     * @brief 设置矩形右下角坐标
-     * @param bottomRight 矩形右下角坐标
-     */
-    void setBottomRight(const Point &bottomRight);
-
-    /**
-     * @brief 获取矩形大小
-     * @return 矩形大小
-     */
-    Size getSize() const;
-
-    /**
-     * @brief 设置矩形大小
-     * @param size 矩形大小
-     */
-    void setSize(const Size &size);
-
-    /**
-     * @brief 判断点是否在矩形内
-     * @param point 点坐标
-     * @return 如果点在矩形内，返回true，否则返回false
-     * @note 边界上的点不算在矩形内
-     */
-    bool contains(const Point &point) const;
-
-    /**
-     * @brief 这是一个函数重载，判断点是否在矩形内
-     * @param x 点x坐标
-     * @param y 点y坐标
-     * @return 如果点在矩形内，返回true，否则返回false
-     * @note 边界上的点不算在矩形内
-     */
-    bool contains(float x, float y) const;
-
-    /**
-     * @brief 判断两个矩形是否相交
-     * @param other 另一个矩形
-     * @return 如果相交，返回true，否则返回false
-     */
-    bool intersects(const Rect &other) const;
-
-    /**
-     * @brief 偏移矩形位置
-     * @param dx x方向偏移量
-     * @param dy y方向偏移量
-     */
-    void offset(float dx, float dy);
-
-    /**
-     * @brief 这是一个函数重载，偏移矩形位置
-     * @param dpoint 偏移量
-     */
-    void offset(const Point &dpoint);
-
-    /**
-     * @brief 增减矩形大小
-     * @param dwidth 矩形宽度增减量
-     * @param dheight 矩形高度增减量
-     */
-    void inflate(float dwidth, float dheight);
-
-    /**
-     * @brief 这是一个函数重载，增减矩形大小
-     * @param dsize 矩形大小增减量
-     */
-    void inflate(const Size &dsize);
-
-    /**
-     * @brief 调整矩形
-     * @param dleft 调整矩形左侧坐标
-     * @param dtop 调整矩形顶部坐标
-     * @param dright 调整矩形右侧坐标
-     * @param dbottom 调整矩形底部坐标
-     * @return 调整后的矩形
-     */
-    Rect adjusted(float dleft, float dtop, float dright, float dbottom) const;
-
-    /**
-     * @brief 计算指定大小的尺寸居中于当前矩形时所具有矩形对象
-     * @param size 指定的大小
-     * @return 居中矩形对象
-     */
-    Rect centerWith(const Size &size) const;
-
-    /**
-     * @brief 获取矩形中心点坐标
-     * @return 矩形中心点坐标
-     */
-    Point center() const;
-
-    /**
-     * @brief 判断两个矩形是否相同
-     * @param other 另一个矩形
-     * @return 如果相同，返回true，否则返回false
-     */
-    bool operator==(const Rect &other) const;
-
-    /**
-     * @brief 判断两个矩形是否不同
-     * @param other 另一个矩形
-     * @return 如果不同，返回true，否则返回false
-     */
-    bool operator!=(const Rect &other) const;
-
-    /**
-     * @brief 针对于流输出的运算符重载
-     * @param os 输出流
-     * @param rect 矩形对象
-     * @return 输出流
-     */
-    friend std::ostream &operator<<(std::ostream &os, const Rect &rect);
+    bool contains(const Point& point) const noexcept;
 };
-/** @} */

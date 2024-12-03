@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Egrome: include/core/Database.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Egrome
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_database_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Database.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// 此功能需要C++17或更高版本</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#if __cplusplus &gt; 201700L</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include&lt;tuple&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include&lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include&lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include&lt;cstring&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_table.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_table.html">Table</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span>...Args&gt;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_table.html">Table</a>&lt;std::tuple&lt;Args...&gt;&gt; {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">using </span>_LINE_type = std::tuple&lt;Args...&gt;;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> std::size_t header_lenth = 32ULL;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::vector&lt;_LINE_type&gt; database; <span class="comment">// 表的数据</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::vector&lt;bool&gt; sign;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::size_t size_;           <span class="comment">// 此表的数据量</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::size_t count_;          <span class="comment">// 已删除的数据量</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a57f8bb1122849267380b144ee332fde9">   41</a></span>    std::size_t lenth = (<span class="keyword">sizeof</span>(Args) + ... + 0ULL);           <span class="comment">// 一条数据的长度</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aff2cc2a5a57794c15f782b655f2f5472">   49</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aff2cc2a5a57794c15f782b655f2f5472">readLine</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* input, _LINE_type&amp; data) = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a859102736e69f161041e663e868bfb5d">   56</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a859102736e69f161041e663e868bfb5d">writeLine</a>(<span class="keywordtype">void</span>* output, <span class="keyword">const</span> _LINE_type&amp; data) = 0;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a4cc6b3b4fd56e26e3848eefb06c9a6fd">   62</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a4cc6b3b4fd56e26e3848eefb06c9a6fd">printLine</a>(<span class="keyword">const</span> _LINE_type&amp; data) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae87615a12cb748ece8a2861299915f18">   70</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae87615a12cb748ece8a2861299915f18">loadDatabase</a>(<span class="keyword">const</span> std::string_view&amp; database_path) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        std::FILE* input = std::fopen(database_path.data(), <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (!input) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// 读取文件长度信息</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        std::size_t filelenth;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        std::fread(&amp;filelenth, <span class="keyword">sizeof</span>(std::size_t), 1, input);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">// 读取一行数据长度以及表的数据量</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        std::fread(&amp;this-&gt;lenth, <span class="keyword">sizeof</span>(std::size_t), 1, input);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        std::fread(&amp;this-&gt;size_, <span class="keyword">sizeof</span>(std::size_t), 1, input);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">if</span> (filelenth != this-&gt;lenth * this-&gt;size_ + this-&gt;header_lenth) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        this-&gt;sign = std::vector&lt;bool&gt;(this-&gt;size_, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">// 读取数据</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        std::fseek(input, this-&gt;header_lenth, SEEK_SET);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">void</span>* data = (<span class="keywordtype">void</span>*)<span class="keyword">new</span> <span class="keywordtype">char</span>[this-&gt;lenth];</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        _LINE_type format_data;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> count = 0; count &lt; this-&gt;size_; ++count) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            std::fseek(input, this-&gt;header_lenth + count * this-&gt;lenth, SEEK_SET);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            std::fread(data, this-&gt;lenth, 1, input);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            this-&gt;readLine(data, format_data);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            this-&gt;database.push_back(format_data);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">delete</span>[](<span class="keywordtype">char</span>*)data;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        std::fclose(input);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6649825e84490d9d09669aefe03b1c02">  107</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6649825e84490d9d09669aefe03b1c02">saveDatabase</a>(<span class="keyword">const</span> std::string_view&amp; database_path) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        std::FILE* output = std::fopen(database_path.data(), <span class="stringliteral">&quot;w&quot;</span>);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">if</span> (!output) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">char</span> header[this-&gt;header_lenth];</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        std::memset(header, 0, <span class="keyword">sizeof</span>(header));</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        this-&gt;size_ = this-&gt;database.size();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        std::size_t filelenth = this-&gt;size_ * lenth + this-&gt;header_lenth;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        std::memcpy(header, &amp;filelenth, <span class="keyword">sizeof</span>(std::size_t));</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        std::memcpy(header + <span class="keyword">sizeof</span>(std::size_t), &amp;lenth, <span class="keyword">sizeof</span>(std::size_t));</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        std::memcpy(header + <span class="keyword">sizeof</span>(std::size_t) * 2, &amp;this-&gt;size_, <span class="keyword">sizeof</span>(std::size_t));</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        fwrite(header, <span class="keyword">sizeof</span>(header), 1, output);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordtype">void</span>* data = (<span class="keywordtype">void</span>*)<span class="keyword">new</span> <span class="keywordtype">char</span>[lenth];</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordtype">int</span> count = -1;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; linedata : this-&gt;database) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            ++count;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">if</span> (!this-&gt;sign[count])</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            this-&gt;writeLine(data, linedata);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            std::fwrite(data, lenth, 1, output);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keyword">delete</span>[](<span class="keywordtype">char</span>*)data;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        std::fclose(output);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab576d14c0798283f93ad0431e3c36b93">  143</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab576d14c0798283f93ad0431e3c36b93">append</a>(<span class="keyword">const</span> _LINE_type&amp; line) {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        this-&gt;database.push_back(line);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        this-&gt;sign.push_back(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a9f91d5b8152f73a9bbfe527cd3b3fc22">  152</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a9f91d5b8152f73a9bbfe527cd3b3fc22">append</a>(_LINE_type&amp;&amp; line) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        this-&gt;database.push_back(line);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        this-&gt;sign.push_back(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab0b00c650021f4391078478fdeefff5d">  162</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab0b00c650021f4391078478fdeefff5d">revoke</a>(std::size_t index) { this-&gt;sign[index] = <span class="keyword">false</span>; this-&gt;count_++; }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a65e075759e16536bc28ab98c83983ad0">  169</a></span>    _LINE_type&amp; <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a65e075759e16536bc28ab98c83983ad0">getline</a>(std::size_t index) { <span class="keywordflow">return</span> this-&gt;database[index]; }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N, <span class="keyword">class</span> Func&gt;</div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a3f9aca555ced647bfd90f9db20880c5e">  180</a></span>    std::vector&lt;std::pair&lt;const _LINE_type*, std::size_t&gt;&gt; <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a3f9aca555ced647bfd90f9db20880c5e">find_index_if</a>(Func condition) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        std::vector&lt;std::pair&lt;const _LINE_type*, std::size_t&gt;&gt; results;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        std::size_t index = 0;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; line : this-&gt;database) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keywordflow">if</span> (condition(std::get&lt;N&gt;(line)))</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                results.push_back({ &amp;line,index });</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            ++index;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">return</span> results;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
+</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N, <span class="keyword">class</span> Func&gt;</div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae3227f7bf7f83d76ec52646adbb2a893">  199</a></span>    std::vector&lt;const _LINE_type*&gt; <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae3227f7bf7f83d76ec52646adbb2a893">find_if</a>(Func condition) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        std::vector&lt;const _LINE_type*&gt; results;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        std::size_t index = 0;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; line : this-&gt;database) {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="keywordflow">if</span> (condition(std::get&lt;N&gt;(line)))</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                results.push_back(&amp;line);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            ++index;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        }</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordflow">return</span> results;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N, <span class="keyword">class</span> Func&gt;</div>
+<div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aa0767cf01a35a6f492070b06025183f0">  218</a></span>    std::size_t <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aa0767cf01a35a6f492070b06025183f0">count_if</a>(Func condition) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        std::size_t count = 0;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; line : this-&gt;database) {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            <span class="keywordflow">if</span> (condition(std::get&lt;N&gt;(line)))</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                ++count;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">return</span> count;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
+</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> N, <span class="keyword">class</span> Func&gt;</div>
+<div class="foldopen" id="foldopen00235" data-start="{" data-end="}">
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#af3888aa9346f66684c860eb62cb80f11">  235</a></span>    std::size_t <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#af3888aa9346f66684c860eb62cb80f11">revoke_if</a>(Func condition) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        std::size_t index = 0, count = 0;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; line : this-&gt;database) {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="keywordflow">if</span> (condition(std::get&lt;N&gt;(line))) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                this-&gt;revoke(index);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                ++count;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                ++this-&gt;count_;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            ++index;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">return</span> count;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a76c7ecb733860fbde11735e4d1a9f385">  250</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a76c7ecb733860fbde11735e4d1a9f385">print</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 100 &amp;&amp; i &lt; this-&gt;database.size(); ++i) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            <span class="keywordflow">if</span> (!this-&gt;sign[i])</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            this-&gt;printLine(this-&gt;database[i]);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        }</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordflow">if</span> (this-&gt;database.size() &gt; 100)</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00262" data-start="{" data-end="}">
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a55d93bfc15101ca98ade7b637dc818ca">  262</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a55d93bfc15101ca98ade7b637dc818ca">clear</a>() {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        this-&gt;database.clear();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        this-&gt;sign.clear();</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    }</div>
+</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a32092465ade94bcfa415dec32f230fd3">  271</a></span>    std::size_t <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a32092465ade94bcfa415dec32f230fd3">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;size_; }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6487c2f6b7ecb925842de3e8c8b4a5a8">  277</a></span>    std::size_t <a class="code hl_function" href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6487c2f6b7ecb925842de3e8c8b4a5a8">count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;size_ - this-&gt;count_; }</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>};</div>
+</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a32092465ade94bcfa415dec32f230fd3"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a32092465ade94bcfa415dec32f230fd3">Table&lt; std::tuple&lt; Args... &gt; &gt;::size</a></div><div class="ttdeci">std::size_t size() const</div><div class="ttdoc">获取当前数据库中数据总数量</div><div class="ttdef"><b>Definition</b> Database.hpp:271</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a3f9aca555ced647bfd90f9db20880c5e"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a3f9aca555ced647bfd90f9db20880c5e">Table&lt; std::tuple&lt; Args... &gt; &gt;::find_index_if</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; const _LINE_type *, std::size_t &gt; &gt; find_index_if(Func condition)</div><div class="ttdoc">查找并返回所有满足condition的行</div><div class="ttdef"><b>Definition</b> Database.hpp:180</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a4cc6b3b4fd56e26e3848eefb06c9a6fd"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a4cc6b3b4fd56e26e3848eefb06c9a6fd">Table&lt; std::tuple&lt; Args... &gt; &gt;::printLine</a></div><div class="ttdeci">virtual void printLine(const _LINE_type &amp;data) const =0</div><div class="ttdoc">打印一行数据的格式化函数</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a55d93bfc15101ca98ade7b637dc818ca"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a55d93bfc15101ca98ade7b637dc818ca">Table&lt; std::tuple&lt; Args... &gt; &gt;::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">清空内存中的数据库数据</div><div class="ttdef"><b>Definition</b> Database.hpp:262</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a6487c2f6b7ecb925842de3e8c8b4a5a8"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6487c2f6b7ecb925842de3e8c8b4a5a8">Table&lt; std::tuple&lt; Args... &gt; &gt;::count</a></div><div class="ttdeci">std::size_t count() const</div><div class="ttdoc">获取当前数据库中有效数据数量</div><div class="ttdef"><b>Definition</b> Database.hpp:277</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a65e075759e16536bc28ab98c83983ad0"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a65e075759e16536bc28ab98c83983ad0">Table&lt; std::tuple&lt; Args... &gt; &gt;::getline</a></div><div class="ttdeci">_LINE_type &amp; getline(std::size_t index)</div><div class="ttdoc">获取数据库中指定位置的数据</div><div class="ttdef"><b>Definition</b> Database.hpp:169</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a6649825e84490d9d09669aefe03b1c02"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a6649825e84490d9d09669aefe03b1c02">Table&lt; std::tuple&lt; Args... &gt; &gt;::saveDatabase</a></div><div class="ttdeci">bool saveDatabase(const std::string_view &amp;database_path)</div><div class="ttdoc">将内存中的数据保存至文件</div><div class="ttdef"><b>Definition</b> Database.hpp:107</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a76c7ecb733860fbde11735e4d1a9f385"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a76c7ecb733860fbde11735e4d1a9f385">Table&lt; std::tuple&lt; Args... &gt; &gt;::print</a></div><div class="ttdeci">void print() const</div><div class="ttdoc">打印数据库中的前100条数据</div><div class="ttdef"><b>Definition</b> Database.hpp:250</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a859102736e69f161041e663e868bfb5d"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a859102736e69f161041e663e868bfb5d">Table&lt; std::tuple&lt; Args... &gt; &gt;::writeLine</a></div><div class="ttdeci">virtual void writeLine(void *output, const _LINE_type &amp;data)=0</div><div class="ttdoc">写入数据的格式化函数</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_a9f91d5b8152f73a9bbfe527cd3b3fc22"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#a9f91d5b8152f73a9bbfe527cd3b3fc22">Table&lt; std::tuple&lt; Args... &gt; &gt;::append</a></div><div class="ttdeci">void append(_LINE_type &amp;&amp;line)</div><div class="ttdoc">向数据库中移动一行数据</div><div class="ttdef"><b>Definition</b> Database.hpp:152</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_aa0767cf01a35a6f492070b06025183f0"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aa0767cf01a35a6f492070b06025183f0">Table&lt; std::tuple&lt; Args... &gt; &gt;::count_if</a></div><div class="ttdeci">std::size_t count_if(Func condition)</div><div class="ttdoc">查找所有满足condition的行的数量</div><div class="ttdef"><b>Definition</b> Database.hpp:218</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_ab0b00c650021f4391078478fdeefff5d"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab0b00c650021f4391078478fdeefff5d">Table&lt; std::tuple&lt; Args... &gt; &gt;::revoke</a></div><div class="ttdeci">void revoke(std::size_t index)</div><div class="ttdoc">将数据库中指定位置的数据设置为删除状态</div><div class="ttdef"><b>Definition</b> Database.hpp:162</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_ab576d14c0798283f93ad0431e3c36b93"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab576d14c0798283f93ad0431e3c36b93">Table&lt; std::tuple&lt; Args... &gt; &gt;::append</a></div><div class="ttdeci">void append(const _LINE_type &amp;line)</div><div class="ttdoc">向数据库中添加一行数据</div><div class="ttdef"><b>Definition</b> Database.hpp:143</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_ae3227f7bf7f83d76ec52646adbb2a893"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae3227f7bf7f83d76ec52646adbb2a893">Table&lt; std::tuple&lt; Args... &gt; &gt;::find_if</a></div><div class="ttdeci">std::vector&lt; const _LINE_type * &gt; find_if(Func condition)</div><div class="ttdoc">查找并返回所有满足condition的行</div><div class="ttdef"><b>Definition</b> Database.hpp:199</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_ae87615a12cb748ece8a2861299915f18"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ae87615a12cb748ece8a2861299915f18">Table&lt; std::tuple&lt; Args... &gt; &gt;::loadDatabase</a></div><div class="ttdeci">bool loadDatabase(const std::string_view &amp;database_path)</div><div class="ttdoc">从文件加载数据库到内存</div><div class="ttdef"><b>Definition</b> Database.hpp:70</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_af3888aa9346f66684c860eb62cb80f11"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#af3888aa9346f66684c860eb62cb80f11">Table&lt; std::tuple&lt; Args... &gt; &gt;::revoke_if</a></div><div class="ttdeci">std::size_t revoke_if(Func condition)</div><div class="ttdoc">查找所有满足condition的行并标记为删除状态</div><div class="ttdef"><b>Definition</b> Database.hpp:235</div></div>
+<div class="ttc" id="aclass_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4_html_aff2cc2a5a57794c15f782b655f2f5472"><div class="ttname"><a href="class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aff2cc2a5a57794c15f782b655f2f5472">Table&lt; std::tuple&lt; Args... &gt; &gt;::readLine</a></div><div class="ttdeci">virtual void readLine(const void *input, _LINE_type &amp;data)=0</div><div class="ttdoc">读取数据的格式化函数</div></div>
+<div class="ttc" id="aclass_table_html"><div class="ttname"><a href="class_table.html">Table</a></div><div class="ttdef"><b>Definition</b> Database.hpp:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><b>Database.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

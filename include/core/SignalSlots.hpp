@@ -1,163 +1,129 @@
-#pragma once
 /**
  * @file SignalSlots.hpp
- * @brief 信号-槽机制
+ * @author Anglebase[GitHub]
+ * @brief 信号槽机制
  */
+#pragma once
 
 #include <map>
 #include <functional>
+#include "./Object.h"
 
-/**
- * @addtogroup 核心
- * @{
- */
-
-/**
- * @brief 信号类，是信号槽机制的核心类
- * @note 此类是无特化的类，并无实现，定义信号时模板参数必须指定为void(Args...)或void()，具体用法请参考 Signal<void(Args...)> 或 Signal<void()>
- */
 template <typename... Args>
 class Signal;
 
 /**
- * @brief 信号类的有参特化
- * @brief 信号类的有参特化
- * @tparam ...Args 槽函数参数类型列表
+ * @brief 信号类
+ * @tparam ...Args 信号参数类型
  */
 template <typename... Args>
-class Signal<void(Args...)>
-{
+class Signal<void(Args...)> {
+    friend class Connection;
+
 private:
     std::map<unsigned long long, std::function<void(Args...)>> slots;
-    unsigned long long slotId = 0;
+    unsigned long long id = 0;
 
 public:
     /**
-     * @brief 将 \a slot 添加到槽函数列表
-     * @param slot 槽函数
-     * @return 此槽函数的 ID
+     * @brief 信号槽连接
      */
-    unsigned long long connect(const std::function<void(Args...)> &slot)
-    {
-        slots[slotId] = slot;
-        return slotId++;
-    }
+    class Connection {
+        friend class Signal<void(Args...)>;
+    private:
+        unsigned long long id;
+        Signal<void(Args...)>* signal;
 
+    private:
+        Connection(unsigned long long id, Signal<void(Args...)>* signal)
+            : id(id), signal(signal) {}
+
+    public:
+        /**
+         * @brief 断开连接
+         */
+        void disconnect() {
+            auto it = this->signal->slots.find(id);
+            if (it != this->signal->slots.end()) {
+                this->signal->slots.erase(it);
+            }
+        }
+    };
+
+public:
     /**
-     * @brief connect函数的重载，用于绑定对象的成员函数
-     * @tparam T
+     * @brief 连接槽函数
+     * @param slot 要连接的槽函数
+     * @return 连接对象
+     */
+    Signal<void(Args...)>::Connection connect(std::function<void(Args...)> slot) {
+        auto id = this->id++;
+        this->slots[id] = slot;
+        return Connection(id, this);
+    }
+    /**
+     * @brief 连接槽函数
      * @param obj 对象指针
-     * @param func 成员函数指针
-     * @return 此槽函数的 ID
+     * @param method 对象方法指针
+     * @return 连接对象
      */
-    template <typename T>
-    unsigned long long connect(T *obj, void (T::*func)(Args...))
-    {
-        return this->connect([obj, func](Args &&...args)
-                             { (obj->*func)(std::forward<Args>(args)...); });
+    Signal<void(Args...)>::Connection connect(Object* obj, void (Object::* method)(Args...)) {
+        return this->connect([obj, method](Args... args) { (obj->*method)(args...); });
     }
-
     /**
-     * @brief 移除槽函数
-     * @param slotId 要移除的槽函数 ID
+     * @brief 发射信号
+     * @param ...args 信号参数
      */
-    void disconnect(unsigned long long slotId)
-    {
-        if (slots.find(slotId) != slots.end())
-            slots.erase(slotId);
-    }
-
-    /**
-     * @brief 发送信号，调用所有槽函数
-     * @param ...args 槽函数参数列表
-     */
-    void emit(Args... args)
-    {
-        for (auto &slot : slots)
+    void emit(Args &&...args) {
+        for (auto& slot : this->slots) {
             slot.second(std::forward<Args>(args)...);
-    }
-
-    /**
-     * @brief 发送信号，调用所有槽函数
-     * @param ...args 槽函数参数列表
-     * @note 重载了 () 操作符，方便调用，效果等同于 emit 函数
-     */
-    void operator()(Args... args)
-    {
-        this->emit(std::forward<Args>(args)...);
+        }
     }
 };
 
 /**
- * @brief 信号类的无参特化
+ * @brief 信号类模板无参特化
+ * @see Signal<void(Args...)>
  */
 template <>
-class Signal<void()>
-{
+class Signal<void()> {
+    friend class Connection;
+private:
     std::map<unsigned long long, std::function<void()>> slots;
-    unsigned long long slotId = 0;
-
+    unsigned long long id = 0;
 public:
-    /**
-     * @brief 将 \a slot 添加到槽函数列表
-     * @param slot 槽函数
-     * @return 此槽函数的 ID
-     */
-    unsigned long long connect(const std::function<void()> &slot)
-    {
-        slots[slotId] = slot;
-        return slotId++;
+    class Connection {
+        friend class Signal<void()>;
+    private:
+        unsigned long long id;
+        Signal<void()>* signal;
+
+    private:
+        Connection(unsigned long long id, Signal<void()>* signal)
+            : id(id), signal(signal) {}
+
+    public:
+        void disconnect() {
+            auto it = this->signal->slots.find(id);
+            if (it != this->signal->slots.end()) {
+                this->signal->slots.erase(it);
+            }
+        }
+    };
+
+    Signal<void()>::Connection connect(std::function<void()> slot) {
+        auto id = this->id++;
+        this->slots[id] = slot;
+        return Connection(id, this);
     }
 
-    /**
-     * @brief connect函数的重载，将成员函数作为槽函数
-     * @tparam T
-     * @param obj 对象指针
-     * @param func 成员函数指针
-     * @return 此槽函数的 ID
-     */
-    template <typename T>
-    unsigned long long connect(T *obj, void (T::*func)())
-    {
-        return this->connect([obj, func]()
-                             { (obj->*func)(); });
+    Signal<void()>::Connection connect(Object* obj, void (Object::* method)()) {
+        return this->connect([obj, method]() { (obj->*method)(); });
     }
 
-    /**
-     * @brief 移除槽函数
-     * @param slotId 要移除的槽函数 ID
-     */
-    void disconnect(unsigned long long slotId)
-    {
-        if (slots.find(slotId) != slots.end())
-            slots.erase(slotId);
-    }
-
-    /**
-     * @brief 发送信号，调用所有槽函数
-     */
-    void emit()
-    {
-        for (auto &slot : slots)
+    void emit() {
+        for (auto& slot : this->slots) {
             slot.second();
-    }
-
-    /**
-     * @brief 发送信号，调用所有槽函数
-     * @note 重载了 () 操作符，方便调用，效果等同于 emit 函数
-     */
-    void operator()()
-    {
-        this->emit();
+        }
     }
 };
-
-#ifndef signals
-/**
- * @brief 信号列表宏定义
- * @note 信号列表仅用于语义化表示，实际上并没有定义信号列表，只是为了方便使用信号槽机制而定义的宏定义
- */
-#define signals public
-#endif
-
-/** @} */

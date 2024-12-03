@@ -100,71 +100,49 @@ $(function(){initNavTree('_size_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Size.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_size_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="class_size_f.html">SizeF</a>;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_size.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_size.html">Size</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">long</span> width_;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">long</span> height_;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="class_size.html#a81d0604aae93de6c290c8b256845a0be">Size</a>(<span class="keywordtype">long</span> w = 0, <span class="keywordtype">long</span> h = 0);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">long</span> &amp;width();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">long</span> &amp;height();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;width() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> &amp;height() <span class="keyword">const</span>;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">./Object.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_size.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_size.html">Size</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_object.html">Object</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">float</span> width_;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> height_;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_size.html">Size</a>(<span class="keywordtype">float</span> x = 0, <span class="keywordtype">float</span> y = 0) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_size.html">~Size</a>() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">float</span> &amp;width() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">float</span> &amp;height() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;width() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;height() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_size.html">Size</a> operator+(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_size.html">Size</a> operator-(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_size.html">Size</a> operator*(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;scale) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_size.html">Size</a> operator/(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;scale) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;operator+=(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;operator-=(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;operator*=(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;scale) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;operator/=(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;scale) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_size.html#acac97c2a135a7479642210e1317a472d">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_size.html#aac3ad5da298b2140189d49a3851a0961">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="class_size.html">Size</a> <a class="code hl_function" href="class_size.html#a0f7abeed80a29a537afd858d77a67323">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="class_size.html">Size</a> <a class="code hl_function" href="class_size.html#a976c4f7d9e8af40e177b590d324bcef7">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;<a class="code hl_function" href="class_size.html#aa9fca00049ec980f133b0509b7f1e396">operator+=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;<a class="code hl_function" href="class_size.html#ade4a05c87db0201a7a0c31f495801684">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="class_size.html">Size</a> <a class="code hl_function" href="class_size.html#a10b1fe3b2f91203782c7a8bbcf6d420d">operator*</a>(<span class="keywordtype">double</span> factor) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_class" href="class_size.html">Size</a> <a class="code hl_function" href="class_size.html#a6d5145d2092653ba70e79787fe0c4171">operator/</a>(<span class="keywordtype">double</span> factor) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;<a class="code hl_function" href="class_size.html#aa1f25d5313fc37f4bb0d2e11cf5c0b5f">operator*=</a>(<span class="keywordtype">double</span> factor);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="class_size.html">Size</a> &amp;<a class="code hl_function" href="class_size.html#a01bcc7c266b68cb91eb336160e0aa353">operator/=</a>(<span class="keywordtype">double</span> factor);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">friend</span> std::ostream &amp;<a class="code hl_friend" href="class_size.html#a389d87f294c1fea6ea7f43451953cc90">operator&lt;&lt;</a>(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;size);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">operator</span> <a class="code hl_class" href="class_size_f.html">SizeF</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code hl_class" href="class_size.html">Size</a> &amp;other) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="ttc" id="aclass_size_f_html"><div class="ttname"><a href="class_size_f.html">SizeF</a></div><div class="ttdoc">二维尺寸类</div><div class="ttdef"><b>Definition</b> SizeF.h:19</div></div>
-<div class="ttc" id="aclass_size_html"><div class="ttname"><a href="class_size.html">Size</a></div><div class="ttdoc">二维尺寸类</div><div class="ttdef"><b>Definition</b> Size.h:17</div></div>
-<div class="ttc" id="aclass_size_html_a01bcc7c266b68cb91eb336160e0aa353"><div class="ttname"><a href="class_size.html#a01bcc7c266b68cb91eb336160e0aa353">Size::operator/=</a></div><div class="ttdeci">Size &amp; operator/=(double factor)</div><div class="ttdoc">/=运算符重载</div><div class="ttdef"><b>Definition</b> Size.cpp:72</div></div>
-<div class="ttc" id="aclass_size_html_a0f7abeed80a29a537afd858d77a67323"><div class="ttname"><a href="class_size.html#a0f7abeed80a29a537afd858d77a67323">Size::operator+</a></div><div class="ttdeci">Size operator+(const Size &amp;other) const</div><div class="ttdoc">计算两个Size的和</div><div class="ttdef"><b>Definition</b> Size.cpp:37</div></div>
-<div class="ttc" id="aclass_size_html_a10b1fe3b2f91203782c7a8bbcf6d420d"><div class="ttname"><a href="class_size.html#a10b1fe3b2f91203782c7a8bbcf6d420d">Size::operator*</a></div><div class="ttdeci">Size operator*(double factor) const</div><div class="ttdoc">令Size对象的宽度和高度都乘以一个倍数</div><div class="ttdef"><b>Definition</b> Size.cpp:57</div></div>
-<div class="ttc" id="aclass_size_html_a389d87f294c1fea6ea7f43451953cc90"><div class="ttname"><a href="class_size.html#a389d87f294c1fea6ea7f43451953cc90">Size::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Size &amp;size)</div><div class="ttdoc">针对于流输出的运算符重载</div><div class="ttdef"><b>Definition</b> Size.cpp:82</div></div>
-<div class="ttc" id="aclass_size_html_a6d5145d2092653ba70e79787fe0c4171"><div class="ttname"><a href="class_size.html#a6d5145d2092653ba70e79787fe0c4171">Size::operator/</a></div><div class="ttdeci">Size operator/(double factor) const</div><div class="ttdoc">令Size对象的宽度和高度都除以一个倍数</div><div class="ttdef"><b>Definition</b> Size.cpp:62</div></div>
-<div class="ttc" id="aclass_size_html_a81d0604aae93de6c290c8b256845a0be"><div class="ttname"><a href="class_size.html#a81d0604aae93de6c290c8b256845a0be">Size::Size</a></div><div class="ttdeci">Size(long w=0, long h=0)</div><div class="ttdoc">构造函数</div><div class="ttdef"><b>Definition</b> Size.cpp:5</div></div>
-<div class="ttc" id="aclass_size_html_a976c4f7d9e8af40e177b590d324bcef7"><div class="ttname"><a href="class_size.html#a976c4f7d9e8af40e177b590d324bcef7">Size::operator-</a></div><div class="ttdeci">Size operator-(const Size &amp;other) const</div><div class="ttdoc">计算两个Size的差</div><div class="ttdef"><b>Definition</b> Size.cpp:42</div></div>
-<div class="ttc" id="aclass_size_html_aa1f25d5313fc37f4bb0d2e11cf5c0b5f"><div class="ttname"><a href="class_size.html#aa1f25d5313fc37f4bb0d2e11cf5c0b5f">Size::operator*=</a></div><div class="ttdeci">Size &amp; operator*=(double factor)</div><div class="ttdoc">*=运算符重载</div><div class="ttdef"><b>Definition</b> Size.cpp:67</div></div>
-<div class="ttc" id="aclass_size_html_aa9fca00049ec980f133b0509b7f1e396"><div class="ttname"><a href="class_size.html#aa9fca00049ec980f133b0509b7f1e396">Size::operator+=</a></div><div class="ttdeci">Size &amp; operator+=(const Size &amp;other)</div><div class="ttdoc">+=运算符重载</div><div class="ttdef"><b>Definition</b> Size.cpp:47</div></div>
-<div class="ttc" id="aclass_size_html_aac3ad5da298b2140189d49a3851a0961"><div class="ttname"><a href="class_size.html#aac3ad5da298b2140189d49a3851a0961">Size::operator!=</a></div><div class="ttdeci">bool operator!=(const Size &amp;other) const</div><div class="ttdoc">判断两个Size是否不同</div><div class="ttdef"><b>Definition</b> Size.cpp:32</div></div>
-<div class="ttc" id="aclass_size_html_acac97c2a135a7479642210e1317a472d"><div class="ttname"><a href="class_size.html#acac97c2a135a7479642210e1317a472d">Size::operator==</a></div><div class="ttdeci">bool operator==(const Size &amp;other) const</div><div class="ttdoc">判断两个Size是否相同</div><div class="ttdef"><b>Definition</b> Size.cpp:27</div></div>
-<div class="ttc" id="aclass_size_html_ade4a05c87db0201a7a0c31f495801684"><div class="ttname"><a href="class_size.html#ade4a05c87db0201a7a0c31f495801684">Size::operator-=</a></div><div class="ttdeci">Size &amp; operator-=(const Size &amp;other)</div><div class="ttdoc">-=运算符重载</div><div class="ttdef"><b>Definition</b> Size.cpp:52</div></div>
+<div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">所有类的基类</div></div>
+<div class="ttc" id="aclass_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdoc">所有类的基类 [Github]</div><div class="ttdef"><b>Definition</b> Object.h:14</div></div>
+<div class="ttc" id="aclass_size_html"><div class="ttname"><a href="class_size.html">Size</a></div><div class="ttdoc">尺寸类</div><div class="ttdef"><b>Definition</b> Size.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><a class="el" href="_size_8h.html">Size.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><b>Size.h</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

@@ -1,120 +1,35 @@
+
 #pragma once
-/**
- * @file Size.h
- * @brief 二维尺寸类
-*/
-#include <iostream>
+#include "./Object.h"
 
 /**
- * @addtogroup 核心
- * @{
+ * @brief 尺寸类
  */
-/**
- * @brief 二维尺寸类
- */
-class Size
+class Size : public Object
 {
 private:
     float width_;
     float height_;
 
 public:
-    /**
-     * @brief 构造函数
-     */
-    Size(float w = 0, float h = 0);
+    Size(float x = 0, float y = 0) noexcept;
+    ~Size() noexcept;
 
-    float &width();
-    float &height();
-    const float &width() const;
-    const float &height() const;
+    float &width() noexcept;
+    float &height() noexcept;
+    const float &width() const noexcept;
+    const float &height() const noexcept;
 
-    /**
-     * @brief 判断两个Size是否相同
-     * @param other 另一个Size
-     * @return 如果相等返回true，否则返回false
-     */
-    bool operator==(const Size &other) const;
+    Size &operator=(const Size &other) noexcept;
+    Size operator+(const Size &other) const noexcept;
+    Size operator-(const Size &other) const noexcept;
+    Size operator*(const float &scale) const noexcept;
+    Size operator/(const float &scale) const noexcept;
+    Size &operator+=(const Size &other) noexcept;
+    Size &operator-=(const Size &other) noexcept;
+    Size &operator*=(const float &scale) noexcept;
+    Size &operator/=(const float &scale) noexcept;
 
-    /**
-     * @brief 判断两个Size是否不同
-     * @param other 另一个Size
-     * @return 如果不同返回true，否则返回false
-     */
-    bool operator!=(const Size &other) const;
-
-    /**
-     * @brief 计算两个Size的和
-     * @brief 此函数会对两Size的高度和宽度分别求和，并返回一个新的Size对象
-     * @param other 另一个Size
-     * @return 两个Size的和
-     */
-    Size operator+(const Size &other) const;
-
-    /**
-     * @brief 计算两个Size的差
-     * @brief 此函数会对两Size的高度和宽度分别求差，并返回一个新的Size对象
-     * @param other 另一个Size
-     * @return 两个Size的差
-     */
-    Size operator-(const Size &other) const;
-
-    /**
-     * @brief +=运算符重载
-     * @param other 另一个Size
-     * @return Size对象本身
-     * @note 计算方式参考 operator+(const Size &other) const
-     */
-    Size &operator+=(const Size &other);
-
-    /**
-     * @brief -=运算符重载
-     * @param other 另一个Size
-     * @return Size对象本身
-     * @note 计算方式参考 operator-(const Size &other) const
-     */
-    Size &operator-=(const Size &other);
-
-    /**
-     * @brief 令Size对象的宽度和高度都乘以一个倍数
-     * @param factor 倍数
-     * @return 新的Size对象
-     */
-    Size operator*(double factor) const;
-
-    /**
-     * @brief 令Size对象的宽度和高度都除以一个倍数
-     * @param factor 倍数
-     * @return 新的Size对象
-     * @warning 除数不能为0
-     */
-    Size operator/(double factor) const;
-
-    /**
-     * @brief *=运算符重载
-     * @param factor 倍数
-     * @return Size对象本身
-     * @note 计算方式参考 operator*(double factor) const
-     */
-    Size &operator*=(double factor);
-
-    /**
-     * @brief /=运算符重载
-     * @param factor 倍数
-     * @return Size对象本身
-     * @note 计算方式参考 operator/(double factor) const
-     * @warning 除数不能为0
-     */
-    Size &operator/=(double factor);
-
-    /**
-     * @brief 针对于流输出的运算符重载
-     * @param os 输出流
-     * @param size Size 对象
-     * @return  输出流
-     */
-    friend std::ostream &operator<<(std::ostream &os, const Size &size);
+    bool operator==(const Size &other) const noexcept;
+    bool operator!=(const Size &other) const noexcept;
 };
-/**
- * @}
- */

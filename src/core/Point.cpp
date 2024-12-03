@@ -1,56 +1,80 @@
 #include "Point.h"
+#include <cmath>
 #include "Rect.h"
 
-Point::Point(float x, float y) : x_(x), y_(y) {}
+Point::Point(float x, float y) noexcept
+    : x_(x), y_(y) {}
+Point::~Point() noexcept {}
 
-float &Point::x() { return x_; }
-float &Point::y() { return y_; }
-const float &Point::x() const { return x_; }
-const float &Point::y() const { return y_; }
+float& Point::x() noexcept { return x_; }
+float& Point::y() noexcept { return y_; }
+const float& Point::x() const noexcept { return x_; }
+const float& Point::y() const noexcept { return y_; }
 
-bool Point::inside(const Rect &rect) const
-{
-    // std::cout << "Rect:" << rect << " |Point:" << *this << std::endl;
-    return (rect.left() <= this->x_ && this->x_ < rect.right() &&
-            rect.top() <= this->y_ && this->y_ < rect.bottom());
+Point& Point::operator=(const Point& other) noexcept {
+    x_ = other.x_;
+    y_ = other.y_;
+    return *this;
 }
-
-bool Point::operator==(const Point &other) const
-{
-    return this->x_ == other.x_ && this->y_ == other.y_;
+Point Point::operator+(const Point& other) const noexcept {
+    Point result;
+    result.x_ = x_ + other.x_;
+    result.y_ = y_ + other.y_;
+    return result;
 }
-
-bool Point::operator!=(const Point &other) const
-{
-    return !(*this == other);
+Point Point::operator-(const Point& other) const noexcept {
+    Point result;
+    result.x_ = x_ - other.x_;
+    result.y_ = y_ - other.y_;
+    return result;
 }
-
-Point Point::operator+(const Point &other) const
-{
-    return Point(this->x_ + other.x_, this->y_ + other.y_);
+Point Point::operator*(const float& scale) const noexcept {
+    Point result;
+    result.x_ = x_ * scale;
+    result.y_ = y_ * scale;
+    return result;
 }
-
-Point Point::operator-(const Point &other) const
-{
-    return Point(this->x_ - other.x_, this->y_ - other.y_);
+Point Point::operator/(const float& scale) const noexcept {
+    Point result;
+    result.x_ = x_ / scale;
+    result.y_ = y_ / scale;
+    return result;
 }
-
-Point &Point::operator+=(const Point &other)
-{
-    this->x_ += other.x_;
-    this->y_ += other.y_;
+Point& Point::operator+=(const Point& other) noexcept {
+    x_ += other.x_;
+    y_ += other.y_;
+    return *this;
+}
+Point& Point::operator-=(const Point& other) noexcept {
+    x_ -= other.x_;
+    y_ -= other.y_;
+    return *this;
+}
+Point& Point::operator*=(const float& scale) noexcept {
+    x_ *= scale;
+    y_ *= scale;
+    return *this;
+}
+Point& Point::operator/=(const float& scale) noexcept {
+    x_ /= scale;
+    y_ /= scale;
     return *this;
 }
 
-Point &Point::operator-=(const Point &other)
-{
-    this->x_ -= other.x_;
-    this->y_ -= other.y_;
-    return *this;
+bool Point::operator==(const Point& other) const noexcept {
+    return (x_ == other.x_) && (y_ == other.y_);
+}
+bool Point::operator!=(const Point& other) const noexcept {
+    return (x_ != other.x_) || (y_ != other.y_);
 }
 
-std::ostream &operator<<(std::ostream &os, const Point &p)
-{
-    os << "(" << p.x_ << ", " << p.y_ << ")";
-    return os;
+float Point::distance(const Point& other) const noexcept {
+    float dx = x_ - other.x_;
+    float dy = y_ - other.y_;
+    return std::sqrt(dx * dx + dy * dy);
+}
+
+bool Point::inside(const Rect& rect) const noexcept {
+    return (x_ > rect.left()) && (x_ < rect.right())
+        && (y_ > rect.top()) && (y_ < rect.bottom());
 }

@@ -2,3 +2,7 @@
 out/
 bin/
 release/
+build/
+test/*.exe
+example/*.exe
+example/Net/*.exe

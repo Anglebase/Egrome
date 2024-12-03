@@ -1,4 +1,7 @@
 var _signal_slots_8hpp =
 [
-    [ "signals", "group___xE6_xA0_xB8_xE5_xBF_x83.html#gaabbcb0bbcbcb6adcf20d63cc22f83649", null ]
+    [ "Signal< void(Args...)>", "class_signal_3_01void_07_args_8_8_8_08_4.html", "class_signal_3_01void_07_args_8_8_8_08_4" ],
+    [ "Signal< void(Args...)>::Connection", "class_signal_3_01void_07_args_8_8_8_08_4_1_1_connection.html", "class_signal_3_01void_07_args_8_8_8_08_4_1_1_connection" ],
+    [ "Signal< void()>", "class_signal_3_01void_07_08_4.html", "class_signal_3_01void_07_08_4" ],
+    [ "Signal< void()>::Connection", "class_signal_3_01void_07_08_4_1_1_connection.html", null ]
 ];

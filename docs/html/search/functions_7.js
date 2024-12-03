@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hide_0',['hide',['../class_menu_box.html#a549c971bc6a60b309c1e0b184c6c6fb3',1,'MenuBox']]],
-  ['hscrollpos_1',['hScrollPos',['../class_scroll_view.html#a7eb44768d78d98b95b6c7c6450a0fd8f',1,'ScrollView']]]
+  ['hasctrl_0',['hasCtrl',['../class_key_event.html#ab2f7a68daedd4100f85ed0eae092c760',1,'KeyEvent']]],
+  ['hasshift_1',['hasShift',['../class_key_event.html#ac0b7c68155abe57caa1b3a8b06fef2d8',1,'KeyEvent']]]
 ];

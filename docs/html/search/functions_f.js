@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['radiobox_0',['RadioBox',['../class_radio_box.html#aa50d7c26d4cedf5c90aa1163fa51b093',1,'RadioBox']]],
-  ['radioboxgroup_1',['RadioBoxGroup',['../class_radio_box_group.html#aab6a5c043b2f663771a4290b09f5a7c7',1,'RadioBoxGroup']]],
-  ['rect_2',['rect',['../class_block.html#ab64786a3db2831fc78756b78fd11d8f4',1,'Block::rect()'],['../class_block.html#a2e7363fe8ca8da5b722406572d26b68f',1,'Block::rect() const']]],
-  ['rect_3',['Rect',['../class_rect.html#a66ec4a9c49c20889d2a41edd94030c44',1,'Rect::Rect(long x, long y, long width, long height)'],['../class_rect.html#a97bb88b8531bd72cd5b42b791267b928',1,'Rect::Rect(const Point &amp;topLeft, const Size &amp;size)']]],
-  ['rectf_4',['RectF',['../class_rect_f.html#a1fa4c4a7b4da39716b7e212eb4c2296f',1,'RectF::RectF(double x, double y, double width, double height)'],['../class_rect_f.html#a87fa7808f5888b589d39c2ca92cfd421',1,'RectF::RectF(const PointF &amp;topLeft, const SizeF &amp;sizeF)']]],
-  ['removeitem_5',['removeItem',['../class_menu_box.html#afc09f2a710273a1246cf8df0ac726d29',1,'MenuBox']]],
-  ['reset_6',['reset',['../class_animation.html#ae377f18a76bb33774ca3318a25ad4c37',1,'Animation']]],
-  ['right_7',['right',['../class_rect.html#a66bf8b1d27e6d0d1ce3c5b345de39e29',1,'Rect::right()'],['../class_rect_f.html#a9f59840563aef393ef5eaeff9497991c',1,'RectF::right()']]],
-  ['rightpadding_8',['rightPadding',['../class_label.html#a877622d3b4205876123ca14e47aba811',1,'Label::rightPadding()'],['../class_label.html#a98d76dea0405065677bd13df5b261017',1,'Label::rightPadding() const']]],
-  ['run_9',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
+  ['readline_0',['readLine',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#aff2cc2a5a57794c15f782b655f2f5472',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['rect_1',['rect',['../class_painter.html#a292a2a4b234fdbdfbbf7ee32112be770',1,'Painter']]],
+  ['removechild_2',['removeChild',['../class_block.html#a1b061bf727cdf09308ae7e4b1137a4f3',1,'Block']]],
+  ['reset_3',['reset',['../class_animation.html#ae377f18a76bb33774ca3318a25ad4c37',1,'Animation::reset()'],['../class_event.html#af4bd37b8e130d3eb0bd258bdcd99d0b2',1,'Event::reset()']]],
+  ['resetforeach_4',['resetForeach',['../class_block.html#a7b2cfa412c9f06ff9946e1e9b95a3112',1,'Block']]],
+  ['revoke_5',['revoke',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#ab0b00c650021f4391078478fdeefff5d',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['revoke_5fif_6',['revoke_if',['../class_table_3_01std_1_1tuple_3_01_args_8_8_8_01_4_01_4.html#af3888aa9346f66684c860eb62cb80f11',1,'Table&lt; std::tuple&lt; Args... &gt; &gt;']]],
+  ['run_7',['run',['../class_animation.html#ab28a93741831689cb42f29845b09efa6',1,'Animation::run()'],['../class_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'App::run()']]]
 ];

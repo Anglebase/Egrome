@@ -1,180 +1,252 @@
 #include "Rect.h"
-#include "Point.h"
-#include "Size.h"
-#include "Rect.h"
 
-Rect::Rect(float x, float y, float width, float height)
+Rect::RectData::RectData(Rect* rect) : rect_(rect) {}
+
+Rect::LeftSide::LeftSide(Rect* rect) : RectData(rect) {}
+
+float Rect::LeftSide::operator=(float value) {
+    float old_x = this->rect_->x_;
+    this->rect_->x_ = value;
+    this->rect_->width_ -= (old_x - value);
+    return value;
+}
+
+Rect::LeftSide::operator float() const {
+    return this->rect_->x_;
+}
+
+Rect::RightSide::RightSide(Rect* rect) : RectData(rect) {}
+
+float Rect::RightSide::operator=(float value) {
+    float old_x = this->rect_->x_;
+    this->rect_->x_ = value - this->rect_->width_;
+    this->rect_->width_ = value - old_x;
+    return value;
+}
+
+Rect::RightSide::operator float() const {
+    return this->rect_->x_ + this->rect_->width_;
+}
+
+Rect::TopSide::TopSide(Rect* rect) : RectData(rect) {}
+
+float Rect::TopSide::operator=(float value) {
+    float old_y = this->rect_->y_;
+    this->rect_->y_ = value;
+    this->rect_->height_ -= (old_y - value);
+    return value;
+}
+
+Rect::TopSide::operator float() const {
+    return this->rect_->y_;
+}
+
+Rect::BottomSide::BottomSide(Rect* rect) : RectData(rect) {}
+
+float Rect::BottomSide::operator=(float value) {
+    float old_y = this->rect_->y_;
+    this->rect_->y_ = value - this->rect_->height_;
+    this->rect_->height_ = value - old_y;
+    return value;
+}
+
+Rect::BottomSide::operator float() const {
+    return this->rect_->y_ + this->rect_->height_;
+}
+
+Rect::Center::Center(Rect* rect) : RectData(rect) {}
+
+Point Rect::Center::operator=(const Point& value) {
+    float old_x = this->rect_->x_;
+    float old_y = this->rect_->y_;
+    this->rect_->x_ = value.x() - this->rect_->width_ / 2.0f;
+    this->rect_->y_ = value.y() - this->rect_->height_ / 2.0f;
+    this->rect_->width_ += (old_x - this->rect_->x_);
+    this->rect_->height_ += (old_y - this->rect_->y_);
+    return value;
+}
+
+Rect::Center::operator Point() const {
+    return Point(this->rect_->x_ + this->rect_->width_ / 2.0f, this->rect_->y_ + this->rect_->height_ / 2.0f);
+}
+
+Rect::TopLeftCorner::TopLeftCorner(Rect* rect) : RectData(rect) {}
+
+Point Rect::TopLeftCorner::operator=(const Point& value) {
+    float old_x = this->rect_->x_;
+    float old_y = this->rect_->y_;
+    this->rect_->x_ = value.x();
+    this->rect_->y_ = value.y();
+    this->rect_->width_ += (old_x - this->rect_->x_);
+    this->rect_->height_ += (old_y - this->rect_->y_);
+    return value;
+}
+
+Rect::TopLeftCorner::operator Point() const {
+    return Point(this->rect_->x_, this->rect_->y_);
+}
+
+
+Rect::TopRightCorner::TopRightCorner(Rect* rect) : RectData(rect) {}
+
+Point Rect::TopRightCorner::operator=(const Point& value) {
+    float old_x = this->rect_->x_;
+    float old_y = this->rect_->y_;
+    this->rect_->x_ = value.x() - this->rect_->width_;
+    this->rect_->y_ = value.y();
+    this->rect_->width_ = value.x() - old_x;
+    this->rect_->height_ += (old_y - this->rect_->y_);
+    return value;
+}
+
+Rect::TopRightCorner::operator Point() const {
+    return Point(this->rect_->x_ + this->rect_->width_, this->rect_->y_);
+}
+
+Rect::BottomLeftCorner::BottomLeftCorner(Rect* rect) : RectData(rect) {}
+
+Point Rect::BottomLeftCorner::operator=(const Point& value) {
+    float old_x = this->rect_->x_;
+    float old_y = this->rect_->y_;
+    this->rect_->x_ = value.x();
+    this->rect_->y_ = value.y() - this->rect_->height_;
+    this->rect_->width_ += (old_x - this->rect_->x_);
+    this->rect_->height_ = value.y() - old_y;
+    return value;
+}
+
+Rect::BottomLeftCorner::operator Point() const {
+    return Point(this->rect_->x_, this->rect_->y_ + this->rect_->height_);
+}
+
+Rect::BottomRightCorner::BottomRightCorner(Rect* rect) : RectData(rect) {}
+
+Point Rect::BottomRightCorner::operator=(const Point& value) {
+    float old_x = this->rect_->x_;
+    float old_y = this->rect_->y_;
+    this->rect_->x_ = value.x() - this->rect_->width_;
+    this->rect_->y_ = value.y() - this->rect_->height_;
+    this->rect_->width_ = value.x() - old_x;
+    this->rect_->height_ = value.y() - old_y;
+    return value;
+}
+
+Rect::BottomRightCorner::operator Point() const {
+    return Point(this->rect_->x_ + this->rect_->width_, this->rect_->y_ + this->rect_->height_);
+}
+
+Rect::PosData::PosData(Rect* rect) : RectData(rect) {}
+
+Point Rect::PosData::operator=(const Point& value) {
+    this->rect_->x_ = value.x();
+    this->rect_->y_ = value.y();
+    return value;
+}
+
+Rect::PosData::operator Point() const {
+    return Point(this->rect_->x_, this->rect_->y_);
+}
+
+Rect::SizeData::SizeData(Rect* rect) : RectData(rect) {}
+
+Size Rect::SizeData::operator=(const Size& value) {
+    this->rect_->width_ = value.width();
+    this->rect_->height_ = value.height();
+    return value;
+}
+Rect::SizeData::operator Size() const {
+    return Size(this->rect_->width_, this->rect_->height_);
+}
+
+
+Rect::Rect(float x, float y, float width, float height) noexcept
     : x_(x), y_(y), width_(width), height_(height) {}
 
-Rect::Rect(const Point &topLeft, const Size &size)
-    : x_(topLeft.x()), y_(topLeft.y()), width_(size.width()), height_(size.height()) {}
+Rect::Rect(const Point& pos, const Size& size) noexcept 
+    : x_(pos.x()), y_(pos.y()), width_(size.width()), height_(size.height()) {}
 
-float &Rect::x() { return x_; }
-float &Rect::y() { return y_; }
-float &Rect::width() { return width_; }
-float &Rect::height() { return height_; }
+Rect::~Rect() noexcept = default;
 
-const float &Rect::x() const { return x_; }
-const float &Rect::y() const { return y_; }
-const float &Rect::width() const { return width_; }
-const float &Rect::height() const { return height_; }
+float& Rect::x() noexcept { return this->x_; }
+float& Rect::y() noexcept { return this->y_; }
+float& Rect::width() noexcept { return this->width_; }
+float& Rect::height() noexcept { return this->height_; }
 
-Point Rect::getTopLeft() const
-{
-    return Point(x_, y_);
+const float& Rect::x() const noexcept { return this->x_; }
+const float& Rect::y() const noexcept { return this->y_; }
+const float& Rect::width() const noexcept { return this->width_; }
+const float& Rect::height() const noexcept { return this->height_; }
+
+Rect::LeftSide Rect::left() noexcept {
+    return LeftSide(this);
+}
+Rect::RightSide Rect::right() noexcept {
+    return RightSide(this);
+}
+Rect::TopSide Rect::top() noexcept {
+    return TopSide(this);
+}
+Rect::BottomSide Rect::bottom() noexcept {
+    return BottomSide(this);
+}
+Rect::Center Rect::center() noexcept {
+    return Center(this);
+}
+Rect::TopLeftCorner Rect::topLeft() noexcept {
+    return TopLeftCorner(this);
+}
+Rect::TopRightCorner Rect::topRight() noexcept {
+    return TopRightCorner(this);
+}
+Rect::BottomLeftCorner Rect::bottomLeft() noexcept {
+    return BottomLeftCorner(this);
+}
+Rect::BottomRightCorner Rect::bottomRight() noexcept {
+    return BottomRightCorner(this);
+}
+Rect::PosData Rect::position() noexcept {
+    return PosData(this);
+}
+Rect::SizeData Rect::size() noexcept {
+    return SizeData(this);
 }
 
-Point Rect::getTopRight() const
-{
-    return Point(x_ + width_, y_);
-}
-
-Point Rect::getBottomLeft() const
-{
-    return Point(x_, y_ + height_);
-}
-
-Point Rect::getBottomRight() const
-{
-    return Point(x_ + width_, y_ + height_);
-}
-
-float Rect::left() const
-{
+float Rect::left() const noexcept {
     return this->x_;
 }
-
-float Rect::top() const
-{
-    return this->y_;
-}
-
-float Rect::right() const
-{
+float Rect::right() const noexcept {
     return this->x_ + this->width_;
 }
-
-float Rect::bottom() const
-{
+float Rect::top() const noexcept {
+    return this->y_;
+}
+float Rect::bottom() const noexcept {
     return this->y_ + this->height_;
 }
-
-void Rect::setTopLeft(const Point &topLeft)
-{
-    this->x_ = topLeft.x();
-    this->y_ = topLeft.y();
+Point Rect::center() const noexcept {
+    return Point(this->x_ + this->width_ / 2.0f, this->y_ + this->height_ / 2.0f);
+}
+Point Rect::topLeft() const noexcept {
+    return Point(this->x_, this->y_);
+}
+Point Rect::topRight() const noexcept {
+    return Point(this->x_ + this->width_, this->y_);
+}
+Point Rect::bottomLeft() const noexcept {
+    return Point(this->x_, this->y_ + this->height_);
+}
+Point Rect::bottomRight() const noexcept {
+    return Point(this->x_ + this->width_, this->y_ + this->height_);
 }
 
-void Rect::setTopRight(const Point &topRight)
-{
-    this->x_ = topRight.x() - this->width_;
-    this->y_ = topRight.y();
+Point Rect::position() const noexcept {
+    return Point(this->x_, this->y_);
+}
+Size Rect::size() const noexcept {
+    return Size(this->width_, this->height_);
 }
 
-void Rect::setBottomLeft(const Point &bottomLeft)
-{
-    this->x_ = bottomLeft.x();
-    this->y_ = bottomLeft.y() - this->height_;
-}
-
-void Rect::setBottomRight(const Point &bottomRight)
-{
-    this->x_ = bottomRight.x() - this->width_;
-    this->y_ = bottomRight.y() - this->height_;
-}
-
-Size Rect::getSize() const
-{
-    return Size(width_, height_);
-}
-
-void Rect::setSize(const Size &size)
-{
-    this->width_ = size.width();
-    this->height_ = size.height();
-}
-
-bool Rect::contains(const Point &point) const
-{
-    // std::cout << *this << " | " << point << std::endl;
-    return (point.x() > x_ && point.x() < x_ + width_ &&
-            point.y() > y_ && point.y() < y_ + height_);
-}
-
-bool Rect::contains(float x, float y) const
-{
-    return (x > this->x_ && x < this->x_ + this->width_ &&
-            y > this->y_ && y < this->y_ + this->height_);
-}
-
-bool Rect::intersects(const Rect &other) const
-{
-    return (x_ < other.x_ + other.width_ && x_ + width_ > other.x_ &&
-            y_ < other.y_ + other.height_ && y_ + height_ > other.y_);
-}
-
-void Rect::offset(float dx, float dy)
-{
-    x_ += dx;
-    y_ += dy;
-}
-
-void Rect::offset(const Point &dpoint)
-{
-    x_ += dpoint.x();
-    y_ += dpoint.y();
-}
-
-void Rect::inflate(float dx, float dy)
-{
-    width_ += dx;
-    height_ += dy;
-}
-
-void Rect::inflate(const Size &dsize)
-{
-    width_ += dsize.width();
-    height_ += dsize.height();
-}
-
-bool Rect::operator==(const Rect &other) const
-{
-    return (x_ == other.x_ && y_ == other.y_ &&
-            width_ == other.width_ && height_ == other.height_);
-}
-
-bool Rect::operator!=(const Rect &other) const
-{
-    return !(*this == other);
-}
-
-std::ostream &operator<<(std::ostream &os, const Rect &rect)
-{
-    return os << "{" << Point(rect.x_, rect.y_) << ", "
-              << Size(rect.width_, rect.height_) << "}";
-}
-
-Rect Rect::adjusted(float dleft, float dtop, float dright, float dbottom) const
-{
-    return Rect{
-        x_ + dleft,
-        y_ + dtop,
-        width_ - dleft + dright,
-        height_ - dtop + dbottom,
-    };
-}
-
-Rect Rect::centerWith(const Size &size) const
-{
-    return Rect{
-        x_ + (width_ - size.width()) / 2,
-        y_ + (height_ - size.height()) / 2,
-        size.width(),
-        size.height(),
-    };
-}
-
-Point Rect::center() const
-{
-    return Point(x_ + width_ / 2, y_ + height_ / 2);
+bool Rect::contains(const Point& point) const noexcept {
+    return point.x() >= this->x_ && point.x() <= this->x_ + this->width_ &&
+           point.y() >= this->y_ && point.y() <= this->y_ + this->height_;
 }

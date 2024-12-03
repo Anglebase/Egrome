@@ -99,110 +99,113 @@ $(function(){initNavTree('class_paint_event.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#friends">友元</a> &#124;
 <a href="class_paint_event-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">PaintEvent类 参考<div class="ingroups"><a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE.html">视图</a> &raquo; <a class="el" href="group___xE8_xA7_x86_xE5_x9B_xBE_xE7_xBB_x98_xE5_x88_xB6_xE7_x9B_xB8_xE5_x85_xB3.html">视图绘制相关</a></div></div></div>
+  <div class="headertitle"><div class="title">PaintEvent类 参考<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>PainterEvent类  
+<p>视图绘制事件  
  <a href="#details">更多...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_painter_8h_source.html">Painter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_paint_event_8h_source.html">PaintEvent.h</a>&gt;</code></p>
+<div class="dynheader">
+类 PaintEvent 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_paint_event.png" usemap="#PaintEvent_map" alt=""/>
+  <map id="PaintEvent_map" name="PaintEvent_map">
+<area href="class_event.html" title="事件类，它是所有事件类的基类。" alt="Event" shape="rect" coords="0,56,72,80"/>
+<area href="class_object.html" title="所有类的基类 [Github]" alt="Object" shape="rect" coords="0,0,72,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a1c37731451f06e022dfd7803f58841b9" id="r_a1c37731451f06e022dfd7803f58841b9"><td class="memItemLeft" align="right" valign="top"><a id="a1c37731451f06e022dfd7803f58841b9" name="a1c37731451f06e022dfd7803f58841b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PaintEvent</b> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;)=<a class="el" href="class_var.html">delete</a></td></tr>
-<tr class="separator:a1c37731451f06e022dfd7803f58841b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab8d3af1bc61a1ca9fbea5a42e63ad85" id="r_aab8d3af1bc61a1ca9fbea5a42e63ad85"><td class="memItemLeft" align="right" valign="top"><a id="aab8d3af1bc61a1ca9fbea5a42e63ad85" name="aab8d3af1bc61a1ca9fbea5a42e63ad85"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PaintEvent</b> (<a class="el" href="class_paint_event.html">PaintEvent</a> &amp;&amp;)=<a class="el" href="class_var.html">delete</a></td></tr>
-<tr class="separator:aab8d3af1bc61a1ca9fbea5a42e63ad85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75ddb0afc17b9ecb2e5cd80b8fcf7917" id="r_a75ddb0afc17b9ecb2e5cd80b8fcf7917"><td class="memItemLeft" align="right" valign="top"><a id="a75ddb0afc17b9ecb2e5cd80b8fcf7917" name="a75ddb0afc17b9ecb2e5cd80b8fcf7917"></a>
-<a class="el" href="class_paint_event.html">PaintEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_paint_event.html">PaintEvent</a> &amp;)=<a class="el" href="class_var.html">delete</a></td></tr>
-<tr class="separator:a75ddb0afc17b9ecb2e5cd80b8fcf7917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a140e28bbb5edae23f8da15b0e41bff0f" id="r_a140e28bbb5edae23f8da15b0e41bff0f"><td class="memItemLeft" align="right" valign="top"><a id="a140e28bbb5edae23f8da15b0e41bff0f" name="a140e28bbb5edae23f8da15b0e41bff0f"></a>
-<a class="el" href="class_paint_event.html">PaintEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_paint_event.html">PaintEvent</a> &amp;&amp;)=<a class="el" href="class_var.html">delete</a></td></tr>
-<tr class="separator:a140e28bbb5edae23f8da15b0e41bff0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f3abb7a6618bee2e1c5e9123a5566a1" id="r_a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">const</a> <a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f3abb7a6618bee2e1c5e9123a5566a1">beginPaint</a> (<a class="el" href="class_var.html">const</a> <a class="el" href="class_block.html">Block</a> *block) <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造Painter对象  <br /></td></tr>
-<tr class="separator:a8f3abb7a6618bee2e1c5e9123a5566a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24f230eac627a7a2e484529f7269324c" id="r_a24f230eac627a7a2e484529f7269324c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_var.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24f230eac627a7a2e484529f7269324c">endPaint</a> () <a class="el" href="class_var.html">const</a></td></tr>
-<tr class="memdesc:a24f230eac627a7a2e484529f7269324c"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束绘制  <br /></td></tr>
-<tr class="separator:a24f230eac627a7a2e484529f7269324c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
-友元</h2></td></tr>
-<tr class="memitem:a4097b3e04a4f8ece21f5abe1b10e6323" id="r_a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memItemLeft" align="right" valign="top"><a id="a4097b3e04a4f8ece21f5abe1b10e6323" name="a4097b3e04a4f8ece21f5abe1b10e6323"></a>
-<a class="el" href="class_var.html">class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>App</b></td></tr>
-<tr class="separator:a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add31ecc61e604d49ec82da6915a476b2" id="r_add31ecc61e604d49ec82da6915a476b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_painter.html">Painter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add31ecc61e604d49ec82da6915a476b2">beginPaint</a> (<a class="el" href="class_block.html">Block</a> *block)</td></tr>
+<tr class="memdesc:add31ecc61e604d49ec82da6915a476b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">开始绘制  <br /></td></tr>
+<tr class="separator:add31ecc61e604d49ec82da6915a476b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c183e0ccf525bf1b93bd2eae87b33cd" id="r_a4c183e0ccf525bf1b93bd2eae87b33cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c183e0ccf525bf1b93bd2eae87b33cd">endPaint</a> (const <a class="el" href="class_painter.html">Painter</a> &amp;painter)</td></tr>
+<tr class="memdesc:a4c183e0ccf525bf1b93bd2eae87b33cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束绘制  <br /></td></tr>
+<tr class="separator:a4c183e0ccf525bf1b93bd2eae87b33cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_event"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_event')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_event.html">Event</a></td></tr>
+<tr class="memitem:afb34981e44b9f34d24ca17284f67be93 inherit pub_methods_class_event" id="r_afb34981e44b9f34d24ca17284f67be93"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>accept</b> () const</td></tr>
+<tr class="memdesc:afb34981e44b9f34d24ca17284f67be93 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">接受事件 <br /></td></tr>
+<tr class="separator:afb34981e44b9f34d24ca17284f67be93 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4bd37b8e130d3eb0bd258bdcd99d0b2 inherit pub_methods_class_event" id="r_af4bd37b8e130d3eb0bd258bdcd99d0b2"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> () const</td></tr>
+<tr class="memdesc:af4bd37b8e130d3eb0bd258bdcd99d0b2 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">重置事件状态 <br /></td></tr>
+<tr class="separator:af4bd37b8e130d3eb0bd258bdcd99d0b2 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7cd8bbac6db573b14d58f6a7e004e8 inherit pub_methods_class_event" id="r_a0f7cd8bbac6db573b14d58f6a7e004e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a0f7cd8bbac6db573b14d58f6a7e004e8">isAccepted</a> () const</td></tr>
+<tr class="memdesc:a0f7cd8bbac6db573b14d58f6a7e004e8 inherit pub_methods_class_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">事件是否已被接受  <br /></td></tr>
+<tr class="separator:a0f7cd8bbac6db573b14d58f6a7e004e8 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_object.html">Object</a></td></tr>
+<tr class="memitem:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object" id="r_a9b15eb303598eede1b6ef4d2475b35bf"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数 <br /></td></tr>
+<tr class="separator:a9b15eb303598eede1b6ef4d2475b35bf inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object" id="r_a9252cc36e32dda1ac9b8927e2e334570"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> () noexcept</td></tr>
+<tr class="memdesc:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">析构函数 <br /></td></tr>
+<tr class="separator:a9252cc36e32dda1ac9b8927e2e334570 inherit pub_methods_class_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>PainterEvent类 </p>
-<p>PainterEvent类是用于绘图事件传递的类，负责创建Painter对象并提供绘图相关的接口 </p><dl class="section note"><dt>注解</dt><dd>用户可以通过在绘图时间传递函数中如下的调用方式来创建Painter对象： <div class="fragment"><div class="line"><span class="keyword">auto</span> &amp;painter = <span class="keyword">event</span>.beginPaint(<span class="keyword">this</span>); <span class="comment">// 获取Painter对象</span></div>
-<div class="line"><span class="comment">// 绘图代码</span></div>
-<div class="line">painter.<a class="code hl_function" href="class_painter.html#a84fcd7926748b4262882609c572c62ec">drawLine</a>(0, 0, 100, 100);</div>
-<div class="line">...</div>
-<div class="line">event.endPaint(); <span class="comment">// 绘图结束时，必须调用该函数</span></div>
-<div class="ttc" id="aclass_painter_html_a84fcd7926748b4262882609c572c62ec"><div class="ttname"><a href="class_painter.html#a84fcd7926748b4262882609c572c62ec">Painter::drawLine</a></div><div class="ttdeci">void drawLine(int x1, int y1, int x2, int y2) const</div><div class="ttdoc">绘制线</div><div class="ttdef"><b>Definition</b> Painter.cpp:261</div></div>
-</div><!-- fragment --> </dd>
-<dd>
-用户无法直接创建PainterEvent对象，只能通过App来创建，此对象仅在绘图事件中使用 </dd></dl>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_app.html" title="应用程序类">App</a> </dd>
-<dd>
-<a class="el" href="class_painter.html" title="Painter类，提供绘图相关的接口">Painter</a> </dd>
-<dd>
-<a class="el" href="class_pixel_map.html" title="像素图类">PixelMap</a> </dd></dl>
+<div class="textblock"><p>视图绘制事件 </p>
 </div><h2 class="groupheader">成员函数说明</h2>
-<a id="a8f3abb7a6618bee2e1c5e9123a5566a1" name="a8f3abb7a6618bee2e1c5e9123a5566a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3abb7a6618bee2e1c5e9123a5566a1">&#9670;&#160;</a></span>beginPaint()</h2>
+<a id="add31ecc61e604d49ec82da6915a476b2" name="add31ecc61e604d49ec82da6915a476b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add31ecc61e604d49ec82da6915a476b2">&#9670;&#160;</a></span>beginPaint()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">const</a> <a class="el" href="class_painter.html">Painter</a> &amp; PaintEvent::beginPaint </td>
+          <td class="memname"><a class="el" href="class_painter.html">Painter</a> &amp; PaintEvent::beginPaint </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_var.html">const</a> <a class="el" href="class_block.html">Block</a> *</td>          <td class="paramname"><span class="paramname"><em>block</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="class_block.html">Block</a> *</td>          <td class="paramname"><span class="paramname"><em>block</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>构造Painter对象 </p>
+<p>开始绘制 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">block</td><td>绘制区域 </td></tr>
+    <tr><td class="paramname">block</td><td>需要绘制的块 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>Painter对象 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>针对于所给block的Painter对象 </dd></dl>
 
 </div>
 </div>
-<a id="a24f230eac627a7a2e484529f7269324c" name="a24f230eac627a7a2e484529f7269324c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24f230eac627a7a2e484529f7269324c">&#9670;&#160;</a></span>endPaint()</h2>
+<a id="a4c183e0ccf525bf1b93bd2eae87b33cd" name="a4c183e0ccf525bf1b93bd2eae87b33cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c183e0ccf525bf1b93bd2eae87b33cd">&#9670;&#160;</a></span>endPaint()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_var.html">void</a> PaintEvent::endPaint </td>
+          <td class="memname">void PaintEvent::endPaint </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="class_painter.html">Painter</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>painter</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>结束绘制 </p>
-<p>结束绘制，释放Painter对象 </p><dl class="section warning"><dt>警告</dt><dd>绘图结束时，必须调用该函数，否则会引起不可预知的错误 </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">painter</td><td>beginPaint返回的绘制器对象 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>该类的文档由以下文件生成:<ul>
-<li>include/view/<a class="el" href="_painter_8h_source.html">Painter.h</a></li>
-<li>src/view/<b>Painter.cpp</b></li>
+<li>include/event/<a class="el" href="_paint_event_8h_source.html">PaintEvent.h</a></li>
+<li>src/event/<b>PaintEvent.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
